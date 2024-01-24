@@ -49,7 +49,7 @@ int run(const char* fn_list_run="list_reco.txt")
   ifstream ifs(fn_list_run);
   int run;
   while (ifs >> run) {
-    string fn_in = UtilOnline::GetDstFilePath(run);
+    //string fn_in = UtilOnline::GetDstFilePath(run);
     std::cout << "Run " << run << ": " << fn_in << std::endl;
     in->fileopen(fn_in);
     se->run();
