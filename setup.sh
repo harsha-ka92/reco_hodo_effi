@@ -1,3 +1,6 @@
+source /e906/app/software/osg/software/e1039/this-e1039.sh
+
+
 DIR_TOP=$(dirname $(readlink -f $BASH_SOURCE))
 export LD_LIBRARY_PATH=$DIR_TOP/src/lib:$LD_LIBRARY_PATH
 

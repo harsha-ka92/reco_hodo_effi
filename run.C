@@ -7,7 +7,7 @@ R__LOAD_LIBRARY(libg4eval)
 R__LOAD_LIBRARY(libktracker)
 R__LOAD_LIBRARY(libanamodule)
 
-int run(const char* fn_list_run="list_run.txt")
+int run(const char* fn_list_run="list_reco.txt")
 {
   const double FMAGSTR = -1.054;
   const double KMAGSTR = -0.951;
