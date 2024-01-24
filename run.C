@@ -50,9 +50,9 @@ int run(const char* fn_list_run="list_reco.txt")
   string fn_reco;
   while (ifs >> fn_reco) {
     //string fn_in = UtilOnline::GetDstFilePath(run);
-    std::cout << "Run " << run << ": " << fn_reco << std::endl;
-    // in->fileopen(fn_in);
-    // se->run();
+    std::cout << "---> using reco file " << fn_reco << std::endl;
+    in->fileopen(fn_in);
+    se->run();
   }
   ifs.close();
 
