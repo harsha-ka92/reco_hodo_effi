@@ -47,10 +47,10 @@ int run(const char* fn_list_run="list_reco.txt")
   //se->registerOutputManager(out);
 
   ifstream ifs(fn_list_run);
-  string fn_reco;
-  while (ifs >> fn_reco) {
+  string fn_in;
+  while (ifs >> fn_in) {
     //string fn_in = UtilOnline::GetDstFilePath(run);
-    std::cout << "---> using reco file " << fn_reco << std::endl;
+    std::cout << "---> using reco file " << fn_in << std::endl;
     in->fileopen(fn_in);
     se->run();
   }
