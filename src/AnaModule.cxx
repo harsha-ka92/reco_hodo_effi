@@ -37,7 +37,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
 
-  std::cout << "---> trigger info. " << event->get_trigger() << std::endl;
+  // std::cout << "---> trigger info. " << event->get_trigger() << std::endl;
 
   int nTracklets = trackletVec->size();
   for(int i = 0; i < nTracklets; ++i)
@@ -49,6 +49,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
     //very loose cuts here
     if(nHits < 9) continue;
     if(chisq > 20.) continue;
+
+    std::cout << "---> nHits " << nHits << " chisq " << chisq << std::endl;
 
     for(auto it = detectorIDs.begin(); it != detectorIDs.end(); ++it)
     {
