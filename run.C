@@ -12,6 +12,7 @@ int run(const char* fn_list_run="list_reco.txt")
   const double FMAGSTR = -1.054;
   const double KMAGSTR = -0.951;
   const bool cosmic = true;
+	const int nEvents = -1;
 
   recoConsts* rc = recoConsts::instance();
   rc->set_DoubleFlag("FMAGSTR", FMAGSTR);
@@ -52,7 +53,7 @@ int run(const char* fn_list_run="list_reco.txt")
     //string fn_in = UtilOnline::GetDstFilePath(run);
     std::cout << "---> using reco file " << fn_in << std::endl;
     in->fileopen(fn_in);
-    se->run();
+    se->run(nEvents);
   }
   ifs.close();
 
