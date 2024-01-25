@@ -22,13 +22,13 @@ class SQDimuonVector;
 
 
 struct detData{
-    int eventID,
-    int trigger_bits[5],
-    int detectorID,
-    int nHits,
-    double chisq,
-    int elementID_exp,
-    int elementID_closest,
+    int eventID;
+    int trigger_bits[5];
+    int detectorID;
+    int nHits;
+    double chisq;
+    int elementID_exp;
+    int elementID_closest;
 };
 
 class AnaModule: public SubsysReco 
