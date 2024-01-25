@@ -30,24 +30,38 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
 
   eventID = 0;
+
+  dd->eventID = -10;
+  dd->trigger_bits[0] = -10;
+  dd->trigger_bits[1] = -10;
+  dd->trigger_bits[2] = -10;
+  dd->trigger_bits[3] = -10;
+  dd->trigger_bits[4] = -10;
+  dd->detectorID = -10;
+  dd->nHits = -10;
+  dd->chisq = -10.;
+  dd->elementID_exp = -10;
+  dd->elementID_closest = -10;
+
   MakeTree();
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
-
   // std::cout << "---> trigger info. " << event->get_trigger() << std::endl;
 
   int nTracklets = trackletVec->size();
-	if(nTracklets > 0) {std::cout << "nTracklets : " << nTracklets << std::endl;}
+  // if(nTracklets > 0) {std::cout << "nTracklets : " << nTracklets << std::endl;}
+
   for(int i = 0; i < nTracklets; ++i)
   {
     Tracklet* tracklet = trackletVec->at(i);
-    nHits = tracklet->getNHits();
-    chisq = tracklet->getChisq();
 
-		std::cout << "---> nHits " << nHits << " chisq " << chisq << std::endl;
+    dd->nHits = tracklet->getNHits();
+    dd->chisq = tracklet->getChisq();
+
+    // std::cout << "---> nHits " << nHits << " chisq " << chisq << std::endl;
 
     //very loose cuts here
     if(nHits < 9) continue;
@@ -57,20 +71,31 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 
     for(auto it = detectorIDs.begin(); it != detectorIDs.end(); ++it)
     {
-      detectorID = *it;
+
+      dd->trigger_bits[0] = event->get_trigger(SQEvent::NIM1);
+      dd->trigger_bits[0] = event->get_trigger(SQEvent::NIM2);
+      dd->trigger_bits[0] = event->get_trigger(SQEvent::NIM3);
+      dd->trigger_bits[0] = event->get_trigger(SQEvent::NIM4);
+      dd->trigger_bits[0] = event->get_trigger(SQEvent::MATRIX5);
+
+      dd->detectorID = *it;
       double z_exp = p_geomSvc->getPlanePosition(detectorID);
       x_exp = tracklet->getExpPositionX(z_exp);
       y_exp = tracklet->getExpPositionY(z_exp);
       if(!p_geomSvc->isInPlane(detectorID, x_exp, y_exp)) continue;
 
-      elementID_exp = p_geomSvc->getExpElementID(detectorID, tracklet->getExpPositionW(detectorID));
+      dd->elementID_exp = p_geomSvc->getExpElementID(detectorID, tracklet->getExpPositionW(detectorID));
       if(elementID_exp < 1 || elementID_exp > p_geomSvc->getPlaneNElements(detectorID)) continue;
 
       SQHit* hit = findHit(detectorID, elementID_exp);
-      elementID_closest = hit == nullptr ? -1 : hit->get_element_id();
+      dd->elementID_closest = hit == nullptr ? -1 : hit->get_element_id();
 
-      saveTree->Fill();
+      dv.push_back(dd);
+
+      //saveTree->Fill();
     }
+
+    saveTree->Fill();
   }
 
   ++eventID;
@@ -105,14 +130,17 @@ void AnaModule::MakeTree()
   saveFile = new TFile(saveName, "RECREATE");
 
   saveTree = new TTree("save", "Efficiency tree Created by AnaModule");
-  saveTree->Branch("eventID", &eventID, "eventID/I");
-  saveTree->Branch("detectorID", &detectorID, "detectorID/I");
-  saveTree->Branch("elementID_exp", &elementID_exp, "elementID_exp/I");
-  saveTree->Branch("elementID_closest", &elementID_closest, "elementID_closest/I");
-  saveTree->Branch("x_exp", &x_exp, "x_exp/D");
-  saveTree->Branch("y_exp", &y_exp, "y_exp/D");
-  saveTree->Branch("nHits", &nHits, "nHits/I");
-  saveTree->Branch("chisq", &chisq, "chisq/D");
+
+  saveTree->Branch("dv", &dv);
+
+  // saveTree->Branch("eventID", &eventID, "eventID/I");
+  // saveTree->Branch("detectorID", &detectorID, "detectorID/I");
+  // saveTree->Branch("elementID_exp", &elementID_exp, "elementID_exp/I");
+  // saveTree->Branch("elementID_closest", &elementID_closest, "elementID_closest/I");
+  // saveTree->Branch("x_exp", &x_exp, "x_exp/D");
+  // saveTree->Branch("y_exp", &y_exp, "y_exp/D");
+  // saveTree->Branch("nHits", &nHits, "nHits/I");
+  // saveTree->Branch("chisq", &chisq, "chisq/D");
 }
 
 void AnaModule::registerDetector(TString name)

@@ -20,6 +20,17 @@ class SQHitVector;
 class SQTrackVector;
 class SQDimuonVector;
 
+
+struct detData{
+    int eventID,
+    int trigger_bits[5],
+    int detectorID,
+    int nHits,
+    double chisq,
+    int elementID_exp,
+    int elementID_closest,
+};
+
 class AnaModule: public SubsysReco 
 {
 public:
@@ -52,6 +63,10 @@ private:
   TString saveName;
   TFile*  saveFile;
   TTree*  saveTree;
+
+  detData* dd;
+
+  std::vector<detData*> dv;
 
   int eventID;
   int detectorID;
