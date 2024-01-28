@@ -16,7 +16,7 @@ int run(TString out_name="ana.root")
   const bool cosmic = true;
   const int nEvents = -1;
 
-  TString fn_list_run="list_reco.txt"
+  TString fn_list_run="list_reco.txt";
 
   recoConsts* rc = recoConsts::instance();
   rc->set_DoubleFlag("FMAGSTR", FMAGSTR);
