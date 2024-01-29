@@ -41,7 +41,7 @@ int run(TString out_name="ana.root")
 	
 	// add hodoscope planes
 	int num_hodo_planes = hodo_planes.size();
-	for(int ii = 0; ii < num_hodo_planes; ii++){ana->registerDetector(hodo_planes.at(ii).Data());/* std::cout << hodo_planes.at(ii).Data() << std::endl;*/}
+	for(int ii = 0; ii < num_hodo_planes; ii++){ana->registerDetector(hodo_planes.at(ii).Data());}
 
 	// add tracking planes
 	int num_tracking_planes = tracking_planes.size();	

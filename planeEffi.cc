@@ -25,8 +25,8 @@ TEfficiency* getEffi(TString det_name, TString trigger, TString acceptance, TStr
 {
     RDataFrame df("save", "ana.root");
 
-    auto d1 = df.Display();
-    d1->Print();
+//     auto d1 = df.Display();
+//     d1->Print();
 
     TString exp_name = Form("hist_%s_exp", hodo_name.Data());
     TString closest_name = Form("hist_%s_closest", hodo_name.Data());
