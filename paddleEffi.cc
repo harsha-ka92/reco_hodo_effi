@@ -14,7 +14,7 @@
 using namespace std;
 
 vector<TString> effi_files = {"plane_effi.root"};
-vectot<double> voltage = {0.}
+vectot<double> voltage = {0.};
 
 void getEffi(TString det_name, int bins)
 {
@@ -23,7 +23,7 @@ void getEffi(TString det_name, int bins)
 
     for(int ii = 0; ii < bins; ii++)
     {
-        TString graph_name = Form("%s_pad_effi_%d", hodo_name.Data(), ii);
+        TString graph_name = Form("%s_pad_effi_%d", det_name.Data(), ii);
 
         auto pad_effi = new TGraphAsymmErrors();
         pad_effi->SetNameTitle(graph_name.Data(), "; voltage [V]; efficiency [a.u.]");

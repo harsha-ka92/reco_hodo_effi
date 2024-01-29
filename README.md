@@ -39,6 +39,7 @@ In this section, we analyze the file `plane_effi.root` to calculate the paddle e
 
 ```
 root -l -b -q paddleEffi.cc
+```
 
 ## Noise
 
