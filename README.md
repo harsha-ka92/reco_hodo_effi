@@ -29,8 +29,16 @@ This will generate the file `ana.root`, which we will utilize in the next sectio
 
 In this section, we analyze the file `ana.root` to calculate the plane efficiencies. Plots will be saved in the `imgs/planEffi` directory, and an output file will be created for use in the next section.
 
+```
+root -l -b -q planeEffi.cc
+```
 
 ## Paddle efficiency
+
+In this section, we analyze the file `plane_effi.root` to calculate the paddle efficiencies. Plots will be saved in the `imgs/planEffi` directory.
+
+```
+root -l -b -q paddleEffi.cc
 
 ## Noise
 
