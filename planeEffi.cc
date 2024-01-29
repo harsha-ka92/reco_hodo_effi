@@ -14,6 +14,7 @@ R__LOAD_LIBRARY(libanamodule)
 #include <TFile.h>
 #include <TEfficiency.h>
 #include <TGraphAsymmErrors.h>
+#include <TString.h>
 #include <TCanvas.h>
 #include <iostream>
 
