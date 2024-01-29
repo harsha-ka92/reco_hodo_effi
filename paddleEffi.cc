@@ -14,7 +14,7 @@
 using namespace std;
 
 vector<TString> effi_files = {"plane_effi.root"};
-vectot<double> voltage = {0.};
+vector<double> voltage = {0.};
 
 void getEffi(TString det_name, int bins)
 {
