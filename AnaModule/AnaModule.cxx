@@ -200,6 +200,10 @@ void AnaModule::MakeTree()
   saveTree->Branch("nHits", &nHits, "nHits/I");
   saveTree->Branch("chisq", &chisq, "chisq/D");
 	//saveTree->Branch("hit_vec", &hit_vec);
+
+  runTree = new TTree("run", "run information");
+	runTree->Branch("run_ID", &run_ID, "run_ID/I");
+	runTree->Branch("dor", &dor,"dor/I");
 }
 
 void AnaModule::registerDetector(TString name)
