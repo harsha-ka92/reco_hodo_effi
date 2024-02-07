@@ -49,7 +49,8 @@ private:
   // Input
   SQHitVector*    hitVector;
   TrackletVector* trackletVec;
-	SQEvent* event;
+  SQEvent* event;
+  SQRun* run;
 
 
   // Output
