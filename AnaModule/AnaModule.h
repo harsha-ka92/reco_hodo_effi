@@ -59,6 +59,7 @@ private:
 //	HitList hit_vec; 
 
   int eventID;
+  int runID;
   int detectorID;
   int elementID_exp;
   int elementID_closest;
