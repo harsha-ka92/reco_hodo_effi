@@ -163,7 +163,7 @@ int AnaModule::GetNodes(PHCompositeNode* topNode)
   hitVector   = findNode::getClass<SQHitVector>(topNode, "SQHitVector");
   trackletVec = findNode::getClass<TrackletVector>(topNode, "TrackletVector");
 	event       = findNode::getClass<SQEvent    >(topNode, "SQEvent");
-
+	Run = findNode::getClass<SQRun    >(topNode, "SQRun");
   if(!hitVector || !trackletVec || !event)
   {
     return Fun4AllReturnCodes::ABORTRUN;
