@@ -37,6 +37,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
+	runID = event->get_run_id();
 	int nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
 	{
@@ -174,11 +175,12 @@ void AnaModule::MakeTree()
   saveFile = new TFile(saveName, "RECREATE");
 
   saveTree = new TTree("save", "Efficiency tree Created by AnaModule");
-  saveTree->Branch("eventID", &eventID, "eventID/I");
+  	saveTree->Branch("eventID", &eventID, "eventID/I");
+	saveTree->Branch("runID", &runID,"runID/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
-  saveTree->Branch("detID", &detID, "detID/I");
-  saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
-  saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
+  	saveTree->Branch("detID", &detID, "detID/I");
+ 	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
+  	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
 	saveTree->Branch("D0", &D0, "D0/I");
 	saveTree->Branch("D2", &D2, "D2/I");
 	saveTree->Branch("D3", &D3, "D3/I");
