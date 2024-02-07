@@ -31,15 +31,18 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
 
   eventID = 0;
+  runID = 0;
   MakeTree();
   return Fun4AllReturnCodes::EVENT_OK;
+}
+int AnaModule::process_run(PHCompositeNode* topNode){
+	run_ID = run -> get_run_id();
+	dor = run -> get_unix_time_begin() - run ->get_unix_time_end();
 }
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
-	runID = event -> get_run_id();
-	dor = run -> get_unix_time_begin() - run ->get_unix_time_end();
-	
+	run_ID = event -> get_run_id();
 	int nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
 	{
@@ -163,7 +166,7 @@ int AnaModule::GetNodes(PHCompositeNode* topNode)
   hitVector   = findNode::getClass<SQHitVector>(topNode, "SQHitVector");
   trackletVec = findNode::getClass<TrackletVector>(topNode, "TrackletVector");
 	event       = findNode::getClass<SQEvent    >(topNode, "SQEvent");
-	Run = findNode::getClass<SQRun    >(topNode, "SQRun");
+	run = findNode::getClass<SQRun    >(topNode, "SQRun");
   if(!hitVector || !trackletVec || !event)
   {
     return Fun4AllReturnCodes::ABORTRUN;
