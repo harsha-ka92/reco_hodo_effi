@@ -13,7 +13,7 @@
 #include <vector>
 #include <interface_main/SQRun.h>
 #include <interface_main/SQEvent.h>
-#include <interface_main/SQHardEvent.h>
+#include <interface_main/SQRun.h>
 
 #include "HitData.h"
 
@@ -61,7 +61,7 @@ private:
 
   int eventID;
   int runID;
-  int tos; // time of spill
+  int dor; // duration of the run
   int detectorID;
   int elementID_exp;
   int elementID_closest;
