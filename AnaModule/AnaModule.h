@@ -58,6 +58,7 @@ private:
   TString saveName;
   TFile*  saveFile;
   TTree*  saveTree;
+  TTree* runTree;
 	
 //	HitList hit_vec; 
 
