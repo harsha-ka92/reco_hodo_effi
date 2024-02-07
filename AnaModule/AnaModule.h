@@ -31,6 +31,7 @@ public:
 
   int Init(PHCompositeNode* topNode);
   int InitRun(PHCompositeNode* topNode);
+  int process_run(PHCompositeNode* topNode);
   int process_event(PHCompositeNode* topNode);
   int End(PHCompositeNode* topNode);
 
@@ -62,6 +63,7 @@ private:
 
   int eventID;
   int runID;
+  int run_ID;
   int dor; // duration of the run
   int detectorID;
   int elementID_exp;
