@@ -47,6 +47,7 @@ int AnaModule::process_run(PHCompositeNode* topNode){
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
+	int xxx = process_run();
 	run_ID = event -> get_run_id();
 	std::cout << "---> runID here " << run_ID << std::endl;
 	int nTracklets = trackletVec->size();
