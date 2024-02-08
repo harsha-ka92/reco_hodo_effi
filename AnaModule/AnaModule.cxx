@@ -37,9 +37,13 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 }
 int AnaModule::process_run(PHCompositeNode* topNode){
 	run_ID = run -> get_run_id();
-	dor = run -> get_unix_time_end() - run ->get_unix_time_begin();
+	run_ID_temp = run_ID;
+	if(run_ID == run_ID_temp){
+		tot = tot + (spill -> get_eos_vme_time() - spill -> get_bos_vme_time());
+	}
+	dor = tot;
 	std::cout<< run_ID << std::endl;
-	std::cout<<  "end " << run -> get_unix_time_end() << " start " << run ->get_unix_time_begin() <<std::endl;
+	std::cout<<  "total time" << tot <<std::endl;
 	
 	++runID;
 	return Fun4AllReturnCodes::EVENT_OK;
