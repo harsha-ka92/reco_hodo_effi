@@ -38,6 +38,8 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 int AnaModule::process_run(PHCompositeNode* topNode){
 	run_ID = run -> get_run_id();
 	dor = run -> get_unix_time_end() - run ->get_unix_time_begin();
+	++runID;
+	return Fun4AllReturnCodes::EVENT_OK;
 }
 
 int AnaModule::process_event(PHCompositeNode* topNode)
