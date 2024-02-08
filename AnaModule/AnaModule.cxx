@@ -156,6 +156,7 @@ int AnaModule::End(PHCompositeNode* topNode)
 {
   saveFile->cd();
   saveTree->Write();
+  runTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
