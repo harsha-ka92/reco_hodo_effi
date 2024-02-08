@@ -204,6 +204,8 @@ void AnaModule::MakeTree()
   runTree = new TTree("run", "run information");
 	runTree->Branch("run_ID", &run_ID, "run_ID/I");
 	runTree->Branch("dor", &dor,"dor/I");
+	
+  saveTree -> AddFriend("runTree", saveName);
 }
 
 void AnaModule::registerDetector(TString name)
