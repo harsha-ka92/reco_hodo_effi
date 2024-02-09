@@ -255,3 +255,11 @@ SQHit* AnaModule::findHit(int detID, int eleID)
 
   return hit;
 }
+
+int  AnaModule::get_end_time(){
+	
+}
+
+int  AnaModule::get_begin_time(){
+	
+}
