@@ -1,6 +1,8 @@
 #include<iostream> 
 #include<iterator>
 
+using namespace std;
+
 void test(){
   typedef std::map<std::string, std::vector<float>> runlist;
   
