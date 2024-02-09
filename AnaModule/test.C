@@ -4,7 +4,7 @@
 using namespace std;
 
 void test(){
-  typedef map<std::string, std::vector<float>> runlist;
+  map<std::string, std::vector<float>> runlist;
   
   int runID;
   runlist id;
