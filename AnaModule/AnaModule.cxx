@@ -35,7 +35,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   runID = 0;
   MakeTree();
   tos = spill -> get_eos_vme_time() - spill -> get_bos_vme_time();
-  std::cout<<  "time of spill" << tos <<std::endl
+  std::cout<<  "time of spill" << tos <<std::endl;
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
