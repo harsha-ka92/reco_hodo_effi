@@ -39,7 +39,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   if(run_ID == run_ID_temp){
 	tot = tot + (spill -> get_eos_vme_time() - spill -> get_bos_vme_time());
   }
-  dor = tot;*/
+  dor = tot;
   std::cout << "---> run_ID here " << run_ID << std::endl;
   std::cout<<  "total time" << tot <<std::endl;
 	
