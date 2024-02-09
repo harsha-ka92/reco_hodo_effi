@@ -14,7 +14,6 @@
 #include <interface_main/SQRun.h>
 #include <interface_main/SQEvent.h>
 #include <interface_main/SQRun.h>
-#include <interface_main/SQHardSpill.h>
 
 #include "HitData.h"
 
@@ -53,23 +52,19 @@ private:
   TrackletVector* trackletVec;
   SQEvent* event;
   SQRun* run;
-  SQHardSpill* spill;
 
 
   // Output
   TString saveName;
   TFile*  saveFile;
   TTree*  saveTree;
-  TTree* runTree;
 	
 //	HitList hit_vec; 
 
   int eventID;
   int runID;
-  int run_ID_temp;
   int run_ID;
   int dor; // duration of the run
-  int tos;
   int detectorID;
   int elementID_exp;
   int elementID_closest;
