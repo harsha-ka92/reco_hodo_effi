@@ -2,7 +2,7 @@
 #include<iterator>
 
 void test(){
-  std::map<std::string, std::vector<float>> runlist;
+  typedef std::map<std::string, std::vector<float>> runlist;
   
   std::int runID;
   runlist ID;
