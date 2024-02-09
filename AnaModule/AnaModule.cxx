@@ -29,11 +29,16 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 {
   int ret = GetNodes(topNode);
   if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
-  //tot = 0;
+  
+  tot = 0;
   eventID = 0;
   runID = 0;
   MakeTree();
+  proecess_run(runID);	
+  return Fun4AllReturnCodes::EVENT_OK;
+}
 
+int AnaModule::process_run(run_ID){
   run_ID = run -> get_run_id();
   run_ID_temp = run_ID;
   if(run_ID == run_ID_temp){
@@ -41,10 +46,11 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   }
   dor = tot;
   std::cout << "---> run_ID here " << run_ID << std::endl;
-  std::cout<<  "total time" << tot <<std::endl;
-	
+  std::cout<<  "total time" << tot <<std::endl;	
+
   return Fun4AllReturnCodes::EVENT_OK;
 }
+
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
