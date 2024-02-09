@@ -69,7 +69,7 @@ private:
   int run_ID_temp;
   int run_ID;
   int dor; // duration of the run
-  int tot;
+  int tos;
   int detectorID;
   int elementID_exp;
   int elementID_closest;
