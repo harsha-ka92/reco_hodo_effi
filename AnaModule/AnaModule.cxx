@@ -196,7 +196,7 @@ void AnaModule::MakeTree()
   saveTree = new TTree("save", "Efficiency tree Created by AnaModule");
   	saveTree->Branch("eventID", &eventID, "eventID/I");
 	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
-	saveTree->Branch("dor", &dor,"dor/I");
+	saveTree->Branch("tos", &tos,"tos/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
