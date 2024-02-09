@@ -30,12 +30,8 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   int ret = GetNodes(topNode);
   if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
   
-  //tos = 0;
   eventID = 0;
-  //runID = 0;
   MakeTree();
-  //tos = spill -> get_eos_vme_time() - spill -> get_bos_vme_time();
-  //std::cout<<  "time of spill" << tos <<std::endl;
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
@@ -55,7 +51,14 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
-	run_ID = event -> get_run_id();
+
+	run_ID = run -> get_run_id();
+ 	run_ID_temp = run_ID;
+  	tos = spill -> get_eos_vme_time() - spill -> get_bos_vme_time();
+
+  	std::cout << "---> run_ID here " << run_ID << std::endl;
+  	std::cout<<  "time of the spill " << tos <<std::endl;	
+	
 	int nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
 	{
