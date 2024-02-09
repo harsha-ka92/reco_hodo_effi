@@ -22,6 +22,7 @@ AnaModule::~AnaModule()
 
 int AnaModule::Init(PHCompositeNode* topNode)
 {
+   
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
