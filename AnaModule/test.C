@@ -4,27 +4,27 @@
 using namespace std;
 
 void test(){
-  typedef std::map<std::string, std::vector<float>> runlist;
+  typedef map<std::string, std::vector<float>> runlist;
   
-  std::int runID;
-  runlist ID;
+  int runID;
+  runlist id;
 
   std::ifstream infile("mysql_output.txt");
 
-  while (infile >> ID)
+  while (infile >> id)
   {
       // See if the key/value pair is already
       // in the map
-    runlist::iterator it = ID.find(runID);
+    runlist::iterator it = id.find(runID);
 
       // If it is present, increment the count (value)
-    if (it != ID.end())
+    if (it != id.end())
       it->second++;  // Same as: (*it).second++
     else
     {
         // Create a new pair with value set to 1
       std::pair<std::string, int> pr(runID, 1);
-      ID.insert(pr);
+      id.insert(pr);
     }
   }
 }
