@@ -184,7 +184,7 @@ int AnaModule::GetNodes(PHCompositeNode* topNode)
   trackletVec = findNode::getClass<TrackletVector>(topNode, "TrackletVector");
 	event       = findNode::getClass<SQEvent    >(topNode, "SQEvent");
 	run = findNode::getClass<SQRun    >(topNode, "SQRun");
-	spill = findNode::getClass<SQRun    >(topNode, "SQRun");
+	spill = findNode::getClass<SQRun    >(topNode, "SQHardSpill");
 	
   if(!hitVector || !trackletVec || !event)
   {
