@@ -53,7 +53,7 @@ private:
   TrackletVector* trackletVec;
   SQEvent* event;
   SQRun* run;
-  SQHardSpill spill;
+  SQHardSpill* spill;
 
 
   // Output
