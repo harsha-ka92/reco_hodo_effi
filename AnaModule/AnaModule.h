@@ -66,6 +66,7 @@ private:
 
   int eventID;
   int runID;
+  int run_ID_temp;
   int run_ID;
   int dor; // duration of the run
   int tot;
