@@ -5,7 +5,7 @@
 using namespace std;
 
 void test(){
-  map<int, int>> runlist;
+  map<int, int> runlist;
   
   int runID;
   runlist id;
