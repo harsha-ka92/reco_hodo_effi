@@ -4,12 +4,12 @@
 using namespace std;
 
 void test(){
-  map<std::string, std::vector<float>> runlist;
+  map<int, int>> runlist;
   
   int runID;
   runlist id;
 
-  std::ifstream infile("mysql_output.txt");
+  ifstream infile("mysql_output.txt");
 
   while (infile >> id)
   {
@@ -23,7 +23,7 @@ void test(){
     else
     {
         // Create a new pair with value set to 1
-      std::pair<std::string, int> pr(runID, 1);
+      pair<int, int> pr(runID, 1);
       id.insert(pr);
     }
   }
