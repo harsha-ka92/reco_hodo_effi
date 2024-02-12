@@ -34,7 +34,7 @@ int AnaModule::Init(PHCompositeNode* topNode)
 
     run_time[r.runID]=std::pair<int,int>(r.beginT, r.endT);
     std::cout << "map element " << i << "added" << std::endl;
-    i++
+    i++;
     }
   
   return Fun4AllReturnCodes::EVENT_OK;
