@@ -55,7 +55,17 @@ private:
   TrackletVector* trackletVec;
   SQEvent* event;
   SQRun* run;
+  
+  //create the map
+  struct run{
+      int runID;
+      int beginT;
+      int endT;
+  };
 
+
+  map<int, pair<int,int>> run_time;
+  string id;
 
   // Output
   TString saveName;
