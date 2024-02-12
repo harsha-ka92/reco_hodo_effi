@@ -47,8 +47,8 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   MakeTree();
 	
   run_ID = run -> get_run_id();
-  dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
   std::cout << "---> run_ID here " << run_ID << std::endl;
+  dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
   std::cout<<  "run time " << dor <<std::endl;
 	
   return Fun4AllReturnCodes::EVENT_OK;
