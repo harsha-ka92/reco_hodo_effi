@@ -23,13 +23,13 @@ AnaModule::~AnaModule()
 int AnaModule::Init(PHCompositeNode* topNode)
 {
   std::map<int, pair<int,int>> run_time;
-  string id;
-  ifstream infile("mysql_output.txt");
+  std::string id;
+  std::ifstream infile("mysql_output.txt");
 
   while (getline(infile,id))
   {
     run r;
-    istringstream is( id );
+    std::istringstream is( id );
     is >> r.runID >> r.beginT >> r.endT;
 
     run_time[r.runID]=pair<int,int>(r.beginT, r.endT);
