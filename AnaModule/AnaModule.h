@@ -64,7 +64,7 @@ private:
   };
 
 
-  map<int, pair<int,int>> run_time;
+  std::map<int, pair<int,int>> run_time;
   string id;
 
   // Output
