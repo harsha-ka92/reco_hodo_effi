@@ -22,7 +22,17 @@ AnaModule::~AnaModule()
 
 int AnaModule::Init(PHCompositeNode* topNode)
 {
-   
+  ifstream infile("mysql_output.txt");
+
+  while (getline(infile,id))
+  {
+    run r;
+    istringstream is( id );
+    is >> r.runID >> r.beginT >> r.endT;
+
+    run_time[r.runID]=pair<int,int>(r.beginT, r.endT);
+
+    }
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
@@ -257,10 +267,6 @@ SQHit* AnaModule::findHit(int detID, int eleID)
   return hit;
 }
 
-int  AnaModule::get_end_time(){
-	
-}
-
-int  AnaModule::get_begin_time(){
+int  AnaModule::get_run_time(){
 	
 }
