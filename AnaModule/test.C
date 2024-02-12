@@ -19,7 +19,7 @@ void test(){
 
   while (getline(infile,id))
   {
-
+    run r;
     istringstream is( id );
     is >> r.runID >> r.beginT >> r.endT;
 
