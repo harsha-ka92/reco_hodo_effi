@@ -37,7 +37,6 @@ int AnaModule::Init(PHCompositeNode* topNode)
     i++;
     }
   return Fun4AllReturnCodes::EVENT_OK;
-  return run_time;
 }
 
 int AnaModule::InitRun(PHCompositeNode* topNode)
