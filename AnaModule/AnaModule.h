@@ -62,6 +62,7 @@ private:
       int beginT;
       int endT;
   };
+  run r;
 
   //map
   std::map<int, std::pair<int,int>> run_time;
