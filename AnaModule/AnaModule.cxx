@@ -45,9 +45,9 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   MakeTree();
 	
   run_ID = run -> get_run_id();
-  dor = get_end_time() - get_begin_vme_time());
+  dor = run_time.at(run_ID)->second.second - run_time.at(run_ID)->second.first;
   std::cout << "---> run_ID here " << run_ID << std::endl;
-  std::cout<<  "run time" << dor <<std::endl;
+  std::cout<<  "run time " << dor <<std::endl;
 	
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -218,7 +218,7 @@ void AnaModule::MakeTree()
   saveTree = new TTree("save", "Efficiency tree Created by AnaModule");
   	saveTree->Branch("eventID", &eventID, "eventID/I");
 	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
-	saveTree->Branch("tos", &tos,"tos/I");
+	saveTree->Branch("dor", &dor,"dor/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
@@ -265,8 +265,4 @@ SQHit* AnaModule::findHit(int detID, int eleID)
   }
 
   return hit;
-}
-
-int  AnaModule::get_run_time(){
-	
 }
