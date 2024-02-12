@@ -66,7 +66,7 @@ private:
   //map
   std::map<int, std::pair<int,int>> run_time;
   std::string id;
-  std::ifstream infile;
+
   
   // Output
   TString saveName;
