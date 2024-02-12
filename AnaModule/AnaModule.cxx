@@ -35,7 +35,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   MakeTree();
 
   std::fstream infile("AnaModule/mysql_output.txt");
-  int i =1;
+
   while (getline(infile,id))
   {
     
@@ -43,21 +43,22 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
     is >> r.runID >> r.beginT >> r.endT;
 
     run_time[r.runID]=std::pair<int,int>(r.beginT, r.endT);
-    std::cout << "map element " << i << "added" << std::endl;
-    i++;
     }
-	
-  run_ID = run -> get_run_id();
-  std::cout << "---> run_ID here " << run_ID << std::endl;
-  dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
-  std::cout<<  "run time " << dor <<std::endl;
 	
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
-
+ 
+  run_ID = run -> get_run_id();
+  if (run_ID_temp != run_ID){
+ 	 std::cout << "---> run_ID here " << run_ID << std::endl;
+  	 dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
+ 	 std::cout<<  "run time " << dor <<std::endl;
+  }
+ run_ID_temp = run_ID;
+	
 	int nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
 	{
