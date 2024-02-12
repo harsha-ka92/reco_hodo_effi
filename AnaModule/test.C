@@ -1,31 +1,43 @@
-#include<iostream> 
-#include<iterator>
-#include<map>
-
 using namespace std;
 
 void test(){
-  map<int, int> runlist;
-  
-  int runID;
-  runlist id;
 
+  int i=1;
+
+  struct run{
+      int runID;
+      int beginT;
+      int endT;
+  };
+
+
+  map<int, int> bT;
+  map<int, int> eT;
+
+  string id;
   ifstream infile("mysql_output.txt");
 
-  while (infile >> id)
+  while (getline(infile,id))
   {
-      // See if the key/value pair is already
-      // in the map
-    runlist::iterator it = id.find(runID);
 
-      // If it is present, increment the count (value)
-    if (it != id.end())
-      it->second++;  // Same as: (*it).second++
-    else
-    {
-        // Create a new pair with value set to 1
-      pair<int, int> pr(runID, 1);
-      id.insert(pr);
+    istringstream is( id );
+    run r;
+    string s;
+
+    getline( is, s, '\t' );
+    r.runID = stoi( s );
+    getline( is, s, '\t' );
+    r.beginT = stoi( s );
+    getline( is, s, '\t' );
+    r.endT = stoi( s );
+
+    bT.insert(pair<int, int>(r.runID, r.beginT));
+    eT.insert(pair<int, int>(r.runID, r.endT));
+
+    cout<<"begin times "<<bT[i]<<endl;
+    cout<<"end times "<<eT[i]<<endl;
+    cout<<i<<endl;
+    i++;
     }
-  }
 }
+
