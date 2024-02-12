@@ -16,14 +16,7 @@
 #include "HitData.h"
 
 AnaModule::AnaModule(const std::string& name): SubsysReco(name), p_geomSvc(GeomSvc::instance())
-{}
-
-AnaModule::~AnaModule()
-{}
-
-int AnaModule::Init(PHCompositeNode* topNode)
 {
-
   std::fstream infile("mysql_output.txt");
   int i =1;
   while (getline(infile,id))
@@ -36,7 +29,13 @@ int AnaModule::Init(PHCompositeNode* topNode)
     std::cout << "map element " << i << "added" << std::endl;
     i++;
     }
-  
+}
+
+AnaModule::~AnaModule()
+{}
+
+int AnaModule::Init(PHCompositeNode* topNode)
+{ 
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
