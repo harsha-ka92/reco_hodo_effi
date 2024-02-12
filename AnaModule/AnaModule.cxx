@@ -39,7 +39,7 @@ int AnaModule::Init(PHCompositeNode* topNode)
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
-int AnaModule::InitRun(PHCompositeNode* topNode, run_time)
+int AnaModule::InitRun(PHCompositeNode* topNode, std::map)
 {
   int ret = GetNodes(topNode);
   if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
