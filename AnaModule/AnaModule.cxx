@@ -28,7 +28,7 @@ int AnaModule::Init(PHCompositeNode* topNode)
 
   while (getline(infile,id))
   {
-    run r;
+    
     std::istringstream is( id );
     is >> r.runID >> r.beginT >> r.endT;
 
