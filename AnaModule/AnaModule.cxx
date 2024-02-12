@@ -24,7 +24,7 @@ AnaModule::~AnaModule()
 int AnaModule::Init(PHCompositeNode* topNode)
 { 
 
-  std::fstream infile("mysql_output.txt");
+ /* std::fstream infile("mysql_output.txt");
   int i =1;
   while (getline(infile,id))
   {
@@ -35,7 +35,7 @@ int AnaModule::Init(PHCompositeNode* topNode)
     run_time[r.runID]=std::pair<int,int>(r.beginT, r.endT);
     std::cout << "map element " << i << "added" << std::endl;
     i++;
-    }
+    }*/
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
@@ -266,4 +266,21 @@ SQHit* AnaModule::findHit(int detID, int eleID)
   }
 
   return hit;
+}
+
+std::map* AnaModule::make_map(){
+	
+  std::fstream infile("mysql_output.txt");
+  int i =1;
+  while (getline(infile,id))
+  {
+    
+    std::istringstream is( id );
+    is >> r.runID >> r.beginT >> r.endT;
+
+    run_time[r.runID]=std::pair<int,int>(r.beginT, r.endT);
+    std::cout << "map element " << i << "added" << std::endl;
+    i++;
+    }
+  return run_time;
 }
