@@ -57,12 +57,12 @@ private:
   SQRun* run;
   
   //create the structure to read txt file
-  struct run{
+  struct run_info{
       int runID;
       int beginT;
       int endT;
   };
-  run r;
+  run_info r;
 
   //map
   std::map<int, std::pair<int,int>> run_time;
