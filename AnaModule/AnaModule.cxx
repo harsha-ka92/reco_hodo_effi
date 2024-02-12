@@ -34,7 +34,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   eventID = 0;
   MakeTree();
 
-  std::fstream infile("../mysql_output.txt");
+  std::fstream infile("AnaModule/mysql_output.txt");
   int i =1;
   while (getline(infile,id))
   {
