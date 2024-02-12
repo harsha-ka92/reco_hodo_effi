@@ -54,7 +54,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
  
   run_ID = run -> get_run_id();
   if (run_ID_temp != run_ID){
- 	 std::cout << "---> run_ID here " << run_ID << std::endl;
+ 	 std::cout << "---> run_ID " << run_ID << std::endl;
 	 std::cout<<  "start time " << run_time.at(run_ID).first <<std::endl;
 	 std::cout<<  "end time " << run_time.at(run_ID).second <<std::endl;
   	 dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
