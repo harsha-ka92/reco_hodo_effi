@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <TFile.h>
 #include <TTree.h>
+#include <fstream>
 
 #include <fun4all/Fun4AllReturnCodes.h>
 #include <phool/getClass.h>
@@ -23,7 +24,7 @@ AnaModule::~AnaModule()
 int AnaModule::Init(PHCompositeNode* topNode)
 {
 
-  infile("mysql_output.txt");
+  std::fstream infile("mysql_output.txt");
 
   while (getline(infile,id))
   {
