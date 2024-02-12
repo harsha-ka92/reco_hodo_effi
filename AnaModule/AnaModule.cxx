@@ -22,7 +22,7 @@ AnaModule::~AnaModule()
 
 int AnaModule::Init(PHCompositeNode* topNode)
 {
-  std::map<int, pair<int,int>> run_time;
+  std::map<int, std::pair<int,int>> run_time;
   std::string id;
   std::ifstream infile("mysql_output.txt");
 
@@ -32,7 +32,7 @@ int AnaModule::Init(PHCompositeNode* topNode)
     std::istringstream is( id );
     is >> r.runID >> r.beginT >> r.endT;
 
-    run_time[r.runID]=pair<int,int>(r.beginT, r.endT);
+    run_time[r.runID]=std::pair<int,int>(r.beginT, r.endT);
 
     }
   return Fun4AllReturnCodes::EVENT_OK;
