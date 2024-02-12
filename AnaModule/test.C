@@ -11,8 +11,8 @@ void test(){
   };
 
 
-  map<int, int> bT;
-  map<int, int> eT;
+  map<int, pair<int,int>> run_time;
+  //map<int, int> eT;
 
   string id;
   ifstream infile("mysql_output.txt");
@@ -21,23 +21,19 @@ void test(){
   {
 
     istringstream is( id );
-    run r;
-    string s;
+    is >> r.runID >> r.beginT >> r.endT;
 
-    getline( is, s, '\t' );
-    r.runID = stoi( s );
-    getline( is, s, '\t' );
-    r.beginT = stoi( s );
-    getline( is, s, '\t' );
-    r.endT = stoi( s );
+    run_time[r.runID]=pair<int,int>(r.beginT, r.endT);
 
-    bT.insert(pair<int, int>(r.runID, r.beginT));
-    eT.insert(pair<int, int>(r.runID, r.endT));
-
-    cout<<"begin times "<<bT[i]<<endl;
-    cout<<"end times "<<eT[i]<<endl;
-    cout<<i<<endl;
-    i++;
     }
+  print();
 }
 
+void test::print(){
+ for (auto it = run_time.begin(); it != run_time.end(); it++){
+  cout<< "runID " << it->first << endl;
+  cout<< "begin time " << it->second.first << " s"<< endl;
+  cout<< "rend time " << it->second.second << " s"<< endl;
+  cout<< "duration " << it->second.first - it->second.second << " s"<< endl;
+ } 
+}
