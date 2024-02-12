@@ -56,16 +56,12 @@ private:
   SQEvent* event;
   SQRun* run;
   
-  //create the map
+  //create the structure to read txt file
   struct run{
       int runID;
       int beginT;
       int endT;
   };
-
-
-  std::map<int, pair<int,int>> run_time;
-  string id;
 
   // Output
   TString saveName;
