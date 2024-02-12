@@ -45,8 +45,7 @@ private:
   SQHit* findHit(int detectorID, int elementID);
   std::set<int> detectorIDs;
 
-  int  get_end_time();
-  int  get_begin_time();
+  std::map* make_map();
 
   GeomSvc* p_geomSvc;
 
