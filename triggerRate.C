@@ -116,4 +116,10 @@ void triggerRate()
     gMatrix5->SetMarkerColor(4);
     gMatrix5->SetMarkerStyle(21);
     gMatrix5->Draw("HIST");
+
+    c1->SaveAs("rNIM1.png");
+    c2->SaveAs("rNIM2.png");
+    c3->SaveAs("rNIM3.png");
+    c4->SaveAs("rNIM4.png");
+    c5->SaveAs("rMatrix5.png");
 }
