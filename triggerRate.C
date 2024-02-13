@@ -40,7 +40,6 @@ void triggerRate()
    int trigger, dor, run_ID;
 
    tr->SetBranchAddress("run_ID", &run_ID);
-        //tr->SetBranchAddress("weight", &weight);
    tr->SetBranchAddress("trigger", &trigger);
    tr->SetBranchAddress("dor", &dor);
 
@@ -117,9 +116,9 @@ void triggerRate()
     gMatrix5->SetMarkerStyle(21);
     gMatrix5->Draw("HIST");
 
-    c1->SaveAs("rNIM1.png");
-    c2->SaveAs("rNIM2.png");
-    c3->SaveAs("rNIM3.png");
-    c4->SaveAs("rNIM4.png");
-    c5->SaveAs("rMatrix5.png");
+    c1->SaveAs("triggerRates/rNIM1.png");
+    c2->SaveAs("triggerRates/rNIM2.png");
+    c3->SaveAs("triggerRates/rNIM3.png");
+    c4->SaveAs("triggerRates/rNIM4.png");
+    c5->SaveAs("triggerRates/rMatrix5.png");
 }
