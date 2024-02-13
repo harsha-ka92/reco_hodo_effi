@@ -30,11 +30,11 @@ void triggerRate()
 
    int run_num = 4796;
    int run_time = 0;
-   int nim1 = 0;
-   int nim2 = 0;
-   int nim3 = 0;
-   int nim4 = 0;
-   int matrix5 = 0;
+   double nim1 = 0;
+   double nim2 = 0;
+   double nim3 = 0;
+   double nim4 = 0;
+   double matrix5 = 0;
    int i =0;
 
    int trigger, dor, run_ID;
@@ -52,28 +52,28 @@ void triggerRate()
    for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
       if(run_num == run_ID){
-         if(trigger == 1) {nim1 +=1;}
-         if(trigger == 2) {nim2 +=1;}
-         if(trigger == 3) {nim3 +=1;}
-         if(trigger == 4) {nim4 +=1;}
-         if(trigger == 5) {matrix5 +=1;}
+         if(trigger == 1) {nim1 +=1.0;}
+         if(trigger == 2) {nim2 +=1.0;}
+         if(trigger == 3) {nim3 +=1.0;}
+         if(trigger == 4) {nim4 +=1.0;}
+         if(trigger == 5) {matrix5 +=1.0;}
          run_time = dor;
          run_num = run_ID;
       }
       else{
-         gNIM1->SetPoint(i, run_num, nim1/dor);
+         gNIM1->SetPoint(i, run_num, nim1/run_time/60);
          gNIM1->SetPointError(i, 0., 0., 0., 0.);
 
-         gNIM2->SetPoint(i, run_num, nim2/dor);
+         gNIM2->SetPoint(i, run_num, nim2/run_time/60);
          gNIM2->SetPointError(i, 0., 0., 0., 0.);
 
-         gNIM3->SetPoint(i, run_num, nim3/dor);
+         gNIM3->SetPoint(i, run_num, nim3/run_time/60);
          gNIM3->SetPointError(i, 0., 0., 0., 0.);
 
-         gNIM4->SetPoint(i, run_num, nim4/dor);
+         gNIM4->SetPoint(i, run_num, nim4/run_time/60);
          gNIM4->SetPointError(i, 0., 0., 0., 0.);
 
-         gMatrix5->SetPoint(i, run_num, matrix5/dor);
+         gMatrix5->SetPoint(i, run_num, matrix5/run_time/60);
          gMatrix5->SetPointError(i, 0., 0., 0., 0.);
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
