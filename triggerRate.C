@@ -80,7 +80,7 @@ void triggerRate()
          gMatrix5->SetPoint(i, run_num, matrix5/run_time/60);
          gMatrix5->SetPointError(i, 0., 0., 0., 0.);
 
-         gruntime->(i, run_num, run_time/60);
+         gruntime->SetPoint(i, run_num, run_time/60);
          gruntime->SetPointError(i, 0., 0., 0., 0.);
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
