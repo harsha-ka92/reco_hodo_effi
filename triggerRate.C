@@ -51,6 +51,9 @@ void triggerRate()
    
    for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
+
+      if(dor<0) {run_num = run_ID; continue;}
+      
       if(run_num == run_ID){
          if(trigger == 1) {nim1 +=1.0;}
          if(trigger == 2) {nim2 +=1.0;}
@@ -88,8 +91,9 @@ void triggerRate()
     gNIM1->SetTitle("Trigger Rate : NIM1");
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(21);
+    
     gNIM1->Draw("APE1");
-
+    
     TCanvas* c2 = new TCanvas("c2", "", 1000, 500);
 
     gNIM2->SetTitle("Trigger Rate : NIM2");
