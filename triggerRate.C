@@ -52,7 +52,7 @@ void triggerRate()
    for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      if(dor<0) {run_num = run_ID; continue;}
+      if(dor<0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID){
          if(trigger == 1) {nim1 +=1.0;}
