@@ -90,36 +90,45 @@ void triggerRate()
 
     gNIM1->SetTitle("Trigger Rate : NIM1");
     gNIM1->SetMarkerColor(4);
-    gNIM1->SetMarkerStyle(21);
-    
+    gNIM1->SetMarkerStyle(43);
+    gNIM1->GetXaxis()->SetTitle("run_ID");
+    gNIM1->GetYaxis()->SetTitle("number of events/min");
     gNIM1->Draw("APE1");
     
     TCanvas* c2 = new TCanvas("c2", "", 1000, 500);
 
     gNIM2->SetTitle("Trigger Rate : NIM2");
     gNIM2->SetMarkerColor(4);
-    gNIM2->SetMarkerStyle(21);
+    gNIM2->SetMarkerStyle(43);
+    gNIM2->GetXaxis()->SetTitle("run_ID");
+    gNIM2->GetYaxis()->SetTitle("number of events/min");
     gNIM2->Draw("APE1");
 
     TCanvas* c3 = new TCanvas("c3", "", 1000, 500);
 
     gNIM3->SetTitle("Trigger Rate : NIM3");
     gNIM3->SetMarkerColor(4);
-    gNIM3->SetMarkerStyle(21);
+    gNIM3->SetMarkerStyle(43);
+    gNIM3->GetXaxis()->SetTitle("run_ID");
+    gNIM3->GetYaxis()->SetTitle("number of events/min");
     gNIM3->Draw("APE1");
 
     TCanvas* c4 = new TCanvas("c4", "", 1000, 500);
 
     gNIM4->SetTitle("Trigger Rate : NIM4");
     gNIM4->SetMarkerColor(4);
-    gNIM4->SetMarkerStyle(21);
+    gNIM4->SetMarkerStyle(43);
+    gNIM4->GetXaxis()->SetTitle("run_ID");
+    gNIM4->GetYaxis()->SetTitle("number of events/min");
     gNIM4->Draw("APE1");
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
 
     gMatrix5->SetTitle("Trigger Rate : Matrix5");
     gMatrix5->SetMarkerColor(4);
-    gMatrix5->SetMarkerStyle(21);
+    gMatrix5->SetMarkerStyle(43);
+    gMatrix5->GetXaxis()->SetTitle("run_ID");
+    gMatrix5->GetYaxis()->SetTitle("number of events/min");
     gMatrix5->Draw("APE1");
 
     c1->SaveAs("triggerRates/rNIM1.png");
