@@ -48,6 +48,7 @@ void triggerRate()
    TGraphAsymmErrors* gNIM3 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gNIM4 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gMatrix5 = new TGraphAsymmErrors();
+   TGraphAsymmErrors* gruntime = new TGraphAsymmErrors();
    
    for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
@@ -78,6 +79,9 @@ void triggerRate()
 
          gMatrix5->SetPoint(i, run_num, matrix5/run_time/60);
          gMatrix5->SetPointError(i, 0., 0., 0., 0.);
+
+         gruntime->(i, run_num, run_time/60);
+         gruntime->SetPointError(i, 0., 0., 0., 0.);
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
          run_num = run_ID;
@@ -136,9 +140,20 @@ void triggerRate()
     gMatrix5->GetYaxis()->SetTitle("number of events/min");
     gMatrix5->Draw("APE1");
 
+    TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
+
+    gruntime->SetTitle("Duration of runs");
+    gruntime->SetMarkerColor(4);
+    gruntime5->SetMarkerStyle(43);
+    gruntime->SetMarkerSize(3);
+    gruntime->GetXaxis()->SetTitle("run_ID");
+    gruntime->GetYaxis()->SetTitle("Duration of the run (mins)");
+    gruntime->Draw("APE1");
+
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
     c3->SaveAs("triggerRates/rNIM3.png");
     c4->SaveAs("triggerRates/rNIM4.png");
     c5->SaveAs("triggerRates/rMatrix5.png");
+    c6->SaveAs("triggerRates/run_times.png");
 }
