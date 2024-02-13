@@ -142,12 +142,12 @@ void triggerRate()
 
     TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
 
-    gruntime->SetTitle("Duration of runs");
+    gruntime->SetTitle("run lengths");
     gruntime->SetMarkerColor(4);
     gruntime->SetMarkerStyle(43);
     gruntime->SetMarkerSize(3);
     gruntime->GetXaxis()->SetTitle("run_ID");
-    gruntime->GetYaxis()->SetTitle("Duration of the run (mins)");
+    gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
 
     c1->SaveAs("triggerRates/rNIM1.png");
