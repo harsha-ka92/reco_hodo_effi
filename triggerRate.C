@@ -79,8 +79,8 @@ void triggerRate()
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
          run_num = run_ID;
          i++;
-        std::cout << "i = " << i << std::endl;
-        std::cout << "run # " << run_num << " nim1/dor " << nim1/dor << std::endl;
+        //std::cout << "i = " << i << std::endl;
+        //std::cout << "run # " << run_num << " nim1/dor " << nim1/dor << std::endl;
       }
    }
     TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
@@ -95,28 +95,28 @@ void triggerRate()
     gNIM2->SetTitle("Trigger Rate : NIM2");
     gNIM2->SetMarkerColor(4);
     gNIM2->SetMarkerStyle(21);
-    gNIM2->Draw("HIST");
+    gNIM2->Draw("APE1");
 
     TCanvas* c3 = new TCanvas("c3", "", 1000, 500);
 
     gNIM3->SetTitle("Trigger Rate : NIM3");
     gNIM3->SetMarkerColor(4);
     gNIM3->SetMarkerStyle(21);
-    gNIM3->Draw("HIST");
+    gNIM3->Draw("APE1");
 
     TCanvas* c4 = new TCanvas("c4", "", 1000, 500);
 
     gNIM4->SetTitle("Trigger Rate : NIM4");
     gNIM4->SetMarkerColor(4);
     gNIM4->SetMarkerStyle(21);
-    gNIM4->Draw("HIST");
+    gNIM4->Draw("APE1");
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
 
     gMatrix5->SetTitle("Trigger Rate : Matrix5");
     gMatrix5->SetMarkerColor(4);
     gMatrix5->SetMarkerStyle(21);
-    gMatrix5->Draw("HIST");
+    gMatrix5->Draw("APE1");
 
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
