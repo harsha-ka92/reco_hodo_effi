@@ -144,7 +144,7 @@ void triggerRate()
 
     gruntime->SetTitle("Duration of runs");
     gruntime->SetMarkerColor(4);
-    gruntime5->SetMarkerStyle(43);
+    gruntime->SetMarkerStyle(43);
     gruntime->SetMarkerSize(3);
     gruntime->GetXaxis()->SetTitle("run_ID");
     gruntime->GetYaxis()->SetTitle("Duration of the run (mins)");
