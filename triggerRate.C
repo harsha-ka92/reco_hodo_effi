@@ -78,7 +78,7 @@ void triggerRate()
          gMatrix5->SetPointError(i, 0., 0., 0., 0.);
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
-         run_num == run_ID;
+         run_num = run_ID;
          i++;
       }
    }
