@@ -57,7 +57,7 @@ void triggerRate()
          if(trigger == 3) {nim3 +=1;}
          if(trigger == 4) {nim4 +=1;}
          if(trigger == 5) {matrix5 +=1;}
-         run_time=dor;
+         run_time = dor;
          run_num = run_ID;
       }
       else{
