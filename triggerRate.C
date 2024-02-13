@@ -86,7 +86,7 @@ void triggerRate()
     gNIM1->SetTitle("Trigger Rate : NIM1");
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(21);
-    gNIM1->Draw("HIST");
+    gNIM1->Draw("APE1");
 
     TCanvas* c2 = new TCanvas("c2", "", 1000, 500);
 
