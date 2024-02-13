@@ -25,7 +25,7 @@ void triggerRate()
     gStyle->SetOptStat(0);
     gStyle->SetOptFit(1);
 
-    TFile *f_file = TFile::Open("ana.root","read");
+    TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
 
    int run_num = 4796;
