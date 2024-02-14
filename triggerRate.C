@@ -46,7 +46,7 @@ void triggerRate()
 
    double rnim1, rnim2, rnim3, rnim4, rmatrix5;
 
-   // choose the range of run numbers need to analyzed and show up in the plots
+   // choose the range of run numbers need to be analyzed and show up in the plots
 
    int xlow = 4685;
    int xhigh = 4702; 
