@@ -223,5 +223,5 @@ void triggerRate()
     c4->SaveAs("triggerRates/rNIM4.png");
     c5->SaveAs("triggerRates/rMatrix5.png");
     c6->SaveAs("triggerRates/run_times.png");
-    c7->SaveAs("triggerRates/tracklet info.png");
+    c7->SaveAs("triggerRates/tracklet_info.png");
 }
