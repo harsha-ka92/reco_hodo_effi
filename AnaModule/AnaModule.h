@@ -100,6 +100,7 @@ private:
 
 // Tracklet info
   int tlD0, tlD1, tlD2, tlD3p, tlD3m, tlBackPartial, tlGlobal;
+  int stID;
 };
 
 #endif
