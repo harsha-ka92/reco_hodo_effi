@@ -71,9 +71,11 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		stID = tracklet->stationID;
 
 		//very loose cuts here
-		if(nHits < 5) continue;
-		if(chisq > 15.) continue;
+		if(nHits < 5 || chisq > 15.)  continue;
+		//if(chisq > 15.) continue;
+		
 		std::cout<<  "TL station ID " << stID <<std::endl;
+		
 		if(stID == 1){tlD0 += 1;}
 		if(stID == 2){tlD1 += 1;}
 		if(stID == 3){tlD2 += 1;}
@@ -213,6 +215,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
 	saveTree->Branch("dor", &dor,"dor/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
+	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I")
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
   	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
