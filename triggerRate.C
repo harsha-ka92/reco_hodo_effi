@@ -214,7 +214,7 @@ void triggerRate()
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gqtls->Draw("APE1");
     gtls->SetMarkerColor(2);
-    gtls->Draw("SAME");
+    gtls->Draw("APE1");
 
 
     c1->SaveAs("triggerRates/rNIM1.png");
