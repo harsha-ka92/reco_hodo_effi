@@ -124,7 +124,7 @@ void triggerRate()
          gqtls->SetPoint(i, run_num, qual_tl);
          gqtls->SetPointError(i, 0., 0., 0., 0.);
 
-         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
+         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0; 
          run_num = run_ID;
          i++;
         std::cout << "i = " << i << std::endl;
