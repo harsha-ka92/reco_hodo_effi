@@ -62,7 +62,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   }
  run_ID_temp = run_ID;
 	
-	int nTracklets = trackletVec->size();
+	nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
