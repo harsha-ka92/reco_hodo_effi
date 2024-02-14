@@ -28,8 +28,13 @@ void triggerRate()
     TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
 
-   int run_num = 4796;
+   // choose the range of run numbers need to be analyzed and show up in the plots
+   int xlow = 4696;
+   int xhigh = 4702; 
+
+   int run_num = xlow;
    int run_time = 0;
+   int num_tls = 0;
    double nim1 = 0;
    double nim2 = 0;
    double nim3 = 0;
@@ -47,14 +52,16 @@ void triggerRate()
 
    double rnim1, rnim2, rnim3, rnim4, rmatrix5;
 
-   // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 4685;
-   int xhigh = 4702; 
-
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("trigger", &trigger);
    tr->SetBranchAddress("nTracklets", &nTracklets);
-   tr->SetBranchAddress("stID", &stID);
+   tr->SetBranchAddress("tlD0", &tlD0);
+   tr->SetBranchAddress("tlD1", &tlD1);
+   tr->SetBranchAddress("tlD2", &tlD2);
+   tr->SetBranchAddress("tlD3p", &tlD3p);
+   tr->SetBranchAddress("tlD3m", &tlD3m);
+   tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
+   tr->SetBranchAddress("tlGlobal", &tGlobal);
 
    TGraphAsymmErrors* gNIM1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gNIM2 = new TGraphAsymmErrors();
@@ -81,6 +88,7 @@ void triggerRate()
          qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m);
          run_time = dor;
          run_num = run_ID;
+         num_tls += nTracklets;
 
       }
 
@@ -116,13 +124,13 @@ void triggerRate()
          gruntime->SetPoint(i, run_num, run_time/60);
          gruntime->SetPointError(i, 0., 0., 0., 0.);
 
-         gtls->SetPoint(i, run_num, nTracklets);
+         gtls->SetPoint(i, run_num, num_tls);
          gtls->SetPointError(i, 0., 0., 0., 0.);
 
          gqtls->SetPoint(i, run_num, qual_tl);
          gqtls->SetPointError(i, 0., 0., 0., 0.);
 
-         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0; 
+         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0; 
          run_num = run_ID;
          i++;
         std::cout << "i = " << i << std::endl;
