@@ -234,7 +234,7 @@ void AnaModule::MakeTree()
   	saveTree->Branch("tlD3p", &tlD3p, "tlD3p/I");
 	saveTree->Branch("tlD3m", &tlD3m, "tlD3m/I");
   	saveTree->Branch("tlBackPartial", &tlBackPartial, "tlBackPartial/I");
-	saveTree->Branch("tkGobal", &tlGlobal, "tlGlobal");
+	saveTree->Branch("t;Global", &tlGlobal, "tlGlobal");
 	//saveTree->Branch("hit_vec", &hit_vec);
 
   //runTree = new TTree("run", "run information");
