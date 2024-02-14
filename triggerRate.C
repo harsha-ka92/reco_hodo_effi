@@ -36,6 +36,7 @@ void triggerRate()
    double nim4 = 0;
    double matrix5 = 0;
    int i =0;
+   int qual_tl = 0;
 
    int trigger, dor, run_ID;
    double nim1_max = 0.0;
@@ -47,13 +48,17 @@ void triggerRate()
    double rnim1, rnim2, rnim3, rnim4, rmatrix5;
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-
    int xlow = 4685;
    int xhigh = 4702; 
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("trigger", &trigger);
-   tr->SetBranchAddress("dor", &dor);
+   tr->SetBranchAddress("tlD0", &tlD0);
+   tr->SetBranchAddress("tlD1", &tlD1);
+   tr->SetBranchAddress("tlD2", &tlD2);
+   tr->SetBranchAddress("tlD3p", &tlD3p);
+   tr->SetBranchAddress("tlD3m", &tlD3m);
+   tr->SetBranchAddress("nTracklets", &nTracklets);
 
    TGraphAsymmErrors* gNIM1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gNIM2 = new TGraphAsymmErrors();
@@ -61,11 +66,13 @@ void triggerRate()
    TGraphAsymmErrors* gNIM4 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gMatrix5 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gruntime = new TGraphAsymmErrors();
-   
+   TGraphAsymmErrors* gtls = new TGraphAsymmErrors();
+   TGraphAsymmErrors* gqtls = new TGraphAsymmErrors();
+
    for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      if((run_ID < xlow) || (run_ID > xhigh)){continue;}
+      if(run_ID < xlow || run_ID > xhigh){continue;}
       
       if(dor<0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
@@ -75,6 +82,7 @@ void triggerRate()
          if(trigger == 3) {nim3 +=1.0;}
          if(trigger == 4) {nim4 +=1.0;}
          if(trigger == 5) {matrix5 +=1.0;}
+         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m);
          run_time = dor;
          run_num = run_ID;
       }
@@ -109,6 +117,12 @@ void triggerRate()
 
          gruntime->SetPoint(i, run_num, run_time/60);
          gruntime->SetPointError(i, 0., 0., 0., 0.);
+
+         gtls->SetPoint(i, run_num, nTracklets);
+         gtls>SetPointError(i, 0., 0., 0., 0.);
+
+         gqtls->SetPoint(i, run_num, qual_tl);
+         gqtls>SetPointError(i, 0., 0., 0., 0.);
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
          run_num = run_ID;
@@ -189,10 +203,25 @@ void triggerRate()
     gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
 
+    TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
+
+    gqtls->SetTitle("Tracklet info:");
+    gqtls->SetMarkerColor(4);
+    gqtls->SetMarkerStyle(43);
+    gqtls->SetMarkerSize(3);
+    gqtls->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gqtls->GetXaxis()->SetTitle("run_ID");
+    gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
+    gqtls->Draw("APE1");
+    gtls->SetMarkerColor(2);
+    gtls->Draw("SAME");
+
+
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
     c3->SaveAs("triggerRates/rNIM3.png");
     c4->SaveAs("triggerRates/rNIM4.png");
     c5->SaveAs("triggerRates/rMatrix5.png");
     c6->SaveAs("triggerRates/run_times.png");
+    c7->SaveAs("triggerRates/tracklet info.png");
 }
