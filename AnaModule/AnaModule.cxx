@@ -62,7 +62,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 
 	 tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
   }
-	
+  run_ID_temp = run_ID;	
 	nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
 	{
@@ -179,7 +179,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//saveTree->Fill();
 		//hit_vec.clear();
   }
-  run_ID_temp = run_ID;
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
