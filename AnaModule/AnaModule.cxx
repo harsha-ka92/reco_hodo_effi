@@ -60,7 +60,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   	 dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
  	 std::cout<<  "run time " << dor <<std::endl;
   }
- run_ID_temp = run_ID;
 	
 	nTracklets = trackletVec->size();
 	for(int i = 0; i < nTracklets; ++i)
@@ -75,14 +74,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//if(chisq > 15.) continue;
 		
 		std::cout<<  "TL station ID " << stID <<std::endl;
-		
-		if(stID == 1){tlD0 += 1;}
-		if(stID == 2){tlD1 += 1;}
-		if(stID == 3){tlD2 += 1;}
-		if(stID == 4){tlD3p += 1;}
-		if(stID == 5){tlD3m += 1;}
-		if(stID == 6){tlBackPartial += 1;}
-		if(stID == 7){tlGlobal += 1;}
 		
 		// data structure created by dinupa3@gmail.com
 		if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
@@ -178,6 +169,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//saveTree->Fill();
 		//hit_vec.clear();
   }
+  run_ID_temp = run_ID;
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -231,13 +223,7 @@ void AnaModule::MakeTree()
  	//saveTree->Branch("y_exp", &y_exp, "y_exp/D");
   	saveTree->Branch("nHits", &nHits, "nHits/I");
  	saveTree->Branch("chisq", &chisq, "chisq/D");
-	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
-  	saveTree->Branch("tlD1", &tlD1, "tlD1/I");
-	saveTree->Branch("tlD2", &tlD2, "tlD2/I");
-  	saveTree->Branch("tlD3p", &tlD3p, "tlD3p/I");
-	saveTree->Branch("tlD3m", &tlD3m, "tlD3m/I");
-  	saveTree->Branch("tlBackPartial", &tlBackPartial, "tlBackPartial/I");
-	saveTree->Branch("tGlobal", &tlGlobal, "tlGlobal");
+	saveTree->Branch("stID", &stID, "stID/I");
 	//saveTree->Branch("hit_vec", &hit_vec);
 
   //runTree = new TTree("run", "run information");
