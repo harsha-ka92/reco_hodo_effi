@@ -76,6 +76,7 @@ private:
   int eventID;
   int runID;
   int run_ID;
+  int nTracklets;
   int run_ID_temp;
   int dor; // duration of the run
   int detectorID;
