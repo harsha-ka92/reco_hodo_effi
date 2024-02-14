@@ -71,8 +71,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		chisq = tracklet->getChisq();
 
 		//very loose cuts here
-		if(nHits < 5 || chisq > 15.) {stID = 0;} continue;
-		//if(chisq > 15.) continue;
+		if(nHits < 5 ) continue;
+		if(chisq > 15.) continue;
 		stID = tracklet->stationID;
 		
 		 if(stID == 1){tlD0 += 1;}
