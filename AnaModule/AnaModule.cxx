@@ -215,7 +215,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
 	saveTree->Branch("dor", &dor,"dor/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
-	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I")
+	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
   	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
@@ -237,7 +237,7 @@ void AnaModule::MakeTree()
   	saveTree->Branch("tlD3p", &tlD3p, "tlD3p/I");
 	saveTree->Branch("tlD3m", &tlD3m, "tlD3m/I");
   	saveTree->Branch("tlBackPartial", &tlBackPartial, "tlBackPartial/I");
-	saveTree->Branch("t;Global", &tlGlobal, "tlGlobal");
+	saveTree->Branch("tGlobal", &tlGlobal, "tlGlobal");
 	//saveTree->Branch("hit_vec", &hit_vec);
 
   //runTree = new TTree("run", "run information");
