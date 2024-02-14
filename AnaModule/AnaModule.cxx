@@ -59,6 +59,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	 std::cout<<  "end time " << run_time.at(run_ID).second <<std::endl;
   	 dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
  	 std::cout<<  "run time " << dor <<std::endl;
+
+	 tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
   }
 	
 	nTracklets = trackletVec->size();
@@ -72,6 +74,14 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		if(nHits < 5 || chisq > 15.) {stID = 0} continue;
 		//if(chisq > 15.) continue;
 		stID = tracklet->stationID;
+		
+		 if(stID == 1){tlD0 += 1;}
+		 if(stID == 2){tlD1 += 1;}
+		 if(stID == 3){tlD2 += 1;}
+		 if(stID == 4){tlD3p += 1;}
+		 if(stID == 5){tlD3m += 1;}
+		 if(stID == 6){tlBackPartial += 1;}
+		 if(stID == 7){tlGlobal += 1;}
 		
 		std::cout<<  "TL station ID " << stID <<std::endl;
 		
