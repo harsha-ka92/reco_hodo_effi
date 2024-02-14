@@ -53,12 +53,8 @@ void triggerRate()
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("trigger", &trigger);
-   tr->SetBranchAddress("tlD0", &tlD0);
-   tr->SetBranchAddress("tlD1", &tlD1);
-   tr->SetBranchAddress("tlD2", &tlD2);
-   tr->SetBranchAddress("tlD3p", &tlD3p);
-   tr->SetBranchAddress("tlD3m", &tlD3m);
    tr->SetBranchAddress("nTracklets", &nTracklets);
+   tr->SetBranchAddress("stID", &stID);
 
    TGraphAsymmErrors* gNIM1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* gNIM2 = new TGraphAsymmErrors();
