@@ -73,7 +73,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//very loose cuts here
 		if(nHits < 5) continue;
 		if(chisq > 15.) continue;
-
+		std::cout<<  "TL station ID " << stID <<std::endl;
 		if(stID == 1){tlD0 += 1;}
 		if(stID == 2){tlD1 += 1;}
 		if(stID == 3){tlD2 += 1;}
