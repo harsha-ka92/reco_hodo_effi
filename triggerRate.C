@@ -45,7 +45,11 @@ void triggerRate()
    double matrix5_max = 0.0;
 
    double rnim1, rnim2, rnim3, rnim4, rmatrix5;
-   
+
+   // choose the range of run numbers need to analyzed and show up in the plots
+
+   int xlow = 4685;
+   int xhigh = 4702; 
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("trigger", &trigger);
@@ -61,6 +65,8 @@ void triggerRate()
    for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
+      if((run_ID < xlow) || (run_ID > xhigh)){continue;}
+      
       if(dor<0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID){
@@ -118,7 +124,7 @@ void triggerRate()
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
-    gNIM1->GetXaxis()->SetRangeUser(4680,4705);
+    gNIM1->GetXaxis()->SetRangeUser(xlow,4705);
     gNIM1->GetYaxis()->SetRangeUser(0,nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
