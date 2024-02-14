@@ -124,7 +124,7 @@ void triggerRate()
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
-    gNIM1->GetXaxis()->SetRangeUser(xlow,4705);
+    gNIM1->GetXaxis()->SetRangeUser(xlow,xhigh);
     gNIM1->GetYaxis()->SetRangeUser(0,nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
@@ -136,7 +136,7 @@ void triggerRate()
     gNIM2->SetMarkerColor(4);
     gNIM2->SetMarkerStyle(43);
     gNIM2->SetMarkerSize(3);
-    gNIM2->GetXaxis()->SetRangeUser(4680,4705);
+    gNIM2->GetXaxis()->SetRangeUser(xlow,xhigh);
     gNIM2->GetYaxis()->SetRangeUser(0,nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
     gNIM2->GetYaxis()->SetTitle("number of events/min");
@@ -148,7 +148,7 @@ void triggerRate()
     gNIM3->SetMarkerColor(4);
     gNIM3->SetMarkerStyle(43);
     gNIM3->SetMarkerSize(3);
-    gNIM3->GetXaxis()->SetRangeUser(4680,4705);
+    gNIM3->GetXaxis()->SetRangeUser(xlow,xhigh);
     gNIM3->GetYaxis()->SetRangeUser(0,nim3_max);
     gNIM3->GetXaxis()->SetTitle("run_ID");
     gNIM3->GetYaxis()->SetTitle("number of events/min");
@@ -160,8 +160,8 @@ void triggerRate()
     gNIM4->SetMarkerColor(4);
     gNIM4->SetMarkerStyle(43);
     gNIM4->SetMarkerSize(3);
-    gNIM4->GetXaxis()->SetRangeUser(4680,4705);
-    gNIM4->GetYaxis()->SetRangeUser(0,nim4_max);
+    gNIM4->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM4->GetYaxis()->SetRangeUser(0,1.05*nim4_max);
     gNIM4->GetXaxis()->SetTitle("run_ID");
     gNIM4->GetYaxis()->SetTitle("number of events/min");
     gNIM4->Draw("APE1");
@@ -172,8 +172,8 @@ void triggerRate()
     gMatrix5->SetMarkerColor(4);
     gMatrix5->SetMarkerStyle(43);
     gMatrix5->SetMarkerSize(3);
-    gMatrix5->GetXaxis()->SetRangeUser(4680,4705);
-    gMatrix5->GetYaxis()->SetRangeUser(0,matrix5_max);
+    gMatrix5->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gMatrix5->GetYaxis()->SetRangeUser(0,1.05*matrix5_max);
     gMatrix5->GetXaxis()->SetTitle("run_ID");
     gMatrix5->GetYaxis()->SetTitle("number of events/min");
     gMatrix5->Draw("APE1");
@@ -184,7 +184,7 @@ void triggerRate()
     gruntime->SetMarkerColor(4);
     gruntime->SetMarkerStyle(43);
     gruntime->SetMarkerSize(3);
-    gruntime->GetXaxis()->SetRangeUser(4680,4705);
+    gruntime->GetXaxis()->SetRangeUser(xlow,xhigh);
     gruntime->GetXaxis()->SetTitle("run_ID");
     gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
