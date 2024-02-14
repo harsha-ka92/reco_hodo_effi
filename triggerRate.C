@@ -38,7 +38,7 @@ void triggerRate()
    int i =0;
    int qual_tl = 0;
 
-   int trigger, dor, run_ID;
+   int trigger, dor, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets;
    double nim1_max = 0.0;
    double nim2_max = 0.0;
    double nim3_max = 0.0;
@@ -119,10 +119,10 @@ void triggerRate()
          gruntime->SetPointError(i, 0., 0., 0., 0.);
 
          gtls->SetPoint(i, run_num, nTracklets);
-         gtls>SetPointError(i, 0., 0., 0., 0.);
+         gtls->SetPointError(i, 0., 0., 0., 0.);
 
          gqtls->SetPoint(i, run_num, qual_tl);
-         gqtls>SetPointError(i, 0., 0., 0., 0.);
+         gqtls->SetPointError(i, 0., 0., 0., 0.);
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0; 
          run_num = run_ID;
