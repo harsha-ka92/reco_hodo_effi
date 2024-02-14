@@ -125,7 +125,7 @@ void triggerRate()
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
     gNIM1->GetXaxis()->SetRangeUser(xlow,xhigh);
-    gNIM1->GetYaxis()->SetRangeUser(0,nim1_max);
+    gNIM1->GetYaxis()->SetRangeUser(0,1.05*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
     gNIM1->Draw("APE1");
@@ -137,7 +137,7 @@ void triggerRate()
     gNIM2->SetMarkerStyle(43);
     gNIM2->SetMarkerSize(3);
     gNIM2->GetXaxis()->SetRangeUser(xlow,xhigh);
-    gNIM2->GetYaxis()->SetRangeUser(0,nim2_max);
+    gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
     gNIM2->GetYaxis()->SetTitle("number of events/min");
     gNIM2->Draw("APE1");
@@ -149,7 +149,7 @@ void triggerRate()
     gNIM3->SetMarkerStyle(43);
     gNIM3->SetMarkerSize(3);
     gNIM3->GetXaxis()->SetRangeUser(xlow,xhigh);
-    gNIM3->GetYaxis()->SetRangeUser(0,nim3_max);
+    gNIM3->GetYaxis()->SetRangeUser(0,1.05*nim3_max);
     gNIM3->GetXaxis()->SetTitle("run_ID");
     gNIM3->GetYaxis()->SetTitle("number of events/min");
     gNIM3->Draw("APE1");
