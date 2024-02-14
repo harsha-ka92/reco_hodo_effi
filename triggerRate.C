@@ -37,7 +37,13 @@ void triggerRate()
    double matrix5 = 0;
    int i =0;
 
-   int trigger, dor, run_ID;
+   int trigger, dor, run_ID, 
+   int nim1_max = 0;
+   int nim2_max = 0;
+   int nim3_max = 0;
+   int nim4_max = 0;
+   int matrix5_max = 0;
+   
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("trigger", &trigger);
@@ -65,19 +71,32 @@ void triggerRate()
          run_num = run_ID;
       }
       else{
-         gNIM1->SetPoint(i, run_num, nim1/run_time/60);
+
+         rnim1 = nim1/run_time/60;
+         rnim2 = nim2/run_time/60;
+         rnim3 = nim3/run_time/60;
+         rnim4 = nim4/run_time/60;
+         rmatrix5 = matrix5/run_time/60;
+
+         if(nim1_max < rnim1 ){ nim1_max = rnim1; }
+         if(nim2_max < rnim2 ){ nim2_max = rnim2; }
+         if(nim3_max < rnim3 ){ nim3_max = rnim3; }
+         if(nim4_max < rnim4 ){ nim4_max = rnim4; }
+         if(matrix5_max < rmatrix5 ){ matrix5_max = rmatrix5; }
+
+         gNIM1->SetPoint(i, run_num, rnim1);
          gNIM1->SetPointError(i, 0., 0., 0., 0.);
 
-         gNIM2->SetPoint(i, run_num, nim2/run_time/60);
+         gNIM2->SetPoint(i, run_num, rnim2);
          gNIM2->SetPointError(i, 0., 0., 0., 0.);
 
-         gNIM3->SetPoint(i, run_num, nim3/run_time/60);
+         gNIM3->SetPoint(i, run_num, rnim3);
          gNIM3->SetPointError(i, 0., 0., 0., 0.);
 
-         gNIM4->SetPoint(i, run_num, nim4/run_time/60);
+         gNIM4->SetPoint(i, run_num, rnim4);
          gNIM4->SetPointError(i, 0., 0., 0., 0.);
 
-         gMatrix5->SetPoint(i, run_num, matrix5/run_time/60);
+         gMatrix5->SetPoint(i, run_num, rmatrix5);
          gMatrix5->SetPointError(i, 0., 0., 0., 0.);
 
          gruntime->SetPoint(i, run_num, run_time/60);
@@ -97,6 +116,7 @@ void triggerRate()
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
     gNIM1->GetXaxis()->SetRangeUser(4680,4705);
+    gNIM1->GetYaxis()->SetRangeUser(0,1.02*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
     gNIM1->Draw("APE1");
