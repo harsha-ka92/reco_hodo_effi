@@ -115,7 +115,7 @@ void triggerRate()
          i++;
         std::cout << "i = " << i << std::endl;
         std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
-        std::cout << "run # " << run_num << " nim4_max " << nim4_max<< std::endl;
+        std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
       }
    }
     TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
