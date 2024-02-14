@@ -85,7 +85,16 @@ void triggerRate()
          qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m);
          run_time = dor;
          run_num = run_ID;
+
+         if(stID == 1){tlD0 += 1;}
+		 if(stID == 2){tlD1 += 1;}
+		 if(stID == 3){tlD2 += 1;}
+		 if(stID == 4){tlD3p += 1;}
+		 if(stID == 5){tlD3m += 1;}
+		 if(stID == 6){tlBackPartial += 1;}
+		 if(stID == 7){tlGlobal += 1;}
       }
+
       else{
 
          rnim1 = nim1/run_time/60;
