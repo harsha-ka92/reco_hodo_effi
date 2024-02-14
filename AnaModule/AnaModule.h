@@ -97,6 +97,9 @@ private:
   int diff2;
   int diff3;
   int diff4;
+
+// Tracklet info
+  int tlD0, tlD1, tlD2, tlD3p, tlD3m, tlBackPartial, tlGlobal;
 };
 
 #endif
