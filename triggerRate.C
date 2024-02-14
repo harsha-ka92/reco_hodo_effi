@@ -38,11 +38,11 @@ void triggerRate()
    int i =0;
 
    int trigger, dor, run_ID;
-   int nim1_max = 0;
-   int nim2_max = 0;
-   int nim3_max = 0;
-   int nim4_max = 0;
-   int matrix5_max = 0;
+   double nim1_max = 0.0;
+   double nim2_max = 0.0;
+   double nim3_max = 0.0;
+   double nim4_max = 0.0;
+   double matrix5_max = 0.0;
 
    double rnim1, rnim2, rnim3, rnim4, rmatrix5;
    
