@@ -67,11 +67,11 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		Tracklet* tracklet = trackletVec->at(i);
 		nHits = tracklet->getNHits();
 		chisq = tracklet->getChisq();
-		stID = tracklet->stationID;
 
 		//very loose cuts here
-		if(nHits < 5 || chisq > 15.)  continue;
+		if(nHits < 5 || chisq > 15.) {stID = 0} continue;
 		//if(chisq > 15.) continue;
+		stID = tracklet->stationID;
 		
 		std::cout<<  "TL station ID " << stID <<std::endl;
 		
