@@ -285,9 +285,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gtls->SetMarkerColor(2);
-    mg -> Add(gtls);
+    gtls->Draw("APE1");
+    //mg -> Add(gtls);
     //mg-> Add(gqtls);
-    mg->Draw("APE1");
+    //mg->Draw("APE1");
     
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
