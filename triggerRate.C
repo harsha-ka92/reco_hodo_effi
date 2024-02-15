@@ -91,7 +91,6 @@ void triggerRate()
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
-         if(i_ent == tr->GetEntries -1) {goto else;}
       }
       if (run_num != run_ID) {goto analyze;}
       if (i_ent == nEvents -1){goto analyze;}
