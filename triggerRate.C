@@ -95,7 +95,7 @@ void triggerRate()
       if (run_num != run_ID) {goto analyze;}
       if (i_ent == nEvents -1){goto analyze;}
 
-   analyze:
+   analyze:{
            rnim1 = nim1/run_time/60;
            rnim2 = nim2/run_time/60;
            rnim3 = nim3/run_time/60;
@@ -138,6 +138,7 @@ void triggerRate()
            std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
            std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
            run_num = run_ID;
+    }
    }
 
     TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
