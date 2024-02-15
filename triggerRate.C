@@ -25,11 +25,11 @@ void triggerRate()
     gStyle->SetOptStat(1);
     //gStyle->SetOptFit(1);
 
-    TFile *f_file = TFile::Open("results_400files/ana.root","READ");
+    TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 4686;
+   int xlow = 4696;
    int xhigh = 4702; 
 
    int run_num = xlow;
@@ -79,10 +79,10 @@ void triggerRate()
    nEvents = tr->GetEntries();
    std::cout << "Nevents = " << nEvents << std::endl;
 
-for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
+for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      if(run_ID < xlow || run_ID > xhigh){continue;}
+      if(run_ID < xlow || run_ID > xhigh) {continue;}
       
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
@@ -95,7 +95,7 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
          qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
          run_time = dor;
          run_num = run_ID;
-             if(event_ID != event_ID_temp){num_tls += nTracklets;}
+         num_tls += nTracklets;
       }
      else if (run_num == run_ID && i_ent == nEvents-1){
          std::cout<< "last event"<<std::endl;
