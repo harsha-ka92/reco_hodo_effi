@@ -80,7 +80,7 @@ void triggerRate()
 for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      //if(run_ID < xlow || run_ID > xhigh){continue;}
+      if(run_ID < xlow || run_ID > xhigh){continue;}
       
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
@@ -90,54 +90,64 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
          if(trigger == 3) {nim3 +=1.0;}
          if(trigger == 4) {nim4 +=1.0;}
          if(trigger == 5) {matrix5 +=1.0;}
-         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m);
+         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
       }
      else if (run_num == run_ID && i_ent == nEvents-1){
-           rnim1 = nim1/run_time/60;
-           rnim2 = nim2/run_time/60;
-           rnim3 = nim3/run_time/60;
-           rnim4 = nim4/run_time/60;
-           rmatrix5 = matrix5/run_time/60;
+         if(trigger == 1) {nim1 +=1.0;}
+         if(trigger == 2) {nim2 +=1.0;}
+         if(trigger == 3) {nim3 +=1.0;}
+         if(trigger == 4) {nim4 +=1.0;}
+         if(trigger == 5) {matrix5 +=1.0;}
+         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m);
+         run_time = dor;
+         run_num = run_ID;
+         num_tls += nTracklets;
 
-           if(nim1_max < rnim1 ){ nim1_max = rnim1; }
-           if(nim2_max < rnim2 ){ nim2_max = rnim2; }
-           if(nim3_max < rnim3 ){ nim3_max = rnim3; }
-           if(nim4_max < rnim4 ){ nim4_max = rnim4; }
-           if(matrix5_max < rmatrix5 ){ matrix5_max = rmatrix5; }
+         rnim1 = nim1/run_time/60;
+         rnim2 = nim2/run_time/60;
+         rnim3 = nim3/run_time/60;
+         rnim4 = nim4/run_time/60;
+         rmatrix5 = matrix5/run_time/60;
 
-           gNIM1->SetPoint(i, run_num, rnim1);
-           gNIM1->SetPointError(i, 0., 0., 0., 0.);
+         if(nim1_max < rnim1 ){ nim1_max = rnim1; }
+         if(nim2_max < rnim2 ){ nim2_max = rnim2; }
+         if(nim3_max < rnim3 ){ nim3_max = rnim3; }
+         if(nim4_max < rnim4 ){ nim4_max = rnim4; }
+         if(matrix5_max < rmatrix5 ){ matrix5_max = rmatrix5; }
 
-           gNIM2->SetPoint(i, run_num, rnim2);
-           gNIM2->SetPointError(i, 0., 0., 0., 0.);
+         gNIM1->SetPoint(i, run_num, rnim1);
+         gNIM1->SetPointError(i, 0., 0., 0., 0.);
 
-           gNIM3->SetPoint(i, run_num, rnim3);
-           gNIM3->SetPointError(i, 0., 0., 0., 0.);
+         gNIM2->SetPoint(i, run_num, rnim2);
+         gNIM2->SetPointError(i, 0., 0., 0., 0.);
 
-           gNIM4->SetPoint(i, run_num, rnim4);
-           gNIM4->SetPointError(i, 0., 0., 0., 0.);
+         gNIM3->SetPoint(i, run_num, rnim3);
+         gNIM3->SetPointError(i, 0., 0., 0., 0.);
 
-           gMatrix5->SetPoint(i, run_num, rmatrix5);
-           gMatrix5->SetPointError(i, 0., 0., 0., 0.);
+         gNIM4->SetPoint(i, run_num, rnim4);
+         gNIM4->SetPointError(i, 0., 0., 0., 0.);
 
-           gruntime->SetPoint(i, run_num, run_time/60);
-           gruntime->SetPointError(i, 0., 0., 0., 0.);
+         gMatrix5->SetPoint(i, run_num, rmatrix5);
+         gMatrix5->SetPointError(i, 0., 0., 0., 0.);
 
-           gtls->SetPoint(i, run_num, num_tls);
-           gtls->SetPointError(i, 0., 0., 0., 0.);
+         gruntime->SetPoint(i, run_num, run_time/60);
+         gruntime->SetPointError(i, 0., 0., 0., 0.);
 
-           gqtls->SetPoint(i, run_num, qual_tl);
-           gqtls->SetPointError(i, 0., 0., 0., 0.);
+         gtls->SetPoint(i, run_num, num_tls);
+         gtls->SetPointError(i, 0., 0., 0., 0.);
 
-           nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
-           i++;
-           std::cout << "i = " << i << std::endl;
-           std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
-           std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
-           run_num = run_ID;
+         gqtls->SetPoint(i, run_num, qual_tl);
+         gqtls->SetPointError(i, 0., 0., 0., 0.);
+
+         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
+         i++;
+         std::cout << "i = " << i << std::endl;
+         std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
+         std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
+         run_num = run_ID;
      }
 
      else {
@@ -185,16 +195,6 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
            run_num = run_ID;
     }
 }
-
-/*doouble triggerRate::getrate(double ntrigger, run_time){
-    double rate = ntrigger/run_time/60;
-    return rate;
-}
-
-double truggerRate::findmax(double rateMax, doble rtrigger){
-    if(rateMax < rtrigger ){ rateMax = rtrigger; }
-    return rateMax;
-}*/
 
     TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
 
