@@ -35,6 +35,7 @@ void triggerRate()
    int run_num = xlow;
    int run_time = 0;
    int nEvents;
+   int event_ID;
    int event_ID_temp=0;
    int num_tls = 0;
    double nim1 = 0;
