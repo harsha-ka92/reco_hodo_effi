@@ -74,6 +74,7 @@ void triggerRate()
    TGraphAsymmErrors* gqtls = new TGraphAsymmErrors();
 
    nEvents = tr->GetEntries();
+   std::cout << "Nevents = " << nEvents << std::endl;
 for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
@@ -92,7 +93,7 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
          run_num = run_ID;
          num_tls += nTracklets;
       }
-     if (i_ent == nEvents -1){
+     elseif (i_ent == nEvents -1){
            rnim1 = nim1/run_time/60;
            rnim2 = nim2/run_time/60;
            rnim3 = nim3/run_time/60;
