@@ -80,7 +80,7 @@ void triggerRate()
 for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      if(run_ID < xlow || run_ID > xhigh){continue;}
+      //if(run_ID < xlow || run_ID > xhigh){continue;}
       
       if(dor < 100) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
