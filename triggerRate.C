@@ -81,7 +81,7 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
 
       if(run_ID < xlow || run_ID > xhigh){continue;}
       
-      //if(dor < 100) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
+      if(dor < 100) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID && i_ent != nEvents-1){
          if(trigger == 1) {nim1 +=1.0;}
