@@ -25,7 +25,7 @@ void triggerRate()
     gStyle->SetOptStat(1);
     //gStyle->SetOptFit(1);
 
-    TFile *f_file = TFile::Open("ana.root","READ");
+    TFile *f_file = TFile::Open("results_400files/ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
