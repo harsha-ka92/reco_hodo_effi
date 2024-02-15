@@ -232,7 +232,13 @@ void AnaModule::MakeTree()
  	//saveTree->Branch("y_exp", &y_exp, "y_exp/D");
   	saveTree->Branch("nHits", &nHits, "nHits/I");
  	saveTree->Branch("chisq", &chisq, "chisq/D");
-	saveTree->Branch("stID", &stID, "stID/I");
+	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
+	saveTree->Branch("tlD1", &tlD1, "tlD1/I");
+	saveTree->Branch("tlD2", &tlD2, "tlD2/I");
+	saveTree->Branch("tlD3p", &tlD3p, "tlD3p/I");
+	saveTree->Branch("tlD3m", &tlD3m, "tlD3m/I");
+	saveTree->Branch("tlBackPartial", &tlBackPartial, "tlBackPartial/I");
+	saveTree->Branch("tlGlobal", &tlGlobal, "tlGlobal/I");
 	//saveTree->Branch("hit_vec", &hit_vec);
 
   //runTree = new TTree("run", "run information");
