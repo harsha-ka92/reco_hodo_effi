@@ -173,10 +173,10 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 				eleID_closest = closestID0;
 			}
 
-			saveTree->Fill();
+			//saveTree->Fill();
 		}
 
-		//saveTree->Fill();
+		saveTree->Fill();
 		//hit_vec.clear();
   }
   ++eventID;
