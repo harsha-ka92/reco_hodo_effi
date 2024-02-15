@@ -74,12 +74,12 @@ void triggerRate()
    TGraphAsymmErrors* gqtls = new TGraphAsymmErrors();
 
    nEvents = tr->GetEntries();
-   for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
+for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
       if(run_ID < xlow || run_ID > xhigh){continue;}
       
-      if(dor<0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
+      if(dor < 100) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID ){
          if(trigger == 1) {nim1 +=1.0;}
@@ -181,7 +181,7 @@ void triggerRate()
            std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
            run_num = run_ID;
     }
-   }
+}
 
 /*doouble triggerRate::getrate(double ntrigger, run_time){
     double rate = ntrigger/run_time/60;
