@@ -273,6 +273,7 @@ double truggerRate::findmax(double rateMax, doble rtrigger){
     gqtls->SetMarkerStyle(43);
     gqtls->SetMarkerSize(3);
     gqtls->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gqtls->GetYaxis()->SetRangeUser(0,5);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gqtls->Draw("AP");
