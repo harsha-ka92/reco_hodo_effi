@@ -46,8 +46,7 @@ void triggerRate()
    int i =0;
    int qual_tl = 0;
 
-   int trigger, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets, tlBackPartial, tlGlobal;
-   double dor;
+   int trigger, dor, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets, tlBackPartial, tlGlobal;
    double nim1_max = 0.0;
    double nim2_max = 0.0;
    double nim3_max = 0.0;
