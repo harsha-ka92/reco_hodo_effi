@@ -87,6 +87,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID && i_ent != nEvents-1){
+         std::cout<< "analysis started"<<std::endl;
          if(trigger == 1) {nim1 +=1.0;}
          if(trigger == 2) {nim2 +=1.0;}
          if(trigger == 3) {nim3 +=1.0;}
