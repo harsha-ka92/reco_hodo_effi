@@ -92,10 +92,8 @@ void triggerRate()
          run_num = run_ID;
          num_tls += nTracklets;
       }
-      if (run_num != run_ID) {goto analyze;}
-      if (i_ent == nEvents -1){goto analyze;}
 
-   analyze:{
+     else || (i_ent == nEvents -1){
            rnim1 = nim1/run_time/60;
            rnim2 = nim2/run_time/60;
            rnim3 = nim3/run_time/60;
