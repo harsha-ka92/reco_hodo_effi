@@ -220,7 +220,7 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
     gNIM2->SetMarkerStyle(43);
     gNIM2->SetMarkerSize(3);
     gNIM2->GetXaxis()->SetRangeUser(xlow,xhigh);
-    gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
+    //gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
     gNIM2->GetYaxis()->SetTitle("number of events/min");
     gNIM2->Draw("APE1");
@@ -244,7 +244,7 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
     gNIM4->SetMarkerStyle(43);
     gNIM4->SetMarkerSize(3);
     gNIM4->GetXaxis()->SetRangeUser(xlow,xhigh);
-    gNIM4->GetYaxis()->SetRangeUser(0,1.05*nim4_max);
+    //gNIM4->GetYaxis()->SetRangeUser(0,1.05*nim4_max);
     gNIM4->GetXaxis()->SetTitle("run_ID");
     gNIM4->GetYaxis()->SetTitle("number of events/min");
     gNIM4->Draw("APE1");
