@@ -64,6 +64,13 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   }
   run_ID_temp = run_ID;	
 	nTracklets = trackletVec->size();
+	
+	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
+	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
+	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
+	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
+	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
+	
 	for(int i = 0; i < nTracklets; ++i)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
@@ -83,14 +90,14 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		 if(stID == 6){tlBackPartial += 1;}
 		 if(stID == 7){tlGlobal += 1;}
 		
-		std::cout<<  "TL station ID " << stID <<std::endl;
-		
+		std::cout<<  "QTL station ID " << stID <<std::endl;
+		tlTree->Fill();
 		// data structure created by dinupa3@gmail.com
-		if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
+		/*if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
 		if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
 		if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
 		if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
-		if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
+		if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}*/
 
 		//std::cout << "trigger bit " << trigger << std::endl;
 
@@ -187,6 +194,7 @@ int AnaModule::End(PHCompositeNode* topNode)
 {
   saveFile->cd();
   saveTree->Write();
+  tlTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
@@ -241,8 +249,8 @@ void AnaModule::MakeTree()
 	saveTree->Branch("tlGlobal", &tlGlobal, "tlGlobal/I");
 	//saveTree->Branch("hit_vec", &hit_vec);
 
-  //runTree = new TTree("run", "run information");
-	//runTree->Branch("run_ID", &run_ID, "run_ID/I");
+  tlTree = new TTree("tlTree", "tracklet information");
+	tlTree->Branch("stID", &stID, "stID/I");
 	//runTree->Branch("dor", &dor,"dor/I");
 	
   //saveTree -> AddFriend("runTree", saveName);
