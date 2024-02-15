@@ -51,7 +51,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
- 
+  //event_ID = event->get_event_id();
   run_ID = run -> get_run_id();
   if (run_ID_temp != run_ID){
  	 std::cout << "---> run_ID " << run_ID << std::endl;
@@ -78,8 +78,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		chisq = tracklet->getChisq();
 
 		//very loose cuts here
-		if(nHits < 5 ) continue;
-		if(chisq > 15.) continue;
+		//if(nHits < 5 ) continue;
+		//if(chisq > 15.) continue;
 		stID = tracklet->stationID;
 		
 		 if(stID == 1){tlD0 += 1;}
@@ -183,10 +183,10 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 			//saveTree->Fill();
 		}
 
-		//saveTree->Fill();
+		saveTree->Fill();
 		//hit_vec.clear();
   }
-  saveTree->Fill();
+  //saveTree->Fill();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
