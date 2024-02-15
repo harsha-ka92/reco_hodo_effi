@@ -74,7 +74,7 @@ void triggerRate()
    TGraphAsymmErrors* gqtls = new TGraphAsymmErrors();
 
    nEvents = tr->GetEntries();
-   for (int i_ent = 0; i_ent <nEvents; i_ent++) {
+   for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
       if(run_ID < xlow || run_ID > xhigh){continue;}
