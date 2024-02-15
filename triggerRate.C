@@ -57,6 +57,7 @@ void triggerRate()
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("trigger", &trigger);
    tr->SetBranchAddress("nTracklets", &nTracklets);
+   tr->SetBranchAddress("dor", &dor);
    tr->SetBranchAddress("tlD0", &tlD0);
    tr->SetBranchAddress("tlD1", &tlD1);
    tr->SetBranchAddress("tlD2", &tlD2);
