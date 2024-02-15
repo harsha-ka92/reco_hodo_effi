@@ -218,9 +218,10 @@ void triggerRate()
     gqtls->GetXaxis()->SetRangeUser(xlow,xhigh);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
-    gqtls->Draw("APE1");
+    gqtls->Draw("AP");
     gtls->SetMarkerColor(2);
-    gtls->Draw("APE1");
+    gtls->Draw("P");
+    c7 -> Update();
 
 
     c1->SaveAs("triggerRates/rNIM1.png");
