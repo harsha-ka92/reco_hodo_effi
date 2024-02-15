@@ -35,6 +35,7 @@ void triggerRate()
    int run_num = xlow;
    int run_time = 0;
    int nEvents;
+   int event_ID_temp=0;
    int num_tls = 0;
    double nim1 = 0;
    double nim2 = 0;
@@ -77,6 +78,7 @@ void triggerRate()
 
    nEvents = tr->GetEntries();
    std::cout << "Nevents = " << nEvents << std::endl;
+
 for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
@@ -93,9 +95,10 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
          qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
          run_time = dor;
          run_num = run_ID;
-         num_tls += nTracklets;
+             if(event_ID != event_ID_temp){num_tls += nTracklets;}
       }
      else if (run_num == run_ID && i_ent == nEvents-1){
+         std::cout<< "last event"<<std::endl;
          if(trigger == 1) {nim1 +=1.0;}
          if(trigger == 2) {nim2 +=1.0;}
          if(trigger == 3) {nim3 +=1.0;}
@@ -151,6 +154,7 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
      }
 
      else {
+           std::cout<< "run number changed"<<std::endl;
            rnim1 = nim1/run_time/60;
            rnim2 = nim2/run_time/60;
            rnim3 = nim3/run_time/60;
@@ -280,7 +284,6 @@ for (int i_ent = 0; i_ent <tr->GetEntries(); i_ent++) {
     gqtls->Draw("AP");
     gtls->SetMarkerColor(2);
     gtls->Draw("P");
-    c7 -> Update();
 
 
     c1->SaveAs("triggerRates/rNIM1.png");
