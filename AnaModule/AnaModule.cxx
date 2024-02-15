@@ -185,10 +185,10 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 			//saveTree->Fill();
 		}
 
-		saveTree->Fill();
+		//saveTree->Fill();
 		//hit_vec.clear();
   }
-  //saveTree->Fill();
+  saveTree->Fill();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
