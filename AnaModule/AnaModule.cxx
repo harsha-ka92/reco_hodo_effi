@@ -183,9 +183,10 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 			//saveTree->Fill();
 		}
 
-		saveTree->Fill();
+		//saveTree->Fill();
 		//hit_vec.clear();
   }
+  saveTree->Fill();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -249,7 +250,8 @@ void AnaModule::MakeTree()
 	saveTree->Branch("tlGlobal", &tlGlobal, "tlGlobal/I");
 	//saveTree->Branch("hit_vec", &hit_vec);
 
-  tlTree = new TTree("tlTree", "tracklet information");
+  tlTree = new TTree("tls", "tracklet information");
+	tlTree->Branch("eventID", &eventID, "eventID/I");
 	tlTree->Branch("stID", &stID, "stID/I");
 	//runTree->Branch("dor", &dor,"dor/I");
 	
