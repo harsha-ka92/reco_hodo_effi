@@ -22,8 +22,8 @@ void triggerRate()
 {
     gSystem->mkdir("triggerRates", 1);
 
-    gStyle->SetOptStat(0);
-    gStyle->SetOptFit(1);
+    gStyle->SetOptStat(1);
+    //gStyle->SetOptFit(1);
 
     TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
@@ -44,7 +44,8 @@ void triggerRate()
    int i =0;
    int qual_tl = 0;
 
-   int trigger, dor, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets, tlBackPartial, tlGlobal;
+   int trigger, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets, tlBackPartial, tlGlobal;
+   double dor;
    double nim1_max = 0.0;
    double nim2_max = 0.0;
    double nim3_max = 0.0;
