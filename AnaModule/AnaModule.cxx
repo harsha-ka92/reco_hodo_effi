@@ -52,7 +52,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
   nTracklets = trackletVec->size();
-  if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
+  
   event_ID = event->get_event_id();
   run_ID = run -> get_run_id();
   if (run_ID_temp != run_ID){
@@ -65,7 +65,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	 tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
   }
   run_ID_temp = run_ID;	
-	
+	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
 	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
