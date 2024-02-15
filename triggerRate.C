@@ -141,6 +141,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          gruntime->SetPoint(i, run_num, run_time/60);
          gruntime->SetPointError(i, 0., 0., 0., 0.);
 
+         std::cout<< "filling the value"<< num_lts <<std::endl;
          gtls->SetPoint(i, run_num, num_tls);
          gtls->SetPointError(i, 0., 0., 0., 0.);
 
