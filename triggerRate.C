@@ -75,6 +75,7 @@ void triggerRate()
    TGraphAsymmErrors* gruntime = new TGraphAsymmErrors();
    TGraphAsymmErrors* gtls = new TGraphAsymmErrors();
    TGraphAsymmErrors* gqtls = new TGraphAsymmErrors();
+   TMultiGraph* mg = new TMultiGraph();
 
    nEvents = tr->GetEntries();
    std::cout << "Nevents = " << nEvents << std::endl;
@@ -282,11 +283,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->GetYaxis()->SetRangeUser(0,5);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
-    gqtls->Draw("APE1");
     gtls->SetMarkerColor(2);
-    gtls->Draw("PE1");
-
-
+    mg -> Add(gtls);
+    mg-> Add(gqtls);
+    mg->Draw("APE1");
+    
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
     c3->SaveAs("triggerRates/rNIM3.png");
