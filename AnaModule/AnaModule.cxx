@@ -51,6 +51,8 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 
 int AnaModule::process_event(PHCompositeNode* topNode)
 {
+  nTracklets = trackletVec->size();
+  if (nTracklets == 0){continue;}
   //event_ID = event->get_event_id();
   run_ID = run -> get_run_id();
   if (run_ID_temp != run_ID){
@@ -63,7 +65,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	 tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
   }
   run_ID_temp = run_ID;	
-	nTracklets = trackletVec->size();
+	
 	
 	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
@@ -78,8 +80,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		chisq = tracklet->getChisq();
 
 		//very loose cuts here
-		//if(nHits < 5 ) continue;
-		//if(chisq > 15.) continue;
+		if(nHits < 5 ) continue;
+		if(chisq > 15.) continue;
 		stID = tracklet->stationID;
 		
 		 if(stID == 1){tlD0 += 1;}
