@@ -79,7 +79,7 @@ void triggerRate()
       
       if(dor<0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
-      if(run_num == run_ID){
+      if(run_num == run_ID ){
          if(trigger == 1) {nim1 +=1.0;}
          if(trigger == 2) {nim2 +=1.0;}
          if(trigger == 3) {nim3 +=1.0;}
@@ -89,9 +89,9 @@ void triggerRate()
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
+         if(i_ent == tr->GetEntries -1) {goto else;}
 
       }
-
       else{
 
          rnim1 = nim1/run_time/60;
@@ -130,12 +130,12 @@ void triggerRate()
          gqtls->SetPoint(i, run_num, qual_tl);
          gqtls->SetPointError(i, 0., 0., 0., 0.);
 
-         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0; 
-         run_num = run_ID;
+         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
          i++;
         std::cout << "i = " << i << std::endl;
         std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
         std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
+        run_num = run_ID;
       }
    }
     TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
