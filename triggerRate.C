@@ -298,7 +298,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     mg -> Add(gtls);
     mg-> Add(gqtls);
     mg->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    mg->GetYaxis()->SetLimits(0,360)
+    mg->GetYaxis()->SetLimits(0,360);
     mg->Draw("APE1");
     c7->BuildLegend(0.6, 0.6, 0.8, 0.8, "", "");
 
