@@ -29,7 +29,7 @@ void triggerRate()
     TTree *tr = (TTree*) f_file->Get("save");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 4685;
+   int xlow = 4687;
    int xhigh = 4702; 
 
    int run_num = 0;
@@ -273,7 +273,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gruntime->SetMarkerColor(4);
     gruntime->SetMarkerStyle(43);
     gruntime->SetMarkerSize(3);
-    gruntime->GetXaxis()->SetLimits(xlow+1.5,xhigh);
+    gruntime->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gruntime->GetXaxis()->SetTitle("run_ID");
     gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
