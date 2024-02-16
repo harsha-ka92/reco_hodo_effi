@@ -280,7 +280,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
 
-    gqtls->SetTitle("Tracklet info:");
+    gqtls->SetTitle("Number of qualified tracklets");
     gqtls->SetMarkerColor(4);
     gqtls->SetMarkerStyle(43);
     gqtls->SetMarkerSize(3);
@@ -288,6 +288,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     //gqtls->GetYaxis()->SetRangeUser(0,5);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
+    gtls->SetTitle("Total number of qualified tracklets");
     gtls->SetMarkerColor(2);
     gtls->SetMarkerStyle(43);
     gtls->SetMarkerSize(3);
@@ -303,4 +304,5 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c5->SaveAs("triggerRates/rMatrix5.png");
     c6->SaveAs("triggerRates/run_times.png");
     c7->SaveAs("triggerRates/tracklet_info.png");
+    c7->BuildLegend();
 }
