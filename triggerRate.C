@@ -29,10 +29,10 @@ void triggerRate()
     TTree *tr = (TTree*) f_file->Get("save");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 4692;
-   int xhigh = 4702; 
+   int xlow = 4500;
+   int xhigh = 4992; 
 
-   int run_num = xlow;
+   int run_num = 0;
    int run_time = 0;
    int nEvents;
    int event_ID;
@@ -213,7 +213,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
-    gNIM1->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM1->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gNIM1->GetYaxis()->SetRangeUser(0,1.05*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
@@ -225,7 +225,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM2->SetMarkerColor(4);
     gNIM2->SetMarkerStyle(43);
     gNIM2->SetMarkerSize(3);
-    gNIM2->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM2->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
     gNIM2->GetYaxis()->SetTitle("number of events/min");
@@ -237,7 +237,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM3->SetMarkerColor(4);
     gNIM3->SetMarkerStyle(43);
     gNIM3->SetMarkerSize(3);
-    gNIM3->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM3->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gNIM3->GetYaxis()->SetRangeUser(0,1.05*nim3_max);
     gNIM3->GetXaxis()->SetTitle("run_ID");
     gNIM3->GetYaxis()->SetTitle("number of events/min");
@@ -249,7 +249,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM4->SetMarkerColor(4);
     gNIM4->SetMarkerStyle(43);
     gNIM4->SetMarkerSize(3);
-    gNIM4->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM4->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gNIM4->GetYaxis()->SetRangeUser(0,1.05*nim4_max);
     gNIM4->GetXaxis()->SetTitle("run_ID");
     gNIM4->GetYaxis()->SetTitle("number of events/min");
@@ -261,7 +261,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gMatrix5->SetMarkerColor(4);
     gMatrix5->SetMarkerStyle(43);
     gMatrix5->SetMarkerSize(3);
-    gMatrix5->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gMatrix5->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gMatrix5->GetYaxis()->SetRangeUser(0,1.05*matrix5_max);
     gMatrix5->GetXaxis()->SetTitle("run_ID");
     gMatrix5->GetYaxis()->SetTitle("number of events/min");
@@ -273,7 +273,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gruntime->SetMarkerColor(4);
     gruntime->SetMarkerStyle(43);
     gruntime->SetMarkerSize(3);
-    gruntime->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gruntime->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gruntime->GetXaxis()->SetTitle("run_ID");
     gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
@@ -284,7 +284,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->SetMarkerColor(4);
     gqtls->SetMarkerStyle(21);
     //gqtls->SetMarkerSize(3);
-    gqtls->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gqtls->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     //gqtls->GetYaxis()->SetRangeUser(0,5);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
