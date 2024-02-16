@@ -23,7 +23,7 @@ void triggerRate()
     gSystem->mkdir("triggerRates", 1);
 
     gStyle->SetOptStat(1);
-    //gStyle->SetOptFit(1);
+    gStyle->SetOptFit(1);
 
     TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
