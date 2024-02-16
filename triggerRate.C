@@ -296,6 +296,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gtls->Draw("APE1");
     mg -> Add(gtls);
     mg-> Add(gqtls);
+    mg->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     mg->Draw("APE1");
     c7->BuildLegend();
 
