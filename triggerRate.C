@@ -280,7 +280,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
 
-    gqtls->SetTitle("Number of qualified tracklets");
+    gqtls->SetTitle("Number of qualified tracklets  in the run");
     gqtls->SetMarkerColor(4);
     gqtls->SetMarkerStyle(21);
     //gqtls->SetMarkerSize(3);
@@ -288,7 +288,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     //gqtls->GetYaxis()->SetRangeUser(0,5);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
-    gtls->SetTitle("Total number of qualified tracklets");
+    gtls->SetTitle("Total number of tracklets in the run");
     gtls->SetMarkerColor(2);
     gtls->SetMarkerStyle(22);
     //gtls->SetMarkerSize(3);
