@@ -299,7 +299,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     mg-> Add(gqtls);
     mg->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     mg->Draw("APE1");
-    c7->BuildLegend(0.2, 0.6, 0.5, 0.8, "", "");
+    c7->BuildLegend(0.6, 0.6, 0.8, 0.8, "", "");
 
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
