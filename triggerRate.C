@@ -282,21 +282,22 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gqtls->SetTitle("Number of qualified tracklets");
     gqtls->SetMarkerColor(4);
-    gqtls->SetMarkerStyle(43);
-    gqtls->SetMarkerSize(3);
+    gqtls->SetMarkerStyle(21);
+    //gqtls->SetMarkerSize(3);
     gqtls->GetXaxis()->SetRangeUser(xlow,xhigh);
     //gqtls->GetYaxis()->SetRangeUser(0,5);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gtls->SetTitle("Total number of qualified tracklets");
     gtls->SetMarkerColor(2);
-    gtls->SetMarkerStyle(43);
-    gtls->SetMarkerSize(3);
+    gtls->SetMarkerStyle(22);
+    //gtls->SetMarkerSize(3);
     gtls->Draw("APE1");
     mg -> Add(gtls);
     mg-> Add(gqtls);
     mg->Draw("APE1");
-    
+    c7->BuildLegend();
+
     c1->SaveAs("triggerRates/rNIM1.png");
     c2->SaveAs("triggerRates/rNIM2.png");
     c3->SaveAs("triggerRates/rNIM3.png");
@@ -304,5 +305,4 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c5->SaveAs("triggerRates/rMatrix5.png");
     c6->SaveAs("triggerRates/run_times.png");
     c7->SaveAs("triggerRates/tracklet_info.png");
-    c7->BuildLegend();
 }
