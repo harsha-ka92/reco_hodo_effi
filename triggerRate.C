@@ -289,6 +289,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gtls->SetTitle("Total number of tracklets in the run");
+    gtls->GetXaxis()->SetRangeUser(xlow-1,xhigh);
     gtls->SetMarkerColor(2);
     gtls->SetMarkerStyle(22);
     //gtls->SetMarkerSize(3);
