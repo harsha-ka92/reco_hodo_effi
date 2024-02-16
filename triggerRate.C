@@ -286,12 +286,12 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->SetMarkerStyle(21);
     //gqtls->SetMarkerSize(3);
     //gqtls->GetXaxis()->SSetLimits(xlow-0.5,xhigh);
-    gqtls->GetYaxis()->SetLimits(0,360);
+    //gqtls->GetYaxis()->SetLimits(0,360);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gtls->SetTitle("Total number of tracklets in the run");
     //gtls->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    gtls->GetYaxis()->SetLimits(0,360);
+    //gtls->GetYaxis()->SetLimits(0,360);
     gtls->SetMarkerColor(2);
     gtls->SetMarkerStyle(22);
     //gtls->SetMarkerSize(3);
@@ -299,7 +299,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     mg -> Add(gtls);
     mg-> Add(gqtls);
     mg->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    mg->GetYaxis()->SetLimits(0,360);
+    mg->SetMinimum(0);
+    mg->SetMaximum(360);
     mg->Draw("APE1");
     c7->BuildLegend(0.6, 0.6, 0.8, 0.8, "", "");
 
