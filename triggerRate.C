@@ -213,7 +213,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
-    //gNIM1->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM1->GetXaxis()->SetRangeUser(xlow,xhigh);
     gNIM1->GetYaxis()->SetRangeUser(0,1.05*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
@@ -225,7 +225,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM2->SetMarkerColor(4);
     gNIM2->SetMarkerStyle(43);
     gNIM2->SetMarkerSize(3);
-    //gNIM2->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM2->GetXaxis()->SetRangeUser(xlow,xhigh);
     gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
     gNIM2->GetYaxis()->SetTitle("number of events/min");
@@ -273,10 +273,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gruntime->SetMarkerColor(4);
     gruntime->SetMarkerStyle(43);
     gruntime->SetMarkerSize(3);
-    gruntime->GetXaxis()->SetRangeUser(xlow,xhigh);
     gruntime->GetXaxis()->SetTitle("run_ID");
     gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
+    gruntime->GetXaxis()->SetRangeUser(xlow,xhigh);
 
     TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
 
