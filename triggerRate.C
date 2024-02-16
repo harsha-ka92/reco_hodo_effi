@@ -94,11 +94,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          if(trigger == 3) {nim3 +=1.0;}
          if(trigger == 4) {nim4 +=1.0;}
          if(trigger == 5) {matrix5 +=1.0;}
-         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
+         tlD0_temp = tlD0; tlD1_temp = tlD2; tlD3p_temp = tlD3m; tlBackPartial_temp = tlBackPartial; tlGlobal_temp = tlGlobal_temp;
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
-      }
+      }    
      else if (run_num == run_ID && i_ent == nEvents-1){
          std::cout<< "last event"<<std::endl;
          if(trigger == 1) {nim1 +=1.0;}
@@ -106,7 +106,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          if(trigger == 3) {nim3 +=1.0;}
          if(trigger == 4) {nim4 +=1.0;}
          if(trigger == 5) {matrix5 +=1.0;}
-         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m);
+         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
@@ -157,6 +157,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
      }
 
      else {
+
+           qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
            std::cout<< "run number changed"<<std::endl;
            rnim1 = nim1/run_time/60;
            rnim2 = nim2/run_time/60;
