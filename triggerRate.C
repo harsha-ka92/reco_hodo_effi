@@ -213,7 +213,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(43);
     gNIM1->SetMarkerSize(3);
-    gNIM1->GetXaxis()->SetRangeUser(xlow,xhigh);
+    gNIM1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM1->GetYaxis()->SetRangeUser(0,1.05*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
