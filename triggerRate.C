@@ -46,7 +46,8 @@ void triggerRate()
    int i =0;
    int qual_tl = 0;
 
-   int trigger, dor, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets, tlBackPartial, tlGlobal;
+   int trigger, dor, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, tlD3p, nTracklets, tlBackPartial, tlGlobal;
+   int tlD0_temp, tlD1_temp, tlD2_temp, tlD3m_temp, tlD3p_temp, tlBackPartial_temp, tlGlobal_temp;
    double nim1_max = 0.0;
    double nim2_max = 0.0;
    double nim3_max = 0.0;
@@ -94,7 +95,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          if(trigger == 3) {nim3 +=1.0;}
          if(trigger == 4) {nim4 +=1.0;}
          if(trigger == 5) {matrix5 +=1.0;}
-         tlD0_temp = tlD0; tlD1_temp = tlD2; tlD3p_temp = tlD3m; tlBackPartial_temp = tlBackPartial; tlGlobal_temp = tlGlobal_temp;
+         tlD0_temp = tlD0; tlD1_temp = tlD1; tlD2_temp = tlD2; tlD3p_temp = tlD3p; tlD3m_temp = tlD3m; tlBackPartial_temp = tlBackPartial; tlGlobal_temp = tlGlobal;
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
@@ -106,7 +107,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          if(trigger == 3) {nim3 +=1.0;}
          if(trigger == 4) {nim4 +=1.0;}
          if(trigger == 5) {matrix5 +=1.0;}
-         qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
+         qual_tl += (tlD0_temp + tlD1_temp + tlD2_temp + tlD3p_temp + tlD3m_temp + tlBackPartial_temp + tlGlobal_temp);
          run_time = dor;
          run_num = run_ID;
          num_tls += nTracklets;
@@ -158,7 +159,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
      else {
 
-           qual_tl += (tlD0 + tlD1 + tlD2 + tlD3p + tlD3m + tlBackPartial + tlGlobal);
+           qual_tl += (tlD0_temp + tlD1_temp + tlD2_temp + tlD3p_temp + tlD3m_temp + tlBackPartial_temp + tlGlobal_temp);
+           tlD0_temp = tlD0; tlD1_temp = tlD1; tlD2_temp = tlD2; tlD3p_temp = tlD3p; tlD3m_temp = tlD3m; tlBackPartial_temp = tlBackPartial; tlGlobal_temp = tlGlobal;
            std::cout<< "run number changed"<<std::endl;
            rnim1 = nim1/run_time/60;
            rnim2 = nim2/run_time/60;
