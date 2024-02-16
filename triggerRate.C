@@ -285,6 +285,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gtls->SetMarkerColor(2);
+    gtls->SetMarkerStyle(43);
     gtls->SetMarkerSize(3);
     gtls->Draw("APE1");
     mg -> Add(gtls);
