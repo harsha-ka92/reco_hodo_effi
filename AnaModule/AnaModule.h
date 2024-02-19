@@ -87,6 +87,7 @@ private:
   int elementID_closest;
   double x_exp;
   double y_exp;
+  double tdc_time;
   int nHits;
   double chisq;
   int trigger;
