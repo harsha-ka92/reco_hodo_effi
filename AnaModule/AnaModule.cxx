@@ -76,29 +76,29 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
 
 	//Number of Hist in : St1
-	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHitsFast(event, hit_vec, "H1T"));
+	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHitsFast(event, hitVector, "H1T"));
  	std::cout << "Hits in H1T = " << hv_h1t->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h1b(UtilSQHit::FindHitsFast(event, hit_vec, "H1B"));
+	std::shared_ptr<SQHitVector> hv_h1b(UtilSQHit::FindHitsFast(event, hitVector, "H1B"));
  	std::cout << "Hits in H1B = " << hv_h1b->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h1l(UtilSQHit::FindHitsFast(event, hit_vec, "H1L"));
+	std::shared_ptr<SQHitVector> hv_h1l(UtilSQHit::FindHitsFast(event, hitVector, "H1L"));
  	std::cout << "Hits in H1L = " << hv_h1l->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h1r(UtilSQHit::FindHitsFast(event, hit_vec, "H1R"));
+	std::shared_ptr<SQHitVector> hv_h1r(UtilSQHit::FindHitsFast(event, hitVector, "H1R"));
  	std::cout << "Hits in H1R = " << hv_h1r->size() << std::endl;
 
 	//Number of Hist in : St2
-	std::shared_ptr<SQHitVector> hv_h2t(UtilSQHit::FindHitsFast(event, hit_vec, "H2T"));
+	std::shared_ptr<SQHitVector> hv_h2t(UtilSQHit::FindHitsFast(event, hitVector, "H2T"));
  	std::cout << "Hits in H2T = " << hv_h2t->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h2b(UtilSQHit::FindHitsFast(event, hit_vec, "H2B"));
+	std::shared_ptr<SQHitVector> hv_h2b(UtilSQHit::FindHitsFast(event, hitVector, "H2B"));
  	std::cout << "Hits in H2B = " << hv_h2b->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h2l(UtilSQHit::FindHitsFast(event, hit_vec, "H2L"));
+	std::shared_ptr<SQHitVector> hv_h2l(UtilSQHit::FindHitsFast(event, hitVector, "H2L"));
  	std::cout << "Hits in H2L = " << hv_h2l->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h2r(UtilSQHit::FindHitsFast(event, hit_vec, "H2R"));
+	std::shared_ptr<SQHitVector> hv_h2r(UtilSQHit::FindHitsFast(event, hitVector, "H2R"));
  	std::cout << "Hits in H2R = " << hv_h2r->size() << std::endl;
 
 	//Number of Hist in : St3
-	std::shared_ptr<SQHitVector> hv_h3t(UtilSQHit::FindHitsFast(event, hit_vec, "H3T"));
+	std::shared_ptr<SQHitVector> hv_h3t(UtilSQHit::FindHitsFast(event, hitVector, "H3T"));
  	std::cout << "Hits in H3T = " << hv_h2t->size() << std::endl;
-	std::shared_ptr<SQHitVector*> hv_h3b(UtilSQHit::FindHitsFast(event, hit_vec, "H3B"));
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHitsFast(event, hitVector, "H3B"));
  	std::cout << "Hits in H3B = " << hv_h3b->size() << std::endl;
 
 	for(int i = 0; i < nTracklets; ++i)
