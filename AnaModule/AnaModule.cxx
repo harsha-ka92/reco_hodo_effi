@@ -75,43 +75,113 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
 
-	/*for (auto iter = hodo_planes.begin(); iter != hodo_planes.end(); iter++){
+	for (auto iter = hodo_planes.begin(); iter != hodo_planes.end(); iter++){
 		ID = *iter;
 		auto vec = UtilSQHit::FindHits(hitVector, ID);
+		
 		std::cout << "Number of Hits in H1T = "  << vec->size() << std::endl;
  			for (auto it = vec->begin(); it != vec->end(); it++) {
 				//int    ele_id = (*it)->get_element_id();
 				double tdc_time   = (*it)->get_tdc_time  ();
 				std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 			}
-	}*/
+	}
 
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
- 	std::cout << "Hits in H1T = " << hv_h1t->size() << std::endl;
+	num_h1t = hv_h1t->size();
+ 	for (auto it = hv_h1t->begin(); it != hv_h1t->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h1t.push_back(tdc_time);
+	}
+	
 	std::shared_ptr<SQHitVector> hv_h1b(UtilSQHit::FindHits(hitVector, "H1B"));
- 	std::cout << "Hits in H1B = " << hv_h1b->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h1l(UtilSQHit::FindHits(hitVector, "H1L"));
- 	std::cout << "Hits in H1L = " << hv_h1l->size() << std::endl;
+	num_h1b = hv_h1b->size();
+ 	for (auto it = hv_h1b->begin(); it != hv_h1b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h1b.push_back(tdc_time);
+	}
+
 	std::shared_ptr<SQHitVector> hv_h1r(UtilSQHit::FindHits(hitVector, "H1R"));
- 	std::cout << "Hits in H1R = " << hv_h1r->size() << std::endl;
+	num_h1r = hv_h1r->size();
+ 	for (auto it = hv_h1r->begin(); it != hv_h1r->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h1r.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h1l(UtilSQHit::FindHits(hitVector, "H1L"));
+	num_h1l = hv_h1l->size();
+ 	for (auto it = hv_h1l->begin(); it != hv_h1l->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h1l.push_back(tdc_time);
+	}
+
 
 	//Number of Hist in : St2
 	std::shared_ptr<SQHitVector> hv_h2t(UtilSQHit::FindHits(hitVector, "H2T"));
- 	std::cout << "Hits in H2T = " << hv_h2t->size() << std::endl;
+	num_h2t = hv_h2t->size();
+ 	for (auto it = hv_h2t->begin(); it != hv_h2t->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h2t.push_back(tdc_time);
+	}
+	
 	std::shared_ptr<SQHitVector> hv_h2b(UtilSQHit::FindHits(hitVector, "H2B"));
- 	std::cout << "Hits in H2B = " << hv_h2b->size() << std::endl;
-	std::shared_ptr<SQHitVector> hv_h2l(UtilSQHit::FindHits(hitVector, "H2L"));
- 	std::cout << "Hits in H2L = " << hv_h2l->size() << std::endl;
+	num_h2b = hv_h2b->size();
+ 	for (auto it = hv_h2b->begin(); it != hv_h2b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h2b.push_back(tdc_time);
+	}
+
 	std::shared_ptr<SQHitVector> hv_h2r(UtilSQHit::FindHits(hitVector, "H2R"));
- 	std::cout << "Hits in H2R = " << hv_h2r->size() << std::endl;
+	num_h2r = hv_h2r->size();
+ 	for (auto it = hv_h2r->begin(); it != hv_h2r->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h2r.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h2l(UtilSQHit::FindHits(hitVector, "H2L"));
+	num_h2l = hv_h2l->size();
+ 	for (auto it = hv_h2l->begin(); it != hv_h2l->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h2l.push_back(tdc_time);
+	}
 
 	//Number of Hist in : St3
 	std::shared_ptr<SQHitVector> hv_h3t(UtilSQHit::FindHits(hitVector, "H3T"));
- 	std::cout << "Hits in H3T = " << hv_h2t->size() << std::endl;
+	num_h3t = hv_h3t->size();
+ 	for (auto it = hv_h3t->begin(); it != hv_h3t->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time  ();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h3t.push_back(tdc_time);
+	}
+	
 	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H3B"));
- 	std::cout << "Hits in H3B = " << hv_h3b->size() << std::endl;
+	num_h3b = hv_h3b->size();
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
+		tdc_h3b.push_back(tdc_time);
+	}
 
+	
 	for(int i = 0; i < nTracklets; ++i)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
@@ -237,6 +307,7 @@ int AnaModule::End(PHCompositeNode* topNode)
   saveFile->cd();
   saveTree->Write();
   tlTree->Write();
+  hitTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
@@ -310,6 +381,12 @@ void AnaModule::MakeTree()
 	tlTree->Branch("event_ID", &event_ID, "event_ID/I");
 	tlTree->Branch("stID", &stID, "stID/I");
 	//runTree->Branch("dor", &dor,"dor/I");
+
+  hitTree = new TTree("tls", "tracklet information");
+	hitTree->Branch("eventID", &eventID, "eventID/I");
+	hitTree->Branch("event_ID", &event_ID, "event_ID/I");
+	hitTree->Branch("detector plane", &ID);
+	hitTree->Branch("tdc_time",&tdc_time);
   //saveTree -> AddFriend("runTree", saveName);
 }
 
