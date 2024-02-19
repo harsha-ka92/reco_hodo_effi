@@ -73,6 +73,7 @@ private:
   TFile*  saveFile;
   TTree*  saveTree;
   TTree* tlTree;
+  TTree* hitTree;
 	
 //	HitList hit_vec; 
 
@@ -110,6 +111,19 @@ private:
 
 //Hit info
   std::string ID;
+  std::vector<float> tdc_h1t;
+  std::vector<float> tdc_h1b;
+  std::vector<float> tdc_h1r;
+  std::vector<float> tdc_h1l;
+
+  std::vector<float> tdc_h2t;
+  std::vector<float> tdc_h2b;
+  std::vector<float> tdc_h2r;
+  std::vector<float> tdc_h2l;
+
+  std::vector<float> tdc_h3t;
+  std::vector<float> tdc_h3b;
+
   int num_h1t;
   int num_h1b;
   int num_h1r;
