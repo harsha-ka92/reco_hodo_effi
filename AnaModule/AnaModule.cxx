@@ -76,28 +76,16 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
 
 	/*for (auto iter = hodo_planes.begin(); iter != hodo_planes.end(); iter++){
-		ID = *iter;*/
-		auto vec = UtilSQHit::FindHits(hitVector, "H2T");
-		std::cout << "Number of Hits in H2T = "  << vec->size() << std::endl;
- 			for (auto it = vec->begin(); it != vec->end(); it++) {
-				//int    ele_id = (*it)->get_element_id();
-				double tdc_time   = (*it)->get_tdc_time  ();
-				std::cout << "tdc time of the hit = " << tdc_time << std::endl;
-			}
-	//}
-
-	/*for (int i=0; i< hodo_planes.size(); i++){
-		std::cout << "i is = " << i << std::endl;
-		ID = hodo_planes.at(i);
-		auto vec = UtilSQHit::FindHitsFast(event, hitVector, ID);
-		std::cout << "Number of Hits in "<< ID << "= " << vec->size() << std::endl;
+		ID = *iter;
+		auto vec = UtilSQHit::FindHits(hitVector, ID);
+		std::cout << "Number of Hits in H1T = "  << vec->size() << std::endl;
  			for (auto it = vec->begin(); it != vec->end(); it++) {
 				//int    ele_id = (*it)->get_element_id();
 				double tdc_time   = (*it)->get_tdc_time  ();
 				std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 			}
 	}*/
-	
+
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
  	std::cout << "Hits in H1T = " << hv_h1t->size() << std::endl;
@@ -249,6 +237,7 @@ int AnaModule::End(PHCompositeNode* topNode)
   saveFile->cd();
   saveTree->Write();
   tlTree->Write();
+  hitTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
@@ -280,18 +269,18 @@ void AnaModule::MakeTree()
 	saveTree->Branch("dor", &dor,"dor/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
-	saveTree->Branch("hv_h1t", &hv_h1t, "hv_h1t/I");
-	saveTree->Branch("hv_h1b", &hv_h1b, "hv_h1b/I");
-	saveTree->Branch("hv_h1l", &hv_h1l, "hv_h1l/I");
-	saveTree->Branch("hv_h1r", &hv_h1r, "hv_h1r/I");
+	saveTree->Branch("hv_h1t", &hv_h1t);
+	saveTree->Branch("hv_h1b", &hv_h1b);
+	saveTree->Branch("hv_h1l", &hv_h1l);
+	saveTree->Branch("hv_h1r", &hv_h1r);
 
-	saveTree->Branch("hv_h2t", &hv_h2t, "hv_h2t/I");
-	saveTree->Branch("hv_h2b", &hv_h2b, "hv_h2b/I");
-	saveTree->Branch("hv_h2l", &hv_h2l, "hv_h2l/I");
-	saveTree->Branch("hv_h2r", &hv_h2r, "hv_h2r/I");
+	saveTree->Branch("hv_h2t", &hv_h2t);
+	saveTree->Branch("hv_h2b", &hv_h2b);
+	saveTree->Branch("hv_h2l", &hv_h2l);
+	saveTree->Branch("hv_h2r", &hv_h2r);
 	
-	saveTree->Branch("hv_h3t", &hv_h3t, "hv_h3t/I");
-	saveTree->Branch("hv_h3b", &hv_h3b, "hv_h3b/I");
+	saveTree->Branch("hv_h3t", &hv_h3t);
+	saveTree->Branch("hv_h3b", &hv_h3b);
 
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
@@ -322,7 +311,6 @@ void AnaModule::MakeTree()
 	tlTree->Branch("event_ID", &event_ID, "event_ID/I");
 	tlTree->Branch("stID", &stID, "stID/I");
 	//runTree->Branch("dor", &dor,"dor/I");
-	
   //saveTree -> AddFriend("runTree", saveName);
 }
 
