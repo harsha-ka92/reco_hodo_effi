@@ -10,6 +10,7 @@
 #include <interface_main/SQDimuonVector_v1.h>
 #include <interface_main/SQRun.h>
 #include <interface_main/SQEvent.h>
+#include <packages/UtilAna/UtilSQHit.h>
 #include <vector>
 
 #include "AnaModule.h"
@@ -73,7 +74,33 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
 	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
-	
+
+	//Number of Hist in : St1
+	shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHitsFast(event, hit_vec, "H1T"));
+ 	cout << "Hits in H1T = " << hv_h1t->size() << endl;
+	shared_ptr<SQHitVector> hv_h1b(UtilSQHit::FindHitsFast(event, hit_vec, "H1B"));
+ 	cout << "Hits in H1B = " << hv_h1b->size() << endl;
+	shared_ptr<SQHitVector> hv_h1l(UtilSQHit::FindHitsFast(event, hit_vec, "H1L"));
+ 	cout << "Hits in H1L = " << hv_h1l->size() << endl;
+	shared_ptr<SQHitVector> hv_h1r(UtilSQHit::FindHitsFast(event, hit_vec, "H1R"));
+ 	cout << "Hits in H1R = " << hv_h1r->size() << endl;
+
+	//Number of Hist in : St2
+	shared_ptr<SQHitVector> hv_h2t(UtilSQHit::FindHitsFast(event, hit_vec, "H2T"));
+ 	cout << "Hits in H2T = " << hv_h2t->size() << endl;
+	shared_ptr<SQHitVector> hv_h2b(UtilSQHit::FindHitsFast(event, hit_vec, "H2B"));
+ 	cout << "Hits in H2B = " << hv_h2b->size() << endl;
+	shared_ptr<SQHitVector> hv_h2l(UtilSQHit::FindHitsFast(event, hit_vec, "H2L"));
+ 	cout << "Hits in H2L = " << hv_h2l->size() << endl;
+	shared_ptr<SQHitVector> hv_h2r(UtilSQHit::FindHitsFast(event, hit_vec, "H2R"));
+ 	cout << "Hits in H2R = " << hv_h2r->size() << endl;
+
+	//Number of Hist in : St3
+	shared_ptr<SQHitVector> hv_h3t(UtilSQHit::FindHitsFast(event, hit_vec, "H3T"));
+ 	cout << "Hits in H3T = " << hv_h2t->size() << endl;
+	shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHitsFast(event, hit_vec, "H3B"));
+ 	cout << "Hits in H3B = " << hv_h3b->size() << endl;
+
 	for(int i = 0; i < nTracklets; ++i)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
@@ -93,7 +120,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		 if(stID == 6){tlBackPartial += 1;}
 		 if(stID == 7){tlGlobal += 1;}
 		
-		std::cout<<  "QTL station ID " << stID <<std::endl;
+		//std::cout<<  "QTL station ID " << stID <<std::endl;
 		tlTree->Fill();
 		// data structure created by dinupa3@gmail.com
 		/*if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
