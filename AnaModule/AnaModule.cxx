@@ -295,7 +295,7 @@ int AnaModule::End(PHCompositeNode* topNode)
   saveFile->cd();
   saveTree->Write();
   tlTree->Write();
-  hitTree->Write();
+  //hitTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
