@@ -75,18 +75,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
 
-	for (auto iter = hodo_planes.begin(); iter != hodo_planes.end(); iter++){
-		ID = *iter;
-		auto vec = UtilSQHit::FindHits(hitVector, ID);
-		
-		std::cout << "Number of Hits in H1T = "  << vec->size() << std::endl;
- 			for (auto it = vec->begin(); it != vec->end(); it++) {
-				//int    ele_id = (*it)->get_element_id();
-				double tdc_time   = (*it)->get_tdc_time  ();
-				std::cout << "tdc time of the hit = " << tdc_time << std::endl;
-			}
-	}
-
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
 	num_h1t = hv_h1t->size();
@@ -339,18 +327,19 @@ void AnaModule::MakeTree()
 	saveTree->Branch("dor", &dor,"dor/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
-	saveTree->Branch("hv_h1t", &hv_h1t);
-	saveTree->Branch("hv_h1b", &hv_h1b);
-	saveTree->Branch("hv_h1l", &hv_h1l);
-	saveTree->Branch("hv_h1r", &hv_h1r);
+	saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
+	saveTree->Branch("tdc_h1t", &tdc_h1t);
+	saveTree->Branch("num_h1b", &num_h1b, "num_h1b/I");
+	saveTree->Branch("num_h1l", &num_h1l, "num_h1l/I");
+	saveTree->Branch("num_h1r", &num_h1r, "num_h1r/I");
 
-	saveTree->Branch("hv_h2t", &hv_h2t);
-	saveTree->Branch("hv_h2b", &hv_h2b);
-	saveTree->Branch("hv_h2l", &hv_h2l);
-	saveTree->Branch("hv_h2r", &hv_h2r);
+	saveTree->Branch("num_h2t", &num_h2t, "num_h2t/I");
+	saveTree->Branch("num_h2b", &num_h2b, "num_h2b/I");
+	saveTree->Branch("num_h2l", &num_h2l, "num_h2l/I");
+	saveTree->Branch("num_h2r", &num_h2r, "num_h2r/I");
 	
-	saveTree->Branch("hv_h3t", &hv_h3t);
-	saveTree->Branch("hv_h3b", &hv_h3b);
+	saveTree->Branch("num_h3t", &num_h3t, "num_h3t/I");
+	saveTree->Branch("num_h3b", &num_h3b, "num_h3b/I");
 
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
