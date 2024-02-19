@@ -76,17 +76,17 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
 
 	/*for (auto iter = hodo_planes.begin(); iter != hodo_planes.end(); iter++){
-		ID = *iter;
-		auto vec = UtilSQHit::FindHitsFast(event, hitVector, ID);
+		ID = *iter;*/
+		auto vec = UtilSQHit::FindHitsFast(event, hitVector, "H1T");
 		std::cout << "Number of Hits in "<< ID << "= " << vec->size() << std::endl;
  			for (auto it = vec->begin(); it != vec->end(); it++) {
 				//int    ele_id = (*it)->get_element_id();
 				double tdc_time   = (*it)->get_tdc_time  ();
 				std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 			}
-	}*/
+	//}
 
-	for (int i=0; i< hodo_planes.size(); i++){
+	/*for (int i=0; i< hodo_planes.size(); i++){
 		std::cout << "i is = " << i << std::endl;
 		ID = hodo_planes.at(i);
 		auto vec = UtilSQHit::FindHitsFast(event, hitVector, ID);
@@ -96,7 +96,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 				double tdc_time   = (*it)->get_tdc_time  ();
 				std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 			}
-	}
+	}*/
 	
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
