@@ -87,6 +87,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	}*/
 
 	for (int i=0; i< hodo_planes.size(); i++){
+		std::cout << "i is = " << i << std::endl;
 		ID = hodo_planes.at(i);
 		auto vec = UtilSQHit::FindHitsFast(event, hitVector, ID);
 		std::cout << "Number of Hits in "<< ID << "= " << vec->size() << std::endl;
