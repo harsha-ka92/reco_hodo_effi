@@ -17,6 +17,7 @@
 //#include <packages/UtilAna/UtilSQHit.h>
 
 #include "HitData.h"
+#include "HodoConst.h"
 
 class TFile;
 class TTree;
