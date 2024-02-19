@@ -14,7 +14,7 @@
 #include <interface_main/SQRun.h>
 #include <interface_main/SQEvent.h>
 #include <interface_main/SQRun.h>
-#include <packages/UtilAna/UtilSQHit.h>
+//#include <packages/UtilAna/UtilSQHit.h>
 
 #include "HitData.h"
 
