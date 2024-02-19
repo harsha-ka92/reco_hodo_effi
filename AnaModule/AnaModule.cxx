@@ -258,6 +258,18 @@ void AnaModule::MakeTree()
 	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
 	saveTree->Branch("hv_h1t", &hv_h1t, "hv_h1t/I");
+	saveTree->Branch("hv_h1b", &hv_h1b, "hv_h1b/I");
+	saveTree->Branch("hv_h1l", &hv_h1l, "hv_h1l/I");
+	saveTree->Branch("hv_h1r", &hv_h1r, "hv_h1r/I");
+
+	saveTree->Branch("hv_h2t", &hv_h2t, "hv_h2t/I");
+	saveTree->Branch("hv_h2b", &hv_h2b, "hv_h2b/I");
+	saveTree->Branch("hv_h2l", &hv_h2l, "hv_h2l/I");
+	saveTree->Branch("hv_h2r", &hv_h2r, "hv_h2r/I");
+	
+	saveTree->Branch("hv_h3t", &hv_h3t, "hv_h3t/I");
+	saveTree->Branch("hv_h3b", &hv_h3b, "hv_h3b/I");
+
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
   	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
