@@ -108,6 +108,7 @@ private:
   int stID;
 
 //Hit info
+  int ID;
   int hv_h1t;
   int hv_h1b;
   int hv_h1r;
