@@ -10,7 +10,7 @@
 #include <interface_main/SQDimuonVector_v1.h>
 #include <interface_main/SQRun.h>
 #include <interface_main/SQEvent.h>
-#include <packages/UtilAna/UtilSQHit.h>
+#include <UtilAna/UtilSQHit.h>
 #include <vector>
 
 #include "AnaModule.h"
