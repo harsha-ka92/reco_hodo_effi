@@ -77,8 +77,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 
 	/*for (auto iter = hodo_planes.begin(); iter != hodo_planes.end(); iter++){
 		ID = *iter;*/
-		auto vec = UtilSQHit::FindHitsFast(event, hitVector, "H1T");
-		std::cout << "Number of Hits in "<< ID << "= " << vec->size() << std::endl;
+		vector<SQHit*> vec = UtilSQHit::FindHitsFast(event, hitVector, "H1T");
+		std::cout << "Number of Hits in H1T "=  << vec->size() << std::endl;
  			for (auto it = vec->begin(); it != vec->end(); it++) {
 				//int    ele_id = (*it)->get_element_id();
 				double tdc_time   = (*it)->get_tdc_time  ();
