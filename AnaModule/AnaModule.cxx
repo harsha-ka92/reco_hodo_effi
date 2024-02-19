@@ -14,7 +14,7 @@
 #include <vector>
 
 #include "AnaModule.h"
-#include "HitData.h"
+//#include "HitData.h"
 
 AnaModule::AnaModule(const std::string& name): SubsysReco(name), p_geomSvc(GeomSvc::instance())
 {}
