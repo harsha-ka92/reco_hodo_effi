@@ -110,16 +110,16 @@ private:
 
 //Hit info
   std::string ID;
-  int hv_h1t;
-  int hv_h1b;
-  int hv_h1r;
-  int hv_h1l;
-  int hv_h2t;
-  int hv_h2b;
-  int hv_h2r;
-  int hv_h2l;
-  int hv_h3t;
-  int hv_h3b;
+  int num_h1t;
+  int num_h1b;
+  int num_h1r;
+  int num_h1l;
+  int num_h2t;
+  int num_h2b;
+  int num_h2r;
+  int num_h2l;
+  int num_h3t;
+  int num_h3b;
 };
 
 #endif
