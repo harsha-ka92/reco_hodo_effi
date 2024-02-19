@@ -110,20 +110,25 @@ private:
   int stID;
 
 //Hit info
+  #ifdef __MAKECINT__
+  #pragma link C++ class vector<double>+;
+  #endif
+
+  std::vector<double> tdc_h1t;
+  std::vector<double> tdc_h1b;
+  std::vector<double> tdc_h1r;
+  std::vector<double> tdc_h1l;
+
+  std::vector<double> tdc_h2t;
+  std::vector<double> tdc_h2b;
+  std::vector<double> tdc_h2r;
+  std::vector<double> tdc_h2l;
+
+  std::vector<double> tdc_h3t;
+  std::vector<double> tdc_h3b;
+
+
   std::string ID;
-  std::vector<float> tdc_h1t;
-  std::vector<float> tdc_h1b;
-  std::vector<float> tdc_h1r;
-  std::vector<float> tdc_h1l;
-
-  std::vector<float> tdc_h2t;
-  std::vector<float> tdc_h2b;
-  std::vector<float> tdc_h2r;
-  std::vector<float> tdc_h2l;
-
-  std::vector<float> tdc_h3t;
-  std::vector<float> tdc_h3b;
-
   int num_h1t;
   int num_h1b;
   int num_h1r;
