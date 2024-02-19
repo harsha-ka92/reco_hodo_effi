@@ -105,6 +105,18 @@ private:
 // Tracklet info
   int tlD0, tlD1, tlD2, tlD3p, tlD3m, tlBackPartial, tlGlobal;
   int stID;
+
+//Hit info
+  int hv_h1t;
+  int hv_h1b;
+  int hv_h1r;
+  int hv_h1l;
+  int hv_h2t;
+  int hv_h2b;
+  int hv_h2r;
+  int hv_h2l;
+  int hv_h3t;
+  int hv_h3b;
 };
 
 #endif
