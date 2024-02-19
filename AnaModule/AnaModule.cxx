@@ -75,9 +75,10 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
 
-	for (auto iter = hodo_name->begin(); iter != hodo_name->end(), iter++){
-		auto vec = UtilSQHit::FindHitsFast(event, hitVector, (*iter));
-		std::cout << "Hits in H1T = " << vec->size() << std::endl;
+	for (auto iter = detectorIDs->begin(); iter != detectorIDs->end(); iter++){
+		ID = *iter;
+		auto vec = UtilSQHit::FindHitsFast(event, hitVector, ID);
+		std::cout << "Number of Hits in "<< ID << "= " << vec->size() << std::endl;
  			for (auto it = vec->begin(); it != vec->end(); it++) {
 				//int    ele_id = (*it)->get_element_id();
 				double tdc_time   = (*it)->get_tdc_time  ();
