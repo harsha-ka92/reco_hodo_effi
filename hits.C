@@ -320,7 +320,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 }
 
     TCanvas* c1 = new TCanvas("tdc_time: St1", "tdc_time: St1", 1000, 500);
-    htdc_h1t->SetLineColor(1);
+    c1->SetFillColor(18);
+    htdc_h1t->SetLineColor(7);
     htdc_h1t->Draw();
     htdc_h1b->SetLineColor(2);
     htdc_h1b->Draw("SAME");
@@ -334,10 +335,13 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c1->Update();
     
     TCanvas* c2 = new TCanvas("tdc_time: St2", "tdc_time: St2", 1000, 500);
-
+    htdc_h2t->SetLineColor(7);
     htdc_h2t->Draw();
+    htdc_h2b->SetLineColor(2);
     htdc_h2b->Draw("SAME");
+    htdc_h2r->SetLineColor(3);
     htdc_h2r->Draw("SAME");
+    htdc_h2l->SetLineColor(4);
     htdc_h2l->Draw("SAME");
     /*htdc_h2l->SetTitle("tdc_time");
     htdc_h2l->GetXaxis()->SetTitle("tdc_time");
@@ -345,8 +349,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c2->Update();
 
     TCanvas* c3 = new TCanvas("tdc_time: St3", "tdc_time: St3", 1000, 500);
-
+    htdc_h3t->SetLineColor(7);
     htdc_h3t->Draw();
+    htdc_h3b->SetLineColor(2);
     htdc_h3b->Draw("SAME");
     /*htdc_h3b->SetTitle("tdc_time");
     htdc_h3b->GetXaxis()->SetTitle("tdc_time");
