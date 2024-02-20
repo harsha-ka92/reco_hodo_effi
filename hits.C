@@ -319,34 +319,38 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     }
 }
 
-    TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
+    TCanvas* c1 = new TCanvas("tdc_time: St1", "tdc_time: St1", 1000, 500);
+    htdc_h1t->SetLineColor(1);
     htdc_h1t->Draw();
+    htdc_h1b->SetLineColor(2);
     htdc_h1b->Draw("SAME");
+    htdc_h1r->SetLineColor(3);
     htdc_h1r->Draw("SAME");
+    htdc_h1l->SetLineColor(4);
     htdc_h1l->Draw("SAME");
-    htdc_h1l->SetTitle("tdc_time");
+    /*htdc_h1l->SetTitle("");
     htdc_h1l->GetXaxis()->SetTitle("tdc_time");
-    htdc_h1l->GetYaxis()->SetTitle("number of events");
+    htdc_h1l->GetYaxis()->SetTitle("number of events");*/
     c1->Update();
     
-    TCanvas* c2 = new TCanvas("c2", "", 1000, 500);
+    TCanvas* c2 = new TCanvas("tdc_time: St2", "tdc_time: St2", 1000, 500);
 
     htdc_h2t->Draw();
     htdc_h2b->Draw("SAME");
     htdc_h2r->Draw("SAME");
     htdc_h2l->Draw("SAME");
-    htdc_h2l->SetTitle("tdc_time");
+    /*htdc_h2l->SetTitle("tdc_time");
     htdc_h2l->GetXaxis()->SetTitle("tdc_time");
-    htdc_h2l->GetYaxis()->SetTitle("number of events");
+    htdc_h2l->GetYaxis()->SetTitle("number of events");*/
     c2->Update();
 
-    TCanvas* c3 = new TCanvas("c3", "", 1000, 500);
+    TCanvas* c3 = new TCanvas("tdc_time: St3", "tdc_time: St3", 1000, 500);
 
     htdc_h3t->Draw();
     htdc_h3b->Draw("SAME");
-    htdc_h3b->SetTitle("tdc_time");
+    /*htdc_h3b->SetTitle("tdc_time");
     htdc_h3b->GetXaxis()->SetTitle("tdc_time");
-    htdc_h3b->GetYaxis()->SetTitle("number of events");
+    htdc_h3b->GetYaxis()->SetTitle("number of events");*/
     c3->Update();
 
     TCanvas* c4 = new TCanvas("c4", "", 1000, 500);
@@ -356,7 +360,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->SetMarkerStyle(43);
     grh1->SetMarkerSize(3);
     grh1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    //grh1->GetYaxis()->SetRangeUser(0,1.05*rh1_max);
+    grh1->GetYaxis()->SetLimits(0,1.05*rh1_max);
     grh1->GetXaxis()->SetTitle("run_ID");
     grh1->GetYaxis()->SetTitle("number of hits/min");
     grh1->Draw("APE1");
@@ -369,7 +373,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->SetMarkerStyle(43);
     grh2->SetMarkerSize(3);
     grh2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    //grh2->GetYaxis()->SetRangeUser(0,1.05*rh2_max);
+    grh2->GetYaxis()->SetLimits(0,1.05*rh2_max);
     grh2->GetXaxis()->SetTitle("run_ID");
     grh2->GetYaxis()->SetTitle("number of hits/min");
     grh2->Draw("APE1");
@@ -382,7 +386,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->SetMarkerStyle(43);
     grh3->SetMarkerSize(3);
     grh3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    //grh3->GetYaxis()->SetRangeUser(0,1.05*rh3_max);
+    grh3->GetYaxis()->SetLimits(0,1.05*rh3_max);
     grh3->GetXaxis()->SetTitle("run_ID");
     grh3->GetYaxis()->SetTitle("number of hits/min");
     grh3->Draw("APE1");
