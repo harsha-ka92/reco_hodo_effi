@@ -114,7 +114,9 @@ void hits()
    TGraphAsymmErrors* gtdc_h3t = new TGraphAsymmErrors();
    TGraphAsymmErrors* gtdc_h3b = new TGraphAsymmErrors();
 
-   //TMultiGraph* mg = new TMultiGraph();
+   TMultiGraph* mg1 = new TMultiGraph();
+   TMultiGraph* mg2 = new TMultiGraph();
+   TMultiGraph* mg3 = new TMultiGraph();
 
    nEvents = tr->GetEntries();
 
@@ -322,16 +324,19 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     TCanvas* c1 = new TCanvas("tdc_time: St1", "tdc_time: St1", 1000, 500);
     c1->SetFillColor(18);
     htdc_h1t->SetLineColor(7);
-    htdc_h1t->Draw();
+    //htdc_h1t->Draw();
     htdc_h1b->SetLineColor(2);
-    htdc_h1b->Draw("SAME");
+    //htdc_h1b->Draw("SAME");
     htdc_h1r->SetLineColor(3);
-    htdc_h1r->Draw("SAME");
+    //htdc_h1r->Draw("SAME");
     htdc_h1l->SetLineColor(4);
-    htdc_h1l->Draw("SAME");
+    //htdc_h1l->Draw("SAME");
     /*htdc_h1l->SetTitle("");
     htdc_h1l->GetXaxis()->SetTitle("tdc_time");
     htdc_h1l->GetYaxis()->SetTitle("number of events");*/
+    mg1->Add(htdc_h1t); mg1->Add(htdc_h1b); mg1->Add(htdc_h1r); mg1->Add(htdc_h1l); 
+    mg1->SetTitle("tdc_time: St1")
+    mg1->Draw();
     c1->Update();
     
     TCanvas* c2 = new TCanvas("tdc_time: St2", "tdc_time: St2", 1000, 500);
