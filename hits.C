@@ -75,18 +75,18 @@ void hits()
 
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-
+    
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       
       //if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID && i_ent != nEvents-1){
-
+        
         for ( int j =0; j< tdc_h1t->size(); j++){
             htdc_h1t->Fill(tdc_h1t->at(j));
         }
          run_num = run_ID;
-     
+         std::cout<<run_ID<<std::endl;
       }    
      else if (run_num == run_ID && i_ent == nEvents-1){
          for ( int j =0; j< tdc_h1t->size(); j++){
