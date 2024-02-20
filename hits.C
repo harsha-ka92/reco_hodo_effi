@@ -225,7 +225,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            grh3->SetPoint(i, run_num, rh3);
            grh3->SetPointError(i, 0., 0., 0., 0.);
 
-           rh1=0; rh2=0; rh3=0;
+           //rh1=0; rh2=0; rh3=0;
            run_num = run_ID;
      }
 
