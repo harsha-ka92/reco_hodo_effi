@@ -356,7 +356,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->SetMarkerStyle(43);
     grh1->SetMarkerSize(3);
     grh1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    grh1->GetYaxis()->SetRangeUser(0,1.05*rh1_max);
+    //grh1->GetYaxis()->SetRangeUser(0,1.05*rh1_max);
     grh1->GetXaxis()->SetTitle("run_ID");
     grh1->GetYaxis()->SetTitle("number of hits/min");
     grh1->Draw("APE1");
@@ -368,7 +368,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->SetMarkerStyle(43);
     grh2->SetMarkerSize(3);
     grh2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    grh2->GetYaxis()->SetRangeUser(0,1.05*rh2_max);
+    //grh2->GetYaxis()->SetRangeUser(0,1.05*rh2_max);
     grh2->GetXaxis()->SetTitle("run_ID");
     grh2->GetYaxis()->SetTitle("number of hits/min");
     grh2->Draw("APE1");
@@ -380,13 +380,13 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->SetMarkerStyle(43);
     grh3->SetMarkerSize(3);
     grh3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    grh3->GetYaxis()->SetRangeUser(0,1.05*rh3_max);
+    //grh3->GetYaxis()->SetRangeUser(0,1.05*rh3_max);
     grh3->GetXaxis()->SetTitle("run_ID");
     grh3->GetYaxis()->SetTitle("number of hits/min");
     grh3->Draw("APE1");
     
-
-    /*TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
+/*
+    TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
 
     gqtls->SetTitle("Number of qualified tracklets  in the run");
     gqtls->SetMarkerColor(4);
@@ -409,7 +409,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     mg->SetMinimum(0);
     mg->SetMaximum(360);
     mg->Draw("APE1");
-    c7->BuildLegend(0.45, 0.6, 0.8, 0.8, "", "");*/
+    c7->BuildLegend(0.45, 0.6, 0.8, 0.8, "", "");
+
+*/
 
     c1->SaveAs("hitRates/tdc_h1.png");
     c2->SaveAs("hitRates/tdc_h2.png");
