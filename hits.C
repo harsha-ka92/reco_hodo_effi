@@ -34,6 +34,7 @@ void hits()
 
    int run_num = 4690;
    int run_time = 0;
+   double dor;
    int nEvents;
    int event_ID;
    int event_ID_temp=0;
@@ -68,6 +69,7 @@ void hits()
    std::vector<double> *tdc_h3b =0;
 
    tr->SetBranchAddress("run_ID", &run_ID);
+   tr->SetBranchAddress("dor", &dor);
 
    tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
    tr->SetBranchAddress("tdc_h1b", &tdc_h1b);
