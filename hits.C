@@ -386,8 +386,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->SetMarkerColor(4);
     grh1->SetMarkerStyle(43);
     grh1->SetMarkerSize(3);
-    grh1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    grh1->GetYaxis()->SetLimits(0,1.05*rh1_max);
+    //grh1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //grh1->GetYaxis()->SetLimits(0,1.05*rh1_max);
     grh1->GetXaxis()->SetTitle("run_ID");
     grh1->GetYaxis()->SetTitle("number of hits/min");
     grh1->Draw("APE1");
