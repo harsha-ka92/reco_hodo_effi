@@ -69,6 +69,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   run_ID_temp = run_ID;	
 	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
+	std::cout << "Event ID : " << event_ID << std::endl;
+	
 	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
 	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
@@ -78,37 +80,37 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
 	num_h1t = hv_h1t->size();
+	std::cout << "Num hits in h1t = " << num_h1t << std::endl;
  	for (auto it = hv_h1t->begin(); it != hv_h1t->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h1t.push_back(tdc_time);
 	}
 	
 	std::shared_ptr<SQHitVector> hv_h1b(UtilSQHit::FindHits(hitVector, "H1B"));
 	num_h1b = hv_h1b->size();
+	std::cout << "Num hits in h1b = " << num_h1b << std::endl;
  	for (auto it = hv_h1b->begin(); it != hv_h1b->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h1b.push_back(tdc_time);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h1r(UtilSQHit::FindHits(hitVector, "H1R"));
 	num_h1r = hv_h1r->size();
+	std::cout << "Num hits in h1r = " << num_h1r << std::endl;
  	for (auto it = hv_h1r->begin(); it != hv_h1r->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h1r.push_back(tdc_time);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h1l(UtilSQHit::FindHits(hitVector, "H1L"));
 	num_h1l = hv_h1l->size();
+	std::cout << "Num hits in h1l = " << num_h1l << std::endl;
  	for (auto it = hv_h1l->begin(); it != hv_h1l->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h1l.push_back(tdc_time);
 	}
 
@@ -116,56 +118,56 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	//Number of Hist in : St2
 	std::shared_ptr<SQHitVector> hv_h2t(UtilSQHit::FindHits(hitVector, "H2T"));
 	num_h2t = hv_h2t->size();
+	std::cout << "Num hits in h2t = " << num_h2t << std::endl;
  	for (auto it = hv_h2t->begin(); it != hv_h2t->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h2t.push_back(tdc_time);
 	}
 	
 	std::shared_ptr<SQHitVector> hv_h2b(UtilSQHit::FindHits(hitVector, "H2B"));
 	num_h2b = hv_h2b->size();
+	std::cout << "Num hits in h2b = " << num_h2b << std::endl;
  	for (auto it = hv_h2b->begin(); it != hv_h2b->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h2b.push_back(tdc_time);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h2r(UtilSQHit::FindHits(hitVector, "H2R"));
 	num_h2r = hv_h2r->size();
+	std::cout << "Num hits in h2r = " << num_h2r << std::endl;
  	for (auto it = hv_h2r->begin(); it != hv_h2r->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h2r.push_back(tdc_time);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h2l(UtilSQHit::FindHits(hitVector, "H2L"));
 	num_h2l = hv_h2l->size();
+	std::cout << "Num hits in h2l = " << num_h2l << std::endl;
  	for (auto it = hv_h2l->begin(); it != hv_h2l->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h2l.push_back(tdc_time);
 	}
 
 	//Number of Hist in : St3
 	std::shared_ptr<SQHitVector> hv_h3t(UtilSQHit::FindHits(hitVector, "H3T"));
 	num_h3t = hv_h3t->size();
+	std::cout << "Num hits in h3t = " << num_h3t << std::endl;
  	for (auto it = hv_h3t->begin(); it != hv_h3t->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time  ();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h3t.push_back(tdc_time);
 	}
 	
 	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H3B"));
 	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
  	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		std::cout << "tdc time of the hit = " << tdc_time << std::endl;
 		tdc_h3b.push_back(tdc_time);
 	}
 
@@ -330,16 +332,25 @@ void AnaModule::MakeTree()
 	saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
 	saveTree->Branch("tdc_h1t", &tdc_h1t);
 	saveTree->Branch("num_h1b", &num_h1b, "num_h1b/I");
+	saveTree->Branch("tdc_h1b", &tdc_h1b);
 	saveTree->Branch("num_h1l", &num_h1l, "num_h1l/I");
+	saveTree->Branch("tdc_h1l", &tdc_h1l);
 	saveTree->Branch("num_h1r", &num_h1r, "num_h1r/I");
+	saveTree->Branch("tdc_h1r", &tdc_h1r);
 
 	saveTree->Branch("num_h2t", &num_h2t, "num_h2t/I");
+	saveTree->Branch("tdc_h2t", &tdc_h2t);
 	saveTree->Branch("num_h2b", &num_h2b, "num_h2b/I");
+	saveTree->Branch("tdc_h2b", &tdc_h2b);
 	saveTree->Branch("num_h2l", &num_h2l, "num_h2l/I");
+	saveTree->Branch("tdc_h2l", &tdc_h2l);
 	saveTree->Branch("num_h2r", &num_h2r, "num_h2r/I");
+	saveTree->Branch("tdc_h2r", &tdc_h2r);
 	
 	saveTree->Branch("num_h3t", &num_h3t, "num_h3t/I");
+	saveTree->Branch("tdc_h3t", &tdc_h3t);
 	saveTree->Branch("num_h3b", &num_h3b, "num_h3b/I");
+	saveTree->Branch("tdc_h3b", &tdc_h3b);
 
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
@@ -371,11 +382,11 @@ void AnaModule::MakeTree()
 	tlTree->Branch("stID", &stID, "stID/I");
 	//runTree->Branch("dor", &dor,"dor/I");
 
-  hitTree = new TTree("tls", "tracklet information");
+ /* hitTree = new TTree("tls", "tracklet information");
 	hitTree->Branch("eventID", &eventID, "eventID/I");
 	hitTree->Branch("event_ID", &event_ID, "event_ID/I");
 	hitTree->Branch("detector plane", &ID);
-	hitTree->Branch("tdc_time",&tdc_time);
+	hitTree->Branch("tdc_time",&tdc_time);*/
   //saveTree -> AddFriend("runTree", saveName);
 }
 
