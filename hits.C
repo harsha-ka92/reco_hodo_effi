@@ -45,6 +45,7 @@ void triggerRate()
    double matrix5 = 0;
    int i =0;
    int qual_tl = 0;
+   int run_ID;
 
    int num_h1t;
    int num_h1b;
@@ -62,7 +63,7 @@ void triggerRate()
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
 
-   TH1F *gtdc_h1t = new TH1F("gtdc_h1t","tdc_h1t",750,0,1500);
+   TH1F *htdc_h1t = new TH1F("htdc_h1t","tdc_h1t",750,0,1500);
 
    TGraphAsymmErrors* gtdc_h1t = new TGraphAsymmErrors();
    TGraphAsymmErrors* gtdc_h1b = new TGraphAsymmErrors();
