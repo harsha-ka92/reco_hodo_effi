@@ -63,7 +63,7 @@ void hits()
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
 
-   TH1F *htdc_h1t = new TH1F();
+   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 12, 800, 825);
    htc_h1t->SetBit(TH1::kCanRebin);
 
    TGraphAsymmErrors* gtdc_h1t = new TGraphAsymmErrors();
