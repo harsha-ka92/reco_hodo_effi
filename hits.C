@@ -63,7 +63,7 @@ void hits()
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
 
-   TH1F *htdc_h1t = new TH1F("htdc_h1t","tdc_h1t",750,0,1500);
+   TH1F *htdc_h1t = new TH1F("htdc_h1t","tdc_h1t",25,800,825);
 
    TGraphAsymmErrors* gtdc_h1t = new TGraphAsymmErrors();
    TGraphAsymmErrors* gtdc_h1b = new TGraphAsymmErrors();
