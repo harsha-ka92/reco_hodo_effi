@@ -84,18 +84,18 @@ void hits()
    tr->SetBranchAddress("tdc_h3t", &tdc_h3t);
    tr->SetBranchAddress("tdc_h3b", &tdc_h3b);
 
-   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 400, 800, 1200);
-   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 400, 800, 1200);
-   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 400, 800, 1200);
-   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 400, 800, 1200);
+   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
+   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
+   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
+   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 350, 750, 1100);
 
-   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 400, 800, 1200);
-   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 400, 800, 1200);
-   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 400, 800, 1200);
-   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 400, 800, 1200);
+   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 350, 750, 1100);
+   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 350, 750, 1100);
+   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 350, 750, 1100);
+   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 350, 750, 1100);
 
-   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 400, 800, 1200);
-   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 400, 800, 1200);
+   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 300, 900, 1200);
+   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 300, 900, 1200);
 
    TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh2 = new TGraphAsymmErrors();
@@ -322,15 +322,18 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 }
 
     TCanvas* c1 = new TCanvas("tdc_time: St1", "tdc_time: St1", 1000, 500);
-    c1->SetFillColor(18);
     htdc_h1t->SetLineColor(7);
-    htdc_h1b->SetLineColor(kBlue);
-    htdc_h1r->SetLineColor(kGreen);
-    htdc_h1l->SetLineColor(kRed);
-    hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
+    htdc_h1t->Draw();
+    htdc_h1b->SetLineColor(2);
+    htdc_h1b->Draw("SAME");
+    htdc_h1r->SetLineColor(3);
+    htdc_h1r->Draw("SAME");
+    htdc_h1l->SetLineColor(4);
+    htdc_h1l->Draw("SAME");
+    /*hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
     TText T; T.SetTextFont(42); T.SetTextAlign(21);
     hs1->SetTitle("tdc_time: St1");
-    hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");
+    hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");*/
     c1->Update();
     
     TCanvas* c2 = new TCanvas("tdc_time: St2", "tdc_time: St2", 1000, 500);
@@ -368,7 +371,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->GetXaxis()->SetTitle("run_ID");
     grh1->GetYaxis()->SetTitle("number of hits/min");
     grh1->Draw("APE1");
-    c4->Update();
+
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
 
@@ -381,7 +384,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->GetXaxis()->SetTitle("run_ID");
     grh2->GetYaxis()->SetTitle("number of hits/min");
     grh2->Draw("APE1");
-    c5->Update();
+
 
     TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
 
@@ -394,7 +397,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->GetXaxis()->SetTitle("run_ID");
     grh3->GetYaxis()->SetTitle("number of hits/min");
     grh3->Draw("APE1");
-    c6->Update();
+
     
 /*
     TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
