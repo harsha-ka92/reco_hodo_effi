@@ -18,7 +18,7 @@ using namespace ROOT::VecOps;
 using namespace std;
 using ROOT::RDataFrame;
 
-void triggerRate()
+void hits()
 {
     gSystem->mkdir("hitRates", 1);
 
