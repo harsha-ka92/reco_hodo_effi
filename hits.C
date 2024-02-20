@@ -331,6 +331,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h1l->SetLineColor(4);
     htdc_h1l->Draw("SAME");
     auto l1 = new TLegend(0.7,0.65,0.85,0.85);
+    l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
     l1->AddEntry(htdc_h1t, "h1t", "l");
     l1->AddEntry(htdc_h1b, "h1b", "l");
     l1->AddEntry(htdc_h1r, "h1r", "l");
