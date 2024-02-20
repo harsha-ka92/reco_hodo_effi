@@ -55,8 +55,6 @@ void hits()
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
    double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
    double rh1 =0;    double rh2 =0;     double rh3 =0; 
-
-   int i =0;
    
    std::vector<double> *tdc_h1t =0;
    std::vector<double> *tdc_h1b =0;
@@ -169,7 +167,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          std::cout<<run_ID<<std::endl;
       }    
      else if (run_num == run_ID && i_ent == nEvents-1){
-         std::cout<< "Filling the last event"<<std:endl;
+         std::cout<< "Filling the last event"<<std::endl;
 
             for ( int j =0; j< tdc_h1t->size(); j++){
                 htdc_h1t->Fill(tdc_h1t->at(j));
