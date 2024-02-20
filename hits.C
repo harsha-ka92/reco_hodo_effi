@@ -391,6 +391,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->GetXaxis()->SetTitle("run_ID");
     grh1->GetYaxis()->SetTitle("number of hits/min");
     grh1->Draw("APE1");
+    c4->Update();
 
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
@@ -404,6 +405,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->GetXaxis()->SetTitle("run_ID");
     grh2->GetYaxis()->SetTitle("number of hits/min");
     grh2->Draw("APE1");
+    c5->Update();
 
 
     TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
@@ -417,6 +419,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->GetXaxis()->SetTitle("run_ID");
     grh3->GetYaxis()->SetTitle("number of hits/min");
     grh3->Draw("APE1");
+    c6->Update();
 
     
 /*
