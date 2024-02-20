@@ -84,18 +84,18 @@ void hits()
    tr->SetBranchAddress("tdc_h3t", &tdc_h3t);
    tr->SetBranchAddress("tdc_h3b", &tdc_h3b);
 
-   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 12, 800, 825);
-   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 12, 800, 825);
-   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 12, 800, 825);
-   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 12, 800, 825);
+   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 400, 800, 1200);
+   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 400, 800, 1200);
+   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 400, 800, 1200);
+   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 400, 800, 1200);
 
-   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 12, 800, 825);
-   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 12, 800, 825);
-   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 12, 800, 825);
-   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 12, 800, 825);
+   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 400, 800, 1200);
+   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 400, 800, 1200);
+   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 400, 800, 1200);
+   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 400, 800, 1200);
 
-   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 12, 800, 825);
-   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 12, 800, 825);
+   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 400, 800, 1200);
+   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 400, 800, 1200);
 
    TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh2 = new TGraphAsymmErrors();
