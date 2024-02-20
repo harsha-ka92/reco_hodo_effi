@@ -84,6 +84,19 @@ void hits()
    tr->SetBranchAddress("tdc_h3t", &tdc_h3t);
    tr->SetBranchAddress("tdc_h3b", &tdc_h3b);
 
+   tr->SetBranchAddress("num_h1t", &num_h1t);
+   tr->SetBranchAddress("num_h1b", &num_h1b);
+   tr->SetBranchAddress("num_h1r", &num_h1r);
+   tr->SetBranchAddress("num_h1l", &num_h1l);
+
+   tr->SetBranchAddress("num_h2t", &num_h2t);
+   tr->SetBranchAddress("num_h2b", &num_h2b);
+   tr->SetBranchAddress("num_h2r", &num_h2r);
+   tr->SetBranchAddress("num_h2l", &num_h2l);
+
+   tr->SetBranchAddress("num_h3t", &num_h3t);
+   tr->SetBranchAddress("num_h3b", &num_h3b);
+
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
    TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
