@@ -114,9 +114,9 @@ void hits()
    TGraphAsymmErrors* gtdc_h3t = new TGraphAsymmErrors();
    TGraphAsymmErrors* gtdc_h3b = new TGraphAsymmErrors();
 
-   TMultiGraph* mg1 = new TMultiGraph();
-   TMultiGraph* mg2 = new TMultiGraph();
-   TMultiGraph* mg3 = new TMultiGraph();
+   auto hs1 = new THStack("hs1","");
+   auto hs2 = new THStack("hs2","");
+   auto hs2 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
 
@@ -324,19 +324,13 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     TCanvas* c1 = new TCanvas("tdc_time: St1", "tdc_time: St1", 1000, 500);
     c1->SetFillColor(18);
     htdc_h1t->SetLineColor(7);
-    //htdc_h1t->Draw();
-    htdc_h1b->SetLineColor(2);
-    //htdc_h1b->Draw("SAME");
-    htdc_h1r->SetLineColor(3);
-    //htdc_h1r->Draw("SAME");
-    htdc_h1l->SetLineColor(4);
-    //htdc_h1l->Draw("SAME");
-    /*htdc_h1l->SetTitle("");
-    htdc_h1l->GetXaxis()->SetTitle("tdc_time");
-    htdc_h1l->GetYaxis()->SetTitle("number of events");*/
-    mg1->Add(htdc_h1t); mg1->Add(htdc_h1b); mg1->Add(htdc_h1r); mg1->Add(htdc_h1l); 
-    mg1->SetTitle("tdc_time: St1")
-    mg1->Draw();
+    htdc_h1b->SetLineColor(kBlue);
+    htdc_h1r->SetLineColor(kGreen);
+    htdc_h1l->SetLineColor(kRed);
+    hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
+    TText T; T.SetTextFont(42); T.SetTextAlign(21);
+    hs1->SetTitle("tdc_time: St1")
+    hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");
     c1->Update();
     
     TCanvas* c2 = new TCanvas("tdc_time: St2", "tdc_time: St2", 1000, 500);
