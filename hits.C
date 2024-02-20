@@ -116,7 +116,7 @@ void hits()
 
    auto hs1 = new THStack("hs1","");
    auto hs2 = new THStack("hs2","");
-   auto hs2 = new THStack("hs2","");
+   auto hs3 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
 
@@ -329,7 +329,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h1l->SetLineColor(kRed);
     hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
     TText T; T.SetTextFont(42); T.SetTextAlign(21);
-    hs1->SetTitle("tdc_time: St1")
+    hs1->SetTitle("tdc_time: St1");
     hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");
     c1->Update();
     
