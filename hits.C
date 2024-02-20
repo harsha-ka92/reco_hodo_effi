@@ -32,7 +32,7 @@ void hits()
    int xlow = 4685;
    int xhigh = 4702; 
 
-   int run_num = 0;
+   int run_num = 4692;
    int run_time = 0;
    int nEvents;
    int event_ID;
