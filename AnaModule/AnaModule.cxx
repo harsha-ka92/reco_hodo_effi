@@ -288,6 +288,9 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//hit_vec.clear();
   }
   saveTree->Fill();
+  tdc_h1t.clear(); tdc_h1b.clear(); tdc_h1r.clear(); tdc_h1l.clear(); 
+  tdc_h2t.clear(); tdc_h2b.clear(); tdc_h2r.clear(); tdc_h2l.clear();
+  tdc_h3t.clear(); tdc_h3b.clear();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
