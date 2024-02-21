@@ -389,7 +389,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->SetTitle("Hit Rate : Station 1");
     grh1->SetMarkerColor(4);
     grh1->SetMarkerStyle(20);
-    grh1->SetMarkerSize(3);
+    //grh1->SetMarkerSize(3);
     //grh1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     //grh1->GetYaxis()->SetLimits(0,1.05*rh1_max);
     grh1->GetXaxis()->SetTitle("run_ID");
@@ -403,7 +403,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->SetTitle("Hit Rate : Station 2");
     grh2->SetMarkerColor(4);
     grh2->SetMarkerStyle(20);
-    grh2->SetMarkerSize(3);
+    //grh2->SetMarkerSize(3);
     grh2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     grh2->GetYaxis()->SetLimits(0,1.05*rh2_max);
     grh2->GetXaxis()->SetTitle("run_ID");
@@ -417,7 +417,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->SetTitle("Hit Rate : Station 3");
     grh3->SetMarkerColor(4);
     grh3->SetMarkerStyle(20);
-    grh3->SetMarkerSize(3);
+    //grh3->SetMarkerSize(3);
     grh3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     grh3->GetYaxis()->SetLimits(0,1.05*rh3_max);
     grh3->GetXaxis()->SetTitle("run_ID");
