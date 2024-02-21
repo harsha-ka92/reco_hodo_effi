@@ -20,7 +20,7 @@ using ROOT::RDataFrame;
 
 void hits()
 {
-    gSystem->mkdir("hitRates", 1);
+    gSystem->mkdir("hitRates/NIM2", 1);
 
     gStyle->SetOptStat(1);
     gStyle->SetOptFit(1);
@@ -41,6 +41,7 @@ void hits()
    int i =0;
    int qual_tl = 0;
    int run_ID;
+   int trigger;
 
    int num_h1t;
    int num_h1b;
@@ -70,6 +71,7 @@ void hits()
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("dor", &dor);
+   tr->SetBranchAddress("trigger", &trigger);
 
    tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
    tr->SetBranchAddress("tdc_h1b", &tdc_h1b);
@@ -135,7 +137,15 @@ void hits()
 
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-    
+
+      //comment the "continue" of the trigger you want in the analysis
+      if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
+      if(trigger == 2) {//continue; trigger_temp = "NIM2";}  //NIM2
+      if(trigger == 3) {continue; trigger_temp = "NIM3";}  //NIM3
+      if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4
+      if(trigger == 5) {continue; trigger_temp = "MATRIX5";}  //MATRIX5
+      
+        
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       
       //if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
@@ -414,7 +424,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
 
-    grh3->SetTitle("Hit Rate : Station 3");
+    grh3->SetTitle("Hit Rate for NIM2: Station 3");
     grh3->SetMarkerColor(4);
     grh3->SetMarkerStyle(7);
     //grh3->SetMarkerSize(3);
@@ -431,7 +441,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gqtls->SetTitle("Number of qualified tracklets  in the run");
     gqtls->SetMarkerColor(4);
-    gqtls->SetMarkerStyle(21);
+    gqtls->SetMarkerStyle(7);
     //gqtls->SetMarkerSize(3);
     //gqtls->GetXaxis()->SSetLimits(xlow-0.5,xhigh);
     //gqtls->GetYaxis()->SetLimits(0,360);
@@ -454,11 +464,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
 */
 
-    c1->SaveAs("hitRates/tdc_h1.png");
-    c2->SaveAs("hitRates/tdc_h2.png");
-    c3->SaveAs("hitRates/tdc_h3.png");
-    c4->SaveAs("hitRates/rh1.png");
-    c5->SaveAs("hitRates/rh2.png");
-    c6->SaveAs("hitRates/rh3.png");
-    //c7->SaveAs("triggerRates/tracklet_info.png");
+    c1->SaveAs("hitRates/NIM2/tdc_h1.png");
+    c2->SaveAs("hitRates/NIM2/tdc_h2.png");
+    c3->SaveAs("hitRates/NIM2/tdc_h3.png");
+    c4->SaveAs("hitRates/NIM2/rh1.png");
+    c5->SaveAs("hitRates/NIM2/rh2.png");
+    c6->SaveAs("hitRates/NIM2/rh3.png");
+    //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 }
