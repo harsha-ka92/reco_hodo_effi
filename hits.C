@@ -143,8 +143,12 @@ void hits()
    bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-      if (tlBackPartial>0){ total_bp +=1; if(num_h3t >0 || num_h3b >0 ) {++has_hits;} else{++no_hits;}}
-      if (num_h3b==0){++no_3b_hits;}
+      if (tlBackPartial>0){ 
+            total_bp +=1;
+            if (num_h3b==0){++no_3b_hits;}
+            if(num_h3t >0 || num_h3b >0 ) {++has_hits;} 
+            else{++no_hits;}}
+      
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
@@ -508,5 +512,5 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
-    std::cout<<"number back partial tracks with no hits in st3b;"<<no_hits<<std::endl;
+    std::cout<<"number back partial tracks with no hits in st3b;"<<no_3b_hits<<std::endl;
 }
