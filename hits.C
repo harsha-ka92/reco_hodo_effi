@@ -134,11 +134,11 @@ void hits()
    auto hs3 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = False; //set to "True" if need to filter hits based on trigger.
+   bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      if(Trigger_Filter = True){
+      if(Trigger_Filter = true){
 
           //remove the "continue" of the trigger you want in the analysis
           if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
