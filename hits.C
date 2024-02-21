@@ -26,6 +26,7 @@ void hits()
 
     TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
+    TTree *tr_tls = (TTree*) f_file->Get("tls");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
    int xlow = 4685;
@@ -41,6 +42,7 @@ void hits()
    int qual_tl = 0;
    int run_ID;
    int trigger;
+   int stID;
    std::string trigger_temp = "All";
 
    int num_h1t;
@@ -53,6 +55,8 @@ void hits()
    int num_h2l;
    int num_h3t;
    int num_h3b;
+   
+   int has_hits =0; int no_hits =0; int total_bp =0;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
    double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
@@ -99,6 +103,8 @@ void hits()
    tr->SetBranchAddress("num_h3t", &num_h3t);
    tr->SetBranchAddress("num_h3b", &num_h3b);
 
+   tr_tls->SetBranchAddress("stID", &stID);
+
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
    TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
@@ -134,10 +140,10 @@ void hits()
    auto hs3 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
+   bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-
+      if (stID == 6){ total_bp +=1; if(num_h3t >0 || num_h3b >0 ) {has_hits += 1;} else{no_hits +=1;}}
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
@@ -497,4 +503,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c5->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
+
+    std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
+    std::cout<<"number back partial tracks with hits in st3;"<<has_hits<<std::endl;
+    std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
 }
