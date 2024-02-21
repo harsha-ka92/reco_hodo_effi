@@ -514,6 +514,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
+    std::cout<<"*************************"<<std::endl;
     std::cout<<"In events triggered with %s"<<trigger_temp.c_str()<<std::endl;
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
@@ -522,4 +523,5 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     std::cout<<"number back partial tracks with hits only in st3t;"<<h3t_hits<<std::endl;
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
     //std::cout<<"number back partial tracks with no hits in st3t;"<<no_h3t_hits<<std::endl;
+    std::cout<<"*************************"<<std::endl;
 }
