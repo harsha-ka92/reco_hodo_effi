@@ -42,6 +42,7 @@ void hits()
    int qual_tl = 0;
    int run_ID;
    int trigger;
+   std::string trigger_temp;
 
    int num_h1t;
    int num_h1b;
@@ -138,9 +139,9 @@ void hits()
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      //comment the "continue" of the trigger you want in the analysis
+      //remove the "continue" of the trigger you want in the analysis
       if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
-      if(trigger == 2) {//continue; trigger_temp = "NIM2";}  //NIM2
+      if(trigger == 2) {trigger_temp = "NIM2";}  //NIM2
       if(trigger == 3) {continue; trigger_temp = "NIM3";}  //NIM3
       if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4
       if(trigger == 5) {continue; trigger_temp = "MATRIX5";}  //MATRIX5
@@ -348,7 +349,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     }
 }
 
-    TCanvas* c1 = new TCanvas("tdc_time: St1", "tdc_time: St1", 1000, 500);
+    TCanvas* c1 = new TCanvas(Form("tdc_time of %s hits : St1", trigger_temp), Form("tdc_time of %s hits : St1", trigger_temp), 1000, 500);
     htdc_h1t->SetLineColor(7);
     htdc_h1t->Draw();
     htdc_h1b->SetLineColor(2);
@@ -370,7 +371,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");*/
     c1->Update();
     
-    TCanvas* c2 = new TCanvas("tdc_time: St2", "tdc_time: St2", 1000, 500);
+    TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp), Form("tdc_time of %s hits : St2", trigger_temp), 1000, 500);
     htdc_h2t->SetLineColor(7);
     htdc_h2t->Draw();
     htdc_h2b->SetLineColor(2);
@@ -384,7 +385,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h2l->GetYaxis()->SetTitle("number of events");*/
     c2->Update();
 
-    TCanvas* c3 = new TCanvas("tdc_time: St3", "tdc_time: St3", 1000, 500);
+    TCanvas* c3 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp), Form("tdc_time of %s hits : St3", trigger_temp), 1000, 500);
     htdc_h3t->SetLineColor(7);
     htdc_h3t->Draw();
     htdc_h3b->SetLineColor(2);
@@ -396,7 +397,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c4 = new TCanvas("c4", "", 1000, 500);
 
-    grh1->SetTitle("Hit Rate : Station 1");
+    grh1->SetTitle(Form("Hit rate of %s events : St1", trigger_temp));
     grh1->SetMarkerColor(4);
     grh1->SetMarkerStyle(7);
     //grh1->SetMarkerSize(3);
@@ -410,7 +411,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
 
-    grh2->SetTitle("Hit Rate : Station 2");
+    grh2->SetTitle(Form("Hit rate of %s events : St2", trigger_temp));
     grh2->SetMarkerColor(4);
     grh2->SetMarkerStyle(7);
     //grh2->SetMarkerSize(3);
@@ -424,7 +425,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
 
-    grh3->SetTitle("Hit Rate for NIM2: Station 3");
+    grh3->SetTitle(Form("Hit rate of %s events : St3", trigger_temp));
     grh3->SetMarkerColor(4);
     grh3->SetMarkerStyle(7);
     //grh3->SetMarkerSize(3);
