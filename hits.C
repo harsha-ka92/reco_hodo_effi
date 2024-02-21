@@ -20,7 +20,6 @@ using ROOT::RDataFrame;
 
 void hits()
 {
-    gSystem->mkdir("hitRates/NIM1", 1);
 
     gStyle->SetOptStat(1);
     gStyle->SetOptFit(1);
@@ -464,6 +463,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c7->BuildLegend(0.45, 0.6, 0.8, 0.8, "", "");
 
 */
+
+    gSystem->mkdir(Form("hitRates/%s",trigger_temp.c_str()), 1);
 
     c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp.c_str()));
     c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp.c_str()));
