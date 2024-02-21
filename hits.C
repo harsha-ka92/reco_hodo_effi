@@ -140,7 +140,7 @@ void hits()
    auto hs3 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
+   bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
       
