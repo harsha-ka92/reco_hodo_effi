@@ -20,7 +20,7 @@ using ROOT::RDataFrame;
 
 void hits()
 {
-    gSystem->mkdir("hitRates/NIM2", 1);
+    gSystem->mkdir("hitRates/NIM1", 1);
 
     gStyle->SetOptStat(1);
     gStyle->SetOptFit(1);
@@ -465,11 +465,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
 */
 
-    c1->SaveAs("hitRates/NIM2/tdc_h1.png");
-    c2->SaveAs("hitRates/NIM2/tdc_h2.png");
-    c3->SaveAs("hitRates/NIM2/tdc_h3.png");
-    c4->SaveAs("hitRates/NIM2/rh1.png");
-    c5->SaveAs("hitRates/NIM2/rh2.png");
-    c6->SaveAs("hitRates/NIM2/rh3.png");
+    c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp));
+    c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp));
+    c3->SaveAs(Form("hitRates/%s/tdc_h3.png",trigger_temp));
+    c4->SaveAs(Form("hitRates/%s/rh1.png",trigger_temp));
+    c5->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp));
+    c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 }
