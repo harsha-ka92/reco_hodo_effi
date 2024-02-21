@@ -515,7 +515,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
     std::cout<<"*************************"<<std::endl;
-    std::cout<<"In events triggered with %s"<<trigger_temp.c_str()<<std::endl;
+    std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3b;"<<h3b_hits<<std::endl;
