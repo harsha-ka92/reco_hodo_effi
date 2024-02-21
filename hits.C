@@ -55,7 +55,7 @@ void hits()
    int num_h2l;
    int num_h3t;
    int num_h3b;
-   
+   int tlBackPartial;
    int has_hits =0; int no_hits =0; int total_bp =0;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
@@ -103,7 +103,7 @@ void hits()
    tr->SetBranchAddress("num_h3t", &num_h3t);
    tr->SetBranchAddress("num_h3b", &num_h3b);
 
-   tr_tls->SetBranchAddress("stID", &stID);
+   tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
@@ -143,7 +143,7 @@ void hits()
    bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-      if (stID == 6){ total_bp +=1; if(num_h3t >0 || num_h3b >0 ) {has_hits += 1;} else{no_hits +=1;}}
+      if (tlBackPartial>0){ total_bp +=1; if(num_h3t >0 || num_h3b >0 ) {has_hits += 1;} else{no_hits +=1;}}
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
