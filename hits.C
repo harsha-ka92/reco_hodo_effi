@@ -21,7 +21,7 @@ using ROOT::RDataFrame;
 void hits()
 {
 
-    gStyle->SetOptStat(1);
+    gStyle->SetOptStat(0);
     gStyle->SetOptFit(1);
 
     TFile *f_file = TFile::Open("ana.root","READ");
@@ -350,6 +350,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c1 = new TCanvas(Form("tdc_time of %s hits : St1", trigger_temp.c_str()), Form("tdc_time of %s hits : St1", trigger_temp.c_str()), 1000, 500);
     htdc_h1t->SetLineColor(7);
+    htdc_h1t->SetTitle("tdc time - st1");
     htdc_h1t->Draw();
     htdc_h1b->SetLineColor(2);
     htdc_h1b->Draw("SAME");
@@ -364,9 +365,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l1->AddEntry(htdc_h1r, "h1r", "l");
     l1->AddEntry(htdc_h1l, "h1l", "l");
     l1->Draw();
-    TText T1; T1.SetTextFont(42); T1.SetTextAlign(21); T1.SetFillColor(0);
+    /*TText T1; T1.SetTextFont(42); T1.SetTextAlign(21); T1.SetFillColor(0);
     T1.DrawTextNDC(.5,.95,"tdc time - st1");
-    /*hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
+    hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
     TText T; T.SetTextFont(42); T.SetTextAlign(21);
     hs1->SetTitle("tdc_time: St1");
     hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");*/
@@ -374,6 +375,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     
     TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp.c_str()), Form("tdc_time of %s hits : St2", trigger_temp.c_str()), 1000, 500);
     htdc_h2t->SetLineColor(7);
+    htdc_h2t->SetTitle("tdc time - st2");
     htdc_h2t->Draw();
     htdc_h2b->SetLineColor(2);
     htdc_h2b->Draw("SAME");
@@ -381,21 +383,34 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h2r->Draw("SAME");
     htdc_h2l->SetLineColor(4);
     htdc_h2l->Draw("SAME");
-    TText T2; T2.SetTextFont(42); T2.SetTextAlign(21); T2.SetFillColor(0);
+    auto l2 = new TLegend(0.7,0.65,0.85,0.85);
+    l2->AddEntry(htdc_h2t, Form("run ID %d",run_num) , "");
+    l2->AddEntry(htdc_h2t, "h2t", "l");
+    l2->AddEntry(htdc_h2b, "h2b", "l");
+    l2->AddEntry(htdc_h2r, "h2r", "l");
+    l2->AddEntry(htdc_h2l, "h2l", "l");
+    l2->Draw();
+    /*TText T2; T2.SetTextFont(42); T2.SetTextAlign(21); T2.SetFillColor(0);
     T2.DrawTextNDC(.5,.95,"tdc time - st2");
-    /*htdc_h2l->SetTitle("tdc_time");
+    htdc_h2l->SetTitle("tdc_time");
     htdc_h2l->GetXaxis()->SetTitle("tdc_time");
     htdc_h2l->GetYaxis()->SetTitle("number of events");*/
     c2->Update();
 
     TCanvas* c3 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
     htdc_h3t->SetLineColor(7);
+    htdc_h3t->SetTitle("tdc time - st3");
     htdc_h3t->Draw();
     htdc_h3b->SetLineColor(2);
     htdc_h3b->Draw("SAME");
-    TText T3; T3.SetTextFont(42); T3.SetTextAlign(21); T3.SetFillColor(0);
+    auto l3 = new TLegend(0.7,0.65,0.85,0.85);
+    l3->AddEntry(htdc_h3t, Form("run ID %d",run_num) , "");
+    l3->AddEntry(htdc_h3t, "h3t", "l");
+    l3->AddEntry(htdc_h3b, "h3b", "l");
+    l3->Draw();
+    /*TText T3; T3.SetTextFont(42); T3.SetTextAlign(21); T3.SetFillColor(0);
     T3.DrawTextNDC(.5,.95,"tdc time - st3");
-    /*htdc_h3b->SetTitle("tdc_time");
+    htdc_h3b->SetTitle("tdc_time");
     htdc_h3b->GetXaxis()->SetTitle("tdc_time");
     htdc_h3b->GetYaxis()->SetTitle("number of events");*/
     c3->Update();
