@@ -56,7 +56,7 @@ void hits()
    int num_h3t;
    int num_h3b;
    int tlBackPartial;
-   int has_hits =0; int no_hits =0; int total_bp =0; int no_3b_hits = 0; int 3t_hits = 0; int no_3t_hits = 0;
+   int has_hits =0; int no_hits =0; int total_bp =0; int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
    double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
@@ -145,9 +145,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
       if (tlBackPartial>0){ 
             total_bp +=1;
-            if (num_h3b==0){++no_3b_hits;}
-            if (num_h3t==0){++no_3t_hits;}
-            if (num_h3t>00){++3t_hits;}
+            if (num_h3b>0){++h3b_hits;}
+            if (num_h3b==0){++no_h3b_hits;}
+            if (num_h3t==0){++no_h3t_hits;}
+            if (num_h3t>0){++h3t_hits;}
             if(num_h3t >0 || num_h3b >0 ) {++has_hits;} 
             else{++no_hits;}}
       
@@ -514,7 +515,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
-    std::cout<<"number back partial tracks with no hits in st3b;"<<no_3b_hits<<std::endl;
-    std::cout<<"number back partial tracks with hits in st3t;"<<3t_hits<<std::endl;
-    std::cout<<"number back partial tracks with no hits in st3t;"<<no_3t_hits<<std::endl;
+    std::cout<<"number back partial tracks with hits in st3b;"<<h3b_hits<<std::endl;
+    std::cout<<"number back partial tracks with no hits in st3b;"<<no_h3b_hits<<std::endl;
+    std::cout<<"number back partial tracks with hits in st3t;"<<h3t_hits<<std::endl;
+    std::cout<<"number back partial tracks with no hits in st3t;"<<no_h3t_hits<<std::endl;
 }
