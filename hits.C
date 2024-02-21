@@ -234,13 +234,13 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            if(rh3_max < rh3 ){ rh3_max = rh3; }
 
            grh1->SetPoint(i, run_num, rh1);
-           grh1->SetPointError(i, 0., 0., sqrt(rh1), sqrt(rh1));
+           grh1->SetPointError(i, 0., 0., sqrt(rh1)/run_time/60, sqrt(rh1)/run_time/60);
 
            grh2->SetPoint(i, run_num, rh2);
-           grh2->SetPointError(i, 0., 0., sqrt(rh2), sqrt(rh2));
+           grh2->SetPointError(i, 0., 0., sqrt(rh2)/run_time/60, sqrt(rh2)/run_time/60);
 
            grh3->SetPoint(i, run_num, rh3);
-           grh3->SetPointError(i, 0., 0., sqrt(rh3), sqrt(rh3));
+           grh3->SetPointError(i, 0., 0., sqrt(rh3)/run_time/60, sqrt(rh3)/run_time/60);
 
            //rh1=0; rh2=0; rh3=0;
            run_num = run_ID;
@@ -281,13 +281,13 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            int bmnh3b = htdc_h3b->GetMinimumBin(); double tdc_min_h3b = htdc_h3b->GetXaxis()->GetBinCenter(bmnh3b);*/
 
            grh1->SetPoint(i, run_num, rh1);
-           grh1->SetPointError(i, 0., 0., sqrt(rh1), sqrt(rh1));
+           grh1->SetPointError(i, 0., 0., sqrt(rh1)/run_time/60, sqrt(rh1)/run_time/60);
 
            grh2->SetPoint(i, run_num, rh2);
-           grh2->SetPointError(i, 0., 0., sqrt(rh2), sqrt(rh2));
+           grh2->SetPointError(i, 0., 0., sqrt(rh2)/run_time/60, sqrt(rh2)/run_time/60);
 
            grh3->SetPoint(i, run_num, rh3);
-           grh3->SetPointError(i, 0., 0., sqrt(rh3), sqrt(rh3));
+           grh3->SetPointError(i, 0., 0., sqrt(rh3)/run_time/60, sqrt(rh3)/run_time/60);
 
            rh1=0; rh2=0; rh3=0;
            i++;
