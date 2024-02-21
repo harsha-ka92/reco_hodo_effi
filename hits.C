@@ -34,7 +34,7 @@ void hits()
 
    int run_num = 4690;
    int run_time = 0;
-   double dor;
+   int dor;
    int nEvents;
    int event_ID;
    int event_ID_temp=0;
