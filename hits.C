@@ -138,7 +138,7 @@ void hits()
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
-      if(Trigger_Filter = true){
+      if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
           if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
