@@ -267,7 +267,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            if(rh2_max < rh2 ){ rh2_max = rh2; }
            if(rh3_max < rh3 ){ rh3_max = rh3; }
 
-           /*int bmxh1t = htdc_h1t->GetMaximumBin(); double tdc_max_h1t = htdc_h1t->GetXaxis()->GetBinCenter(bmxh1t);
+           /*Trying to show a candlewishker plot for tdc time distribution for each run.
+           int bmxh1t = htdc_h1t->GetMaximumBin(); double tdc_max_h1t = htdc_h1t->GetXaxis()->GetBinCenter(bmxh1t);
            int bmnh1t = htdc_h1t->GetMinimumBin(); double tdc_min_h1t = htdc_h1t->GetXaxis()->GetBinCenter(bmnh1t);
            int bmxh1b = htdc_h1b->GetMaximumBin(); double tdc_max_h1b = htdc_h1b->GetXaxis()->GetBinCenter(bmxh1b);
            int bmnh1b = htdc_h1b->GetMinimumBin(); double tdc_min_h1b = htdc_h1b->GetXaxis()->GetBinCenter(bmnh1b);
