@@ -149,7 +149,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             if (num_h3b==0){++no_h3b_hits;}
             if (num_h3t==0){++no_h3t_hits;}
             if (num_h3t>0 && num_h3b ==0){++h3t_hits;}
-            if (num_h3t >0 || num_h3b >0 ) {++has_hits;} 
+            if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
             if (num_h3t ==0 && num_h3b ==0){++no_hits;}}
       
       if(Trigger_Filter == true){
@@ -513,10 +513,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
-    std::cout<<"number back partial tracks with hits in st3;"<<has_hits<<std::endl;
-    std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
+    std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3b;"<<h3b_hits<<std::endl;
     //std::cout<<"number back partial tracks with no hits in st3b;"<<no_h3b_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3t;"<<h3t_hits<<std::endl;
+    std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
     //std::cout<<"number back partial tracks with no hits in st3t;"<<no_h3t_hits<<std::endl;
 }
