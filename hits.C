@@ -364,6 +364,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l1->AddEntry(htdc_h1r, "h1r", "l");
     l1->AddEntry(htdc_h1l, "h1l", "l");
     l1->Draw();
+    TText T1; T1.SetTextFont(42); T1.SetTextAlign(21); T1.SetFillColor(0);
+    T1.DrawTextNDC(.5,.95,"tdc time - st1");
     /*hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
     TText T; T.SetTextFont(42); T.SetTextAlign(21);
     hs1->SetTitle("tdc_time: St1");
@@ -379,6 +381,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h2r->Draw("SAME");
     htdc_h2l->SetLineColor(4);
     htdc_h2l->Draw("SAME");
+    TText T2; T2.SetTextFont(42); T2.SetTextAlign(21); T2.SetFillColor(0);
+    T2.DrawTextNDC(.5,.95,"tdc time - st2");
     /*htdc_h2l->SetTitle("tdc_time");
     htdc_h2l->GetXaxis()->SetTitle("tdc_time");
     htdc_h2l->GetYaxis()->SetTitle("number of events");*/
@@ -389,6 +393,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h3t->Draw();
     htdc_h3b->SetLineColor(2);
     htdc_h3b->Draw("SAME");
+    TText T3; T3.SetTextFont(42); T3.SetTextAlign(21); T3.SetFillColor(0);
+    T3.DrawTextNDC(.5,.95,"tdc time - st3");
     /*htdc_h3b->SetTitle("tdc_time");
     htdc_h3b->GetXaxis()->SetTitle("tdc_time");
     htdc_h3b->GetYaxis()->SetTitle("number of events");*/
