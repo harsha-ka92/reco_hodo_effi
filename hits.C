@@ -371,7 +371,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");*/
     c1->Update();
     
-    TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp), Form("tdc_time of %s hits : St2", trigger_temp), 1000, 500);
+    TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp.c_str()), Form("tdc_time of %s hits : St2", trigger_temp.c_str()), 1000, 500);
     htdc_h2t->SetLineColor(7);
     htdc_h2t->Draw();
     htdc_h2b->SetLineColor(2);
@@ -385,7 +385,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h2l->GetYaxis()->SetTitle("number of events");*/
     c2->Update();
 
-    TCanvas* c3 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp), Form("tdc_time of %s hits : St3", trigger_temp), 1000, 500);
+    TCanvas* c3 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
     htdc_h3t->SetLineColor(7);
     htdc_h3t->Draw();
     htdc_h3b->SetLineColor(2);
@@ -397,7 +397,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c4 = new TCanvas("c4", "", 1000, 500);
 
-    grh1->SetTitle(Form("Hit rate of %s events : St1", trigger_temp));
+    grh1->SetTitle(Form("Hit rate of %s events : St1", trigger_temp.c_str()));
     grh1->SetMarkerColor(4);
     grh1->SetMarkerStyle(7);
     //grh1->SetMarkerSize(3);
@@ -411,7 +411,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
 
-    grh2->SetTitle(Form("Hit rate of %s events : St2", trigger_temp));
+    grh2->SetTitle(Form("Hit rate of %s events : St2", trigger_temp.c_str()));
     grh2->SetMarkerColor(4);
     grh2->SetMarkerStyle(7);
     //grh2->SetMarkerSize(3);
@@ -425,7 +425,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
 
-    grh3->SetTitle(Form("Hit rate of %s events : St3", trigger_temp));
+    grh3->SetTitle(Form("Hit rate of %s events : St3", trigger_temp.c_str()));
     grh3->SetMarkerColor(4);
     grh3->SetMarkerStyle(7);
     //grh3->SetMarkerSize(3);
