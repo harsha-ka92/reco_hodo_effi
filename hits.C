@@ -140,17 +140,9 @@ void hits()
    auto hs3 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
+   bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-      if (tlBackPartial>0){ 
-            total_bp +=1;
-            if (num_h3b>0 && num_h3t ==0){++h3b_hits;}
-            if (num_h3b==0){++no_h3b_hits;}
-            if (num_h3t==0){++no_h3t_hits;}
-            if (num_h3t>0 && num_h3b ==0){++h3t_hits;}
-            if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
-            if (num_h3t ==0 && num_h3b ==0){++no_hits;}}
       
       if(Trigger_Filter == true){
 
@@ -161,7 +153,17 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
           if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4
           if(trigger == 5) { trigger_temp = "MATRIX5";}  //MATRIX5
       }
-        
+
+       if (tlBackPartial>0){ 
+            total_bp +=1;
+            if (num_h3b>0 && num_h3t ==0){++h3b_hits;}
+            //if (num_h3b==0){++no_h3b_hits;}
+            //if (num_h3t==0){++no_h3t_hits;}
+            if (num_h3t>0 && num_h3b ==0){++h3t_hits;}
+            if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
+            if (num_h3t ==0 && num_h3b ==0){++no_hits;}
+       }
+      
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       
       //if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
@@ -512,6 +514,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
+    std::cout<<"In events triggered with %s"<<trigger_temp.c_str()<<std::endl;
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3b;"<<h3b_hits<<std::endl;
