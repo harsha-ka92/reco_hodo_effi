@@ -465,11 +465,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
 */
 
-    c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp));
-    c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp));
-    c3->SaveAs(Form("hitRates/%s/tdc_h3.png",trigger_temp));
-    c4->SaveAs(Form("hitRates/%s/rh1.png",trigger_temp));
-    c5->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp));
-    c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp));
+    c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp.c_str()));
+    c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp.c_str()));
+    c3->SaveAs(Form("hitRates/%s/tdc_h3.png",trigger_temp.c_str()));
+    c4->SaveAs(Form("hitRates/%s/rh1.png",trigger_temp.c_str()));
+    c5->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
+    c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 }
