@@ -349,7 +349,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     }
 }
 
-    TCanvas* c1 = new TCanvas(Form("tdc_time of %s hits : St1", trigger_temp), Form("tdc_time of %s hits : St1", trigger_temp), 1000, 500);
+    TCanvas* c1 = new TCanvas(Form("tdc_time of %s hits : St1", trigger_temp.c_str()), Form("tdc_time of %s hits : St1", trigger_temp.c_str()), 1000, 500);
     htdc_h1t->SetLineColor(7);
     htdc_h1t->Draw();
     htdc_h1b->SetLineColor(2);
