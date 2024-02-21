@@ -56,7 +56,7 @@ void hits()
    int num_h3t;
    int num_h3b;
    int tlBackPartial;
-   int has_hits =0; int no_hits =0; int total_bp =0;
+   int has_hits =0; int no_hits =0; int total_bp =0; int no_3b_hits = 0;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
    double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
@@ -143,7 +143,8 @@ void hits()
    bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-      if (tlBackPartial>0){ total_bp +=1; if(num_h3t >0 || num_h3b >0 ) {has_hits += 1;} else{no_hits +=1;}}
+      if (tlBackPartial>0){ total_bp +=1; if(num_h3t >0 || num_h3b >0 ) {++has_hits;} else{++no_hits;}}
+      if (num_h3b==0){++no_3b_hits;}
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
