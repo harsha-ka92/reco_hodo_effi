@@ -75,7 +75,7 @@ void hits()
    std::vector<double> *tdc_h2r =0;
    std::vector<double> *tdc_h2l =0;
    std::vector<double> *tdc_h3t =0;
-   std::vector<double> *tdc_h3b =0;
+   std::vector<double> *tdc_h3b =0;*/
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("dor", &dor);
@@ -109,7 +109,7 @@ void hits()
 
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
-   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
+   /*TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
    TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
    TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 350, 750, 1100);
@@ -207,6 +207,25 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             htdc_h3b->Fill(tdc_h3b->at(j));
         }
 
+        for ( int j =0; j< tdc_h4t->size(); j++){
+            htdc_h4t->Fill(tdc_h4t->at(j));
+        }
+        for ( int j =0; j< tdc_h4b->size(); j++){
+            htdc_h4b->Fill(tdc_h4b->at(j));
+        }
+        for ( int j =0; j< tdc_h4y1r->size(); j++){
+            htdc_h4y1r->Fill(tdc_h4y1r->at(j));
+        }
+        for ( int j =0; j< tdc_h4y1l->size(); j++){
+            htdc_h4y1l->Fill(tdc_h4y1l->at(j));
+        }
+        for ( int j =0; j< tdc_h4y2r->size(); j++){
+            htdc_h4y2r->Fill(tdc_h4y2r->at(j));
+        }
+        for ( int j =0; j< tdc_h4y2l->size(); j++){
+            htdc_h4y2l->Fill(tdc_h4y2l->at(j));
+        }
+
         t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
         std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
         t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
@@ -256,6 +275,25 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             }
             for ( int j =0; j< tdc_h3b->size(); j++){
                 htdc_h3b->Fill(tdc_h3b->at(j));
+            }
+        
+            for ( int j =0; j< tdc_h4t->size(); j++){
+            htdc_h4t->Fill(tdc_h4t->at(j));
+            }
+            for ( int j =0; j< tdc_h4b->size(); j++){
+            htdc_h4b->Fill(tdc_h4b->at(j));
+            }
+            for ( int j =0; j< tdc_h4y1r->size(); j++){
+            htdc_h4y1r->Fill(tdc_h4y1r->at(j));
+            }
+            for ( int j =0; j< tdc_h4y1l->size(); j++){
+            htdc_h4y1l->Fill(tdc_h4y1l->at(j));
+            }
+            for ( int j =0; j< tdc_h4y2r->size(); j++){
+            htdc_h4y2r->Fill(tdc_h4y2r->at(j));
+            }
+            for ( int j =0; j< tdc_h4y2l->size(); j++){
+            htdc_h4y2l->Fill(tdc_h4y2l->at(j));
             }
 
             t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
@@ -374,6 +412,26 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             for ( int j =0; j< tdc_h3b->size(); j++){
                 htdc_h3b->Fill(tdc_h3b->at(j));
             }
+
+            for ( int j =0; j< tdc_h4t->size(); j++){
+            htdc_h4t->Fill(tdc_h4t->at(j));
+            }
+            for ( int j =0; j< tdc_h4b->size(); j++){
+             htdc_h4b->Fill(tdc_h4b->at(j));
+            }
+            for ( int j =0; j< tdc_h4y1r->size(); j++){
+            htdc_h4y1r->Fill(tdc_h4y1r->at(j));
+            }
+            for ( int j =0; j< tdc_h4y1l->size(); j++){
+            htdc_h4y1l->Fill(tdc_h4y1l->at(j));
+            }
+            for ( int j =0; j< tdc_h4y2r->size(); j++){
+            htdc_h4y2r->Fill(tdc_h4y2r->at(j));
+            }
+            for ( int j =0; j< tdc_h4y2l->size(); j++){
+            htdc_h4y2l->Fill(tdc_h4y2l->at(j));
+            }
+
             t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
             std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
@@ -452,7 +510,37 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     htdc_h3b->GetYaxis()->SetTitle("number of events");*/
     c3->Update();
 
-    TCanvas* c4 = new TCanvas("c4", "", 1000, 500);
+    TCanvas* c4 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
+    htdc_h4t->SetLineColor(7);
+    htdc_h4t->SetTitle("tdc time - st4");
+    htdc_h4t->Draw();
+    htdc_h4b->SetLineColor(2);
+    htdc_h4b->Draw("SAME");
+    htdc_h4y1r->SetLineColor(3);
+    htdc_h4y1r->Draw("SAME");
+    htdc_h4y1l->SetLineColor(4);
+    htdc_h4y1l->Draw("SAME");
+    htdc_h4y2r->SetLineColor(5);
+    htdc_h4y2r->Draw("SAME");
+    htdc_h4y2l->SetLineColor(6);
+    htdc_h4y2l->Draw("SAME");
+    auto l2 = new TLegend(0.7,0.65,0.85,0.85);
+    l2->AddEntry(htdc_h2t, Form("run ID %d",run_num) , "");
+    l2->AddEntry(htdc_h2t, "h4t", "l");
+    l2->AddEntry(htdc_h2b, "h4b", "l");
+    l2->AddEntry(htdc_h4y1r, "h4y1r", "l");
+    l2->AddEntry(htdc_h4y1l, "h4y1l", "l");
+    l2->AddEntry(htdc_h4y2r, "h4y2r", "l");
+    l2->AddEntry(htdc_h4y2l, "h4y2l", "l");
+    l2->Draw();
+    /*TText T3; T3.SetTextFont(42); T3.SetTextAlign(21); T3.SetFillColor(0);
+    T3.DrawTextNDC(.5,.95,"tdc time - st3");
+    htdc_h3b->SetTitle("tdc_time");
+    htdc_h3b->GetXaxis()->SetTitle("tdc_time");
+    htdc_h3b->GetYaxis()->SetTitle("number of events");*/
+    c4->Update();
+
+    TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
 
     grh1->SetTitle(Form("Hit rate of %s events : St1", trigger_temp.c_str()));
     grh1->SetMarkerColor(4);
@@ -463,10 +551,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->GetXaxis()->SetTitle("run_ID");
     grh1->GetYaxis()->SetTitle("number of hits/min");
     grh1->Draw("APE1");
-    c4->Update();
+    c5->Update();
 
 
-    TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
+    TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
 
     grh2->SetTitle(Form("Hit rate of %s events : St2", trigger_temp.c_str()));
     grh2->SetMarkerColor(4);
@@ -477,10 +565,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->GetXaxis()->SetTitle("run_ID");
     grh2->GetYaxis()->SetTitle("number of hits/min");
     grh2->Draw("APE1");
-    c5->Update();
+    c6->Update();
 
 
-    TCanvas* c6 = new TCanvas("c6", "", 1000, 500);
+    TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
 
     grh3->SetTitle(Form("Hit rate of %s events : St3", trigger_temp.c_str()));
     grh3->SetMarkerColor(4);
@@ -491,11 +579,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->GetXaxis()->SetTitle("run_ID");
     grh3->GetYaxis()->SetTitle("number of hits/min");
     grh3->Draw("APE1");
-    c6->Update();
+    c7->Update();
 
     
 /*
-    TCanvas* c7 = new TCanvas("c7", "", 1000, 500);
+    TCanvas* c8 = new TCanvas("c8", "", 1000, 500);
 
     gqtls->SetTitle("Number of qualified tracklets  in the run");
     gqtls->SetMarkerColor(4);
@@ -527,9 +615,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp.c_str()));
     c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp.c_str()));
     c3->SaveAs(Form("hitRates/%s/tdc_h3.png",trigger_temp.c_str()));
-    c4->SaveAs(Form("hitRates/%s/rh1.png",trigger_temp.c_str()));
-    c5->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
-    c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
+    c4->SaveAs(Form("hitRates/%s/tdc_h4.png",trigger_temp.c_str()));
+    c5->SaveAs(Form("hitRates/%s/rh1.png",trigger_temp.c_str()));
+    c6->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
+    c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
     std::cout<<"*************************"<<std::endl;
