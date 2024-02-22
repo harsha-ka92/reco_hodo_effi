@@ -37,6 +37,7 @@ void hits()
    int run_num = 4690;
 
    tr->SetBranchAddress("run_ID", &run_ID);
+   tr->SetBranchAddress("event_ID", &event_ID);
    tr->SetBranchAddress("dor", &dor);
    tr->SetBranchAddress("trigger", &trigger);
 
