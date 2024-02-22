@@ -35,47 +35,6 @@ void hits()
    int xhigh = 4702; 
 
    int run_num = 4690;
-   /*int run_time = 0;
-   int dor;
-   int nEvents;
-   int event_ID;
-   int event_ID_temp=0;
-   int i =0;
-   int qual_tl = 0;
-   int run_ID;
-   int trigger;
-   int stID;
-   std::string trigger_temp = "All";
-
-   int num_h1t;
-   int num_h1b;
-   int num_h1r;
-   int num_h1l;
-   int num_h2t;
-   int num_h2b;
-   int num_h2r;
-   int num_h2l;
-   int num_h3t;
-   int num_h3b;
-   int tlBackPartial;
-   int total_M5 = 0;
-   int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; int st12 =0; int st24 =0;
-   int has_hits =0; int no_hits =0; int total_bp =0; int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
-
-   double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
-   double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
-   double rh1 =0;    double rh2 =0;     double rh3 =0; 
-   
-   std::vector<double> *tdc_h1t =0;
-   std::vector<double> *tdc_h1b =0;
-   std::vector<double> *tdc_h1r =0;
-   std::vector<double> *tdc_h1l =0;
-   std::vector<double> *tdc_h2t =0;
-   std::vector<double> *tdc_h2b =0;
-   std::vector<double> *tdc_h2r =0;
-   std::vector<double> *tdc_h2l =0;
-   std::vector<double> *tdc_h3t =0;
-   std::vector<double> *tdc_h3b =0;*/
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("dor", &dor);
@@ -122,40 +81,6 @@ void hits()
    tr->SetBranchAddress("num_h4y2l", &num_h4y2l);
    
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
-
-   /*TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
-   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
-   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
-   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 350, 750, 1100);
-
-   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 350, 750, 1100);
-   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 350, 750, 1100);
-   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 350, 750, 1100);
-   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 350, 750, 1100);
-
-   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 300, 900, 1200);
-   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 300, 900, 1200);
-
-   TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
-   TGraphAsymmErrors* grh2 = new TGraphAsymmErrors();
-   TGraphAsymmErrors* grh3 = new TGraphAsymmErrors();
-
-   TGraphAsymmErrors* gtdc_h1t = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h1b = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h1r = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h1l = new TGraphAsymmErrors();
-
-   TGraphAsymmErrors* gtdc_h2t = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h2b = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h2r = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h2l = new TGraphAsymmErrors();
-
-   TGraphAsymmErrors* gtdc_h3t = new TGraphAsymmErrors();
-   TGraphAsymmErrors* gtdc_h3b = new TGraphAsymmErrors();
-
-   auto hs1 = new THStack("hs1","");
-   auto hs2 = new THStack("hs2","");
-   auto hs3 = new THStack("hs2","");*/
 
    nEvents = tr->GetEntries();
    bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
@@ -244,11 +169,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
         t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
         t_num_h3 += (num_h3t + num_h3b);
-        t_num_h4 += (num_h4t + num_h4b + num_h4y2r + num_h4y2r); //  Did not add h4y1r and h4y1l since looking at the MATRIX5 events only.
+        t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
         //categorizing events from either st1,st2 or st2,st4
-            if ( t_num_h2 > 0 && t_num_h4 >0){++st24;}
-            if ( t_num_h1 > 0 && t_num_h2 > 0){++st12;}
+        if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
+        if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
             
 
          run_time = dor;
@@ -313,10 +238,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
             t_num_h3 += (num_h3t + num_h3b);
+            t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
             //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h2 > 0 && t_num_h4 >0){++st24;}
-            if (t_num_h1 > 0 && t_num_h2 > 0){++st12;}
+            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
+            if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
 
            rh1 = t_num_h1/run_time/60;
            std::cout<<"hit rate st1 = "<<rh1<<std::endl;
@@ -450,10 +376,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
             t_num_h3 += (num_h3t + num_h3b);
+            t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
             //categorizing events from either st1,st2 or st2,st4
-            if ( t_num_h2 > 0 && t_num_h4 > 0){++st24;}
-            if ( t_num_h1 > 0 && t_num_h2 > 0){++st12;}
+            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
+            if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
 
     }
 }
@@ -595,6 +522,19 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->GetYaxis()->SetTitle("number of hits/min");
     grh3->Draw("APE1");
     c7->Update();
+
+    TCanvas* c8 = new TCanvas("c8", "", 1000, 500);
+
+    grh4->SetTitle(Form("Hit rate of %s events : St4", trigger_temp.c_str()));
+    grh4->SetMarkerColor(4);
+    grh4->SetMarkerStyle(7);
+    //grh4->SetMarkerSize(3);
+    grh4->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    grh4->GetYaxis()->SetLimits(0,1.05*rh3_max);
+    grh4->GetXaxis()->SetTitle("run_ID");
+    grh4->GetYaxis()->SetTitle("number of hits/min");
+    grh4->Draw("APE1");
+    c8->Update();
 
     
 /*
