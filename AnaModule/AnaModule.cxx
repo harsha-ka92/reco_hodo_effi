@@ -70,13 +70,13 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
 	std::cout << "Event ID : " << event_ID << std::endl;
-	
+	trigger = 0;
 	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
 	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
 	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
-
+	if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
 	num_h1t = hv_h1t->size();
