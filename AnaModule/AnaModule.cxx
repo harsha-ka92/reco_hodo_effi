@@ -171,6 +171,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		tdc_h3b.push_back(tdc_time);
 	}
 
+	//Number of Hits in : St4
 	std::shared_ptr<SQHitVector> hv_h4t(UtilSQHit::FindHits(hitVector, "H4T"));
 	num_h4t = hv_h4t->size();
 	std::cout << "Num hits in h4t = " << num_h4t << std::endl;
