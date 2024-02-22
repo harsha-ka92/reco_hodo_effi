@@ -51,8 +51,8 @@ R__LOAD_LIBRARY(libanamodule)
    
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;   double t_num_h4=0;
-   double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
-   double rh1 =0;    double rh2 =0;     double rh3 =0; 
+   double rh1_max =0;    double rh2_max =0;     double rh3_max =0;  double rh4_max =0;
+   double rh1 =0;    double rh2 =0;     double rh3 =0;  double rh4 =0;
    
    std::vector<double> *tdc_h1t =0;
    std::vector<double> *tdc_h1b =0;
