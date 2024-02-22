@@ -529,7 +529,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total Matrix5 events "<< total_M5 <<std::endl;
     std::cout<<"events triggered by hits from st 24"<<st24<<std::endl;
-    std::cout<<"events triggered by hits from st 12"<<total_M5 - st24<<std::endl;
+    std::cout<<"events triggered by hits from st 12"<< (total_M5 - st24) <<std::endl;
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
