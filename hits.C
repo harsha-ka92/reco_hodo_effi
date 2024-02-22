@@ -91,12 +91,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
-          //Add ++total_'trigger' to get the total number of events from the trigger
-          if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
-          if(trigger == 2) {continue; trigger_temp = "NIM2";}  //NIM2
-          if(trigger == 3) {continue; trigger_temp = "NIM3";}  //NIM3
-          if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4 
-          if(trigger == 5) {trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
+          if(trigger == 1) {continue; trigger_temp = "NIM1"; ++total_N1;}  //NIM1
+          if(trigger == 2) {continue; trigger_temp = "NIM2"; ++total_N2;}  //NIM2
+          if(trigger == 3) {continue; trigger_temp = "NIM3"; ++total_N3;}  //NIM3
+          if(trigger == 4) { trigger_temp = "NIM4"; ++total_N4;}  //NIM4 
+          if(trigger == 5) {continue; trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
       }
 
        if (tlBackPartial>0){ 
@@ -524,7 +523,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
 
     std::cout<<"*************************"<<std::endl;
-    std::cout<<"Total Matrix5 events : "<< total_M5 <<std::endl;
+    std::cout<<"Total Matrix5 events : "<< total_N4 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
     std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
