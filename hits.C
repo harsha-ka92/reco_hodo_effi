@@ -166,7 +166,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         }
 
         t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
-        std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
         t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
         t_num_h3 += (num_h3t + num_h3b);
         t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
@@ -180,6 +179,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          run_time = dor;
          run_num = run_ID;
          std::cout<<run_ID<<std::endl;
+         std::cout<<event_ID<<std::endl;
       }    
      else if (run_num == run_ID && i_ent == nEvents-1){
          std::cout<< "Filling the last event"<<std::endl;
@@ -247,7 +247,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
            rh1 = t_num_h1/run_time/60;
-           std::cout<<"hit rate st1 = "<<rh1<<std::endl;
            rh2 = t_num_h2/run_time/60;
            rh3 = t_num_h3/run_time/60;
     
@@ -266,12 +265,13 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
            //rh1=0; rh2=0; rh3=0;
            run_num = run_ID;
+           std::cout<<run_ID<<std::endl;
+           std::cout<<event_ID<<std::endl;
      }
 
      else {
            std::cout<< "run number changed"<<std::endl;
            rh1 = t_num_h1/run_time/60;
-           std::cout<<"hit rate st1 = "<<rh1<<std::endl;
            rh2 = t_num_h2/run_time/60;
            rh3 = t_num_h3/run_time/60;
     
@@ -317,6 +317,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            std::cout << "i = " << i << std::endl;
            run_num = run_ID;
            run_time = dor;
+           std::cout<<run_ID<<std::endl;
+           std::cout<<event_ID<<std::endl;
            t_num_h1 = 0; t_num_h2 = 0; t_num_h3 = 0;
            htdc_h1t->Reset("ICESM"); htdc_h1b->Reset("ICESM"); htdc_h1l->Reset("ICESM"); htdc_h1r->Reset("ICESM"); 
            htdc_h2t->Reset("ICESM"); htdc_h2b->Reset("ICESM"); htdc_h2l->Reset("ICESM"); htdc_h2r->Reset("ICESM"); 
