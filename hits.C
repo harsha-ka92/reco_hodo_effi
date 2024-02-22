@@ -247,8 +247,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         t_num_h4 += (num_h4t + num_h4b + num_h4y2r + num_h4y2r); //  Did not add h4y1r and h4y1l since looking at the MATRIX5 events only.
 
         //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h1 == 0 && ( t_num_h2 > 0 && t_num_h4 >0)){++st24;}
-            if ( (t_num_h1 > 0 && t_num_h2 > 0)  && t_num_h4 == 0){++st12;}
+            if ( t_num_h2 > 0 && t_num_h4 >0){++st24;}
+            if ( t_num_h1 > 0 && t_num_h2 > 0){++st12;}
             
 
          run_time = dor;
@@ -315,8 +315,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             t_num_h3 += (num_h3t + num_h3b);
 
             //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h1 == 0 && ( t_num_h2 > 0 && t_num_h4 >0)){++st24;}
-            if ( (t_num_h1 > 0 && t_num_h2 > 0)  && t_num_h4 == 0){++st12;}
+            if (t_num_h2 > 0 && t_num_h4 >0){++st24;}
+            if (t_num_h1 > 0 && t_num_h2 > 0){++st12;}
 
            rh1 = t_num_h1/run_time/60;
            std::cout<<"hit rate st1 = "<<rh1<<std::endl;
@@ -452,8 +452,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             t_num_h3 += (num_h3t + num_h3b);
 
             //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h1 == 0 && ( t_num_h2 > 0 && t_num_h4 >0)){++st24;}
-            if ( (t_num_h1 > 0 && t_num_h2 > 0)  && t_num_h4 == 0){++st12;}
+            if ( t_num_h2 > 0 && t_num_h4 > 0){++st24;}
+            if ( t_num_h1 > 0 && t_num_h2 > 0){++st12;}
+
     }
 }
 
