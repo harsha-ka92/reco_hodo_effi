@@ -127,6 +127,12 @@ private:
   std::vector<double> tdc_h3t;
   std::vector<double> tdc_h3b;
 
+  std::vector<double> tdc_h4t;
+  std::vector<double> tdc_h4b;
+  std::vector<double> tdc_h4y1r;
+  std::vector<double> tdc_h4y1l;
+  std::vector<double> tdc_h4y2r;
+  std::vector<double> tdc_h4y2l;
 
   std::string ID;
   int num_h1t;
