@@ -174,6 +174,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         //categorizing events from either st1,st2 or st2,st4
         if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
+        if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
             
 
          run_time = dor;
@@ -243,6 +244,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             //categorizing events from either st1,st2 or st2,st4
             if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
+            if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
            rh1 = t_num_h1/run_time/60;
            std::cout<<"hit rate st1 = "<<rh1<<std::endl;
@@ -381,6 +383,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             //categorizing events from either st1,st2 or st2,st4
             if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
+            if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
     }
 }
@@ -580,6 +583,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     std::cout<<"Total Matrix5 events : "<< total_M5 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
+    std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
