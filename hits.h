@@ -1,3 +1,6 @@
+#ifndef _hits__H_
+#define _hits__H_
+
 R__LOAD_LIBRARY(libinterface_main)
 R__LOAD_LIBRARY(libfun4all)
 R__LOAD_LIBRARY(libg4detectors)
@@ -124,3 +127,5 @@ R__LOAD_LIBRARY(libanamodule)
    auto hs1 = new THStack("hs1","");
    auto hs2 = new THStack("hs2","");
    auto hs3 = new THStack("hs2","");
+
+#endif
