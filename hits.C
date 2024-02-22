@@ -57,6 +57,7 @@ void hits()
    int num_h3b;
    int tlBackPartial;
    int total_M5 = 0;
+   int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; int st12 =0; int st24 =0;
    int has_hits =0; int no_hits =0; int total_bp =0; int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
@@ -209,13 +210,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
         t_num_h3 += (num_h3t + num_h3b);
 
-        //categorizing events from st1,st2 and st2,st4
-            if (num_h3b>0 && num_h3t ==0){++h3b_hits;}
-            //if (num_h3b==0){++no_h3b_hits;}
-            //if (num_h3t==0){++no_h3t_hits;}
-            if (num_h3t>0 && num_h3b ==0){++h3t_hits;}
-            if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
-            if (num_h3t ==0 && num_h3b ==0){++no_hits;}
+        //categorizing events from either st1,st2 or st2,st4
+            if (t_num_h1 == 0 && t_num_h2 == 0){++st24;}
+            
 
          run_time = dor;
          run_num = run_ID;
@@ -260,6 +257,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
             t_num_h3 += (num_h3t + num_h3b);
+
+            //categorizing events from either st1,st2 or st2,st4
+            if (t_num_h1 == 0 && t_num_h2 == 0){++st24;}
 
            rh1 = t_num_h1/run_time/60;
            std::cout<<"hit rate st1 = "<<rh1<<std::endl;
@@ -373,6 +373,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
             t_num_h3 += (num_h3t + num_h3b);
+
+            //categorizing events from either st1,st2 or st2,st4
+            if (t_num_h1 == 0 && t_num_h2 == 0){++st24;}
     }
 }
 
@@ -522,6 +525,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c5->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c6->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
+
+    std::cout<<"*************************"<<std::endl;
+    std::cout<<"Total Matrix5 events "<< total_M5 <<std::endl;
+    std::cout<<"events triggered by hits from st 24"<<st24<<std::endl;
+    std::cout<<"events triggered by hits from st 12"<<total_M5 - st24<<std::endl;
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
