@@ -35,7 +35,7 @@ void hits()
    int xhigh = 4702; 
 
    int run_num = 4690;
-   int run_time = 0;
+   /*int run_time = 0;
    int dor;
    int nEvents;
    int event_ID;
@@ -75,7 +75,7 @@ void hits()
    std::vector<double> *tdc_h2r =0;
    std::vector<double> *tdc_h2l =0;
    std::vector<double> *tdc_h3t =0;
-   std::vector<double> *tdc_h3b =0;
+   std::vector<double> *tdc_h3b =0;*/
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("dor", &dor);
@@ -109,7 +109,7 @@ void hits()
 
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
-   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
+   /*TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
    TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
    TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 350, 750, 1100);
@@ -141,7 +141,7 @@ void hits()
 
    auto hs1 = new THStack("hs1","");
    auto hs2 = new THStack("hs2","");
-   auto hs3 = new THStack("hs2","");
+   auto hs3 = new THStack("hs2","");*/
 
    nEvents = tr->GetEntries();
    bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
