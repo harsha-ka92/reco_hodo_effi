@@ -94,6 +94,13 @@ void hits()
    tr->SetBranchAddress("tdc_h3t", &tdc_h3t);
    tr->SetBranchAddress("tdc_h3b", &tdc_h3b);
 
+   tr->SetBranchAddress("tdc_h4t", &tdc_h4t);
+   tr->SetBranchAddress("tdc_h4b", &tdc_h4b);
+   tr->SetBranchAddress("tdc_h4y1r", &tdc_h4y1r);
+   tr->SetBranchAddress("tdc_h4y1l", &tdc_h4y1l);
+   tr->SetBranchAddress("tdc_h4y2r", &tdc_h4y2r);
+   tr->SetBranchAddress("tdc_h4y2l", &tdc_h4y2l);
+   
    tr->SetBranchAddress("num_h1t", &num_h1t);
    tr->SetBranchAddress("num_h1b", &num_h1b);
    tr->SetBranchAddress("num_h1r", &num_h1r);
