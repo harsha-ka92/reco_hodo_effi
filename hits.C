@@ -577,6 +577,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c5->SaveAs(Form("hitRates/%s/rh1.png",trigger_temp.c_str()));
     c6->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
+    c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
     //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
     std::cout<<"*************************"<<std::endl;
