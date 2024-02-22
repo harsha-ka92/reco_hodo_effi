@@ -526,7 +526,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events : "<< nEvents <<std::endl;
-    std::cout<<"New trigger events : "<< new_trigger <<std::endl;
     std::cout<<"Total "<<trigger_temp<<" events : "<< total_N4 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
@@ -534,10 +533,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
-    std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
+    std::cout<<"number of events with at least one back partial track ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3b;"<<h3b_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3t;"<<h3t_hits<<std::endl;
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
     std::cout<<"*************************"<<std::endl;
+    std::cout<<"New trigger events : "<< new_trigger <<std::endl;
 }
