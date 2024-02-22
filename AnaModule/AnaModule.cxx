@@ -171,58 +171,58 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		tdc_h3b.push_back(tdc_time);
 	}
 
-	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4T"));
-	num_h3b = hv_h3b->size();
-	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
- 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+	std::shared_ptr<SQHitVector> hv_h4t(UtilSQHit::FindHits(hitVector, "H4T"));
+	num_h4t = hv_h4t->size();
+	std::cout << "Num hits in h4t = " << num_h4t << std::endl;
+ 	for (auto it = hv_h4t->begin(); it != hv_h4t->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		tdc_h3b.push_back(tdc_time);
+		tdc_h4t.push_back(tdc_time);
 	}
 
-	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4B"));
-	num_h3b = hv_h3b->size();
-	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
- 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+	std::shared_ptr<SQHitVector> hv_h4b(UtilSQHit::FindHits(hitVector, "H4B"));
+	num_h4b = hv_h4b->size();
+	std::cout << "Num hits in h4b = " << num_h4b << std::endl;
+ 	for (auto it = hv_h4b->begin(); it != hv_h4b->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		tdc_h3b.push_back(tdc_time);
+		tdc_h4b.push_back(tdc_time);
 	}
 
-	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y1L"));
-	num_h3b = hv_h3b->size();
-	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
- 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+	std::shared_ptr<SQHitVector> hv_h4y1l(UtilSQHit::FindHits(hitVector, "H4Y1L"));
+	num_h4y1l = hv_h4y1l->size();
+	std::cout << "Num hits in h4y1l = " << num_h4y1l << std::endl;
+ 	for (auto it = hv_h4y1l->begin(); it != hv_h4y1l->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		tdc_h3b.push_back(tdc_time);
+		tdc_h4y1l.push_back(tdc_time);
 	}
 
-	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y1R"));
-	num_h3b = hv_h3b->size();
-	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
- 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+	std::shared_ptr<SQHitVector> hv_h4y1r(UtilSQHit::FindHits(hitVector, "H4Y1R"));
+	num_h4y1r = hv_h4y1r->size();
+	std::cout << "Num hits in h4y1r = " << num_h4y1r << std::endl;
+ 	for (auto it = hv_h4y1r->begin(); it != hv_h4y1r->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		tdc_h3b.push_back(tdc_time);
+		tdc_h4y1r.push_back(tdc_time);
 	}
 
-	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y2L"));
-	num_h3b = hv_h3b->size();
-	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
- 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+	std::shared_ptr<SQHitVector> hv_h4y2l(UtilSQHit::FindHits(hitVector, "H4Y2L"));
+	num_h4y2l = hv_h4y2l->size();
+	std::cout << "Num hits in h4y2l = " << num_h4y2l << std::endl;
+ 	for (auto it = hv_h4y2l->begin(); it != hv_h4y2l->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		tdc_h3b.push_back(tdc_time);
+		tdc_h4y2l.push_back(tdc_time);
 	}
 
-	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y2R"));
-	num_h3b = hv_h3b->size();
-	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
- 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+	std::shared_ptr<SQHitVector> hv_h4y2r(UtilSQHit::FindHits(hitVector, "H4Y2R"));
+	num_h4y2r = hv_h4y2r->size();
+	std::cout << "Num hits in h4y2r = " << num_h4y2r << std::endl;
+ 	for (auto it = hv_h4y2r->begin(); it != hv_h4y2r->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
-		tdc_h3b.push_back(tdc_time);
+		tdc_h4y2r.push_back(tdc_time);
 	}
 	
 	for(int i = 0; i < nTracklets; ++i)
