@@ -84,7 +84,7 @@ void hits()
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
+   bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
       
@@ -523,7 +523,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
 
     std::cout<<"*************************"<<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< nEvents <<std::endl; //change nEvents to total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
+    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N4 <<std::endl; //change nEvents to total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
     std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
