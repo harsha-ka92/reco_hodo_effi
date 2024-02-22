@@ -171,6 +171,59 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		tdc_h3b.push_back(tdc_time);
 	}
 
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4T"));
+	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		tdc_h3b.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4B"));
+	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		tdc_h3b.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y1L"));
+	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		tdc_h3b.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y1R"));
+	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		tdc_h3b.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y2L"));
+	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		tdc_h3b.push_back(tdc_time);
+	}
+
+	std::shared_ptr<SQHitVector> hv_h3b(UtilSQHit::FindHits(hitVector, "H4Y2R"));
+	num_h3b = hv_h3b->size();
+	std::cout << "Num hits in h3b = " << num_h3b << std::endl;
+ 	for (auto it = hv_h3b->begin(); it != hv_h3b->end(); it++) {
+		//int    ele_id = (*it)->get_element_id();
+		double tdc_time   = (*it)->get_tdc_time();
+		tdc_h3b.push_back(tdc_time);
+	}
 	
 	for(int i = 0; i < nTracklets; ++i)
 	{
