@@ -94,7 +94,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
           if(trigger == 1) {continue; trigger_temp = "NIM1"; ++total_N1;}  //NIM1
           if(trigger == 2) {continue; trigger_temp = "NIM2"; ++total_N2;}  //NIM2
           if(trigger == 3) {continue; trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          if(trigger == 4) { trigger_temp = "NIM4"; ++total_N4;}  //NIM4 
+          if(trigger == 4) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           if(trigger == 5) {continue; trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
       }
 
