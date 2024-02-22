@@ -14,6 +14,8 @@ R__LOAD_LIBRARY(libanamodule)
 #include <TCanvas.h>
 #include <iostream>
 
+#include "hits.h"
+
 using namespace ROOT::VecOps;
 using namespace std;
 using ROOT::RDataFrame;
@@ -33,7 +35,7 @@ void hits()
    int xhigh = 4702; 
 
    int run_num = 4690;
-  /* int run_time = 0;
+   /*int run_time = 0;
    int dor;
    int nEvents;
    int event_ID;
@@ -209,9 +211,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
         t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
         t_num_h3 += (num_h3t + num_h3b);
+        t_num_h4 += (num_h4t + num_h4b + num_h4y2r + num_h4y2r); //  Did not add h4y1r and h4y1l since looking at the MATRIX5 events only.
 
         //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h1 == 0 && t_num_h2 == 0){++st24;}
+            if (t_num_h1 == 0 && ( t_num_h2 > 0 && t_num_h4 >0)){++st24;}
+            if ( (t_num_h1 > 0 && t_num_h2 > 0)  && t_num_h4 == 0){++st12;}
             
 
          run_time = dor;
@@ -259,7 +263,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             t_num_h3 += (num_h3t + num_h3b);
 
             //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h1 == 0 && t_num_h2 == 0){++st24;}
+            if (t_num_h1 == 0 && ( t_num_h2 > 0 && t_num_h4 >0)){++st24;}
+            if ( (t_num_h1 > 0 && t_num_h2 > 0)  && t_num_h4 == 0){++st12;}
 
            rh1 = t_num_h1/run_time/60;
            std::cout<<"hit rate st1 = "<<rh1<<std::endl;
@@ -375,7 +380,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             t_num_h3 += (num_h3t + num_h3b);
 
             //categorizing events from either st1,st2 or st2,st4
-            if (t_num_h1 == 0 && t_num_h2 == 0){++st24;}
+            if (t_num_h1 == 0 && ( t_num_h2 > 0 && t_num_h4 >0)){++st24;}
+            if ( (t_num_h1 > 0 && t_num_h2 > 0)  && t_num_h4 == 0){++st12;}
     }
 }
 
@@ -528,8 +534,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total Matrix5 events : "<< total_M5 <<std::endl;
-    std::cout<<"events triggered by hits from st 24 : "<<st24<<std::endl;
-    std::cout<<"events triggered by hits from st 12 : "<< (total_M5 - st24) <<std::endl;
+    std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
+    std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
