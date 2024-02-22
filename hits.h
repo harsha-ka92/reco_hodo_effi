@@ -67,38 +67,6 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<double> *tdc_h3t =0;
    std::vector<double> *tdc_h3b =0;
 
-   tr->SetBranchAddress("run_ID", &run_ID);
-   tr->SetBranchAddress("dor", &dor);
-   tr->SetBranchAddress("trigger", &trigger);
-
-   tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
-   tr->SetBranchAddress("tdc_h1b", &tdc_h1b);
-   tr->SetBranchAddress("tdc_h1r", &tdc_h1r);
-   tr->SetBranchAddress("tdc_h1l", &tdc_h1l);
-
-   tr->SetBranchAddress("tdc_h2t", &tdc_h2t);
-   tr->SetBranchAddress("tdc_h2b", &tdc_h2b);
-   tr->SetBranchAddress("tdc_h2r", &tdc_h2r);
-   tr->SetBranchAddress("tdc_h2l", &tdc_h2l);
-
-   tr->SetBranchAddress("tdc_h3t", &tdc_h3t);
-   tr->SetBranchAddress("tdc_h3b", &tdc_h3b);
-
-   tr->SetBranchAddress("num_h1t", &num_h1t);
-   tr->SetBranchAddress("num_h1b", &num_h1b);
-   tr->SetBranchAddress("num_h1r", &num_h1r);
-   tr->SetBranchAddress("num_h1l", &num_h1l);
-
-   tr->SetBranchAddress("num_h2t", &num_h2t);
-   tr->SetBranchAddress("num_h2b", &num_h2b);
-   tr->SetBranchAddress("num_h2r", &num_h2r);
-   tr->SetBranchAddress("num_h2l", &num_h2l);
-
-   tr->SetBranchAddress("num_h3t", &num_h3t);
-   tr->SetBranchAddress("num_h3b", &num_h3b);
-
-   tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
-
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
    TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
@@ -111,6 +79,13 @@ R__LOAD_LIBRARY(libanamodule)
 
    TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 300, 900, 1200);
    TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 300, 900, 1200);
+
+   TH1F *htdc_h4t = new TH1F("htdc_h4t","htdc_h4t", 350, 750, 1100);
+   TH1F *htdc_h4b = new TH1F("htdc_h4b","htdc_h4b", 350, 750, 1100);
+   TH1F *htdc_h4y1r = new TH1F("htdc_h4y1r","htdc_h4y1r", 350, 750, 1100);
+   TH1F *htdc_h4y1l = new TH1F("htdc_h4y1l","htdc_h4y1l", 350, 750, 1100);
+   TH1F *htdc_h4y2r = new TH1F("htdc_h4y2r","htdc_h4y2r", 350, 750, 1100);
+   TH1F *htdc_h4y2l = new TH1F("htdc_h4y2l","htdc_h4y2l", 350, 750, 1100);
 
    TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh2 = new TGraphAsymmErrors();
