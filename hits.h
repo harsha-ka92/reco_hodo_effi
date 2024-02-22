@@ -39,6 +39,7 @@ R__LOAD_LIBRARY(libanamodule)
    int num_h2l;
    int num_h3t;
    int num_h3b;
+   int num_h4t; int num_h4b; int num_h4y1r; int num_h4y1l; int num_h4y2r; int num_h4y2l;
    int tlBackPartial;
    int total_M5 = 0;
    int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; 
@@ -63,6 +64,8 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<double> *tdc_h2l =0;
    std::vector<double> *tdc_h3t =0;
    std::vector<double> *tdc_h3b =0;
+   std::vector<double> *tdc_h4t =0; std::vector<double> *tdc_h4b =0; 
+   std::vector<double> *tdc_h4y1r =0;  std::vector<double> *tdc_h4y1l =0; std::vector<double> *tdc_h4y2r =0; std::vector<double> *tdc_h4y2l =0;
 
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
