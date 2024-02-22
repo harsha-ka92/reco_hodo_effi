@@ -523,7 +523,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
 
     std::cout<<"*************************"<<std::endl;
-    std::cout<<"Total Matrix5 events : "<< total_N4 <<std::endl;
+    std::cout<<"Total <<trigger_temp<< events : "<< total_N4 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
     std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
