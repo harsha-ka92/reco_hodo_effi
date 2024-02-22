@@ -84,7 +84,7 @@ void hits()
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
+   bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
       
