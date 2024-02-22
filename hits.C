@@ -33,7 +33,7 @@ void hits()
    int xhigh = 4702; 
 
    int run_num = 4690;
-   int run_time = 0;
+  /* int run_time = 0;
    int dor;
    int nEvents;
    int event_ID;
@@ -139,7 +139,7 @@ void hits()
 
    auto hs1 = new THStack("hs1","");
    auto hs2 = new THStack("hs2","");
-   auto hs3 = new THStack("hs2","");
+   auto hs3 = new THStack("hs2","");*/
 
    nEvents = tr->GetEntries();
    bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
