@@ -17,9 +17,6 @@ R__LOAD_LIBRARY(libanamodule)
 #include <TCanvas.h>
 #include <iostream>
 
-    gStyle->SetOptStat(0);
-    gStyle->SetOptFit(1);
-
    int run_time = 0;
    int dor;
    int nEvents;
