@@ -35,7 +35,7 @@ void hits()
    int xhigh = 4702; 
 
    int run_num = 4690;
-   /*int run_time = 0;
+   int run_time = 0;
    int dor;
    int nEvents;
    int event_ID;
@@ -107,6 +107,13 @@ void hits()
    tr->SetBranchAddress("num_h3t", &num_h3t);
    tr->SetBranchAddress("num_h3b", &num_h3b);
 
+   tr->SetBranchAddress("num_h4t", &num_h4t);
+   tr->SetBranchAddress("num_h4b", &num_h4b);
+   tr->SetBranchAddress("num_h4y1r", &num_h4y1r);
+   tr->SetBranchAddress("num_h4y1l", &num_h4y1l);
+   tr->SetBranchAddress("num_h4y2r", &num_h4y2r);
+   tr->SetBranchAddress("num_h4y2l", &num_h4y2l);
+   
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
    /*TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
