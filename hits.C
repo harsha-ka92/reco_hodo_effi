@@ -111,7 +111,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
-      
+
+      //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied.
       if(run_num == run_ID && i_ent != nEvents-1){
         
         for ( int j =0; j< tdc_h1t->size(); j++){
@@ -175,13 +176,14 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24;}
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
-            
 
          run_time = dor;
          run_num = run_ID;
          std::cout<<run_ID<<std::endl;
          std::cout<<event_ID<<std::endl;
       }    
+
+     //This is needed to complete the calculations and plot the results when looking at the last event in the tree
      else if (run_num == run_ID && i_ent == nEvents-1){
          std::cout<< "Filling the last event"<<std::endl;
 
@@ -250,10 +252,12 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            rh1 = t_num_h1/run_time/60;
            rh2 = t_num_h2/run_time/60;
            rh3 = t_num_h3/run_time/60;
+           rh4 = t_num_h4/run_time/60;
     
            if(rh1_max < rh1 ){ rh1_max = rh1; }
            if(rh2_max < rh2 ){ rh2_max = rh2; }
            if(rh3_max < rh3 ){ rh3_max = rh3; }
+           if(rh4_max < rh4 ){ rh4_max = rh4; }
 
            grh1->SetPoint(i, run_num, rh1);
            grh1->SetPointError(i, 0., 0., sqrt(t_num_h1)/run_time/60, sqrt(t_num_h1)/run_time/60);
@@ -264,21 +268,29 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            grh3->SetPoint(i, run_num, rh3);
            grh3->SetPointError(i, 0., 0., sqrt(t_num_h3)/run_time/60, sqrt(t_num_h3)/run_time/60);
 
+           grh4->SetPoint(i, run_num, rh4);
+           grh4->SetPointError(i, 0., 0., sqrt(t_num_h4)/run_time/60, sqrt(t_num_h4)/run_time/60);
+
            //rh1=0; rh2=0; rh3=0;
            run_num = run_ID;
            std::cout<<run_ID<<std::endl;
            std::cout<<event_ID<<std::endl;
      }
 
+     //this will be executed when ever the run number changes in the tree. First it will calulates the rates and include points in the plots upto the previous event.
+     //Then it will reset all the vars and start storing the info of the current event and next ones unitll the run number changes again or untill the last event is met.
+     
      else {
            std::cout<< "run number changed"<<std::endl;
            rh1 = t_num_h1/run_time/60;
            rh2 = t_num_h2/run_time/60;
            rh3 = t_num_h3/run_time/60;
+           rh4 = t_num_h4/run_time/60;
     
            if(rh1_max < rh1 ){ rh1_max = rh1; }
            if(rh2_max < rh2 ){ rh2_max = rh2; }
            if(rh3_max < rh3 ){ rh3_max = rh3; }
+           if(rh4_max < rh4 ){ rh4_max = rh4; }
 
            /*Trying to show a candlewishker plot for tdc time distribution for each run.
            int bmxh1t = htdc_h1t->GetMaximumBin(); double tdc_max_h1t = htdc_h1t->GetXaxis()->GetBinCenter(bmxh1t);
@@ -313,7 +325,12 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            grh3->SetPoint(i, run_num, rh3);
            grh3->SetPointError(i, 0., 0., sqrt(t_num_h3)/run_time/60, sqrt(t_num_h3)/run_time/60);
 
-           rh1=0; rh2=0; rh3=0;
+           grh4->SetPoint(i, run_num, rh4);
+           grh4->SetPointError(i, 0., 0., sqrt(t_num_h4)/run_time/60, sqrt(t_num_h4)/run_time/60);
+
+           //resetting the variable for the new run
+
+           rh1=0; rh2=0; rh3=0; rh4=0;
            i++;
            std::cout << "i = " << i << std::endl;
            run_num = run_ID;
@@ -536,7 +553,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh4->SetMarkerStyle(7);
     //grh4->SetMarkerSize(3);
     grh4->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    grh4->GetYaxis()->SetLimits(0,1.05*rh3_max);
+    grh4->GetYaxis()->SetLimits(0,1.05*rh4_max);
     grh4->GetXaxis()->SetTitle("run_ID");
     grh4->GetYaxis()->SetTitle("number of hits/min");
     grh4->Draw("APE1");
