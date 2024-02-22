@@ -91,10 +91,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
+          //Add ++total_'trigger' to get the total number of events from the trigger
           if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
           if(trigger == 2) {continue; trigger_temp = "NIM2";}  //NIM2
           if(trigger == 3) {continue; trigger_temp = "NIM3";}  //NIM3
-          if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4
+          if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4 
           if(trigger == 5) {trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
       }
 
@@ -292,30 +293,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            if(rh3_max < rh3 ){ rh3_max = rh3; }
            if(rh4_max < rh4 ){ rh4_max = rh4; }
 
-           /*Trying to show a candlewishker plot for tdc time distribution for each run.
-           int bmxh1t = htdc_h1t->GetMaximumBin(); double tdc_max_h1t = htdc_h1t->GetXaxis()->GetBinCenter(bmxh1t);
-           int bmnh1t = htdc_h1t->GetMinimumBin(); double tdc_min_h1t = htdc_h1t->GetXaxis()->GetBinCenter(bmnh1t);
-           int bmxh1b = htdc_h1b->GetMaximumBin(); double tdc_max_h1b = htdc_h1b->GetXaxis()->GetBinCenter(bmxh1b);
-           int bmnh1b = htdc_h1b->GetMinimumBin(); double tdc_min_h1b = htdc_h1b->GetXaxis()->GetBinCenter(bmnh1b);
-           int bmxh1l = htdc_h1l->GetMaximumBin(); double tdc_max_h1l = htdc_h1l->GetXaxis()->GetBinCenter(bmxh1l);
-           int bmnh1l = htdc_h1l->GetMinimumBin(); double tdc_min_h1l = htdc_h1l->GetXaxis()->GetBinCenter(bmnh1l);
-           int bmxh1r = htdc_h1r->GetMaximumBin(); double tdc_max_h1r = htdc_h1r->GetXaxis()->GetBinCenter(bmxh1r);
-           int bmnh1r = htdc_h1r->GetMinimumBin(); double tdc_min_h1r = htdc_h1r->GetXaxis()->GetBinCenter(bmnh1r);
-
-           int bmxh2t = htdc_h2t->GetMaximumBin(); double tdc_max_h2t = htdc_h2t->GetXaxis()->GetBinCenter(bmxh2t);
-           int bmnh2t = htdc_h2t->GetMinimumBin(); double tdc_min_h2t = htdc_h2t->GetXaxis()->GetBinCenter(bmnh2t);
-           int bmxh2b = htdc_h2b->GetMaximumBin(); double tdc_max_h2b = htdc_h2b->GetXaxis()->GetBinCenter(bmxh2b);
-           int bmnh2b = htdc_h2b->GetMinimumBin(); double tdc_min_h2b = htdc_h2b->GetXaxis()->GetBinCenter(bmnh2b);
-           int bmxh2l = htdc_h2l->GetMaximumBin(); double tdc_max_h2l = htdc_h2l->GetXaxis()->GetBinCenter(bmxh2l);
-           int bmnh2l = htdc_h2l->GetMinimumBin(); double tdc_min_h2l = htdc_h2l->GetXaxis()->GetBinCenter(bmnh2l);
-           int bmxh2r = htdc_h2r->GetMaximumBin(); double tdc_max_h2r = htdc_h2r->GetXaxis()->GetBinCenter(bmxh2r);
-           int bmnh2r = htdc_h2r->GetMinimumBin(); double tdc_min_h2r = htdc_h2r->GetXaxis()->GetBinCenter(bmnh2r);
-
-           int bmxh3t = htdc_h3t->GetMaximumBin(); double tdc_max_h3t = htdc_h3t->GetXaxis()->GetBinCenter(bmxh3t);
-           int bmnh3t = htdc_h3t->GetMinimumBin(); double tdc_min_h3t = htdc_h3t->GetXaxis()->GetBinCenter(bmnh3t);
-           int bmxh3b = htdc_h3b->GetMaximumBin(); double tdc_max_h3b = htdc_h3b->GetXaxis()->GetBinCenter(bmxh3b);
-           int bmnh3b = htdc_h3b->GetMinimumBin(); double tdc_min_h3b = htdc_h3b->GetXaxis()->GetBinCenter(bmnh3b);*/
-
            grh1->SetPoint(i, run_num, rh1);
            grh1->SetPointError(i, 0., 0., sqrt(t_num_h1)/run_time/60, sqrt(t_num_h1)/run_time/60);
 
@@ -425,12 +402,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l1->AddEntry(htdc_h1r, "h1r", "l");
     l1->AddEntry(htdc_h1l, "h1l", "l");
     l1->Draw();
-    /*TText T1; T1.SetTextFont(42); T1.SetTextAlign(21); T1.SetFillColor(0);
-    T1.DrawTextNDC(.5,.95,"tdc time - st1");
-    hs1->Add(htdc_h1t); hs1->Add(htdc_h1b); hs1->Add(htdc_h1r); hs1->Add(htdc_h1l); 
-    TText T; T.SetTextFont(42); T.SetTextAlign(21);
-    hs1->SetTitle("tdc_time: St1");
-    hs1->Draw("nonstack"); T.DrawTextNDC(.5,.95,"tdc time - st1");*/
     c1->Update();
     
     TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp.c_str()), Form("tdc_time of %s hits : St2", trigger_temp.c_str()), 1000, 500);
@@ -450,11 +421,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l2->AddEntry(htdc_h2r, "h2r", "l");
     l2->AddEntry(htdc_h2l, "h2l", "l");
     l2->Draw();
-    /*TText T2; T2.SetTextFont(42); T2.SetTextAlign(21); T2.SetFillColor(0);
-    T2.DrawTextNDC(.5,.95,"tdc time - st2");
-    htdc_h2l->SetTitle("tdc_time");
-    htdc_h2l->GetXaxis()->SetTitle("tdc_time");
-    htdc_h2l->GetYaxis()->SetTitle("number of events");*/
     c2->Update();
 
     TCanvas* c3 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
@@ -468,11 +434,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l3->AddEntry(htdc_h3t, "h3t", "l");
     l3->AddEntry(htdc_h3b, "h3b", "l");
     l3->Draw();
-    /*TText T3; T3.SetTextFont(42); T3.SetTextAlign(21); T3.SetFillColor(0);
-    T3.DrawTextNDC(.5,.95,"tdc time - st3");
-    htdc_h3b->SetTitle("tdc_time");
-    htdc_h3b->GetXaxis()->SetTitle("tdc_time");
-    htdc_h3b->GetYaxis()->SetTitle("number of events");*/
     c3->Update();
 
     TCanvas* c4 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
@@ -498,11 +459,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l4->AddEntry(htdc_h4y2r, "h4y2r", "l");
     l4->AddEntry(htdc_h4y2l, "h4y2l", "l");
     l4->Draw();
-    /*TText T3; T3.SetTextFont(42); T3.SetTextAlign(21); T3.SetFillColor(0);
-    T3.DrawTextNDC(.5,.95,"tdc time - st3");
-    htdc_h3b->SetTitle("tdc_time");
-    htdc_h3b->GetXaxis()->SetTitle("tdc_time");
-    htdc_h3b->GetYaxis()->SetTitle("number of events");*/
     c4->Update();
 
     TCanvas* c5 = new TCanvas("c5", "", 1000, 500);
@@ -510,7 +466,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh1->SetTitle(Form("Hit rate of %s events : St1", trigger_temp.c_str()));
     grh1->SetMarkerColor(4);
     grh1->SetMarkerStyle(7);
-    //grh1->SetMarkerSize(3);
     //grh1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     //grh1->GetYaxis()->SetLimits(0,1.05*rh1_max);
     grh1->GetXaxis()->SetTitle("run_ID");
@@ -524,7 +479,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh2->SetTitle(Form("Hit rate of %s events : St2", trigger_temp.c_str()));
     grh2->SetMarkerColor(4);
     grh2->SetMarkerStyle(7);
-    //grh2->SetMarkerSize(3);
     grh2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     grh2->GetYaxis()->SetLimits(0,1.05*rh2_max);
     grh2->GetXaxis()->SetTitle("run_ID");
@@ -538,7 +492,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh3->SetTitle(Form("Hit rate of %s events : St3", trigger_temp.c_str()));
     grh3->SetMarkerColor(4);
     grh3->SetMarkerStyle(7);
-    //grh3->SetMarkerSize(3);
     grh3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     grh3->GetYaxis()->SetLimits(0,1.05*rh3_max);
     grh3->GetXaxis()->SetTitle("run_ID");
@@ -551,7 +504,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh4->SetTitle(Form("Hit rate of %s events : St4", trigger_temp.c_str()));
     grh4->SetMarkerColor(4);
     grh4->SetMarkerStyle(7);
-    //grh4->SetMarkerSize(3);
     grh4->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     grh4->GetYaxis()->SetLimits(0,1.05*rh4_max);
     grh4->GetXaxis()->SetTitle("run_ID");
@@ -559,34 +511,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh4->Draw("APE1");
     c8->Update();
 
-    
-/*
-    TCanvas* c8 = new TCanvas("c8", "", 1000, 500);
-
-    gqtls->SetTitle("Number of qualified tracklets  in the run");
-    gqtls->SetMarkerColor(4);
-    gqtls->SetMarkerStyle(7);
-    //gqtls->SetMarkerSize(3);
-    //gqtls->GetXaxis()->SSetLimits(xlow-0.5,xhigh);
-    //gqtls->GetYaxis()->SetLimits(0,360);
-    gqtls->GetXaxis()->SetTitle("run_ID");
-    gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
-    gtls->SetTitle("Total number of tracklets in the run");
-    //gtls->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    //gtls->GetYaxis()->SetLimits(0,360);
-    gtls->SetMarkerColor(2);
-    gtls->SetMarkerStyle(22);
-    //gtls->SetMarkerSize(3);
-    gtls->Draw("APE1");
-    mg -> Add(gtls);
-    mg-> Add(gqtls);
-    mg->GetXaxis()->SetLimits(xlow-0.5,xhigh);
-    mg->SetMinimum(0);
-    mg->SetMaximum(360);
-    mg->Draw("APE1");
-    c7->BuildLegend(0.45, 0.6, 0.8, 0.8, "", "");
-
-*/
 
     gSystem->mkdir(Form("hitRates/%s",trigger_temp.c_str()), 1);
 
@@ -598,7 +522,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c6->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
-    //c7->SaveAs("triggerRates/NIM2/tracklet_info.png");
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total Matrix5 events : "<< total_M5 <<std::endl;
@@ -611,9 +534,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     std::cout<<"total number of back partial tracks ;"<<total_bp<<std::endl;
     std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3b;"<<h3b_hits<<std::endl;
-    //std::cout<<"number back partial tracks with no hits in st3b;"<<no_h3b_hits<<std::endl;
     std::cout<<"number back partial tracks with hits only in st3t;"<<h3t_hits<<std::endl;
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
-    //std::cout<<"number back partial tracks with no hits in st3t;"<<no_h3t_hits<<std::endl;
     std::cout<<"*************************"<<std::endl;
 }
