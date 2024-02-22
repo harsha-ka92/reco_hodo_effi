@@ -44,8 +44,13 @@ R__LOAD_LIBRARY(libanamodule)
    int num_h3b;
    int tlBackPartial;
    int total_M5 = 0;
-   int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; int st12 =0; int st24 =0;
-   int has_hits =0; int no_hits =0; int total_bp =0; int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
+   int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; 
+   int has_hits =0; int no_hits =0; int total_bp =0;
+   int st12 =0; int st24 =0;
+   int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
+   //int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
+   
+   
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
    double rh1_max =0;    double rh2_max =0;     double rh3_max =0; 
