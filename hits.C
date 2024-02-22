@@ -99,7 +99,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       }
 
        if (tlBackPartial>0){ 
-            ++total_bp;
+            total_bp +=1;
             if (num_h3b>0 && num_h3t ==0){++h3b_hits;}
             //if (num_h3b==0){++no_h3b_hits;}
             //if (num_h3t==0){++no_h3t_hits;}
