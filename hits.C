@@ -56,6 +56,7 @@ void hits()
    int num_h3t;
    int num_h3b;
    int tlBackPartial;
+   int total_M5 = 0;
    int has_hits =0; int no_hits =0; int total_bp =0; int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;
@@ -140,7 +141,7 @@ void hits()
    auto hs3 = new THStack("hs2","");
 
    nEvents = tr->GetEntries();
-   bool Trigger_Filter = false; //set to "True" if need to filter hits based on trigger.
+   bool Trigger_Filter = true; //set to "True" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
       
@@ -148,10 +149,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
           //remove the "continue" of the trigger you want in the analysis
           if(trigger == 1) {continue; trigger_temp = "NIM1";}  //NIM1
-          if(trigger == 2) { trigger_temp = "NIM2";}  //NIM2
+          if(trigger == 2) {continue; trigger_temp = "NIM2";}  //NIM2
           if(trigger == 3) {continue; trigger_temp = "NIM3";}  //NIM3
           if(trigger == 4) {continue; trigger_temp = "NIM4";}  //NIM4
-          if(trigger == 5) {continue; trigger_temp = "MATRIX5";}  //MATRIX5
+          if(trigger == 5) {trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
       }
 
        if (tlBackPartial>0){ 
@@ -163,10 +164,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
             if (num_h3t ==0 && num_h3b ==0){++no_hits;}
        }
-      
+
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       
-      //if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
+      if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
       
       if(run_num == run_ID && i_ent != nEvents-1){
         
@@ -207,6 +208,14 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
         std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
         t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
         t_num_h3 += (num_h3t + num_h3b);
+
+        //categorizing events from st1,st2 and st2,st4
+            if (num_h3b>0 && num_h3t ==0){++h3b_hits;}
+            //if (num_h3b==0){++no_h3b_hits;}
+            //if (num_h3t==0){++no_h3t_hits;}
+            if (num_h3t>0 && num_h3b ==0){++h3t_hits;}
+            if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
+            if (num_h3t ==0 && num_h3b ==0){++no_hits;}
 
          run_time = dor;
          run_num = run_ID;
