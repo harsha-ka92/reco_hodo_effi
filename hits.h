@@ -44,7 +44,7 @@ R__LOAD_LIBRARY(libanamodule)
    int total_M5 = 0;
    int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; 
    int has_hits =0; int no_hits =0; int total_bp =0;
-   int st12 =0; int st24 =0;
+   int st12 =0; int st24 =0;  int st124 =0;
    int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
    //int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
    
