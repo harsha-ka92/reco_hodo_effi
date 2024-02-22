@@ -436,7 +436,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     l3->Draw();
     c3->Update();
 
-    TCanvas* c4 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
+    TCanvas* c4 = new TCanvas(Form("tdc_time of %s hits : St4", trigger_temp.c_str()), Form("tdc_time of %s hits : St4", trigger_temp.c_str()), 1000, 500);
     htdc_h4t->SetLineColor(7);
     htdc_h4t->SetTitle("tdc time - st4");
     htdc_h4t->Draw();
