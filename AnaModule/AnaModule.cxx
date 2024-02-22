@@ -344,6 +344,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   tdc_h1t.clear(); tdc_h1b.clear(); tdc_h1r.clear(); tdc_h1l.clear(); 
   tdc_h2t.clear(); tdc_h2b.clear(); tdc_h2r.clear(); tdc_h2l.clear();
   tdc_h3t.clear(); tdc_h3b.clear();
+  tdc_h4t.clear(); tdc_h4b.clear(); tdc_h4y1r.clear(); tdc_h4y1l.clear(); tdc_h4y2r.clear(); tdc_h4y2l.clear();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -407,6 +408,19 @@ void AnaModule::MakeTree()
 	saveTree->Branch("tdc_h3t", &tdc_h3t);
 	saveTree->Branch("num_h3b", &num_h3b, "num_h3b/I");
 	saveTree->Branch("tdc_h3b", &tdc_h3b);
+
+	saveTree->Branch("num_h4t", &num_h4t, "num_h4t/I");
+	saveTree->Branch("tdc_h4t", &tdc_h4t);
+	saveTree->Branch("num_h4b", &num_h4b, "num_h4b/I");
+	saveTree->Branch("tdc_h4b", &tdc_h4b);
+	saveTree->Branch("num_h4y1l", &num_h4y1l, "num_h4y1l/I");
+	saveTree->Branch("tdc_h4y1l", &tdc_h4y1l);
+	saveTree->Branch("num_h4y1r", &num_h4y1r, "num_h4y1r/I");
+	saveTree->Branch("tdc_h4y1r", &tdc_h4y1r);
+	saveTree->Branch("num_h4y2l", &num_h4y2l, "num_h4y2l/I");
+	saveTree->Branch("tdc_h4y2l", &tdc_h4y2l);
+	saveTree->Branch("num_h4y2r", &num_h4y2r, "num_h4y2r/I");
+	saveTree->Branch("tdc_h4y2r", &tdc_h4y2r);
 
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
