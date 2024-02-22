@@ -90,6 +90,7 @@ R__LOAD_LIBRARY(libanamodule)
    TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh2 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh3 = new TGraphAsymmErrors();
+   TGraphAsymmErrors* grh4 = new TGraphAsymmErrors();
 
    TGraphAsymmErrors* gtdc_h1t = new TGraphAsymmErrors();
    TGraphAsymmErrors* gtdc_h1b = new TGraphAsymmErrors();
