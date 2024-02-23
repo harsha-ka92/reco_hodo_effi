@@ -124,20 +124,20 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          if(nim4_max < rnim4 ){ nim4_max = rnim4; }
          if(matrix5_max < rmatrix5 ){ matrix5_max = rmatrix5; }
 
-         gNIM1->SetPoint(i, run_num, rnim1);
-         gNIM1->SetPointError(i, 0., 0., 0., 0.);
+        gNIM1->SetPoint(i, run_num, rnim1);
+        gNIM1->SetPointError(i, 0., 0., sqrt(nim1)/run_time/60, sqrt(nim1)/run_time/60);
 
-         gNIM2->SetPoint(i, run_num, rnim2);
-         gNIM2->SetPointError(i, 0., 0., 0., 0.);
+        gNIM2->SetPoint(i, run_num, rnim2);
+        gNIM2->SetPointError(i, 0., 0., sqrt(nim2)/run_time/60, sqrt(nim2)/run_time/60);
 
-         gNIM3->SetPoint(i, run_num, rnim3);
-         gNIM3->SetPointError(i, 0., 0., 0., 0.);
+        gNIM3->SetPoint(i, run_num, rnim3);
+        gNIM3->SetPointError(i, 0., 0., sqrt(nim3)/run_time/60, sqrt(nim3)/run_time/60);
 
-         gNIM4->SetPoint(i, run_num, rnim4);
-         gNIM4->SetPointError(i, 0., 0., 0., 0.);
+        gNIM4->SetPoint(i, run_num, rnim4);
+        gNIM4->SetPointError(i, 0., 0., sqrt(nim4)/run_time/60, sqrt(nim4)/run_time/60);
 
-         gMatrix5->SetPoint(i, run_num, rmatrix5);
-         gMatrix5->SetPointError(i, 0., 0., 0., 0.);
+        gMatrix5->SetPoint(i, run_num, rmatrix5);
+        gMatrix5->SetPointError(i, 0., 0., sqrt(matrix5)/run_time/60, sqrt(matrix5)/run_time/60);
 
          gruntime->SetPoint(i, run_num, run_time/60);
          gruntime->SetPointError(i, 0., 0., 0., 0.);
@@ -175,19 +175,19 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            if(matrix5_max < rmatrix5 ){ matrix5_max = rmatrix5; }
 
            gNIM1->SetPoint(i, run_num, rnim1);
-           gNIM1->SetPointError(i, 0., 0., 0., 0.);
+           gNIM1->SetPointError(i, 0., 0., sqrt(nim1)/run_time/60, sqrt(nim1)/run_time/60);
 
            gNIM2->SetPoint(i, run_num, rnim2);
-           gNIM2->SetPointError(i, 0., 0., 0., 0.);
+           gNIM2->SetPointError(i, 0., 0., sqrt(nim2)/run_time/60, sqrt(nim2)/run_time/60);
 
            gNIM3->SetPoint(i, run_num, rnim3);
-           gNIM3->SetPointError(i, 0., 0., 0., 0.);
+           gNIM3->SetPointError(i, 0., 0., sqrt(nim3)/run_time/60, sqrt(nim3)/run_time/60);
 
            gNIM4->SetPoint(i, run_num, rnim4);
-           gNIM4->SetPointError(i, 0., 0., 0., 0.);
+           gNIM4->SetPointError(i, 0., 0., sqrt(nim4)/run_time/60, sqrt(nim4)/run_time/60);
 
            gMatrix5->SetPoint(i, run_num, rmatrix5);
-           gMatrix5->SetPointError(i, 0., 0., 0., 0.);
+           gMatrix5->SetPointError(i, 0., 0., sqrt(matrix5)/run_time/60, sqrt(matrix5)/run_time/60);
 
            gruntime->SetPoint(i, run_num, run_time/60);
            gruntime->SetPointError(i, 0., 0., 0., 0.);
@@ -211,8 +211,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gNIM1->SetTitle("Trigger Rate : NIM1");
     gNIM1->SetMarkerColor(4);
-    gNIM1->SetMarkerStyle(43);
-    gNIM1->SetMarkerSize(3);
+    gNIM1->SetMarkerStyle(7);
+    //gNIM1->SetMarkerSize(3);
     gNIM1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM1->GetYaxis()->SetRangeUser(0,1.05*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
@@ -223,8 +223,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gNIM2->SetTitle("Trigger Rate : NIM2");
     gNIM2->SetMarkerColor(4);
-    gNIM2->SetMarkerStyle(43);
-    gNIM2->SetMarkerSize(3);
+    gNIM2->SetMarkerStyle(7);
+    //gNIM2->SetMarkerSize(3);
     gNIM2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
@@ -235,8 +235,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gNIM3->SetTitle("Trigger Rate : NIM3");
     gNIM3->SetMarkerColor(4);
-    gNIM3->SetMarkerStyle(43);
-    gNIM3->SetMarkerSize(3);
+    gNIM3->SetMarkerStyle(7);
+    //gNIM3->SetMarkerSize(3);
     gNIM3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM3->GetYaxis()->SetRangeUser(0,1.05*nim3_max);
     gNIM3->GetXaxis()->SetTitle("run_ID");
@@ -247,8 +247,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gNIM4->SetTitle("Trigger Rate : NIM4");
     gNIM4->SetMarkerColor(4);
-    gNIM4->SetMarkerStyle(43);
-    gNIM4->SetMarkerSize(3);
+    gNIM4->SetMarkerStyle(7);
+    //gNIM4->SetMarkerSize(3);
     gNIM4->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM4->GetYaxis()->SetRangeUser(0,1.05*nim4_max);
     gNIM4->GetXaxis()->SetTitle("run_ID");
@@ -259,8 +259,8 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gMatrix5->SetTitle("Trigger Rate : Matrix5");
     gMatrix5->SetMarkerColor(4);
-    gMatrix5->SetMarkerStyle(43);
-    gMatrix5->SetMarkerSize(3);
+    gMatrix5->SetMarkerStyle(7);
+    //gMatrix5->SetMarkerSize(3);
     gMatrix5->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gMatrix5->GetYaxis()->SetRangeUser(0,1.05*matrix5_max);
     gMatrix5->GetXaxis()->SetTitle("run_ID");
@@ -271,7 +271,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     gruntime->SetTitle("run lengths");
     gruntime->SetMarkerColor(4);
-    gruntime->SetMarkerStyle(43);
+    gruntime->SetMarkerStyle(7);
     gruntime->SetMarkerSize(3);
     gruntime->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gruntime->GetXaxis()->SetTitle("run_ID");
