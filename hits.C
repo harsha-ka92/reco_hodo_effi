@@ -92,9 +92,9 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
           //remove the "continue" of the trigger you want in the analysis
           if(trigger == 1) {continue; trigger_temp = "NIM1"; ++total_N1;}  //NIM1
-          if(trigger == 2) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
+          if(trigger == 2) {continue; trigger_temp = "NIM2"; ++total_N2;}  //NIM2
           if(trigger == 3) {continue; trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          if(trigger == 4) {continue; trigger_temp = "NIM4"; total_N4++;}  //NIM4 
+          if(trigger == 4) {trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           if(trigger == 5) {continue; trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
           if(trigger !=1 && trigger !=2 && trigger !=3 && trigger !=4 && trigger !=5){std::cout<<"trigger value is different "<<trigger<<std::endl; new_trigger++; continue;}
           
@@ -526,7 +526,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events : "<< nEvents <<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N2 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
+    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N4 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
     std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
