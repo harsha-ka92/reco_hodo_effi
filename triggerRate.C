@@ -144,10 +144,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
          std::cout<< "filling the value"<< num_tls <<std::endl;
          gtls->SetPoint(i, run_num, num_tls);
-         gtls->SetPointError(i, 0., 0., 0., 0.);
+         gtls->SetPointError(i, 0., 0., sqrt(num_tls), sqrt(num_tls));
 
          gqtls->SetPoint(i, run_num, qual_tl);
-         gqtls->SetPointError(i, 0., 0., 0., 0.);
+         gqtls->SetPointError(i, 0., 0., sqrt(qual_tl), sqrt(qual_tl));
 
          nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
          i++;
@@ -193,10 +193,10 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            gruntime->SetPointError(i, 0., 0., 0., 0.);
 
            gtls->SetPoint(i, run_num, num_tls);
-           gtls->SetPointError(i, 0., 0., 0., 0.);
+           gtls->SetPointError(i, 0., 0., sqrt(num_tls), sqrt(num_tls));
 
            gqtls->SetPoint(i, run_num, qual_tl);
-           gqtls->SetPointError(i, 0., 0., 0., 0.);
+           gqtls->SetPointError(i, 0., 0., sqrt(qual_tl), sqrt(qual_tl));
 
            nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
            i++;
