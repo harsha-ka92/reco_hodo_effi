@@ -35,10 +35,10 @@ void spill_info(){
 
   for (auto it = spill_time.begin(); it != spill_time.end(); it++) {
     //cout << it->first.first << "\t" << it->first.second << "\t" << it->second.first << "\t" << it->second.second << "\n";
-   std::cout << "eos"<< it->second.second<< std::endl;
-   std::cout << "bos"<< it->second.first<< std::endl;
-   std::cout << "DOS"<< it->second.second - it->second.first << std::endl;
-    gSpillTime->SetPoint(i, it->first.second, it->second.second - it->second.first);
+    std::cout << "eos"<< it->second.second<< std::endl;
+    std::cout << "bos"<< it->second.first<< std::endl;
+    std::cout << "DOS"<< it->second.second - it->second.first << std::endl;
+    gSpillTime->SetPoint(i, it->first.second, (it->second.second - it->second.first));
     i++;
   }
 
