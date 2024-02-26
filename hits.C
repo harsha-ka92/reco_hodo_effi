@@ -80,6 +80,13 @@ void hits()
    tr->SetBranchAddress("num_h4y1l", &num_h4y1l);
    tr->SetBranchAddress("num_h4y2r", &num_h4y2r);
    tr->SetBranchAddress("num_h4y2l", &num_h4y2l);
+
+   tr->SetBranchAddress("eleIdsh4t", &eleIdsh4t);
+   tr->SetBranchAddress("eleIdsh4b", &eleIdsh4b);
+   tr->SetBranchAddress("eleIdsh4y1r", &eleIdsh4y1r);
+   tr->SetBranchAddress("eleIdsh4y1l", &eleIdsh4y1l);
+   tr->SetBranchAddress("eleIdsh4y2r", &eleIdsh4y2r);
+   tr->SetBranchAddress("eleIdsh4y2l", &eleIdsh4y2l);
    
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
