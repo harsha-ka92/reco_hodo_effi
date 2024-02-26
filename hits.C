@@ -528,6 +528,17 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     grh4->Draw("APE1");
     c8->Update();
 
+    TCanvas* c9 = new TCanvas("c8", "", 1000, 500);
+    c9->cd();
+    c9->Divide(2,3,0,0);
+    c9->cd(1); eleIds_h4t->Draw();
+    c9->cd(2); eleIds_h4b->Draw();    
+    c9->cd(3); eleIds_h4y1r->Draw();
+    c9->cd(4); eleIds_h4y1l->Draw();
+    c9->cd(5); eleIds_h4y2r->Draw();
+    c9->cd(6); eleIds_h4y2l->Draw();
+    c9->cd();
+    c9->Update();
 
     gSystem->mkdir(Form("hitRates/%s",trigger_temp.c_str()), 1);
 
@@ -539,6 +550,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     c6->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
+    c9->SaveAs("hitRates/st4Hits.png");
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events : "<< nEvents <<std::endl;
