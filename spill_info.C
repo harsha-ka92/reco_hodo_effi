@@ -47,6 +47,7 @@ void spill_info(){
   }
 
   TCanvas *c1 = new TCanvas("c1","Spill Durations",200,10,600,400);
+  hST->getXaxis->SetTitle("time (ms)");
   hST->Draw();
   c1->SaveAs("Spill_Durations.png");
 }
