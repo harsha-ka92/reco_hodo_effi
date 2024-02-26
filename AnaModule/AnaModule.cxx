@@ -437,11 +437,11 @@ void AnaModule::MakeTree()
 	saveTree->Branch("tdc_h4y2r", &tdc_h4y2r);
 
 	saveTree->Branch("eleIdsh4t", &eleIdsh4t);
-	saveTree->Branch("eleIdsh4t", &eleIdsh4b);
-	saveTree->Branch("eleIdsh4t", &eleIdsh4y1r);
-	saveTree->Branch("eleIdsh4t", &eleIdsh4y1l);
-	saveTree->Branch("eleIdsh4t", &eleIdsh4y2r);
-	saveTree->Branch("eleIdsh4t", &eleIdsh4y2l);
+	saveTree->Branch("eleIdsh4b", &eleIdsh4b);
+	saveTree->Branch("eleIdsh4y1r", &eleIdsh4y1r);
+	saveTree->Branch("eleIdsh4y1l", &eleIdsh4y1l);
+	saveTree->Branch("eleIdsh4y2r", &eleIdsh4y2r);
+	saveTree->Branch("eleIdsh4y2l", &eleIdsh4y2l);
 	
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
