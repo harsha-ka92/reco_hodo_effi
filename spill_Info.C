@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void test(){
+void spill_info(){
 
   struct run{
       int runID;
