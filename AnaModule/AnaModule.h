@@ -146,6 +146,7 @@ private:
   int num_h3t;
   int num_h3b;
   int num_h4t; int num_h4b; int num_h4y1l; int num_h4y1r; int num_h4y2l; int num_h4y2r;
+  int eleID;
 };
 
 #endif
