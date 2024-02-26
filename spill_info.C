@@ -41,5 +41,5 @@ void spill_info(){
 
   TCanvas *c1 = new TCanvas("c1","Spill Durations",200,10,600,400);
   gSpillTime->Draw();
-  c1->SaveAs("Spill_Durations.png")
+  c1->SaveAs("Spill_Durations.png");
 }
