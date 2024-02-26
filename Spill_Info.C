@@ -15,7 +15,7 @@ void test(){
   };
 
 
-  map<pair<int,int>, pair<int,int>> spill_time;
+  std::map<pair<int,int>, pair<int,int>> spill_time;
 
   string id;
   ifstream infile("mysql_output_spill_info.txt");
