@@ -66,6 +66,8 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<double> *tdc_h3b =0;
    std::vector<double> *tdc_h4t =0; std::vector<double> *tdc_h4b =0; 
    std::vector<double> *tdc_h4y1r =0;  std::vector<double> *tdc_h4y1l =0; std::vector<double> *tdc_h4y2r =0; std::vector<double> *tdc_h4y2l =0;
+   std::vector<double> *eleIdsh4t =0; std::vector<double> *eleIdsh4b =0; 
+   std::vector<double> *eleIdsh4y1r =0;  std::vector<double> *eleIdsh4y1l =0; std::vector<double> *eleIdsh4y2r =0; std::vector<double> *eleIdsh4y2l =0;
 
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
