@@ -39,13 +39,13 @@ void spill_info(){
     //cout << it->first.first << "\t" << it->first.second << "\t" << it->second.first << "\t" << it->second.second << "\n";
     dos = it->second.second - it->second.first;
     sID = it->first.second; 
-    std::cout << "Spill ID "<< sID << std::endl;
-    std::cout << "dos"<< dos << std::endl;
+    //std::cout << "Spill ID "<< sID << std::endl;
+    //std::cout << "dos"<< dos << std::endl;
     gSpillTime->SetPoint(i,i, dos);
     i++;
   }
 
   TCanvas *c1 = new TCanvas("c1","Spill Durations",200,10,600,400);
-  gSpillTime->Draw();
+  gSpillTime->Draw("AF");
   c1->SaveAs("Spill_Durations.png");
 }
