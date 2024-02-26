@@ -134,12 +134,12 @@ private:
   std::vector<double> tdc_h4y2r;
   std::vector<double> tdc_h4y2l;
 
-  std::vector<double> eleIds_h4t;
-  std::vector<double> eleIds_h4b;
-  std::vector<double> eleIds_h4y1r;
-  std::vector<double> eleIds_h4y1l;
-  std::vector<double> eleIds_h4y2r;
-  std::vector<double> eleIds_h4y2l;
+  std::vector<double> eleIdsh4t;
+  std::vector<double> eleIdsh4b;
+  std::vector<double> eleIdsh4y1r;
+  std::vector<double> eleIdsh4y1l;
+  std::vector<double> eleIdsh4y2r;
+  std::vector<double> eleIdsh4y2l;
 
   std::string ID;
   int num_h1t;
@@ -153,7 +153,7 @@ private:
   int num_h3t;
   int num_h3b;
   int num_h4t; int num_h4b; int num_h4y1l; int num_h4y1r; int num_h4y2l; int num_h4y2r;
-  int eleID;
+  int eleId;
 };
 
 #endif
