@@ -41,7 +41,7 @@ void spill_info(){
     sID = it->first.second; 
     std::cout << "Spill ID "<< sID << std::endl;
     std::cout << "dos"<< dos << std::endl;
-    gSpillTime->SetPoint(i,sID, dos);
+    gSpillTime->SetPoint(i,i, dos);
     i++;
   }
 
