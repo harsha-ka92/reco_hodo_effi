@@ -24,7 +24,7 @@ void spill_info(){
   string id;
   ifstream infile("mysql_output_spill_info.txt");
   //TGraph *gSpillTime = new TGraph();
-  TH1D *hST = new TH1D("hST", "hST", 10, 0,10);
+  TH1D *hST = new TH1D("hST", "hST", 10, 4190, 4210);
   while (getline(infile,id))
   {
  
