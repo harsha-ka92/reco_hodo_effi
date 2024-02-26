@@ -87,6 +87,14 @@ R__LOAD_LIBRARY(libanamodule)
    TH1F *htdc_h4y2r = new TH1F("htdc_h4y2r","htdc_h4y2r", 350, 750, 1100);
    TH1F *htdc_h4y2l = new TH1F("htdc_h4y2l","htdc_h4y2l", 350, 750, 1100);
 
+   TH1D *eleIds_h4t = new TH1D("eleIds_h4t", "eleIds_h4t", 16, 1,17);
+   TH1D *eleIds_h4b = new TH1D("eleIds_h4b", "eleIds_h4b", 16, 1,17);
+   TH1D *eleIds_h4y1l = new TH1D("eleIds_h4y1l", "eleIds_h4y1l", 16, 1,17);
+   TH1D *eleIds_h4y1r = new TH1D("eleIds_h4y1r", "eleIds_h4y1r", 16, 1,17);
+   TH1D *eleIds_h4y2l = new TH1D("eleIds_h4y2l", "eleIds_h4y2l", 16, 1,17);
+   TH1D *eleIds_h4y2r = new TH1D("eleIds_h4y2r", "eleIds_h4y2r", 16, 1,17);
+
+
    TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh2 = new TGraphAsymmErrors();
    TGraphAsymmErrors* grh3 = new TGraphAsymmErrors();
