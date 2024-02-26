@@ -179,6 +179,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
 		tdc_h4t.push_back(tdc_time);
+		eleId = (*it)->  get_element_id();
+		eleIdsh4t.push_back(eleId);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h4b(UtilSQHit::FindHits(hitVector, "H4B"));
@@ -188,6 +190,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
 		tdc_h4b.push_back(tdc_time);
+		eleId = (*it)->  get_element_id();
+		eleIdsh4b.push_back(eleId);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h4y1l(UtilSQHit::FindHits(hitVector, "H4Y1L"));
@@ -197,6 +201,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
 		tdc_h4y1l.push_back(tdc_time);
+		eleId = (*it)->  get_element_id();
+		eleIdsh4y1l.push_back(eleId);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h4y1r(UtilSQHit::FindHits(hitVector, "H4Y1R"));
@@ -206,6 +212,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
 		tdc_h4y1r.push_back(tdc_time);
+		eleId = (*it)->  get_element_id();
+		eleIdsh4y1r.push_back(eleId);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h4y2l(UtilSQHit::FindHits(hitVector, "H4Y2L"));
@@ -215,6 +223,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
 		tdc_h4y2l.push_back(tdc_time);
+		eleId = (*it)->  get_element_id();
+		eleIdsh4y2l.push_back(eleId);
 	}
 
 	std::shared_ptr<SQHitVector> hv_h4y2r(UtilSQHit::FindHits(hitVector, "H4Y2R"));
@@ -224,6 +234,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		//int    ele_id = (*it)->get_element_id();
 		double tdc_time   = (*it)->get_tdc_time();
 		tdc_h4y2r.push_back(tdc_time);
+		eleId = (*it)->  get_element_id();
+		eleIdsh4y2r.push_back(eleId);
 	}
 	
 	for(int i = 0; i < nTracklets; ++i)
@@ -346,6 +358,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   tdc_h2t.clear(); tdc_h2b.clear(); tdc_h2r.clear(); tdc_h2l.clear();
   tdc_h3t.clear(); tdc_h3b.clear();
   tdc_h4t.clear(); tdc_h4b.clear(); tdc_h4y1r.clear(); tdc_h4y1l.clear(); tdc_h4y2r.clear(); tdc_h4y2l.clear();
+  eleIdsh4t.clear();eleIdsh4b.clear();eleIdsh4y1l.clear();eleIdsh4y1r.clear();eleIdsh4y2l.clear();eleIdsh4y2r.clear();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -423,6 +436,13 @@ void AnaModule::MakeTree()
 	saveTree->Branch("num_h4y2r", &num_h4y2r, "num_h4y2r/I");
 	saveTree->Branch("tdc_h4y2r", &tdc_h4y2r);
 
+	saveTree->Branch("eleIdsh4t", &eleIdsh4t);
+	saveTree->Branch("eleIdsh4t", &eleIdsh4b);
+	saveTree->Branch("eleIdsh4t", &eleIdsh4y1r);
+	saveTree->Branch("eleIdsh4t", &eleIdsh4y1l);
+	saveTree->Branch("eleIdsh4t", &eleIdsh4y2r);
+	saveTree->Branch("eleIdsh4t", &eleIdsh4y2l);
+	
   	saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
   	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
