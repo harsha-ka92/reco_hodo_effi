@@ -134,6 +134,13 @@ private:
   std::vector<double> tdc_h4y2r;
   std::vector<double> tdc_h4y2l;
 
+  std::vector<double> eleIds_h4t;
+  std::vector<double> eleIds_h4b;
+  std::vector<double> eleIds_h4y1r;
+  std::vector<double> eleIds_h4y1l;
+  std::vector<double> eleIds_h4y2r;
+  std::vector<double> eleIds_h4y2l;
+
   std::string ID;
   int num_h1t;
   int num_h1b;
