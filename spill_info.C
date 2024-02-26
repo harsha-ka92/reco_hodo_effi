@@ -25,7 +25,7 @@ void spill_info(){
  
     istringstream is( id );
     run r;
-    is >> r.runID >> r.spillID >> r.bos_vme >> r.eos_vme;
+    is >> r.runID >> r.spillID >> "" >> r.bos_vme >> "" >> r.eos_vme;
    
     spill_time[std::pair<int,int>(r.runID, r.spillID)] = std::pair<int,int>(r.bos_vme, r.eos_vme); 
     
