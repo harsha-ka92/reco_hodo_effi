@@ -23,7 +23,8 @@ void spill_info(){
 
   string id;
   ifstream infile("mysql_output_spill_info.txt");
-  TGraph *gSpillTime = new TGraph();
+  //TGraph *gSpillTime = new TGraph();
+  TH1D *hST = new TH1D("hST", "hST", 10, 0,10);
   while (getline(infile,id))
   {
  
@@ -39,13 +40,13 @@ void spill_info(){
     //cout << it->first.first << "\t" << it->first.second << "\t" << it->second.first << "\t" << it->second.second << "\n";
     dos = it->second.second - it->second.first;
     sID = it->first.second; 
+    hST->Fill(dos);
     //std::cout << "Spill ID "<< sID << std::endl;
     //std::cout << "dos"<< dos << std::endl;
-    gSpillTime->SetPoint(i,i, dos);
-    i++;
+    //gSpillTime->SetPoint(i,i, dos);
   }
 
   TCanvas *c1 = new TCanvas("c1","Spill Durations",200,10,600,400);
-  gSpillTime->Draw("AF");
+  hST->Draw();
   c1->SaveAs("Spill_Durations.png");
 }
