@@ -6,7 +6,7 @@
 using namespace std;
 
 void spill_info(){
-
+ int i=0;
   struct run{
       int runID;
       int spillID;
@@ -21,7 +21,7 @@ void spill_info(){
 
   string id;
   ifstream infile("mysql_output_spill_info.txt");
-
+  TGraph *gSpillTime = new TGraph();
   while (getline(infile,id))
   {
  
@@ -34,6 +34,12 @@ void spill_info(){
     }
 
   for (auto it = spill_time.begin(); it != spill_time.end(); it++) {
-    cout << it->first.first << "\t" << it->first.second << "\t" << it->second.first << "\t" << it->second.second << "\n";
+    //cout << it->first.first << "\t" << it->first.second << "\t" << it->second.first << "\t" << it->second.second << "\n";
+    gSpillTime->SetPoint(i, it->first.second, it->second.second - it->second.first);
+    i++;
   }
+
+  TCanvas *c1 = new TCanvas("c1","Spill Durations",200,10,600,400);
+  gSpillTime->Draw();
+  c1->SaveAs("Spill_Durations.png")
 }
