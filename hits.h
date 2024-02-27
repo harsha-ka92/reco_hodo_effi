@@ -40,6 +40,7 @@ R__LOAD_LIBRARY(libanamodule)
    int num_h3t;
    int num_h3b;
    int num_h4t; int num_h4b; int num_h4y1r; int num_h4y1l; int num_h4y2r; int num_h4y2l;
+   int st24wb=0;
    int tlBackPartial;
    int total_M5 = 0;
    int total_N1 =0; int total_N2 =0; int total_N3 =0; int total_N4 =0; int new_trigger =0;
