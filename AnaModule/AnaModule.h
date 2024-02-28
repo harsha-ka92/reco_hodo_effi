@@ -140,7 +140,7 @@ private:
   std::vector<double> eleIdsh4y2r;
   std::vector<double> eleIdsh4y2l;
 
-  std::vector<double> trigger_bits;
+  std::vector<int> trigger_bits;
 
   std::string ID;
   int num_h1t;
