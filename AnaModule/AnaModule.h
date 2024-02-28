@@ -81,6 +81,7 @@ private:
   int event_ID;
   int runID;
   int run_ID;
+  int trigger;
   int nTracklets;
   int run_ID_temp;
   int dor; // duration of the run
@@ -139,8 +140,6 @@ private:
   std::vector<double> eleIdsh4y1l;
   std::vector<double> eleIdsh4y2r;
   std::vector<double> eleIdsh4y2l;
-
-  std::vector<int> trigger_bits;
 
   std::string ID;
   int num_h1t;
