@@ -245,7 +245,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM1->SetMarkerColor(4);
     gNIM1->SetMarkerStyle(7);
     //gNIM1->SetMarkerSize(3);
-    gNIM1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //gNIM1->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM1->GetYaxis()->SetRangeUser(0,1.05*nim1_max);
     gNIM1->GetXaxis()->SetTitle("run_ID");
     gNIM1->GetYaxis()->SetTitle("number of events/min");
@@ -257,7 +257,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM2->SetMarkerColor(4);
     gNIM2->SetMarkerStyle(7);
     //gNIM2->SetMarkerSize(3);
-    gNIM2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //gNIM2->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM2->GetYaxis()->SetRangeUser(0,1.05*nim2_max);
     gNIM2->GetXaxis()->SetTitle("run_ID");
     gNIM2->GetYaxis()->SetTitle("number of events/min");
@@ -269,7 +269,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM3->SetMarkerColor(4);
     gNIM3->SetMarkerStyle(7);
     //gNIM3->SetMarkerSize(3);
-    gNIM3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //gNIM3->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM3->GetYaxis()->SetRangeUser(0,1.05*nim3_max);
     gNIM3->GetXaxis()->SetTitle("run_ID");
     gNIM3->GetYaxis()->SetTitle("number of events/min");
@@ -281,7 +281,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gNIM4->SetMarkerColor(4);
     gNIM4->SetMarkerStyle(7);
     //gNIM4->SetMarkerSize(3);
-    gNIM4->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //gNIM4->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gNIM4->GetYaxis()->SetRangeUser(0,1.05*nim4_max);
     gNIM4->GetXaxis()->SetTitle("run_ID");
     gNIM4->GetYaxis()->SetTitle("number of events/min");
@@ -293,7 +293,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gMatrix5->SetMarkerColor(4);
     gMatrix5->SetMarkerStyle(7);
     //gMatrix5->SetMarkerSize(3);
-    gMatrix5->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //gMatrix5->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gMatrix5->GetYaxis()->SetRangeUser(0,1.05*matrix5_max);
     gMatrix5->GetXaxis()->SetTitle("run_ID");
     gMatrix5->GetYaxis()->SetTitle("number of events/min");
@@ -305,7 +305,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gruntime->SetMarkerColor(4);
     gruntime->SetMarkerStyle(7);
     gruntime->SetMarkerSize(3);
-    gruntime->GetXaxis()->SetLimits(xlow-0.5,xhigh);
+    //gruntime->GetXaxis()->SetLimits(xlow-0.5,xhigh);
     gruntime->GetXaxis()->SetTitle("run_ID");
     gruntime->GetYaxis()->SetTitle("length of the run (mins)");
     gruntime->Draw("APE1");
