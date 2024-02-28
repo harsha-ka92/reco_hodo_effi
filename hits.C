@@ -103,7 +103,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
           if((trigger & 0x4) != 0) {continue; trigger_temp = "NIM3"; ++total_N3;}  //NIM3
           if((trigger & 0x8) != 0) {continue; trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           if((trigger & 0x200) != 0) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
-          if(trigger !=1 && trigger !=2 && trigger !=3 && trigger !=4 && trigger !=5){std::cout<<"trigger value is different "<<trigger<<std::endl; new_trigger++; continue;}
+          //if(trigger !=1 && trigger !=2 && trigger !=3 && trigger !=4 && trigger !=5){std::cout<<"trigger value is different "<<trigger<<std::endl; new_trigger++; continue;}
           
       }
 
