@@ -70,8 +70,11 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
 	std::cout << "Event ID : " << event_ID << std::endl;
-	std::cout<< "triger bit of the event "<< event->get_trigger() << std::endl;
-	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	trigger = event->get_trigger();
+	std::cout<< "triger bit of the event "<< trigger << std::endl;
+
+	//getting the stream of bits was moved to analysis script to save memory. 
+	/*if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
@@ -80,10 +83,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	std::cout<< "all trigger bits stored and they are :"<<std::endl;
-	for (auto i = trigger_bits.begin(); i != trigger_bits.end(); i++ ){ std::cout<<*i << std::endl;}
-	//if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
+	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}*/
 	
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
@@ -367,7 +367,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   tdc_h3t.clear(); tdc_h3b.clear();
   tdc_h4t.clear(); tdc_h4b.clear(); tdc_h4y1r.clear(); tdc_h4y1l.clear(); tdc_h4y2r.clear(); tdc_h4y2l.clear();
   eleIdsh4t.clear();eleIdsh4b.clear();eleIdsh4y1l.clear();eleIdsh4y1r.clear();eleIdsh4y2l.clear();eleIdsh4y2r.clear();
-  trigger_bits.clear();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -407,7 +406,7 @@ void AnaModule::MakeTree()
   	saveTree->Branch("event_ID", &event_ID, "event_ID/I");
 	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
 	saveTree->Branch("dor", &dor,"dor/I");
-	saveTree->Branch("trigger_bits", &trigger_bits);
+	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
 	saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
 	saveTree->Branch("tdc_h1t", &tdc_h1t);
@@ -480,14 +479,6 @@ void AnaModule::MakeTree()
 	tlTree->Branch("eventID", &eventID, "eventID/I");
 	tlTree->Branch("event_ID", &event_ID, "event_ID/I");
 	tlTree->Branch("stID", &stID, "stID/I");
-	//runTree->Branch("dor", &dor,"dor/I");
-
- /* hitTree = new TTree("tls", "tracklet information");
-	hitTree->Branch("eventID", &eventID, "eventID/I");
-	hitTree->Branch("event_ID", &event_ID, "event_ID/I");
-	hitTree->Branch("detector plane", &ID);
-	hitTree->Branch("tdc_time",&tdc_time);*/
-  //saveTree -> AddFriend("runTree", saveName);
 }
 
 void AnaModule::registerDetector(TString name)
