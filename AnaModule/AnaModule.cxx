@@ -71,16 +71,16 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	
 	std::cout << "Event ID : " << event_ID << std::endl;
 	std::cout<< "triger bit of the event "<< event->get_trigger() << std::endl;
-	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits[0] = 1;}
-	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits[1] = 1;}
-	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits[2] = 1;}
-	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits[3] = 1;}
-	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits[4] = 1;}
-	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits[5] = 1;}
-	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits[6] = 1;}
-	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits[7] = 1;}
-	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits[8] = 1;}
-	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits[9] = 1;}
+	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits[0] = 1;} else{trigger_bits[0] = 0;}
+	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits[1] = 1;} else{trigger_bits[1] = 0;}
+	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits[2] = 1;} else{trigger_bits[2] = 0;}
+	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits[3] = 1;} else{trigger_bits[3] = 0;}
+	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits[4] = 1;} else{trigger_bits[4] = 0;}
+	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits[5] = 1;} else{trigger_bits[5] = 0;}
+	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits[6] = 1;} else{trigger_bits[6] = 0;}
+	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits[7] = 1;} else{trigger_bits[7] = 0;}
+	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits[8] = 1;} else{trigger_bits[8] = 0;}
+	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits[9] = 1;} else{trigger_bits[9] = 0;}
 	//for (auto i = trigger_bits.begin(); i != trigger_bits.end(); i++ ){ std::cout<< "triger bits of the event"<<*i << std::endl;}
 	//if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
 	
