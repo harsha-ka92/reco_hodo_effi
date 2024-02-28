@@ -98,11 +98,11 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
-          if(trigger == 1) {continue; trigger_temp = "NIM1"; ++total_N1;}  //NIM1
-          if(trigger == 2) {continue; trigger_temp = "NIM2"; ++total_N2;}  //NIM2
-          if(trigger == 3) {continue; trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          if(trigger == 4) {continue; trigger_temp = "NIM4"; total_N4++;}  //NIM4 
-          if(trigger == 5) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
+          if((trigger & 0x1) == 1) {continue; trigger_temp = "NIM1"; ++total_N1;}  //NIM1
+          if((trigger & 0x2) == 1) {continue; trigger_temp = "NIM2"; ++total_N2;}  //NIM2
+          if((trigger & 0x4) == 1) {continue; trigger_temp = "NIM3"; ++total_N3;}  //NIM3
+          if((trigger & 0x8) == 1) {continue; trigger_temp = "NIM4"; total_N4++;}  //NIM4 
+          if((trigger & 0x200) == 1) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
           if(trigger !=1 && trigger !=2 && trigger !=3 && trigger !=4 && trigger !=5){std::cout<<"trigger value is different "<<trigger<<std::endl; new_trigger++; continue;}
           
       }
