@@ -92,7 +92,6 @@ private:
   double tdc_time;
   int nHits;
   double chisq;
-  int trigger;
   int detID;
   int eleID_exp;
   int eleID_closest;
@@ -140,6 +139,8 @@ private:
   std::vector<double> eleIdsh4y1l;
   std::vector<double> eleIdsh4y2r;
   std::vector<double> eleIdsh4y2l;
+
+  std::vector<double> trigger_bits(10);
 
   std::string ID;
   int num_h1t;
