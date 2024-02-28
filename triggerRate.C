@@ -318,9 +318,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
     gqtls->SetTitle("Number of qualified tracklets  in the run");
     gqtls->SetMarkerColor(4);
     gqtls->SetMarkerStyle(21);
-    //gqtls->SetMarkerSize(3);
-    //gqtls->GetXaxis()->SSetLimits(xlow-0.5,xhigh);
-    //gqtls->GetYaxis()->SetLimits(0,360);
     gqtls->GetXaxis()->SetTitle("run_ID");
     gqtls->GetYaxis()->SetTitle("Number of qualified tracklets");
     gtls->SetTitle("Total number of tracklets in the run");
