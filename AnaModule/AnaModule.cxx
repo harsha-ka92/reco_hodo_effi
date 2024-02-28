@@ -70,14 +70,19 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
 	std::cout << "Event ID : " << event_ID << std::endl;
-	trigger = 0;
 	std::cout<< "triger bit of the event"<< event->get_trigger() << std::endl;
-	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
-	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
-	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
-	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
-	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}
-	if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
+	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits[0] = 1;}
+	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits[1] = 1;}
+	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits[2] = 1;}
+	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits[3] = 1;}
+	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits[4] = 1;}
+	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits[5] = 1;}
+	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits[6] = 1;}
+	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits[7] = 1;}
+	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits[8] = 1;}
+	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits[9] = 1;}
+	std::cout<< "triger bits of the event"<<trigger_bits << std::endl;
+	//if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
 	
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
@@ -361,6 +366,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   tdc_h3t.clear(); tdc_h3b.clear();
   tdc_h4t.clear(); tdc_h4b.clear(); tdc_h4y1r.clear(); tdc_h4y1l.clear(); tdc_h4y2r.clear(); tdc_h4y2l.clear();
   eleIdsh4t.clear();eleIdsh4b.clear();eleIdsh4y1l.clear();eleIdsh4y1r.clear();eleIdsh4y2l.clear();eleIdsh4y2r.clear();
+  trigger_bits.clear();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -400,7 +406,7 @@ void AnaModule::MakeTree()
   	saveTree->Branch("event_ID", &event_ID, "event_ID/I");
 	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
 	saveTree->Branch("dor", &dor,"dor/I");
-	saveTree->Branch("trigger", &trigger, "trigger/I");
+	saveTree->Branch("trigger_bits", &trigger_bits);
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
 	saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
 	saveTree->Branch("tdc_h1t", &tdc_h1t);
