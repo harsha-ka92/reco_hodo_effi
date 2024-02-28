@@ -94,7 +94,7 @@ void hits()
    bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
-      
+      if(run_ID < xlow || run_ID > xhigh) {continue;}
       if(Trigger_Filter == true){
 
           //remove the "continue" of the trigger you want in the analysis
@@ -114,8 +114,6 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
             if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
             if (num_h3t ==0 && num_h3b ==0){++no_hits;}
        }
-
-      if(run_ID < xlow || run_ID > xhigh) {continue;}
       
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
 
