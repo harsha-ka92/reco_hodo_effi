@@ -29,7 +29,7 @@ void triggerRate()
     TTree *tr = (TTree*) f_file->Get("save");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 4685;
+   int xlow = 4687;
    int xhigh = 4702; 
 
    int run_num = 0;
