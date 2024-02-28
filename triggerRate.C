@@ -108,8 +108,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       }    
      else if (run_num == run_ID && i_ent == nEvents-1){
          std::cout<< "last event"<<std::endl;
-         trigger_bits = std::bitset<10> trigger.to_string();
-         std::cout<< "trigger bits "<< trigger_bits <<std::endl;
+         std::cout<< "trigger bits "<< trigger <<std::endl;
          if((trigger & 0x1) != 0) {nim1 +=1.0;}
          if((trigger & 0x2) != 0) {nim2 +=1.0;}
          if((trigger & 0x4) != 0) {nim3 +=1.0;}
@@ -219,8 +218,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
            run_num = run_ID;
 
-           trigger_bits = std::bitset<10> trigger.to_string();
-           std::cout<< "trigger bits "<< trigger_bits <<std::endl;
+           std::cout<< "trigger bits "<< trigger <<std::endl;
            if((trigger & 0x1) != 0) {nim1 +=1.0;}
            if((trigger & 0x2) != 0) {nim2 +=1.0;}
            if((trigger & 0x4) != 0) {nim3 +=1.0;}
