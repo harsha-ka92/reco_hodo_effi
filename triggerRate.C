@@ -42,9 +42,12 @@ void triggerRate()
    double nim2 = 0;
    double nim3 = 0;
    double nim4 = 0;
-   double matrix5 = 0;
+   double nim5 = 0;
+   double matrix1 = 0; double matrix2 = 0; double matrix3 = 0; double matrix4 = 0;  double matrix5 = 0;
    int i =0;
    int qual_tl = 0;
+
+   std::string trigger_bits;
 
    int trigger, dor, run_ID, tlD0, tlD1, tlD2, tlD3p, tlD3m, nTracklets, tlBackPartial, tlGlobal;
    int tlD0_temp, tlD1_temp, tlD2_temp, tlD3m_temp, tlD3p_temp, tlBackPartial_temp, tlGlobal_temp;
@@ -78,9 +81,6 @@ void triggerRate()
    TGraphAsymmErrors* gqtls = new TGraphAsymmErrors();
    TMultiGraph* mg = new TMultiGraph();
 
-   nEvents = tr->GetEntries();
-   std::cout << "Nevents = " << nEvents << std::endl;
-
 for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       tr->GetEntry(i_ent);
 
@@ -90,11 +90,18 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       
       if(run_num == run_ID && i_ent != nEvents-1){
          std::cout<< "analysis started"<<std::endl;
-         if(trigger == 1) {nim1 +=1.0;}
-         if(trigger == 2) {nim2 +=1.0;}
-         if(trigger == 3) {nim3 +=1.0;}
-         if(trigger == 4) {nim4 +=1.0;}
-         if(trigger == 5) {matrix5 +=1.0;}
+         trigger_bits = std::bitset<10> trigger.to_string();
+         std::cout<< "trigger bits "<< trigger_bits <<std::endl;
+         if(trigger_bits[0] == 1) {nim1 +=1.0;}
+         if(trigger_bits[1] == 1) {nim2 +=1.0;}
+         if(trigger_bits[2] == 1) {nim3 +=1.0;}
+         if(trigger_bits[3] == 1) {nim4 +=1.0;}
+         if(trigger_bits[4] == 1) {nim5 +=1.0;}
+         if(trigger_bits[5] == 1) {matrix1 +=1.0;}
+         if(trigger_bits[6] == 1) {matrix2 +=1.0;}
+         if(trigger_bits[7] == 1) {matrix3 +=1.0;}
+         if(trigger_bits[8] == 1) {matrix4 +=1.0;}
+         if(trigger_bits[9] == 1) {matrix5 +=1.0;}
          tlD0_temp = tlD0; tlD1_temp = tlD1; tlD2_temp = tlD2; tlD3p_temp = tlD3p; tlD3m_temp = tlD3m; tlBackPartial_temp = tlBackPartial; tlGlobal_temp = tlGlobal;
          run_time = dor;
          run_num = run_ID;
@@ -102,11 +109,18 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       }    
      else if (run_num == run_ID && i_ent == nEvents-1){
          std::cout<< "last event"<<std::endl;
-         if(trigger == 1) {nim1 +=1.0;}
-         if(trigger == 2) {nim2 +=1.0;}
-         if(trigger == 3) {nim3 +=1.0;}
-         if(trigger == 4) {nim4 +=1.0;}
-         if(trigger == 5) {matrix5 +=1.0;}
+         trigger_bits = std::bitset<10> trigger.to_string();
+         std::cout<< "trigger bits "<< trigger_bits <<std::endl;
+         if(trigger_bits[0] == 1) {nim1 +=1.0;}
+         if(trigger_bits[1] == 1) {nim2 +=1.0;}
+         if(trigger_bits[2] == 1) {nim3 +=1.0;}
+         if(trigger_bits[3] == 1) {nim4 +=1.0;}
+         if(trigger_bits[4] == 1) {nim5 +=1.0;}
+         if(trigger_bits[5] == 1) {matrix1 +=1.0;}
+         if(trigger_bits[6] == 1) {matrix2 +=1.0;}
+         if(trigger_bits[7] == 1) {matrix3 +=1.0;}
+         if(trigger_bits[8] == 1) {matrix4 +=1.0;}
+         if(trigger_bits[9] == 1) {matrix5 +=1.0;}
          qual_tl += (tlD0_temp + tlD1_temp + tlD2_temp + tlD3p_temp + tlD3m_temp + tlBackPartial_temp + tlGlobal_temp);
          run_time = dor;
          run_num = run_ID;
@@ -155,6 +169,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
          std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
          run_num = run_ID;
+
      }
 
      else {
@@ -198,14 +213,34 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
            gqtls->SetPoint(i, run_num, qual_tl);
            gqtls->SetPointError(i, 0., 0., sqrt(qual_tl), sqrt(qual_tl));
 
-           nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
+           nim1=0; nim2=0; nim3=0; nim4=0; nim5=0; matrix1=0; matrix2=0; matrix3=0; matrix4=0; matrix5=0, qual_tl =0, num_tls = 0;
            i++;
            std::cout << "i = " << i << std::endl;
            std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
            std::cout << "run # " << run_num << " nim3_max " << nim3_max<< std::endl;
            run_num = run_ID;
+
+           trigger_bits = std::bitset<10> trigger.to_string();
+           std::cout<< "trigger bits "<< trigger_bits <<std::endl;
+           if(trigger_bits[0] == 1) {nim1 +=1.0;}
+           if(trigger_bits[1] == 1) {nim2 +=1.0;}
+           if(trigger_bits[2] == 1) {nim3 +=1.0;}
+           if(trigger_bits[3] == 1) {nim4 +=1.0;}
+           if(trigger_bits[4] == 1) {nim5 +=1.0;}
+           if(trigger_bits[5] == 1) {matrix1 +=1.0;}
+           if(trigger_bits[6] == 1) {matrix2 +=1.0;}
+           if(trigger_bits[7] == 1) {matrix3 +=1.0;}
+           if(trigger_bits[8] == 1) {matrix4 +=1.0;}
+           if(trigger_bits[9] == 1) {matrix5 +=1.0;}
+           qual_tl += (tlD0_temp + tlD1_temp + tlD2_temp + tlD3p_temp + tlD3m_temp + tlBackPartial_temp + tlGlobal_temp);
+           run_time = dor;
+           run_num = run_ID;
+           num_tls += nTracklets;
     }
 }
+
+    nEvents = tr->GetEntries();
+    std::cout << "Nevents = " << nEvents << std::endl;
 
     TCanvas* c1 = new TCanvas("c1", "", 1000, 500);
 
