@@ -74,7 +74,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(3,0);}
+	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
 	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
