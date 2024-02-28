@@ -90,18 +90,17 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
       
       if(run_num == run_ID && i_ent != nEvents-1){
          std::cout<< "analysis started"<<std::endl;
-         trigger_bits = std::bitset<10> trigger.to_string();
-         std::cout<< "trigger bits "<< trigger_bits <<std::endl;
-         if(trigger_bits[0] == 1) {nim1 +=1.0;}
-         if(trigger_bits[1] == 1) {nim2 +=1.0;}
-         if(trigger_bits[2] == 1) {nim3 +=1.0;}
-         if(trigger_bits[3] == 1) {nim4 +=1.0;}
-         if(trigger_bits[4] == 1) {nim5 +=1.0;}
-         if(trigger_bits[5] == 1) {matrix1 +=1.0;}
-         if(trigger_bits[6] == 1) {matrix2 +=1.0;}
-         if(trigger_bits[7] == 1) {matrix3 +=1.0;}
-         if(trigger_bits[8] == 1) {matrix4 +=1.0;}
-         if(trigger_bits[9] == 1) {matrix5 +=1.0;}
+         std::cout<< "trigger bits "<< trigger <<std::endl;
+         if((trigger & 0x1) != 0) {nim1 +=1.0;}
+         if((trigger & 0x2) != 0) {nim2 +=1.0;}
+         if((trigger & 0x4) != 0) {nim3 +=1.0;}
+         if((trigger & 0x8) != 0) {nim4 +=1.0;}
+         if((trigger & 0x10) != 0) {nim5 +=1.0;}
+         if((trigger & 0x20) != 0) {matrix1 +=1.0;}
+         if((trigger & 0x40) != 0) {matrix2 +=1.0;}
+         if((trigger & 0x80) != 0) {matrix3 +=1.0;}
+         if((trigger & 0x100) != 0) {matrix4 +=1.0;}
+         if((trigger & 0x200) != 0) {matrix5 +=1.0;}
          tlD0_temp = tlD0; tlD1_temp = tlD1; tlD2_temp = tlD2; tlD3p_temp = tlD3p; tlD3m_temp = tlD3m; tlBackPartial_temp = tlBackPartial; tlGlobal_temp = tlGlobal;
          run_time = dor;
          run_num = run_ID;
@@ -111,16 +110,16 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          std::cout<< "last event"<<std::endl;
          trigger_bits = std::bitset<10> trigger.to_string();
          std::cout<< "trigger bits "<< trigger_bits <<std::endl;
-         if(trigger_bits[0] == 1) {nim1 +=1.0;}
-         if(trigger_bits[1] == 1) {nim2 +=1.0;}
-         if(trigger_bits[2] == 1) {nim3 +=1.0;}
-         if(trigger_bits[3] == 1) {nim4 +=1.0;}
-         if(trigger_bits[4] == 1) {nim5 +=1.0;}
-         if(trigger_bits[5] == 1) {matrix1 +=1.0;}
-         if(trigger_bits[6] == 1) {matrix2 +=1.0;}
-         if(trigger_bits[7] == 1) {matrix3 +=1.0;}
-         if(trigger_bits[8] == 1) {matrix4 +=1.0;}
-         if(trigger_bits[9] == 1) {matrix5 +=1.0;}
+         if((trigger & 0x1) != 0) {nim1 +=1.0;}
+         if((trigger & 0x2) != 0) {nim2 +=1.0;}
+         if((trigger & 0x4) != 0) {nim3 +=1.0;}
+         if((trigger & 0x8) != 0) {nim4 +=1.0;}
+         if((trigger & 0x10) != 0) {nim5 +=1.0;}
+         if((trigger & 0x20) != 0) {matrix1 +=1.0;}
+         if((trigger & 0x40) != 0) {matrix2 +=1.0;}
+         if((trigger & 0x80) != 0) {matrix3 +=1.0;}
+         if((trigger & 0x100) != 0) {matrix4 +=1.0;}
+         if((trigger & 0x200) != 0) {matrix5 +=1.0;}
          qual_tl += (tlD0_temp + tlD1_temp + tlD2_temp + tlD3p_temp + tlD3m_temp + tlBackPartial_temp + tlGlobal_temp);
          run_time = dor;
          run_num = run_ID;
@@ -222,16 +221,16 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
 
            trigger_bits = std::bitset<10> trigger.to_string();
            std::cout<< "trigger bits "<< trigger_bits <<std::endl;
-           if(trigger_bits[0] == 1) {nim1 +=1.0;}
-           if(trigger_bits[1] == 1) {nim2 +=1.0;}
-           if(trigger_bits[2] == 1) {nim3 +=1.0;}
-           if(trigger_bits[3] == 1) {nim4 +=1.0;}
-           if(trigger_bits[4] == 1) {nim5 +=1.0;}
-           if(trigger_bits[5] == 1) {matrix1 +=1.0;}
-           if(trigger_bits[6] == 1) {matrix2 +=1.0;}
-           if(trigger_bits[7] == 1) {matrix3 +=1.0;}
-           if(trigger_bits[8] == 1) {matrix4 +=1.0;}
-           if(trigger_bits[9] == 1) {matrix5 +=1.0;}
+           if((trigger & 0x1) != 0) {nim1 +=1.0;}
+           if((trigger & 0x2) != 0) {nim2 +=1.0;}
+           if((trigger & 0x4) != 0) {nim3 +=1.0;}
+           if((trigger & 0x8) != 0) {nim4 +=1.0;}
+           if((trigger & 0x10) != 0) {nim5 +=1.0;}
+           if((trigger & 0x20) != 0) {matrix1 +=1.0;}
+           if((trigger & 0x40) != 0) {matrix2 +=1.0;}
+           if((trigger & 0x80) != 0) {matrix3 +=1.0;}
+           if((trigger & 0x100) != 0) {matrix4 +=1.0;}
+           if((trigger & 0x200) != 0) {matrix5 +=1.0;}
            qual_tl += (tlD0_temp + tlD1_temp + tlD2_temp + tlD3p_temp + tlD3m_temp + tlBackPartial_temp + tlGlobal_temp);
            run_time = dor;
            run_num = run_ID;
