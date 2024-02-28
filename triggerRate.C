@@ -163,7 +163,7 @@ for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
          gqtls->SetPoint(i, run_num, qual_tl);
          gqtls->SetPointError(i, 0., 0., sqrt(qual_tl), sqrt(qual_tl));
 
-         nim1=0; nim2=0; nim3=0; nim4=0; matrix5=0, qual_tl =0, num_tls = 0;
+         nim1=0; nim2=0; nim3=0; nim4=0; nim5=0; matrix1=0; matrix2=0; matrix3=0; matrix4=0; matrix5=0, qual_tl =0, num_tls = 0;
          i++;
          std::cout << "i = " << i << std::endl;
          std::cout << "run # " << run_num << " nim1_max " << nim1_max<< std::endl;
