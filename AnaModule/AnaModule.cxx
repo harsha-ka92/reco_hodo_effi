@@ -70,7 +70,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
 	std::cout << "Event ID : " << event_ID << std::endl;
-	std::cout<< "triger bit of the event"<< event->get_trigger() << std::endl;
+	std::cout<< "triger bit of the event "<< event->get_trigger() << std::endl;
 	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits[0] = 1;}
 	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits[1] = 1;}
 	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits[2] = 1;}
