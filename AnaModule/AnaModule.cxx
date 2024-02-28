@@ -81,7 +81,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits[7] = 1;}
 	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits[8] = 1;}
 	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits[9] = 1;}
-	std::cout<< "triger bits of the event"<<trigger_bits << std::endl;
+	for (auto i = trigger_bits.begin(); i != trigger_bits.end(); i++ ){ std::cout<< "triger bits of the event"<<*i << std::endl;}
 	//if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
 	
 	//Number of Hist in : St1
