@@ -71,18 +71,18 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	
 	std::cout << "Event ID : " << event_ID << std::endl;
 	std::cout<< "triger bit of the event "<< event->get_trigger() << std::endl;
-	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits.insert(0,1);} else{trigger_bits.insert(0,0);}
-	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits.insert(1,1);} else{trigger_bits.insert(1,0);}
-	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits.insert(2,1);} else{trigger_bits.insert(2,0);}
-	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits.insert(3,1);} else{trigger_bits.insert(3,0);}
-	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits.insert(4,1);} else{trigger_bits.insert(4,0);}
-	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits.insert(5,1);} else{trigger_bits.insert(5,0);}
-	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits.insert(6,1);} else{trigger_bits.insert(6,0);}
-	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits.insert(7,1);} else{trigger_bits.insert(7,0);}
-	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits.insert(8,1);} else{trigger_bits.insert(8,0);}
-	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits.insert(9,1);} else{trigger_bits.insert(9,0);}
-	std::cout<< "all trigger bits stored"<<std::endl;
-	//for (auto i = trigger_bits.begin(); i != trigger_bits.end(); i++ ){ std::cout<< "triger bits of the event"<<*i << std::endl;}
+	if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(3,0);}
+	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
+	std::cout<< "all trigger bits stored and they are :"<<std::endl;
+	for (auto i = trigger_bits.begin(); i != trigger_bits.end(); i++ ){ std::cout<<*i << std::endl;}
 	//if(trigger == 0){return Fun4AllReturnCodes::EVENT_OK;}
 	
 	//Number of Hist in : St1
