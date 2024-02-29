@@ -34,6 +34,7 @@ void hits()
    int xlow = 4685;
    int xhigh = 4702; 
 
+   //set the first run_ID in the save tree as the run_num
    int run_num = 4796;
 
    tr->SetBranchAddress("run_ID", &run_ID);
@@ -120,7 +121,7 @@ void hits()
       
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
 
-      //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied.
+      //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied in the first iteration.
       if(run_num == run_ID && i_ent != nEvents-1){
         
         for ( int j =0; j< tdc_h1t->size(); j++){
