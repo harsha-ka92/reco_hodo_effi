@@ -101,7 +101,6 @@ void hits()
 
       if(Trigger_Filter == true){
 
-          //uncomment the trigger you want in the analysis
           //if((trigger & 0x1) != 0) { trigger_temp = "NIM1"; ++total_N1;}  //NIM1
           //if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
           //if((trigger & 0x4) != 0) { trigger_temp = "NIM3"; ++total_N3;}  //NIM3
