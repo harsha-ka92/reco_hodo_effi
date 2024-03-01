@@ -31,8 +31,8 @@ void hits()
     TTree *tr_tls = (TTree*) f_file->Get("tls");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 4900;
-   int xhigh = 4992; 
+   int xlow = 4685;
+   int xhigh = 4702; 
 
    //set the first run_ID in the save tree as the run_num
    int run_num = 4796;
