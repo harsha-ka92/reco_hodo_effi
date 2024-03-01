@@ -72,18 +72,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	std::cout << "Event ID : " << event_ID << std::endl;
 	trigger = event->get_trigger();
 	std::cout<< "triger bit of the event "<< trigger << std::endl;
-
-	//getting the stream of bits was moved to analysis script to save memory. 
-	/*if(event->get_trigger(SQEvent::NIM1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::NIM2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::NIM3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::NIM4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::NIM5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::MATRIX1) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::MATRIX2) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::MATRIX3) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::MATRIX4) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}
-	if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger_bits.push_back(1);} else{trigger_bits.push_back(0);}*/
 	
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
@@ -265,22 +253,11 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		 if(stID == 6){tlBackPartial += 1;}
 		 if(stID == 7){tlGlobal += 1;}
 		
-		//std::cout<<  "QTL station ID " << stID <<std::endl;
 		tlTree->Fill();
-		// data structure created by dinupa3@gmail.com
-		/*if(event->get_trigger(SQEvent::NIM1) == 1) {trigger = 1;}
-		if(event->get_trigger(SQEvent::NIM2) == 1) {trigger = 2;}
-		if(event->get_trigger(SQEvent::NIM3) == 1) {trigger = 3;}
-		if(event->get_trigger(SQEvent::NIM4) == 1) {trigger = 4;}
-		if(event->get_trigger(SQEvent::MATRIX5) == 1) {trigger =5;}*/
-
-		//std::cout << "trigger bit " << trigger << std::endl;
 
 		std::vector<int> detIDs;
 		std::vector<int> eleID_exps;
 		std::vector<int> eleID_closests;
-		
-		//std::cout << "nHits : " << nHits << " chisq : " << chisq << std::endl;
 
     for(auto it = detectorIDs.begin(); it != detectorIDs.end(); ++it)
     {
@@ -355,11 +332,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 				eleID_closest = closestID0;
 			}
 
-			//saveTree->Fill();
 		}
 
-		//saveTree->Fill();
-		//hit_vec.clear();
   }
   saveTree->Fill();
   tdc_h1t.clear(); tdc_h1b.clear(); tdc_h1r.clear(); tdc_h1l.clear(); 
@@ -376,7 +350,6 @@ int AnaModule::End(PHCompositeNode* topNode)
   saveFile->cd();
   saveTree->Write();
   tlTree->Write();
-  //hitTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
@@ -462,8 +435,6 @@ void AnaModule::MakeTree()
 	saveTree->Branch("diff2", &diff2, "diff2/I");
 	saveTree->Branch("diff3", &diff3, "diff3/I");
 	saveTree->Branch("diff4", &diff4, "diff4/I");
-	//saveTree->Branch("x_exp", &x_exp, "x_exp/D");
- 	//saveTree->Branch("y_exp", &y_exp, "y_exp/D");
   	saveTree->Branch("nHits", &nHits, "nHits/I");
  	saveTree->Branch("chisq", &chisq, "chisq/D");
 	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
@@ -473,7 +444,6 @@ void AnaModule::MakeTree()
 	saveTree->Branch("tlD3m", &tlD3m, "tlD3m/I");
 	saveTree->Branch("tlBackPartial", &tlBackPartial, "tlBackPartial/I");
 	saveTree->Branch("tlGlobal", &tlGlobal, "tlGlobal/I");
-	//saveTree->Branch("hit_vec", &hit_vec);
 
   tlTree = new TTree("tls", "tracklet information");
 	tlTree->Branch("eventID", &eventID, "eventID/I");
