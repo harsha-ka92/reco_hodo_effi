@@ -562,7 +562,7 @@ void hits()
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< total_M5 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
+    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N2 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
     std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
