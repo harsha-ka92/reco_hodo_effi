@@ -234,6 +234,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		eleIdsh4y2r.push_back(eleId);
 	}
 	
+	nQualTracklets = 0;
+	
 	for(int i = 0; i < nTracklets; ++i)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
@@ -245,6 +247,8 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		if(chisq > 15.) continue;
 		stID = tracklet->stationID;
 		
+		++nQualTracklets;
+		
 		 if(stID == 1){tlD0 += 1;}
 		 if(stID == 2){tlD1 += 1;}
 		 if(stID == 3){tlD2 += 1;}
@@ -253,33 +257,30 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		 if(stID == 6){tlBackPartial += 1;}
 		 if(stID == 7){tlGlobal += 1;}
 		
-		tlTree->Fill();
+		//tlTree->Fill();
 
-		std::vector<int> detIDs;
-		std::vector<int> eleID_exps;
-		std::vector<int> eleID_closests;
+    		for(auto it = detectorIDs.begin(); it != detectorIDs.end(); ++it)
+    		{
+      			detectorID = *it;
 
-    for(auto it = detectorIDs.begin(); it != detectorIDs.end(); ++it)
-    {
-      detectorID = *it;
+      			double z_exp = p_geomSvc->getPlanePosition(detectorID);
+      			x_exp = tracklet->getExpPositionX(z_exp);
+      			y_exp = tracklet->getExpPositionY(z_exp);
+     			if(!p_geomSvc->isInPlane(detectorID, x_exp, y_exp)) continue;
 
-      double z_exp = p_geomSvc->getPlanePosition(detectorID);
-      x_exp = tracklet->getExpPositionX(z_exp);
-      y_exp = tracklet->getExpPositionY(z_exp);
-      if(!p_geomSvc->isInPlane(detectorID, x_exp, y_exp)) continue;
+      			elementID_exp = p_geomSvc->getExpElementID(detectorID, tracklet->getExpPositionW(detectorID));
+      			if(elementID_exp < 1 || elementID_exp > p_geomSvc->getPlaneNElements(detectorID)) continue;
 
-      elementID_exp = p_geomSvc->getExpElementID(detectorID, tracklet->getExpPositionW(detectorID));
-      if(elementID_exp < 1 || elementID_exp > p_geomSvc->getPlaneNElements(detectorID)) continue;
-
-      SQHit* hit = findHit(detectorID, elementID_exp);
-      elementID_closest = hit == nullptr ? -1 : hit->get_element_id();
+      			SQHit* hit = findHit(detectorID, elementID_exp);
+      			elementID_closest = hit == nullptr ? -1 : hit->get_element_id();
 
 			detIDs.push_back(detectorID);
 			eleID_exps.push_back(elementID_exp);
 			eleID_closests.push_back(elementID_closest);
 		}
-
-		int num_hits = detIDs.size();
+     		tlTree->Fill();
+      		detIDs.clear(); eleID_exps.clear(); eleID_closests.clear();
+		/*int num_hits = detIDs.size();
 
 		D0 = 0;
 		D2 = 0;
@@ -332,9 +333,9 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 				eleID_closest = closestID0;
 			}
 
-		}
+		}*/
 
-  }
+       }
   saveTree->Fill();
   tdc_h1t.clear(); tdc_h1b.clear(); tdc_h1r.clear(); tdc_h1l.clear(); 
   tdc_h2t.clear(); tdc_h2b.clear(); tdc_h2r.clear(); tdc_h2l.clear();
@@ -381,6 +382,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("dor", &dor,"dor/I");
 	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
+	saveTree->Branch("nQualTracklets", &nQualTracklets, "nQualTracklets/I");
 	saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
 	saveTree->Branch("tdc_h1t", &tdc_h1t);
 	saveTree->Branch("num_h1b", &num_h1b, "num_h1b/I");
@@ -424,7 +426,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("eleIdsh4y2r", &eleIdsh4y2r);
 	saveTree->Branch("eleIdsh4y2l", &eleIdsh4y2l);
 	
-  	saveTree->Branch("detID", &detID, "detID/I");
+  	/*saveTree->Branch("detID", &detID, "detID/I");
  	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
   	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
 	saveTree->Branch("D0", &D0, "D0/I");
@@ -434,7 +436,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("diff1", &diff1, "diff1/I");
 	saveTree->Branch("diff2", &diff2, "diff2/I");
 	saveTree->Branch("diff3", &diff3, "diff3/I");
-	saveTree->Branch("diff4", &diff4, "diff4/I");
+	saveTree->Branch("diff4", &diff4, "diff4/I");*/
   	saveTree->Branch("nHits", &nHits, "nHits/I");
  	saveTree->Branch("chisq", &chisq, "chisq/D");
 	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
@@ -448,7 +450,11 @@ void AnaModule::MakeTree()
   tlTree = new TTree("tls", "tracklet information");
 	tlTree->Branch("eventID", &eventID, "eventID/I");
 	tlTree->Branch("event_ID", &event_ID, "event_ID/I");
+	tlTree->Branch("run_ID", &run_ID,"run_ID/I");
 	tlTree->Branch("stID", &stID, "stID/I");
+	tlTree->Branch("detIDs", &detIDs);
+	tlTree->Branch("eleID_exps", &eleID_exps);
+	tlTree->Branch("eleID_closests", &eleID_closests);
 }
 
 void AnaModule::registerDetector(TString name)
