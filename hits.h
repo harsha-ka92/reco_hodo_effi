@@ -70,7 +70,7 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<double> *eleIdsh4t =0; std::vector<double> *eleIdsh4b =0; 
    std::vector<double> *eleIdsh4y1r =0;  std::vector<double> *eleIdsh4y1l =0; std::vector<double> *eleIdsh4y2r =0; std::vector<double> *eleIdsh4y2l =0;
 
-   int tls_event_ID;
+   int tls_event_ID; int nQualTracklets;
    std::vector<int> detIDs;
    std::vector<int> eleID_exps;
    std::vector<int> eleID_closests;
