@@ -70,6 +70,11 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<double> *eleIdsh4t =0; std::vector<double> *eleIdsh4b =0; 
    std::vector<double> *eleIdsh4y1r =0;  std::vector<double> *eleIdsh4y1l =0; std::vector<double> *eleIdsh4y2r =0; std::vector<double> *eleIdsh4y2l =0;
 
+   std::vector<int> detIDs;
+   std::vector<int> eleID_exps;
+   std::vector<int> eleID_closests;
+
+
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
    TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
    TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
