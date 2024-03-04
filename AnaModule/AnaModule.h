@@ -114,6 +114,10 @@ private:
   #pragma link C++ class vector<double>+;
   #endif
 
+  std::vector<int> detIDs;
+  std::vector<int> eleID_exps;
+  std::vector<int> eleID_closests;
+
   std::vector<double> tdc_h1t;
   std::vector<double> tdc_h1b;
   std::vector<double> tdc_h1r;
