@@ -82,7 +82,6 @@ private:
   int runID;
   int run_ID;
   int trigger;
-  int nTracklets;
   int run_ID_temp;
   int dor; // duration of the run
   int detectorID;
@@ -107,7 +106,7 @@ private:
 
 // Tracklet info
   int tlD0, tlD1, tlD2, tlD3p, tlD3m, tlBackPartial, tlGlobal;
-  int stID;
+  int stID;  int nTracklets;  int nQualTracklets;
 
 //Hit info
   #ifdef __MAKECINT__
