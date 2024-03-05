@@ -668,9 +668,9 @@ void hits()
     c6->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
-    c9->SaveAs("hitRates/st4Hits.png");
     c10->SaveAs("hitRates/%s/eleIDs_h3b.png",trigger_temp.c_str());
     c11->SaveAs("hitRates/%s/eleIDs_h3t.png",trigger_temp.c_str());
+    c9->SaveAs("hitRates/st4Hits.png");
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
