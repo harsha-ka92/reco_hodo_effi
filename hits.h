@@ -105,10 +105,10 @@ R__LOAD_LIBRARY(libanamodule)
 
    TH1D *eleIds_exps_3t = new TH1D("eleIds_exps_3t", "eleIds_exps_3t", 16, 0.5,16.5);
    TH1D *eleIds_closests_3t = new TH1D("eleIds_closests_3t", "eleIds_closests_3t", 16, 0.5,16.5);
-   TH1D *diff_eleIds_3t = new TH1D("diff_eleIds_3t", "eleIds_closests_3t", 16, -8,8);
+   TH1D *diff_eleIds_3t = new TH1D("diff_eleIds_3t", "diff_eleIds_3t", 16, -6,6);
    TH1D *eleIds_exps_3b = new TH1D("eleIds_exps_3b", "eleIds_exps_3b", 16, 0.5,16.5);
    TH1D *eleIds_closests_3b = new TH1D("eleIds_closests_3b", "eleIds_closests_3b", 16, 0.5,16.5);
-   TH1D *diff_eleIds_3b = new TH1D("diff_eleIds_3b", "eleIds_closests_3b", 16, -8,8);
+   TH1D *diff_eleIds_3b = new TH1D("diff_eleIds_3b", "diff_eleIds_3b", 16, -6,6);
 
 
    TGraphAsymmErrors* grh1 = new TGraphAsymmErrors();
