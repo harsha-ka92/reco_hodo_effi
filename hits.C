@@ -646,8 +646,15 @@ void hits()
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
     std::cout<<"*************************"<<std::endl;
 
-    std::cout<<"In the events with hits in both H2 and H4;"<<std::endl;
-    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3: "<< valid_exps <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3: "<< valid_closests <<std::endl;
+    std::cout<<"In the events with hits in both H2 and H4 ("<<st24<<")"<<std::endl;
+    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3T: "<< valid_exps_3t <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3T: "<< valid_closests_3t <<std::endl;
+    std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
+    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3B: "<< valid_exps_3b <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3B: "<< valid_closests_3b <<std::endl;
+    std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
+    std::cout<<"Total number of back partial tacklets that produce a valid expected element in H3: "<< valid_exps_3b + valid_exps_3b <<std::endl;
+    std::cout<<"Total number of back partial tacklets that produce a valid expected element in H3: "<< valid_closests_3b + valid_closests_3b <<std::endl;
+    std::cout<<"*************************"<<std::endl;
     std::cout<<"New trigger events : "<< new_trigger <<std::endl;
 }
