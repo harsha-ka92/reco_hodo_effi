@@ -69,9 +69,9 @@ int AnaModule::process_event(PHCompositeNode* topNode)
   run_ID_temp = run_ID;	
 	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
-	std::cout << "Event ID : " << event_ID << std::endl;
+	//std::cout << "Event ID : " << event_ID << std::endl;
 	trigger = event->get_trigger();
-	std::cout<< "triger bit of the event "<< trigger << std::endl;
+	//std::cout<< "triger bit of the event "<< trigger << std::endl;
 	
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
@@ -280,61 +280,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		}
      		tlTree->Fill();
       		detIDs.clear(); eleID_exps.clear(); eleID_closests.clear();
-		/*int num_hits = detIDs.size();
-
-		D0 = 0;
-		D2 = 0;
-		D3 = 0;
-		P1 = 0;
-		diff1 = 0;
-		diff2 = 0;
-		diff3 = 0;
-		diff4 = 0;
-
-		for(int ii = 0; ii < num_hits; ii++){
-			int detID0 = detIDs.at(ii);
-			int expID0 = eleID_exps.at(ii);
-			int closestID0 = eleID_closests.at(ii);
-
-			// D0
-			if(0 < detID0 && detID0 < 7 && closestID0 > 0){
-				D0 += 1;
-				diff1 += abs(expID0 - closestID0);
-			}
-
-			// D2
-			if(12 < detID0 && detID0 < 19 && closestID0 > 0){
-				D2 += 1;
-				diff2 += abs(expID0 - closestID0);
-			}
-
-			// D3
-			if((18 < detID0 && detID0 < 25 && closestID0 > 0) || (24 < detID0 && detID0 < 31 && closestID0 > 0)){
-				D3 += 1;
-				diff3 += abs(expID0 - closestID0);
-			}
-
-			// PT
-			if((46 < detID0 && detID0 < 51 && closestID0 > 0) || (50 < detID0 && detID0 < 55 && closestID0 > 0)){
-				P1 += 1;
-				diff4 += abs(expID0 - closestID0);
-			}
-		}
-
-		for(int ii = 0; ii < num_hits; ii++){
-
-			int detID0 = detIDs.at(ii);
-			int expID0 = eleID_exps.at(ii);
-			int closestID0 = eleID_closests.at(ii);
-
-			if(30 < detID0 && detID0 < 47){
-				detID = detID0;
-				eleID_exp = expID0;
-				eleID_closest = closestID0;
-			}
-
-		}*/
-
+		
        }
   saveTree->Fill();
   tdc_h1t.clear(); tdc_h1b.clear(); tdc_h1r.clear(); tdc_h1l.clear(); 
