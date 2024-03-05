@@ -72,9 +72,9 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<double> *eleIdsh4y1r =0;  std::vector<double> *eleIdsh4y1l =0; std::vector<double> *eleIdsh4y2r =0; std::vector<double> *eleIdsh4y2l =0;
 
    int tls_event_ID; int nQualTracklets;
-   std::vector<int> detIDs =0;
-   std::vector<int> eleID_exps =0;
-   std::vector<int> eleID_closests =0;
+   std::vector<int> *detIDs =0;
+   std::vector<int> *eleID_exps =0;
+   std::vector<int> *eleID_closests =0;
 
 
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
