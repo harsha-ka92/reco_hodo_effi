@@ -204,7 +204,7 @@ void hits()
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                    if(detIDs->at(j)>30 && detIDs->at(j)<47 && eleID_exps->at(j)>0){
                                         ++valid_exps; 
                                         if(eleID_closests->at(j)>0){++valid_closests;}
                                     }
@@ -298,7 +298,7 @@ void hits()
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                    if(detIDs->at(j)>30 && detIDs->at(j)<47 && eleID_exps->at(j)>0){
                                         ++valid_exps; 
                                         if(eleID_closests->at(j)>0){++valid_closests;}
                                     }
@@ -452,7 +452,7 @@ void hits()
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                    if(detIDs->at(j)>30 && detIDs->at(j)<47 && eleID_exps->at(j)>0){
                                         ++valid_exps; 
                                         if(eleID_closests->at(j)>0){++valid_closests;}
                                     }
