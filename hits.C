@@ -302,9 +302,13 @@ void hits()
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)<47 && eleID_exps->at(j)>0){
-                                        ++valid_exps; 
-                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                    if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
+                                        ++valid_exps_3b; 
+                                        if(eleID_closests->at(j)>0){++valid_closests_3b;}
+                                    }
+                                    else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
+                                        ++valid_exps_3t; 
+                                        if(eleID_closests->at(j)>0){++valid_closests_3t;}
                                     }
                                 }
                     }
@@ -456,9 +460,13 @@ void hits()
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)<47 && eleID_exps->at(j)>0){
-                                        ++valid_exps; 
-                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                    if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
+                                        ++valid_exps_3b; 
+                                        if(eleID_closests->at(j)>0){++valid_closests_3b;}
+                                    }
+                                    else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
+                                        ++valid_exps_3t; 
+                                        if(eleID_closests->at(j)>0){++valid_closests_3t;}
                                     }
                                 }
                     }
