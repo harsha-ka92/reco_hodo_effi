@@ -206,17 +206,24 @@ void hits()
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
                                         ++valid_exps_3b; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3b;}
+                                        if(eleID_closests->at(j)>0){++valid_closests_3b; 
+                                                                    eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
+                                                                    eleIds_closests_3b -> Fill(eleID_closests->at(j));
+                                                                    diff_eleIds_3b -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                        }
                                     }
                                     else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
                                         ++valid_exps_3t; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3t;}
+                                        if(eleID_closests->at(j)>0){++valid_closests_3t; 
+                                                                    eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
+                                                                    eleIds_closests_3t -> Fill(eleID_closests->at(j));
+                                                                    diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                        }
                                     }
-                                }
-                    }
+                            }
+                    }    
                 }
         }
-
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
@@ -304,14 +311,22 @@ void hits()
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
                                         ++valid_exps_3b; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3b;}
+                                        if(eleID_closests->at(j)>0){++valid_closests_3b; 
+                                                                    eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
+                                                                    eleIds_closests_3b -> Fill(eleID_closests->at(j));
+                                                                    diff_eleIds_3b -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                        }
                                     }
                                     else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
                                         ++valid_exps_3t; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3t;}
+                                        if(eleID_closests->at(j)>0){++valid_closests_3t; 
+                                                                    eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
+                                                                    eleIds_closests_3t -> Fill(eleID_closests->at(j));
+                                                                    diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                        }
                                     }
-                                }
-                    }
+                            }
+                    }    
                 }
             }
 
@@ -462,14 +477,22 @@ void hits()
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
                                         ++valid_exps_3b; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3b;}
+                                        if(eleID_closests->at(j)>0){++valid_closests_3b; 
+                                                                    eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
+                                                                    eleIds_closests_3b -> Fill(eleID_closests->at(j));
+                                                                    diff_eleIds_3b -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                        }
                                     }
                                     else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
                                         ++valid_exps_3t; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3t;}
+                                        if(eleID_closests->at(j)>0){++valid_closests_3t; 
+                                                                    eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
+                                                                    eleIds_closests_3t -> Fill(eleID_closests->at(j));
+                                                                    diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                        }
                                     }
-                                }
-                    }
+                            }
+                    }    
                 }
             }
 
@@ -605,7 +628,7 @@ void hits()
     grh4->Draw("APE1");
     c8->Update();
 
-    TCanvas* c9 = new TCanvas("c8", "", 1000, 500);
+    TCanvas* c9 = new TCanvas("c9", "", 1000, 500);
     c9->cd();
     c9->Divide(2,3,0,0);
     c9->cd(1); eleIds_h4t->Draw();
@@ -616,6 +639,24 @@ void hits()
     c9->cd(6); eleIds_h4y2l->Draw();
     c9->cd();
     c9->Update();
+
+    TCanvas* c10 = new TCanvas("c10", "H3B", 500, 1000);
+    c10->cd();
+    c10->Divide(1,3,0,0);
+    c10->cd(1); eleIds_exps_3b->Draw();
+    c10->cd(2); eleIds_closests_3b->Draw();    
+    c10->cd(3); diff_eleIds_3b->Draw();
+    c10->cd();
+    c10->Update();
+
+    TCanvas* c11 = new TCanvas("c11", "H3T", 500, 1000);
+    c11->cd();
+    c11->Divide(1,3,0,0);
+    c11->cd(1); eleIds_exps_3t->Draw();
+    c11->cd(2); eleIds_closests_3t->Draw();    
+    c11->cd(3); diff_eleIds_3t->Draw();
+    c11->cd();
+    c11->Update();
 
     gSystem->mkdir(Form("hitRates/%s",trigger_temp.c_str()), 1);
 
@@ -628,6 +669,8 @@ void hits()
     c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
     c9->SaveAs("hitRates/st4Hits.png");
+    c10->SaveAs("hitRates/eleIDs_h3b.png");
+    c11->SaveAs("hitRates/eleIDs_h3t.png");
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
