@@ -48,6 +48,7 @@ R__LOAD_LIBRARY(libanamodule)
    int st12 =0; int st24 =0;  int st124 =0;
    int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
    //int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
+   int valid_exps =0; int valid_closests =0;
    
    
 
