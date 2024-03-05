@@ -37,10 +37,14 @@ void hits()
    //set the first run_ID in the save tree as the run_num
    int run_num = 4796;
 
+   //ref to keep track of the entry from the tls tree
+   int tls_entry = 0; 
+
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("event_ID", &event_ID);
    tr->SetBranchAddress("dor", &dor);
    tr->SetBranchAddress("trigger", &trigger);
+   tr->SetBranchAddress("nQualTracklets", &nQualTracklets);
 
    tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
    tr->SetBranchAddress("tdc_h1b", &tdc_h1b);
@@ -90,6 +94,11 @@ void hits()
    tr->SetBranchAddress("eleIdsh4y2l", &eleIdsh4y2l);
    
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
+
+   tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
+   tr_tls->SetBranchAddress("detIDs", &detIDs);
+   tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
+   tr_tls->SetBranchAddress("eleID_closests", &event_closests);
 
    bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
 
@@ -187,7 +196,23 @@ void hits()
         t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
         //categorizing events from either st1,st2 or st2,st4
-        if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24; if((num_h3t + num_h3b)>0) {++st24w3;}}
+        if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
+                ++st24; 
+                if((num_h3t + num_h3b)>0) {++st24w3;}
+
+                for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                    tr_tls->GetEntry(i_tls_entry);
+                    if (event_ID == tls_event_ID){ 
+                                for ( int j =0; j< detIDs->size(); j++){
+                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                        ++valid_exps; 
+                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                    }
+                                }
+                    }
+                }
+        }
+
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
@@ -265,7 +290,23 @@ void hits()
             t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
             //categorizing events from either st1,st2 or st2,st4
-            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24; if((num_h3t + num_h3b)>0) {++st24w3;}}
+            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
+                ++st24; 
+                if((num_h3t + num_h3b)>0) {++st24w3;}
+
+                for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                    tr_tls->GetEntry(i_tls_entry);
+                    if (event_ID == tls_event_ID){ 
+                                for ( int j =0; j< detIDs->size(); j++){
+                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                        ++valid_exps; 
+                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                    }
+                                }
+                    }
+                }
+            }
+
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
@@ -403,7 +444,23 @@ void hits()
             t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
             //categorizing events from either st1,st2 or st2,st4
-            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){++st24; if((num_h3t + num_h3b)>0) {++st24w3;}}
+            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
+                ++st24; 
+                if((num_h3t + num_h3b)>0) {++st24w3;}
+
+                for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                    tr_tls->GetEntry(i_tls_entry);
+                    if (event_ID == tls_event_ID){ 
+                                for ( int j =0; j< detIDs->size(); j++){
+                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                        ++valid_exps; 
+                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                    }
+                                }
+                    }
+                }
+            }
+
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
 
@@ -576,5 +633,9 @@ void hits()
     std::cout<<"number back partial tracks with hits only in st3t;"<<h3t_hits<<std::endl;
     std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
     std::cout<<"*************************"<<std::endl;
+
+    std::cout<<"In the events with hits in both H2 and H4;"<<std::endl;
+    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3: "<< valid_exps <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3: "<< valid_closests <<std::endl;
     std::cout<<"New trigger events : "<< new_trigger <<std::endl;
 }
