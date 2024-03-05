@@ -98,7 +98,7 @@ void hits()
    tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
    tr_tls->SetBranchAddress("detIDs", &detIDs);
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
-   tr_tls->SetBranchAddress("eleID_closests", &event_closests);
+   tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
    bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
 
@@ -203,10 +203,10 @@ void hits()
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
-                                for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                for ( int j =0; j< detIDs.size(); j++){
+                                    if(detIDs.at(j)>30 && detIDs.at(j)>30 && eleID_exps.at(j)>0){
                                         ++valid_exps; 
-                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                        if(eleID_closests.at(j)>0){++valid_closests;}
                                     }
                                 }
                     }
@@ -297,10 +297,10 @@ void hits()
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
-                                for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                for ( int j =0; j< detIDs.size(); j++){
+                                    if(detIDs.at(j)>30 && detIDs.at(j)>30 && eleID_exps.at(j)>0){
                                         ++valid_exps; 
-                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                        if(eleID_closests.at(j)>0){++valid_closests;}
                                     }
                                 }
                     }
@@ -451,10 +451,10 @@ void hits()
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
-                                for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j)>30 && detIDs->at(j)>30 && eleID_exps->at(j)>0){
+                                for ( int j =0; j< detIDs.size(); j++){
+                                    if(detIDs.at(j)>30 && detIDs.at(j)>30 && eleID_exps.at(j)>0){
                                         ++valid_exps; 
-                                        if(eleID_closests->at(j)>0){++valid_closests;}
+                                        if(eleID_closests.at(j)>0){++valid_closests;}
                                     }
                                 }
                     }
