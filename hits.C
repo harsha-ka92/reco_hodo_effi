@@ -617,7 +617,7 @@ void hits()
     c9->cd();
     c9->Update();
 
-    /*gSystem->mkdir(Form("hitRates/%s",trigger_temp.c_str()), 1);
+    gSystem->mkdir(Form("hitRates/%s",trigger_temp.c_str()), 1);
 
     c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp.c_str()));
     c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp.c_str()));
@@ -627,11 +627,11 @@ void hits()
     c6->SaveAs(Form("hitRates/%s/rh2.png",trigger_temp.c_str()));
     c7->SaveAs(Form("hitRates/%s/rh3.png",trigger_temp.c_str()));
     c8->SaveAs(Form("hitRates/%s/rh4.png",trigger_temp.c_str()));
-    c9->SaveAs("hitRates/st4Hits.png");*/
+    c9->SaveAs("hitRates/st4Hits.png");
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N4 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
+    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N2 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     std::cout<<"events triggered by a cosmic ray from st 24 : "<< st24 <<std::endl;
     std::cout<<"events triggered by a cosmic ray from st 12 : "<< st12 <<std::endl;
     std::cout<<"events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
