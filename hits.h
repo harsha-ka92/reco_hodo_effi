@@ -51,6 +51,8 @@ R__LOAD_LIBRARY(libanamodule)
    int valid_exps_3b =0; int valid_closests_3b =0;
    int valid_exps_3t =0; int valid_closests_3t =0;
    int valid_exps_4y1l =0;  int valid_exps_4y1r =0;  int valid_exps_4y2l =0;  int valid_exps_4y2r =0;  int valid_exps_4t =0;  int valid_exps_4b =0;
+   int has_a_hit_p1y1 =0;  int has_a_hit_p1y2 =0;  int has_a_hit_p1x1 =0;  int has_a_hit_p1x2 =0;
+   int has_a_hit_p2y1 =0;  int has_a_hit_p2y2 =0;  int has_a_hit_p2x1 =0;  int has_a_hit_p2x2 =0;
    bool st3_OK = false; bool st4_OK = false;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;   double t_num_h4=0;
