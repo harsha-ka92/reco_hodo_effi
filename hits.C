@@ -197,9 +197,9 @@ void hits()
 
         //categorizing events from either st1,st2 or st2,st4
         if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
-                ++st24; 
-                if((num_h3t + num_h3b)>0) {++st24w3;}
-
+            ++st24; 
+            if((num_h3t + num_h3b)>0) {++st24w3;}
+            if(stID == 2 || stID == 3){
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
@@ -223,6 +223,7 @@ void hits()
                             }
                     }    
                 }
+            }
         }
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
         if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) >0 ){++st124;}
@@ -302,9 +303,9 @@ void hits()
 
             //categorizing events from either st1,st2 or st2,st4
             if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
-                ++st24; 
-                if((num_h3t + num_h3b)>0) {++st24w3;}
-
+               ++st24; 
+               if((num_h3t + num_h3b)>0) {++st24w3;}
+                if(stID == 2 || stID == 3){
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
@@ -328,6 +329,7 @@ void hits()
                             }
                     }    
                 }
+              }
             }
 
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
@@ -470,8 +472,8 @@ void hits()
             if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
                 ++st24; 
                 if((num_h3t + num_h3b)>0) {++st24w3;}
-
-                for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                if(stID == 2 || stID == 3){
+                  for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
@@ -494,6 +496,7 @@ void hits()
                             }
                     }    
                 }
+              }
             }
 
             if ( (num_h1t + num_h1b + num_h1r + num_h1l) > 0 && (num_h2t + num_h2b + num_h2r + num_h2l) > 0){++st12;}
@@ -690,14 +693,14 @@ void hits()
     std::cout<<"*************************"<<std::endl;
 
     std::cout<<"In the events with hits in both H2 and H4 ("<<st24<<")"<<std::endl;
-    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3T: "<< valid_exps_3t <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3T: "<< valid_closests_3t <<std::endl;
+    std::cout<<"Number of back partial/st3 tacklets that produce a valid expected element in H3T: "<< valid_exps_3t <<std::endl;
+    std::cout<<"Number of back partial/st3 tacklets that has a valid closest fired element in H3T: "<< valid_closests_3t <<std::endl;
     std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
-    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3B: "<< valid_exps_3b <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3B: "<< valid_closests_3b <<std::endl;
+    std::cout<<"Number of back partial/st3 tacklets that produce a valid expected element in H3B: "<< valid_exps_3b <<std::endl;
+    std::cout<<"Number of back partial/st3 tacklets that has a valid closest fired element in H3B: "<< valid_closests_3b <<std::endl;
     std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
-    std::cout<<"Total number of back partial tacklets that produce a valid expected element in H3: "<< (valid_exps_3b + valid_exps_3t) <<std::endl;
-    std::cout<<"Total number of back partial tacklets that produce a valid fired element in H3: "<< (valid_closests_3b + valid_closests_3t) <<std::endl;
+    std::cout<<"Total number of back partial/st3 tacklets that produce a valid expected element in H3: "<< (valid_exps_3b + valid_exps_3t) <<std::endl;
+    std::cout<<"Total number of back partial/st3 tacklets that produce a valid fired element in H3: "<< (valid_closests_3b + valid_closests_3t) <<std::endl;
     std::cout<<"*************************"<<std::endl;
     std::cout<<"New trigger events : "<< new_trigger <<std::endl;
 }
