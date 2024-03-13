@@ -50,6 +50,7 @@ R__LOAD_LIBRARY(libanamodule)
    //int h3b_hits = 0; int no_h3b_hits = 0; int h3t_hits = 0; int no_h3t_hits = 0;
    int valid_exps_3b =0; int valid_closests_3b =0;
    int valid_exps_3t =0; int valid_closests_3t =0;
+   int valid_exps_4y1l =0;  int valid_exps_4y1r =0;  int valid_exps_4y2l =0;  int valid_exps_4y2r =0;  int valid_exps_4t =0;  int valid_exps_4b =0;
    bool st3_OK = false; bool st4_OK = false;
 
    double t_num_h1 =0;    double t_num_h2 =0;    double t_num_h3 =0;   double t_num_h4=0;
