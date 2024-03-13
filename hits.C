@@ -200,9 +200,10 @@ void hits()
         if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
             ++st24; 
             if((num_h3t + num_h3b)>0) {++st24w3;}
-            if(stID == 4 || stID == 4 || stID == 6){
+            
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
+                    if(stID == 4 || stID == 5 || stID == 6){
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
@@ -306,9 +307,10 @@ void hits()
             if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
                ++st24; 
                if((num_h3t + num_h3b)>0) {++st24w3;}
-                if(stID == 4 || stID == 4 || stID == 6){
+                
                 for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
+                    if(stID == 4 || stID == 5 || stID == 6){
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
@@ -473,9 +475,10 @@ void hits()
             if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
                 ++st24; 
                 if((num_h3t + num_h3b)>0) {++st24w3;}
-                if(stID == 4 || stID == 4 || stID == 6){
+                
                   for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                     tr_tls->GetEntry(i_tls_entry);
+                    if(stID == 4 || stID == 5 || stID == 6){
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
