@@ -207,6 +207,7 @@ void hits()
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
+                                        st3_OK = true;
                                         ++valid_exps_3b; 
                                         if(eleID_closests->at(j)>0){++valid_closests_3b; 
                                                                     eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
@@ -215,6 +216,7 @@ void hits()
                                         }
                                     }
                                     else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
+                                        st3_OK = true;
                                         ++valid_exps_3t; 
                                         if(eleID_closests->at(j)>0){++valid_closests_3t; 
                                                                     eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
@@ -222,6 +224,15 @@ void hits()
                                                                     diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
                                         }
                                     }
+                                    if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
+                                              else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
+                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++vhas_a_hit_p1x1;}
+                                              else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
+                                              else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
+                                              else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
+                                              else if(detIDs->at(j) == 53 && eleID_closests->at(j)>0) {++has_a_hit_p2y1;}
+                                              else if(detIDs->at(j) == 54 && eleID_closests->at(j)>0) {++has_a_hit_p2y2;}
+                                 }
                             }
                     }    
                 }
@@ -314,6 +325,7 @@ void hits()
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
+                                        st3_OK = true;
                                         ++valid_exps_3b; 
                                         if(eleID_closests->at(j)>0){++valid_closests_3b; 
                                                                     eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
@@ -322,6 +334,7 @@ void hits()
                                         }
                                     }
                                     else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
+                                        st3_OK = true;
                                         ++valid_exps_3t; 
                                         if(eleID_closests->at(j)>0){++valid_closests_3t; 
                                                                     eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
@@ -329,6 +342,16 @@ void hits()
                                                                     diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
                                         }
                                     }
+                                  
+                                    if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
+                                              else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
+                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++vhas_a_hit_p1x1;}
+                                              else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
+                                              else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
+                                              else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
+                                              else if(detIDs->at(j) == 53 && eleID_closests->at(j)>0) {++has_a_hit_p2y1;}
+                                              else if(detIDs->at(j) == 54 && eleID_closests->at(j)>0) {++has_a_hit_p2y2;}
+                                 }
                             }
                     }    
                 }
@@ -482,6 +505,7 @@ void hits()
                     if (event_ID == tls_event_ID){ 
                                 for ( int j =0; j< detIDs->size(); j++){
                                     if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
+                                        st3_OK = true;
                                         ++valid_exps_3b; 
                                         if(eleID_closests->at(j)>0){++valid_closests_3b; 
                                                                     eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
@@ -490,6 +514,7 @@ void hits()
                                         }
                                     }
                                     else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
+                                        st3_OK = true;
                                         ++valid_exps_3t; 
                                         if(eleID_closests->at(j)>0){++valid_closests_3t; 
                                                                     eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
@@ -497,6 +522,15 @@ void hits()
                                                                     diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
                                         }
                                     }
+                                    if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
+                                              else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
+                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++vhas_a_hit_p1x1;}
+                                              else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
+                                              else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
+                                              else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
+                                              else if(detIDs->at(j) == 53 && eleID_closests->at(j)>0) {++has_a_hit_p2y1;}
+                                              else if(detIDs->at(j) == 54 && eleID_closests->at(j)>0) {++has_a_hit_p2y2;}
+                                 }
                             }
                     }    
                 }
@@ -705,6 +739,18 @@ void hits()
     std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
     std::cout<<"Total number of back partial tacklets that produce a valid expected element in H3: "<< (valid_exps_3b + valid_exps_3t) <<std::endl;
     std::cout<<"Total number of back partial tacklets that produce a valid fired element in H3: "<< (valid_closests_3b + valid_closests_3t) <<std::endl;
+    std::cout<<"*************************"<<std::endl;
+
+
+    std::cout<<"In the events with a valid expected element in st3 ("<<valid_exps_3b + valid_exps_3t<<")"<<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p1y1: "<< has_a_hit_p1y1 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p1y2: "<< has_a_hit_p1y2 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p1x1: "<< has_a_hit_p1x1 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p1x2: "<< has_a_hit_p1x2 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p2x1: "<< has_a_hit_p2x1 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p2x2: "<< has_a_hit_p2x2 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p2y1: "<< has_a_hit_p2y1 <<std::endl;
+    std::cout<<"Number of back partial tacklets that has a supporting hit in p2y2: "<< has_a_hit_p2y2 <<std::endl;
     std::cout<<"*************************"<<std::endl;
     std::cout<<"New trigger events : "<< new_trigger <<std::endl;
 }
