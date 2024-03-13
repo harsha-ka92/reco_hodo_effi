@@ -226,7 +226,7 @@ void hits()
                                     }
                                     if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
                                               else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
-                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++vhas_a_hit_p1x1;}
+                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++has_a_hit_p1x1;}
                                               else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
                                               else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
                                               else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
@@ -345,7 +345,7 @@ void hits()
                                   
                                     if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
                                               else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
-                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++vhas_a_hit_p1x1;}
+                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++has_a_hit_p1x1;}
                                               else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
                                               else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
                                               else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
@@ -524,7 +524,7 @@ void hits()
                                     }
                                     if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
                                               else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
-                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++vhas_a_hit_p1x1;}
+                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++has_a_hit_p1x1;}
                                               else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
                                               else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
                                               else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
