@@ -97,6 +97,7 @@ void hits()
 
    tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
    tr_tls->SetBranchAddress("detIDs", &detIDs);
+   tr_tls->SetBranchAddress("stID", &stID);
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
