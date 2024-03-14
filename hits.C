@@ -315,7 +315,7 @@ void hits()
             t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
             //categorizing events from either st1,st2 or st2,st4
-            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
+            if ((num_h2t + num_h2b) >0 && (num_h2r + num_h2l) > 0 && (num_h4t + num_h4b) >0 && (num_h4y2r + num_h4y2l) > 0){
                ++st24; 
                if((num_h3t + num_h3b)>0) {++st24w3;}
                 
@@ -495,7 +495,7 @@ void hits()
             t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
 
             //categorizing events from either st1,st2 or st2,st4
-            if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0){
+            if ((num_h2t + num_h2b) >0 && (num_h2r + num_h2l) > 0 && (num_h4t + num_h4b) >0 && (num_h4y2r + num_h4y2l) > 0){
                 ++st24; 
                 if((num_h3t + num_h3b)>0) {++st24w3;}
                 
