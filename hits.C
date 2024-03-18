@@ -112,9 +112,9 @@ void hits()
       if(Trigger_Filter == true){
 
           //if((trigger & 0x1) != 0) { trigger_temp = "NIM1"; ++total_N1;}  //NIM1
-          if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
+          //if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
           //if((trigger & 0x4) != 0) { trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          //if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
+          if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           //if((trigger & 0x200) != 0) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
           else{continue;}
        
@@ -715,7 +715,7 @@ void hits()
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N2 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
+    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N4 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     if (trigger_temp == "MATRIX5" || trigger_temp == "NIM4"){
         std::cout<<"number of events that satisfy H2 && H4 is : "<< st24 <<std::endl;
         std::cout<<"number of events that satisfy H1 && H2 is : "<< st12 <<std::endl;
