@@ -15,7 +15,7 @@ void test(){
   //map<int, int> eT;
 
   string id;
-  ifstream infile("Anamodule/mysql_output.txt");
+  ifstream infile("AnaModule/mysql_output.txt");
 
   while (getline(infile,id))
   {
