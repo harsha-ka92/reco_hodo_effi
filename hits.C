@@ -718,7 +718,7 @@ void hits()
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
     std::cout<<"Total "<<trigger_temp<<" events : "<< total_M5 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
-    if (trigger_temp == "MATRIX5" || trigger_temp == "NIM4"){
+    if (trigger_temp == "MATRIX5" || trigger_temp == "NIM4" || trigger_temp == "All"){
         std::cout<<"number of events that satisfy H2 && H4 is : "<< st24 <<std::endl;
         std::cout<<"number of events that satisfy H1 && H2 is : "<< st12 <<std::endl;
         std::cout<<"number of events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
