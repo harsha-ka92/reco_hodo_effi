@@ -243,13 +243,13 @@ void hits()
 
          run_time = dor;
          run_num = run_ID;
-         std::cout<<run_ID<<std::endl;
-         std::cout<<event_ID<<std::endl;
+         //std::cout<<run_ID<<std::endl;
+         //std::cout<<event_ID<<std::endl;
       }    
 
      //This is needed to complete the calculations and plot the results when looking at the last event in the tree
      else if (run_num == run_ID && i_ent == nEvents-1){
-         std::cout<< "Filling the last event"<<std::endl;
+         //std::cout<< "Filling the last event"<<std::endl;
 
             for ( int j =0; j< tdc_h1t->size(); j++){
                 htdc_h1t->Fill(tdc_h1t->at(j));
@@ -385,8 +385,8 @@ void hits()
 
            //rh1=0; rh2=0; rh3=0;
            run_num = run_ID;
-           std::cout<<run_ID<<std::endl;
-           std::cout<<event_ID<<std::endl;
+           //std::cout<<run_ID<<std::endl;
+           //std::cout<<event_ID<<std::endl;
      }
 
      //this will be executed when ever the run number changes in the tree. First it will calulates the rates and include points in the plots upto the previous event.
@@ -423,8 +423,8 @@ void hits()
            std::cout << "i = " << i << std::endl;
            run_num = run_ID;
            run_time = dor;
-           std::cout<<run_ID<<std::endl;
-           std::cout<<event_ID<<std::endl;
+           //std::cout<<run_ID<<std::endl;
+           //std::cout<<event_ID<<std::endl;
            t_num_h1 = 0; t_num_h2 = 0; t_num_h3 = 0;
            htdc_h1t->Reset("ICESM"); htdc_h1b->Reset("ICESM"); htdc_h1l->Reset("ICESM"); htdc_h1r->Reset("ICESM"); 
            htdc_h2t->Reset("ICESM"); htdc_h2b->Reset("ICESM"); htdc_h2l->Reset("ICESM"); htdc_h2r->Reset("ICESM"); 
