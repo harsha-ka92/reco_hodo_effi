@@ -102,8 +102,8 @@ void hits()
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
    bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
-
-   for (int i_ent = 0; i_ent < tr->GetEntries(); i_ent++) {
+   int nEntries = tr->GetEntries();
+   for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
       tr->GetEntry(i_ent);
       if(run_ID < xlow || run_ID > xhigh) {continue;}
@@ -131,7 +131,7 @@ void hits()
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
 
       //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied in the first iteration.
-      if(run_num == run_ID && i_ent != nEvents-1){
+      if(run_num == run_ID && i_ent != nEntries-1){
         
         for ( int j =0; j< tdc_h1t->size(); j++){
             htdc_h1t->Fill(tdc_h1t->at(j));
@@ -248,7 +248,7 @@ void hits()
       }    
 
      //This is needed to complete the calculations and plot the results when looking at the last event in the tree
-     else if (run_num == run_ID && i_ent == nEvents-1){
+     else if (run_num == run_ID && i_ent == nEntries-1){
          std::cout<< "Filling the last event"<<std::endl;
 
             for ( int j =0; j< tdc_h1t->size(); j++){
