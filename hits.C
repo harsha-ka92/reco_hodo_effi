@@ -32,7 +32,7 @@ void hits()
 
    // choose the range of run numbers need to be analyzed and show up in the plots
    int xlow = 5024;
-   int xhigh = 5026; 
+   int xhigh = 5042; 
 
    //set the first run_ID in the save tree as the run_num
    int run_num = 5024;
