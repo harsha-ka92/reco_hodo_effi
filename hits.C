@@ -249,7 +249,7 @@ void hits()
 
      //This is needed to complete the calculations and plot the results when looking at the last event in the tree
      else if (run_num == run_ID && i_ent == nEvents-1){
-         //std::cout<< "Filling the last event"<<std::endl;
+         std::cout<< "Filling the last event"<<std::endl;
 
             for ( int j =0; j< tdc_h1t->size(); j++){
                 htdc_h1t->Fill(tdc_h1t->at(j));
