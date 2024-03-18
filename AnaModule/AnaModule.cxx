@@ -37,7 +37,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
   tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
   MakeTree();
 
-  std::fstream infile("mysql_output.txt");
+  std::fstream infile("AnaModule/mysql_output.txt");
 
   while (getline(infile,id))
   {
