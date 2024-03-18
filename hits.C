@@ -393,7 +393,6 @@ void hits()
      //Then it will reset all the vars and start storing the info of the current event and next ones unitll the run number changes again or untill the last event is met.
      
      else {
-           std::cout<< "run number changed"<<std::endl;
            rh1 = t_num_h1/run_time/60;
            rh2 = t_num_h2/run_time/60;
            rh3 = t_num_h3/run_time/60;
@@ -423,7 +422,8 @@ void hits()
            std::cout << "i = " << i << std::endl;
            run_num = run_ID;
            run_time = dor;
-           //std::cout<<run_ID<<std::endl;
+           std::cout<< "run number changed"<<std::endl;
+           std::cout<<run_ID<<std::endl;
            //std::cout<<event_ID<<std::endl;
            t_num_h1 = 0; t_num_h2 = 0; t_num_h3 = 0;
            htdc_h1t->Reset("ICESM"); htdc_h1b->Reset("ICESM"); htdc_h1l->Reset("ICESM"); htdc_h1r->Reset("ICESM"); 
