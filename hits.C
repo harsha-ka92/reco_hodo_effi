@@ -418,14 +418,17 @@ void hits()
            //resetting the variable for the new run
 
            rh1=0; rh2=0; rh3=0; rh4=0;
+           t_num_h1 = 0; t_num_h2 = 0; t_num_h3 = 0;
+
            i++;
            std::cout << "i = " << i << std::endl;
+
            run_num = run_ID;
            run_time = dor;
            std::cout<< "run number changed"<<std::endl;
            std::cout<<run_ID<<std::endl;
            //std::cout<<event_ID<<std::endl;
-           t_num_h1 = 0; t_num_h2 = 0; t_num_h3 = 0;
+
            htdc_h1t->Reset("ICESM"); htdc_h1b->Reset("ICESM"); htdc_h1l->Reset("ICESM"); htdc_h1r->Reset("ICESM"); 
            htdc_h2t->Reset("ICESM"); htdc_h2b->Reset("ICESM"); htdc_h2l->Reset("ICESM"); htdc_h2r->Reset("ICESM"); 
            htdc_h3t->Reset("ICESM"); htdc_h3b->Reset("ICESM"); 
@@ -489,7 +492,6 @@ void hits()
             }
 
             t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
-            std::cout<<"total hits in st 1"<<t_num_h1<<std::endl;
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
             t_num_h3 += (num_h3t + num_h3b);
             t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
