@@ -101,7 +101,7 @@ void hits()
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
-   bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
+   bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
    int nEntries = tr->GetEntries();
    for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
@@ -721,7 +721,7 @@ void hits()
 
     std::cout<<"*************************"<<std::endl;
     std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< total_N2 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
+    std::cout<<"Total "<<trigger_temp<<" events : "<< nEvents <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
     if (trigger_temp == "MATRIX5" || trigger_temp == "NIM4" || trigger_temp == "All"){
         std::cout<<"number of events that satisfy H2 && H4 is : "<< st24 <<std::endl;
         std::cout<<"number of events that satisfy H1 && H2 is : "<< st12 <<std::endl;
