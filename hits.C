@@ -564,7 +564,7 @@ void hits()
     l1->AddEntry(htdc_h1r, "h1r", "l");
     l1->AddEntry(htdc_h1l, "h1l", "l");
     //l1->Draw();
-    hs->Add(htdc_h1t); hs->Add(htdc_h1b); hs->Add(htdc_h1r); hs->Add(htdc_h1l); hs->Add(l1); 
+    hs->Add(htdc_h1t); hs->Add(htdc_h1b); hs->Add(htdc_h1r); hs->Add(htdc_h1l);
     hs->Draw("nonstack");
     c1->Update();
     
