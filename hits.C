@@ -546,26 +546,26 @@ void hits()
 }
 
     TCanvas* c1 = new TCanvas(Form("tdc_time of hits from %s events : St1", trigger_temp.c_str()), Form("tdc_time of %s hits : St1", trigger_temp.c_str()), 1000, 500);
-    THStack* hs;
-    hs  = new THStack("hs", Form("tdc_time of hits from %s events : St1", trigger_temp.c_str()));
+    //THStack* hs;
+    //hs  = new THStack("hs", Form("tdc_time of hits from %s events : St1", trigger_temp.c_str()));
     htdc_h1t->SetLineColor(7);
-    //htdc_h1t->SetTitle("tdc time - st1");
-    //htdc_h1t->Draw();
+    htdc_h1t->SetTitle("tdc time - st1");
+    htdc_h1t->Draw();
     htdc_h1b->SetLineColor(2);
-    //htdc_h1b->Draw("SAME");
+    htdc_h1b->Draw("SAME");
     htdc_h1r->SetLineColor(3);
-    //htdc_h1r->Draw("SAME");
+    htdc_h1r->Draw("SAME");
     htdc_h1l->SetLineColor(4);
-    //htdc_h1l->Draw("SAME");
+    htdc_h1l->Draw("SAME");
     auto l1 = new TLegend(0.7,0.65,0.85,0.85);
-    //l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
+    l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
     l1->AddEntry(htdc_h1t, "h1t", "l");
     l1->AddEntry(htdc_h1b, "h1b", "l");
     l1->AddEntry(htdc_h1r, "h1r", "l");
     l1->AddEntry(htdc_h1l, "h1l", "l");
-    //l1->Draw();
-    hs->Add(htdc_h1t); hs->Add(htdc_h1b); hs->Add(htdc_h1r); hs->Add(htdc_h1l);
-    hs->Draw("nonstack");
+    l1->Draw();
+    /*hs->Add(htdc_h1t); hs->Add(htdc_h1b); hs->Add(htdc_h1r); hs->Add(htdc_h1l);*/
+    //hs->Draw("nonstack");
     c1->Update();
     
     TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp.c_str()), Form("tdc_time of %s hits : St2", trigger_temp.c_str()), 1000, 500);
