@@ -556,7 +556,7 @@ void hits()
     htdc_h1l->SetLineColor(4);
     htdc_h1l->Draw("SAME");
     auto l1 = new TLegend(0.7,0.65,0.85,0.85);
-    l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
+    //l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
     l1->AddEntry(htdc_h1t, "h1t", "l");
     l1->AddEntry(htdc_h1b, "h1b", "l");
     l1->AddEntry(htdc_h1r, "h1r", "l");
@@ -575,7 +575,7 @@ void hits()
     htdc_h2l->SetLineColor(4);
     htdc_h2l->Draw("SAME");
     auto l2 = new TLegend(0.7,0.65,0.85,0.85);
-    l2->AddEntry(htdc_h2t, Form("run ID %d",run_num) , "");
+    //l2->AddEntry(htdc_h2t, Form("run ID %d",run_num) , "");
     l2->AddEntry(htdc_h2t, "h2t", "l");
     l2->AddEntry(htdc_h2b, "h2b", "l");
     l2->AddEntry(htdc_h2r, "h2r", "l");
@@ -590,7 +590,7 @@ void hits()
     htdc_h3b->SetLineColor(2);
     htdc_h3b->Draw("SAME");
     auto l3 = new TLegend(0.7,0.65,0.85,0.85);
-    l3->AddEntry(htdc_h3t, Form("run ID %d",run_num) , "");
+    //l3->AddEntry(htdc_h3t, Form("run ID %d",run_num) , "");
     l3->AddEntry(htdc_h3t, "h3t", "l");
     l3->AddEntry(htdc_h3b, "h3b", "l");
     l3->Draw();
@@ -611,7 +611,7 @@ void hits()
     htdc_h4y2l->SetLineColor(6);
     htdc_h4y2l->Draw("SAME");
     auto l4 = new TLegend(0.7,0.65,0.85,0.85);
-    l4->AddEntry(htdc_h4t, Form("run ID %d",run_num) , "");
+    //l4->AddEntry(htdc_h4t, Form("run ID %d",run_num) , "");
     l4->AddEntry(htdc_h4t, "h4t", "l");
     l4->AddEntry(htdc_h4b, "h4b", "l");
     l4->AddEntry(htdc_h4y1r, "h4y1r", "l");
