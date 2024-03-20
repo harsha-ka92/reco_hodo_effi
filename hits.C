@@ -429,9 +429,9 @@ void hits()
            std::cout<<run_ID<<std::endl;
            //std::cout<<event_ID<<std::endl;
 
-           htdc_h1t->Reset("ICESM"); htdc_h1b->Reset("ICESM"); htdc_h1l->Reset("ICESM"); htdc_h1r->Reset("ICESM"); 
+           /*htdc_h1t->Reset("ICESM"); htdc_h1b->Reset("ICESM"); htdc_h1l->Reset("ICESM"); htdc_h1r->Reset("ICESM"); 
            htdc_h2t->Reset("ICESM"); htdc_h2b->Reset("ICESM"); htdc_h2l->Reset("ICESM"); htdc_h2r->Reset("ICESM"); 
-           htdc_h3t->Reset("ICESM"); htdc_h3b->Reset("ICESM"); 
+           htdc_h3t->Reset("ICESM"); htdc_h3b->Reset("ICESM");*/
 
            for ( int j =0; j< tdc_h1t->size(); j++){
                 htdc_h1t->Fill(tdc_h1t->at(j));
