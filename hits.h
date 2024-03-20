@@ -80,25 +80,25 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<int> *eleID_closests =0;
 
 
-   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 350, 750, 1100);
-   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 350, 750, 1100);
-   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 350, 750, 1100);
-   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 350, 750, 1100);
+   TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 400, 752, 1152);
+   TH1F *htdc_h1b = new TH1F("htdc_h1b","htdc_h1b", 400, 752, 1152);
+   TH1F *htdc_h1r = new TH1F("htdc_h1r","htdc_h1r", 400, 752, 1152);
+   TH1F *htdc_h1l = new TH1F("htdc_h1l","htdc_h1l", 400, 752, 1152);
 
-   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 350, 750, 1100);
-   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 350, 750, 1100);
-   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 350, 750, 1100);
-   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 350, 750, 1100);
+   TH1F *htdc_h2t = new TH1F("htdc_h2t","htdc_h2t", 400, 752, 1152);
+   TH1F *htdc_h2b = new TH1F("htdc_h2b","htdc_h2b", 400, 752, 1152);
+   TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 400, 752, 1152);
+   TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 400, 752, 1152);
 
-   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 300, 900, 1200);
-   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 300, 900, 1200);
+   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 480, 872, 1352);
+   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 480, 872, 1352);
 
-   TH1F *htdc_h4t = new TH1F("htdc_h4t","htdc_h4t", 350, 750, 1100);
-   TH1F *htdc_h4b = new TH1F("htdc_h4b","htdc_h4b", 350, 750, 1100);
-   TH1F *htdc_h4y1r = new TH1F("htdc_h4y1r","htdc_h4y1r", 350, 750, 1100);
-   TH1F *htdc_h4y1l = new TH1F("htdc_h4y1l","htdc_h4y1l", 350, 750, 1100);
-   TH1F *htdc_h4y2r = new TH1F("htdc_h4y2r","htdc_h4y2r", 350, 750, 1100);
-   TH1F *htdc_h4y2l = new TH1F("htdc_h4y2l","htdc_h4y2l", 350, 750, 1100);
+   TH1F *htdc_h4t = new TH1F("htdc_h4t","htdc_h4t", 480, 872, 1352);
+   TH1F *htdc_h4b = new TH1F("htdc_h4b","htdc_h4b", 480, 872, 1352);
+   TH1F *htdc_h4y1r = new TH1F("htdc_h4y1r","htdc_h4y1r", 480, 872, 1352);
+   TH1F *htdc_h4y1l = new TH1F("htdc_h4y1l","htdc_h4y1l", 480, 872, 1352);
+   TH1F *htdc_h4y2r = new TH1F("htdc_h4y2r","htdc_h4y2r", 480, 872, 1352);
+   TH1F *htdc_h4y2l = new TH1F("htdc_h4y2l","htdc_h4y2l", 480, 872, 1352);
 
    TH1D *eleIds_h4t = new TH1D("eleIds_h4t", "eleIds_h4t", 16, 1,17);
    TH1D *eleIds_h4b = new TH1D("eleIds_h4b", "eleIds_h4b", 16, 1,17);
