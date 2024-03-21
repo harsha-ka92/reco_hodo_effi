@@ -102,8 +102,10 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     int nEntries = tr->GetEntries();
-    for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
+    std::cout<<"Analyzing the stID :"<<ID<<std::endl;
+    for (int i_ent = 0; i_ent < nEntries; i_ent++) {
+      if(i_ent %10 == 0){std::cout<<" . "<<std::end;}
       tr->GetEntry(i_ent);
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       ++nEvents;
@@ -119,7 +121,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
        
       }
 
-    if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
+    if(dor < 0) {run_num = run_ID; continue;}
 
     //st1 and st3 efficiencies
     if(ID>30 && ID < 43){
