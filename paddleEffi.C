@@ -187,7 +187,6 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     diff->Draw("HIST");
     c1->SaveAs(oss.str().c_str());
     
-    
     delete exps;
     delete closest;
     delete effi;
