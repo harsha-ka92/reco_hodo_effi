@@ -134,7 +134,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                             }
                                     }
                                     }
-                                else { std::cout<<"no valid expected hit for the back partial track considered"<<std::endl;}
+                                else {;}
                         }
                 }
                 }    
@@ -159,7 +159,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                             }
                                     }
                                     }
-                                else { std::cout<<"no valid expected hit for the back partial track considered"<<std::endl;}
+                                else {;}
                         }
                 }
                 }    
