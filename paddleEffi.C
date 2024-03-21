@@ -105,7 +105,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     for (int i_ent = 0; i_ent < nEntries; i_ent++) {
-      if( (i_ent*100/nEntries) %10 == 0.){std::cout<<" . ";}
+      if( (i_ent*100/(nEntries-1)) % 10 == 0){std::cout<<" . ";}
       tr->GetEntry(i_ent);
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       ++nEvents;
@@ -123,12 +123,11 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     if(dor < 0) {run_num = run_ID; continue;}
 
-    //st1 and st3 efficiencies
-    if(ID>30 && ID < 43){
-        if ((num_h2t + num_h2b) >0 && (num_h2r + num_h2l) > 0 && (num_h4t + num_h4b)>0 && (num_h4y2r + num_h4y2l) > 0 ){
+    //st1 efficiencies
+    if(ID>30 && ID < 35){
             for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                 tr_tls->GetEntry(i_tls_entry);
-                if(stID == 6){
+                if(stID == 1 || stID == 3){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
@@ -142,15 +141,53 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 }
                 }    
             }
-          }
-        }
+    }
+
+    //st2 efficiencies
+    if(ID>34 && ID < 39){
+            for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                tr_tls->GetEntry(i_tls_entry);
+                if(stID == 2 || stID == 4 || stID == 5){
+                if (event_ID == tls_event_ID){ 
+                        for ( int j =0; j< detIDs->size(); j++){
+                                if(detIDs->at(j) == ID){
+                                    exps= eleID_exps->at(j);
+                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
+                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <10);
+                                    effi->Fill(bPassed, exps);
+                                }
+                                else {;}
+                        }
+                }
+                }    
+            }
+    }
+
+    //st3 efficiencies
+    if(ID>38 && ID < 41){
+            for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                tr_tls->GetEntry(i_tls_entry);
+                if(stID == 4 || stID == 5){
+                if (event_ID == tls_event_ID){ 
+                        for ( int j =0; j< detIDs->size(); j++){
+                                if(detIDs->at(j) == ID){
+                                    exps= eleID_exps->at(j);
+                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
+                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <10);
+                                    effi->Fill(bPassed, exps);
+                                }
+                                else {;}
+                        }
+                }
+                }    
+            }
+    }
 
     //st4 efficiencies
     else if (ID >42 && ID < 47){
-    if ((num_h1t + num_h1b) >0 && (num_h1r+ num_h1l) > 0 && (num_h2t + num_h2b) >0 && (num_h2r + num_h2l) > 0) {
         for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                 tr_tls->GetEntry(i_tls_entry);
-                if(stID == 6){
+                if(stID == 6 || stID == 4 || stID ==5){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
@@ -165,7 +202,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 }    
             }
     }
-    }
+    
     }
     TCanvas* c1 = new TCanvas("c1", "");
     c1->SetGrid();
