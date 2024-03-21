@@ -89,12 +89,13 @@ void paddleEffi()
 }
 
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
-    auto exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
-    auto closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
+    //auto exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
+    //auto closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
     TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
+    auto effi = new TEfficiency(*closest, *exps);
     TCanvas* c1 = new TCanvas("c1", "");
     c1->SetGrid();
-    int pad_diff =0;
+    int pad_diff =0; int exps; int closest; bool bPassed;
 
     bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     int nEntries = tr->GetEntries();
@@ -126,14 +127,11 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
-                                    exps-> Fill(eleID_exps->at(j));
-                                    if(eleID_closests->at(j)>0){ pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
-                                            if (pad_diff <= cut) {
-                                            closest -> Fill(eleID_closests->at(j));
-                                            diff -> Fill(pad_diff);
-                                            }
-                                    }
-                                    }
+                                    exps= Fill(eleID_exps->at(j));
+                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j)
+                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <10);
+                                    effi->Fill(bPassed, exps);
+                                }
                                 else {;}
                         }
                 }
@@ -151,14 +149,11 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
-                                    exps-> Fill(eleID_exps->at(j));
-                                    if(eleID_closests->at(j)>0){ pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
-                                            if (pad_diff <= cut) {
-                                            closest -> Fill(eleID_closests->at(j));
-                                            diff -> Fill(pad_diff);
-                                            }
-                                    }
-                                    }
+                                    exps= Fill(eleID_exps->at(j));
+                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j)
+                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <10);
+                                    effi->Fill(bPassed, exps);
+                                }
                                 else {;}
                         }
                 }
@@ -169,7 +164,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     }
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
-    auto effi = new TEfficiency(*closest, *exps);
+    
     effi->SetName(oss.str().c_str());
     effi->SetTitle(";paddle number; efficiency");
     
