@@ -187,6 +187,6 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     c1->Update();
     c1->SaveAs(oss.str().c_str());
     
-    delete effi;
-    delete diff;
+    effi =0;
+    diff->Reset("ICESM");;
 }
