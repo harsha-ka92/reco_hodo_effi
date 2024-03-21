@@ -22,6 +22,14 @@ TFile *f_file;
 TTree *tr;
 TTree *tr_tls;
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut);
+TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
+
+TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
+
+TCanvas* c1 = new TCanvas("c1", "");
+c1->SetGrid();
+int pad_diff =0; int exps; int closest; bool bPassed;
+
 // choose the range of run numbers need to be analyzed and show up in the plots
 int xlow = 5024;
 int xhigh = 5042; 
@@ -92,15 +100,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     //auto exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
     //auto closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
     
-    TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
-
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
-    TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
-
-    TCanvas* c1 = new TCanvas("c1", "");
-    c1->SetGrid();
-    int pad_diff =0; int exps; int closest; bool bPassed;
 
     bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     int nEntries = tr->GetEntries();
@@ -186,6 +187,5 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     c1->SaveAs(oss.str().c_str());
     
     delete effi;
-    delete c1;
     delete diff;
 }
