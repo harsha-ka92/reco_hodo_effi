@@ -169,7 +169,7 @@ void getEffi(int ID, int nPaddles, int cut){
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID :"<< ID ;
     auto effi = new TEfficiency(*closest, *exps);
-    effi->SetName(oss);
+    effi->SetName(oss.str().c_str()));
     effi->SetTitle(";paddle number; efficiency");
     
     effi->SetMarkerColor(kMagenta);
