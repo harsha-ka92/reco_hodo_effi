@@ -107,7 +107,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     
     for (int i_ent = 0; i_ent < nEntries; i_ent++) {
       double percent = (i_ent*100/(nEntries-1));
-      if( percent >=10. && percent % 10 == 0.){std::cout<<" / ";}
+      if( percent >=10. && (percent % 10. == 0.)){std::cout<<" / ";}
       
       tr->GetEntry(i_ent);
       
