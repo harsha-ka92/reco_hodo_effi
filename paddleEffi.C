@@ -85,126 +85,41 @@ void paddleEffi()
       if(Trigger_Filter == true){
 
           //if((trigger & 0x1) != 0) { trigger_temp = "NIM1"; ++total_N1;}  //NIM1
-          if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
+          //if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
           //if((trigger & 0x4) != 0) { trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          //if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
+          if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           //if((trigger & 0x200) != 0) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
           else{continue;}
        
       }
 
-       if (tlBackPartial>0){ 
-            total_bp++;
-            if (num_h3b>0 && num_h3t ==0){++h3b_hits;}
-            if (num_h3t>0 && num_h3b ==0){++h3t_hits;}
-            if (num_h3t >0 && num_h3b >0 ) {++has_hits;} 
-            if (num_h3t ==0 && num_h3b ==0){++no_hits;}
-       }
-      
-      if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
+    if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
 
-      if(run_num == run_ID && i_ent != nEntries-1){
-        
-        for ( int j =0; j< tdc_h1t->size(); j++){
-            htdc_h1t->Fill(tdc_h1t->at(j));
-        }
-        for ( int j =0; j< tdc_h1b->size(); j++){
-            htdc_h1b->Fill(tdc_h1b->at(j));
-        }
-        for ( int j =0; j< tdc_h1r->size(); j++){
-            htdc_h1r->Fill(tdc_h1r->at(j));
-        }
-        for ( int j =0; j< tdc_h1l->size(); j++){
-            htdc_h1l->Fill(tdc_h1l->at(j));
-        }
-
-        for ( int j =0; j< tdc_h2t->size(); j++){
-            htdc_h2t->Fill(tdc_h2t->at(j));
-        }
-        for ( int j =0; j< tdc_h2b->size(); j++){
-            htdc_h2b->Fill(tdc_h2b->at(j));
-        }
-        for ( int j =0; j< tdc_h2r->size(); j++){
-            htdc_h2r->Fill(tdc_h2r->at(j));
-        }
-        for ( int j =0; j< tdc_h2l->size(); j++){
-            htdc_h2l->Fill(tdc_h2l->at(j));
-        }
-
-        for ( int j =0; j< tdc_h3t->size(); j++){
-            htdc_h3t->Fill(tdc_h3t->at(j));
-        }
-        for ( int j =0; j< tdc_h3b->size(); j++){
-            htdc_h3b->Fill(tdc_h3b->at(j));
-        }
-
-        for ( int j =0; j< tdc_h4t->size(); j++){
-            htdc_h4t->Fill(tdc_h4t->at(j));
-            if(run_ID == 4692){eleIds_h4t->Fill(eleIdsh4t->at(j));}
-        }
-        for ( int j =0; j< tdc_h4b->size(); j++){
-            htdc_h4b->Fill(tdc_h4b->at(j));
-            if(run_ID == 4692){eleIds_h4b->Fill(eleIdsh4b->at(j));}
-        }
-        for ( int j =0; j< tdc_h4y1r->size(); j++){
-            htdc_h4y1r->Fill(tdc_h4y1r->at(j));
-            if(run_ID == 4692){eleIds_h4y1r->Fill(eleIdsh4y1r->at(j));}
-        }
-        for ( int j =0; j< tdc_h4y1l->size(); j++){
-            htdc_h4y1l->Fill(tdc_h4y1l->at(j));
-            if(run_ID == 4692){eleIds_h4y1l->Fill(eleIdsh4y1l->at(j));}
-        }
-        for ( int j =0; j< tdc_h4y2r->size(); j++){
-            htdc_h4y2r->Fill(tdc_h4y2r->at(j));
-            if(run_ID == 4692){eleIds_h4y2r->Fill(eleIdsh4y2r->at(j));}
-        }
-        for ( int j =0; j< tdc_h4y2l->size(); j++){
-            htdc_h4y2l->Fill(tdc_h4y2l->at(j));
-            if(run_ID == 4692){eleIds_h4y2l->Fill(eleIdsh4y2l->at(j));}
-        }
-
-        t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
-        t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
-        t_num_h3 += (num_h3t + num_h3b);
-        t_num_h4 += (num_h4t + num_h4b + num_h4y1r + num_h4y1l + num_h4y2r + num_h4y2l);
-
-        //categorizing events from either st1,st2 or st2,st4
-        if ( (num_h2t + num_h2b + num_h2r + num_h2l) > 0 && (num_h4t + num_h4b + num_h4y2r + num_h4y2l) > 0 ){
+    //calculating the efficiencies for st2 and st3
+    if ((num_h2t + num_h2b) >0 && (num_h2r + num_h2l) > 0 && (num_h4t + num_h4b)>0 && (num_h4y2r + num_h4y2l) > 0 ){
             ++st24; 
             if((num_h3t + num_h3b)>0) {++st24w3;}
-
-                for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
-                    tr_tls->GetEntry(i_tls_entry);
-                    if(stID == 6){
-                    if (event_ID == tls_event_ID){ 
-                                for ( int j =0; j< detIDs->size(); j++){
-                                    if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
-                                        st3_OK = true;
-                                        ++valid_exps_3b; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3b; 
-                                                                    eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
-                                                                    eleIds_closests_3b -> Fill(eleID_closests->at(j));
-                                                                    diff_eleIds_3b -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+            for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+                tr_tls->GetEntry(i_tls_entry);
+                if(stID == 6){
+                if (event_ID == tls_event_ID){ 
+                            for ( int j =0; j< detIDs->size(); j++){
+                                if(detIDs->at(j) == 39 && eleID_exps->at(j)>0){
+                                    ++valid_exps_3b; 
+                                    if(eleID_closests->at(j)>0){++valid_closests_3b; 
+                                                        eleIds_exps_3b -> Fill(eleID_exps->at(j)); 
+                                                        eleIds_closests_3b -> Fill(eleID_closests->at(j));
+                                                        diff_eleIds_3b -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
                                         }
                                     }
-                                    else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
-                                        st3_OK = true;
-                                        ++valid_exps_3t; 
-                                        if(eleID_closests->at(j)>0){++valid_closests_3t; 
-                                                                    eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
-                                                                    eleIds_closests_3t -> Fill(eleID_closests->at(j));
-                                                                    diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
+                                else if(detIDs->at(j) == 40 && eleID_exps->at(j)>0){
+                                    ++valid_exps_3t; 
+                                    if(eleID_closests->at(j)>0){++valid_closests_3t; 
+                                                        eleIds_exps_3t -> Fill(eleID_exps->at(j)); 
+                                                        eleIds_closests_3t -> Fill(eleID_closests->at(j));
+                                                        diff_eleIds_3t -> Fill(eleID_exps->at(j)-eleID_closests->at(j));
                                         }
                                     }
-                                    if(st3_OK) {if(detIDs->at(j) == 47 && eleID_closests->at(j)>0) {++has_a_hit_p1y1;}
-                                              else if(detIDs->at(j) == 48 && eleID_closests->at(j)>0) {++has_a_hit_p1y2;}
-                                              else if(detIDs->at(j) == 49 && eleID_closests->at(j)>0) {++has_a_hit_p1x1;}
-                                              else if(detIDs->at(j) == 50 && eleID_closests->at(j)>0) {++has_a_hit_p1x2;}
-                                              else if(detIDs->at(j) == 51 && eleID_closests->at(j)>0) {++has_a_hit_p2x1;}
-                                              else if(detIDs->at(j) == 52 && eleID_closests->at(j)>0) {++has_a_hit_p2x2;}
-                                              else if(detIDs->at(j) == 53 && eleID_closests->at(j)>0) {++has_a_hit_p2y1;}
-                                              else if(detIDs->at(j) == 54 && eleID_closests->at(j)>0) {++has_a_hit_p2y2;}
-                                 }
                             }
                     }    
                 }
@@ -218,7 +133,7 @@ void paddleEffi()
          //std::cout<<run_ID<<std::endl;
          //std::cout<<event_ID<<std::endl;
       }   
-
+    }
 
     TCanvas* c1 = new TCanvas(Form("tdc_time of hits from %s events : St1", trigger_temp.c_str()), Form("tdc_time of %s hits : St1", trigger_temp.c_str()), 1000, 500);
     //THStack* hs;
