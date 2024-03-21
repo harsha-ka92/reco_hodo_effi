@@ -18,6 +18,8 @@ R__LOAD_LIBRARY(libanamodule)
 using namespace ROOT::VecOps;
 using namespace std;
 
+Void getEffi(int ID, int nPaddles, int cut);
+
 void paddleEffi()
 {
     gSystem->mkdir("effi", true);
@@ -85,8 +87,8 @@ void paddleEffi()
 }
 
 Void getEffi(int ID, int nPaddles, int cut){
-    TH1D *exps = new TH1F("exps","exps",npaddles+1, 0.5, nPaddles+0.5);
-    TH1D *closest = new TH1F("closest","closest", npaddles+1, 0.5, nPaddles+0.5);
+    TH1D *exps = new TH1F("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
+    TH1D *closest = new TH1F("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
     TH1D *diff = new TH1F("diff","difff", 11, -5.5, 5.5);
     TCanvas* c1 = new TCanvas("c1", "");
     c1->SetGrid();
