@@ -18,6 +18,8 @@ R__LOAD_LIBRARY(libanamodule)
 using namespace ROOT::VecOps;
 using namespace std;
 
+TTree *tr;
+TTree *tr_tls;
 void getEffi(int ID, int nPaddles, int cut);
 
 void paddleEffi()
@@ -86,7 +88,7 @@ void paddleEffi()
     getEffi(43, 16, 10); getEffi(44, 16, 10); getEffi(45, 16, 10); getEffi(46, 16, 10);
 }
 
-void paddleEffi::getEffi(int ID, int nPaddles, int cut){
+void getEffi(int ID, int nPaddles, int cut){
     TH1D *exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
     TH1D *closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
     TH1D *diff = new TH1F("diff","difff", 11, -5.5, 5.5);
