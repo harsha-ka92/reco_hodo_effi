@@ -46,26 +46,6 @@ void paddleEffi()
    tr->SetBranchAddress("trigger", &trigger);
    tr->SetBranchAddress("nQualTracklets", &nQualTracklets);
 
-   tr->SetBranchAddress("tdc_h1t", &tdc_h1t);
-   tr->SetBranchAddress("tdc_h1b", &tdc_h1b);
-   tr->SetBranchAddress("tdc_h1r", &tdc_h1r);
-   tr->SetBranchAddress("tdc_h1l", &tdc_h1l);
-
-   tr->SetBranchAddress("tdc_h2t", &tdc_h2t);
-   tr->SetBranchAddress("tdc_h2b", &tdc_h2b);
-   tr->SetBranchAddress("tdc_h2r", &tdc_h2r);
-   tr->SetBranchAddress("tdc_h2l", &tdc_h2l);
-
-   tr->SetBranchAddress("tdc_h3t", &tdc_h3t);
-   tr->SetBranchAddress("tdc_h3b", &tdc_h3b);
-
-   tr->SetBranchAddress("tdc_h4t", &tdc_h4t);
-   tr->SetBranchAddress("tdc_h4b", &tdc_h4b);
-   tr->SetBranchAddress("tdc_h4y1r", &tdc_h4y1r);
-   tr->SetBranchAddress("tdc_h4y1l", &tdc_h4y1l);
-   tr->SetBranchAddress("tdc_h4y2r", &tdc_h4y2r);
-   tr->SetBranchAddress("tdc_h4y2l", &tdc_h4y2l);
-   
    tr->SetBranchAddress("num_h1t", &num_h1t);
    tr->SetBranchAddress("num_h1b", &num_h1b);
    tr->SetBranchAddress("num_h1r", &num_h1r);
@@ -85,13 +65,6 @@ void paddleEffi()
    tr->SetBranchAddress("num_h4y1l", &num_h4y1l);
    tr->SetBranchAddress("num_h4y2r", &num_h4y2r);
    tr->SetBranchAddress("num_h4y2l", &num_h4y2l);
-
-   tr->SetBranchAddress("eleIdsh4t", &eleIdsh4t);
-   tr->SetBranchAddress("eleIdsh4b", &eleIdsh4b);
-   tr->SetBranchAddress("eleIdsh4y1r", &eleIdsh4y1r);
-   tr->SetBranchAddress("eleIdsh4y1l", &eleIdsh4y1l);
-   tr->SetBranchAddress("eleIdsh4y2r", &eleIdsh4y2r);
-   tr->SetBranchAddress("eleIdsh4y2l", &eleIdsh4y2l);
    
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
@@ -130,7 +103,6 @@ void paddleEffi()
       
       if(dor < 0) {run_num = run_ID; std::cout << "invalid dor"<<std::endl; continue;}
 
-      //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied in the first iteration.
       if(run_num == run_ID && i_ent != nEntries-1){
         
         for ( int j =0; j< tdc_h1t->size(); j++){
