@@ -88,8 +88,8 @@ void paddleEffi()
 }
 
 void getEffi(int ID, int nPaddles, int cut){
-    TH1D *exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
-    TH1D *closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
+    TH1 *exps = new TH1("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
+    TH1 *closest = new TH1("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
     TH1D *diff = new TH1F("diff","difff", 11, -5.5, 5.5);
     TCanvas* c1 = new TCanvas("c1", "");
     c1->SetGrid();
