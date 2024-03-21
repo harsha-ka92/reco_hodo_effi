@@ -78,14 +78,14 @@ void paddleEffi()
 
     //H1
     getEffi(tr, tr_tls, 31, 23, 10); getEffi(tr, tr_tls, 32, 23, 10); getEffi(tr, tr_tls, 33, 20, 10); getEffi(tr, tr_tls, 34, 20, 10);
-   /* //H2
-    getEffi(35, 19, 10); getEffi(36, 19, 10); getEffi(37, 16, 10); getEffi(38, 16, 10); 
+    //H2
+    getEffi(tr, tr_tls, 35, 19, 10); getEffi(tr, tr_tls, 36, 19, 10); getEffi(tr, tr_tls, 37, 16, 10); getEffi(tr, tr_tls, 38, 16, 10); 
     //H3
-    getEffi(39, 16, 10); getEffi(40, 16, 10); 
+    getEffi(tr, tr_tls, 39, 16, 10); getEffi(tr, tr_tls, 40, 16, 10); 
     //H4Y1
-    getEffi(41, 16, 10); getEffi(42, 16, 10); 
+    getEffi(tr, tr_tls, 41, 16, 10); getEffi(tr, tr_tls, 42, 16, 10); 
     //H4X and H4Y2
-    getEffi(43, 16, 10); getEffi(44, 16, 10); getEffi(45, 16, 10); getEffi(46, 16, 10);*/
+    /*getEffi(tr, tr_tls, 43, 16, 10); getEffi(tr, tr_tls, 44, 16, 10); getEffi(tr, tr_tls, 45, 16, 10); getEffi(tr, tr_tls, 46, 16, 10);*/
 }
 
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
