@@ -104,10 +104,15 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     int nEntries = tr->GetEntries();
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
+    
     for (int i_ent = 0; i_ent < nEntries; i_ent++) {
-      if( (i_ent*100/(nEntries-1)) % 10 == 0){std::cout<<" . ";}
+      
+      if( (i_ent*100/(nEntries-1)) % 10 == 0){std::cout<<" / ";}
+      
       tr->GetEntry(i_ent);
+      
       if(run_ID < xlow || run_ID > xhigh) {continue;}
+      
       ++nEvents;
 
       if(Trigger_Filter == true){
@@ -118,7 +123,6 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
           //if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           //if((trigger & 0x200) != 0) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
           else{continue;}
-       
       }
 
     if(dor < 0) {run_num = run_ID; continue;}
