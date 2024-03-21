@@ -31,7 +31,13 @@ int run_num = 5024;
 //ref to keep track of the entry from the tls tree
 int tls_entry = 0; 
 
-TFile *f_file = TFile::Open("ana.root","READ");
+void paddleEffi()
+{
+    gSystem->mkdir("effi", true);
+    gStyle->SetOptStat(0);
+    gStyle->SetOptFit(1);
+
+    TFile *f_file = TFile::Open("ana.root","READ");
     TTree *tr = (TTree*) f_file->Get("save");
     TTree *tr_tls = (TTree*) f_file->Get("tls");
 
@@ -69,13 +75,6 @@ TFile *f_file = TFile::Open("ana.root","READ");
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
-
-void paddleEffi()
-{
-    gSystem->mkdir("effi", true);
-    gStyle->SetOptStat(0);
-    gStyle->SetOptFit(1);
-    
     //H1
     getEffi(31, 23, 10); getEffi(32, 23, 10); getEffi(33, 20, 10); getEffi(34, 20, 10);
     //H2
