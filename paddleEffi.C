@@ -175,13 +175,13 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     effi->SetMarkerStyle(20);
 
     oss.str("");
-    oss << "effi/effi_of " << ID << ".png";
+    oss << "effi/effi_of_" << ID << ".png";
     effi->Draw("APE1");
     c1->SaveAs(oss.str().c_str());
 
     diff->SetFillColorAlpha(kAzure+6, 0.35);
     oss.str("");
-    oss << "effi/diff_of:" << ID << ".png";
+    oss << "effi/diff_of_" << ID << ".png";
     diff->Draw("HIST");
     c1->SaveAs(oss.str().c_str());
     
