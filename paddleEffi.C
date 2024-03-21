@@ -18,6 +18,7 @@ R__LOAD_LIBRARY(libanamodule)
 using namespace ROOT::VecOps;
 using namespace std;
 
+TFile *f_file;
 TTree *tr;
 TTree *tr_tls;
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut);
@@ -37,9 +38,9 @@ void paddleEffi()
     gStyle->SetOptStat(0);
     gStyle->SetOptFit(1);
 
-    TFile *f_file = TFile::Open("ana.root","READ");
-    TTree *tr = (TTree*) f_file->Get("save");
-    TTree *tr_tls = (TTree*) f_file->Get("tls");
+    f_file = TFile::Open("ana.root","READ");
+    tr = (TTree*) f_file->Get("save");
+    tr_tls = (TTree*) f_file->Get("tls");
 
    tr->SetBranchAddress("run_ID", &run_ID);
    tr->SetBranchAddress("event_ID", &event_ID);
