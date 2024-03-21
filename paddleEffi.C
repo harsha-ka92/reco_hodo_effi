@@ -88,9 +88,9 @@ void paddleEffi()
 }
 
 void getEffi(int ID, int nPaddles, int cut){
-    TH1 *exps = new TH1("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
-    TH1 *closest = new TH1("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
-    TH1D *diff = new TH1F("diff","difff", 11, -5.5, 5.5);
+    auto exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
+    auto closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
+    TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
     TCanvas* c1 = new TCanvas("c1", "");
     c1->SetGrid();
     int pad_diff =0;
@@ -168,7 +168,7 @@ void getEffi(int ID, int nPaddles, int cut){
     }
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID :"<< ID ;
-    auto effi = new TEfficiency(closest, exps);
+    auto effi = new TEfficiency(*closest, *exps);
     effi->SetName(oss);
     effi->SetTitle(";paddle number; efficiency");
     
