@@ -96,7 +96,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     c1->SetGrid();
     int pad_diff =0;
 
-    bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
+    bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     int nEntries = tr->GetEntries();
     for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
@@ -107,9 +107,9 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       if(Trigger_Filter == true){
           //use NIM 4 events to get st1 and st3 efficiencies and H4Y1. NIM 2 events for now to get st2 and st4 efficiencies.
           //if((trigger & 0x1) != 0) { trigger_temp = "NIM1"; ++total_N1;}  //NIM1
-          //if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
+          if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
           //if((trigger & 0x4) != 0) { trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
+          //if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
           //if((trigger & 0x200) != 0) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
           else{continue;}
        
@@ -168,7 +168,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     }
     }
     ostringstream oss;
-    oss<< "efficiencies of the paddles of detID :"<< ID ;
+    oss<< "efficiencies of the paddles of detID "<< ID ;
     auto effi = new TEfficiency(*closest, *exps);
     effi->SetName(oss.str().c_str());
     effi->SetTitle(";paddle number; efficiency");
@@ -177,7 +177,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     effi->SetMarkerStyle(20);
 
     oss.str("");
-    oss << "effi/effi_of:" << ID << ".png";
+    oss << "effi/effi_of " << ID << ".png";
     effi->Draw("APE1");
     c1->SaveAs(oss.str().c_str());
 
