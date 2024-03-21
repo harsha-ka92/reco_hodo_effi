@@ -72,7 +72,16 @@ void paddleEffi()
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
-   Void getEffi(int ID, int nPaddles, int cut){
+    //H1
+    getEffi(31, 23, 10); getEffi(32, 23, 10); getEffi(33, 20, 10); getEffi(34, 20, 10);
+    //H2
+    getEffi(35, 19, 10); getEffi(36, 19, 10); getEffi(37, 16, 10); getEffi(38, 16, 10); 
+    //H3
+    getEffi(39, 16, 10); getEffi(40, 16, 10); 
+    //H4Y1
+    getEffi(41, 16, 10); getEffi(42, 16, 10); 
+    //H4X and H4Y2
+    getEffi(43, 16, 10); getEffi(44, 16, 10); getEffi(45, 16, 10); getEffi(46, 16, 10);
 }
 
 Void getEffi(int ID, int nPaddles, int cut){
