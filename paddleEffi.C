@@ -105,7 +105,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     for (int i_ent = 0; i_ent < nEntries; i_ent++) {
-      if(i_ent %10 == 0){std::cout<<" . "<<std::end;}
+      if(i_ent %10 == 0){std::cout<<" . ";}
       tr->GetEntry(i_ent);
       if(run_ID < xlow || run_ID > xhigh) {continue;}
       ++nEvents;
