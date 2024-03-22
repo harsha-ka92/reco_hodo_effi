@@ -191,7 +191,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     }
 
     //st4 efficiencies
-    else if (ID >42 && ID < 47){
+    else if (ID >40 && ID < 47){
         for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                 tr_tls->GetEntry(i_tls_entry);
                 if(stID == 6 || stID == 4 || stID ==5){
