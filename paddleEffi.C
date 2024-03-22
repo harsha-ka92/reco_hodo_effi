@@ -238,6 +238,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     diff->GetYaxis()->SetTitle("Efficiency");
     diff->Draw("HIST");
     c1->Update();
+    oss.str("");
+    oss << "effi/diff_of_" << ID << ".png";
     c1->SaveAs(oss.str().c_str());
     
     effi =0;
