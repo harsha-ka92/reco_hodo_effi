@@ -24,7 +24,7 @@ TTree *tr_tls;
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut);
 TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
 
-int pad_diff =0; int exps; int closest; bool bPassed;
+int pad_diff =0; int exps =0; int closest =0; bool bPassed;
 
 // choose the range of run numbers need to be analyzed and show up in the plots
 int xlow = 5024;
@@ -135,11 +135,14 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j);
-                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
-                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <cut);
-                                    effi->Fill(bPassed, exps);
-                                    diff->Fill(pad_diff);
+                                    exps= eleID_exps->at(j); 
+                                    closeste = leID_closests->at(j);
+                                    if (closest >0) {
+                                        bPassed = (pad_diff < cut);
+                                        effi->Fill(bPassed, exps);
+                                        pad_diff =exps-closests; 
+                                        diff->Fill(pad_diff);
+                                    }
                                 }
                                 else {;}
                         }
@@ -156,11 +159,14 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j);
-                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
-                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <cut);
-                                    effi->Fill(bPassed, exps);
-                                    diff->Fill(pad_diff);
+                                    exps= eleID_exps->at(j); 
+                                    closeste = leID_closests->at(j);
+                                    if (closest >0) {
+                                        bPassed = (pad_diff < cut);
+                                        effi->Fill(bPassed, exps);
+                                        pad_diff =exps-closests; 
+                                        diff->Fill(pad_diff);
+                                    }
                                 }
                                 else {;}
                         }
@@ -177,11 +183,14 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j);
-                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
-                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <cut);
-                                    effi->Fill(bPassed, exps);
-                                    diff->Fill(pad_diff);
+                                    exps= eleID_exps->at(j); 
+                                    closeste = leID_closests->at(j);
+                                    if (closest >0) {
+                                        bPassed = (pad_diff < cut);
+                                        effi->Fill(bPassed, exps);
+                                        pad_diff =exps-closests; 
+                                        diff->Fill(pad_diff);
+                                    }
                                 }
                                 else {;}
                         }
@@ -198,11 +207,14 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j);
-                                    pad_diff =eleID_exps->at(j)-eleID_closests->at(j);
-                                    bPassed = (eleID_closests->at(j)>0 && pad_diff <cut);
-                                    effi->Fill(bPassed, exps);
-                                    diff->Fill(pad_diff);
+                                    exps= eleID_exps->at(j); 
+                                    closeste = leID_closests->at(j);
+                                    if (closest >0) {
+                                        bPassed = (pad_diff < cut);
+                                        effi->Fill(bPassed, exps);
+                                        pad_diff =exps-closests; 
+                                        diff->Fill(pad_diff);
+                                    }
                                 }
                                 else {;}
                         }
