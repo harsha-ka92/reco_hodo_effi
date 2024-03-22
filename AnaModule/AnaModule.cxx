@@ -245,13 +245,14 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	for(int i = 0; i < nTracklets; ++i)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
-		nHits = tracklet->getNHits();
-		chisq = tracklet->getChisq();
 
 		//very loose cuts here
-		if(nHits < 5 ) continue;
-		if(chisq > 15.) continue;
+		if(tracklet->getNHits() < 5 ) continue;
+		if(tracklet->getChisq() > 15.) continue;
+		
 		stID = tracklet->stationID;
+		nHits = tracklet->getNHits();
+		chisq = tracklet->getChisq();
 		
 		++nQualTracklets;
 		
@@ -378,19 +379,6 @@ void AnaModule::MakeTree()
 	saveTree->Branch("eleIdsh4y2r", &eleIdsh4y2r);
 	saveTree->Branch("eleIdsh4y2l", &eleIdsh4y2l);
 	
-  	/*saveTree->Branch("detID", &detID, "detID/I");
- 	saveTree->Branch("eleID_exp", &eleID_exp, "eleID_exp/I");
-  	saveTree->Branch("eleID_closest", &eleID_closest, "eleID_closest/I");
-	saveTree->Branch("D0", &D0, "D0/I");
-	saveTree->Branch("D2", &D2, "D2/I");
-	saveTree->Branch("D3", &D3, "D3/I");
-	saveTree->Branch("P1", &P1, "P1/I");
-	saveTree->Branch("diff1", &diff1, "diff1/I");
-	saveTree->Branch("diff2", &diff2, "diff2/I");
-	saveTree->Branch("diff3", &diff3, "diff3/I");
-	saveTree->Branch("diff4", &diff4, "diff4/I");*/
-  	saveTree->Branch("nHits", &nHits, "nHits/I");
- 	saveTree->Branch("chisq", &chisq, "chisq/D");
 	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
 	saveTree->Branch("tlD1", &tlD1, "tlD1/I");
 	saveTree->Branch("tlD2", &tlD2, "tlD2/I");
@@ -407,6 +395,8 @@ void AnaModule::MakeTree()
 	tlTree->Branch("detIDs", &detIDs);
 	tlTree->Branch("eleID_exps", &eleID_exps);
 	tlTree->Branch("eleID_closests", &eleID_closests);
+	tlTree->Branch("nHits", &nHits, "nHits/I");
+ 	tlTree->Branch("chisq", &chisq, "chisq/D");
 }
 
 void AnaModule::registerDetector(TString name)
