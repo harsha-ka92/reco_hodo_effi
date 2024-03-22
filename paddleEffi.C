@@ -219,7 +219,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     c1->SetGrid();
 
     effi->SetName(oss.str().c_str());
-    effi->SetTitle(";paddle number; Efficiency");
+    effi->SetTitle(";Paddle Number; Efficiency");
     
     effi->SetMarkerColor(kMagenta);
     effi->SetMarkerStyle(20);
@@ -234,7 +234,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     oss.str("");
     oss << "Distribution of exp - closest in detID :" << ID << ".png";
     diff->SetTitle(oss.str().c_str());
-    diff->GetXaxis()->SetTitle("paddle number");
+    diff->GetXaxis()->SetTitle("Paddle Number");
     diff->GetYaxis()->SetTitle("Efficiency");
     diff->Draw("HIST");
     c1->Update();
