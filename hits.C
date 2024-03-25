@@ -101,7 +101,7 @@ void hits()
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
-   bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
+   bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
    int nEntries = tr->GetEntries();
    for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
