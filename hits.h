@@ -78,6 +78,7 @@ R__LOAD_LIBRARY(libanamodule)
    std::vector<int> *detIDs =0;
    std::vector<int> *eleID_exps =0;
    std::vector<int> *eleID_closests =0;
+   int nHits =0; double chisq = 0;
 
 
    TH1F *htdc_h1t = new TH1F("htdc_h1t","htdc_h1t", 400, 752, 1152);
