@@ -179,6 +179,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     if(ID>38 && ID < 41){
             for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                 tr_tls->GetEntry(i_tls_entry);
+                if (chisq/nHits > 3) {continue;}
                 if(stID == 4 || stID == 5){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
@@ -203,6 +204,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     else if (ID >40 && ID < 47){
         for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                 tr_tls->GetEntry(i_tls_entry);
+                if (chisq/nHits > 3) {continue;}
                 if(stID == 4 || stID ==5){
                 if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
