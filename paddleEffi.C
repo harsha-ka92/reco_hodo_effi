@@ -81,7 +81,7 @@ void paddleEffi()
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
     //H1
-    getEffi(tr, tr_tls, 31, 23, 10); getEffi(tr, tr_tls, 32, 23, 10); getEffi(tr, tr_tls, 33, 20, 10); getEffi(tr, tr_tls, 34, 20, 10);
+    /*getEffi(tr, tr_tls, 31, 23, 10); getEffi(tr, tr_tls, 32, 23, 10); getEffi(tr, tr_tls, 33, 20, 10); getEffi(tr, tr_tls, 34, 20, 10);*/
     //H2
     /*getEffi(tr, tr_tls, 35, 19, 10); getEffi(tr, tr_tls, 36, 19, 10); getEffi(tr, tr_tls, 37, 16, 10); getEffi(tr, tr_tls, 38, 16, 10); */
     //H3
