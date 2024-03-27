@@ -89,7 +89,7 @@ void paddleEffi()
     //H4Y1
     getEffi(tr, tr_tls, 41, 16, 10); getEffi(tr, tr_tls, 42, 16, 10); 
     //H4X and H4Y2
-    /*getEffi(tr, tr_tls, 43, 16, 10); getEffi(tr, tr_tls, 44, 16, 10); getEffi(tr, tr_tls, 45, 16, 10); getEffi(tr, tr_tls, 46, 16, 10);*/
+    getEffi(tr, tr_tls, 43, 16, 10); getEffi(tr, tr_tls, 44, 16, 10); getEffi(tr, tr_tls, 45, 16, 10); getEffi(tr, tr_tls, 46, 16, 10);
 }
 
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
