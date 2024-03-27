@@ -144,7 +144,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                         pad_diff =exps-closest; 
                                         bPassed = (pad_diff <= cut);
                                         effi->Fill(bPassed, exps);
-                                        diff->Fill(pad_diff);
+                                        if (bPassed) {diff->Fill(pad_diff);}
                                     }
                                 }
                                 else {;}
@@ -168,7 +168,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                         pad_diff =exps-closest; 
                                         bPassed = (pad_diff <= cut);
                                         effi->Fill(bPassed, exps);
-                                        diff->Fill(pad_diff);
+                                        if (bPassed) {diff->Fill(pad_diff);}
                                     }
                                 }
                                 else {;}
@@ -193,7 +193,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                         pad_diff =exps-closest; 
                                         bPassed = (pad_diff <= cut);
                                         effi->Fill(bPassed, exps);
-                                        diff->Fill(pad_diff);
+                                        if (bPassed) {diff->Fill(pad_diff);}
                                     }
                                 }
                                 else {;}
@@ -218,7 +218,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                         pad_diff =exps-closest; 
                                         bPassed = (pad_diff <= cut);
                                         effi->Fill(bPassed, exps);
-                                        diff->Fill(pad_diff);
+                                        if (bPassed) {diff->Fill(pad_diff);}
                                     }
                                 }
                                 else {;}
