@@ -142,7 +142,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                     closest = eleID_closests->at(j);
                                     if (closest >0) {
                                         pad_diff =exps-closest; 
-                                        bPassed = (pad_diff <= cut);
+                                        bPassed = (pad_diff <= fabs(cut));
                                         effi->Fill(bPassed, exps);
                                         if (bPassed) {diff->Fill(pad_diff);}
                                     }
