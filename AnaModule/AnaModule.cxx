@@ -73,7 +73,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	 tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
   }
   run_ID_temp = run_ID;	
-	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
+	//if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 	
 	//std::cout << "Event ID : " << event_ID << std::endl;
 	trigger = event->get_trigger();
