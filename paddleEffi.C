@@ -97,7 +97,7 @@ void paddleEffi()
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     //auto exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
     //auto closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
-    
+
     TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
@@ -106,7 +106,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     int nEntries = tr->GetEntries();
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
-    
+    std::cout<< "paddel difference cut :" << cut<<endl;
+
     for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
       if( i_ent % (nEntries/10) == 0){std::cout<<" / " << flush;}
