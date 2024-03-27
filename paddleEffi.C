@@ -83,15 +83,15 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    /*getEffi(tr, tr_tls, 31, 23, 10); getEffi(tr, tr_tls, 32, 23, 10); getEffi(tr, tr_tls, 33, 20, 10); getEffi(tr, tr_tls, 34, 20, 10);*/
+    /*getEffi(tr, tr_tls, 31, 23, 2); getEffi(tr, tr_tls, 32, 23, 2); getEffi(tr, tr_tls, 33, 20, 2); getEffi(tr, tr_tls, 34, 20, 2);*/
     //H2
-    /*getEffi(tr, tr_tls, 35, 19, 10); getEffi(tr, tr_tls, 36, 19, 10); getEffi(tr, tr_tls, 37, 16, 10); getEffi(tr, tr_tls, 38, 16, 10); */
+    /*getEffi(tr, tr_tls, 35, 19, 2); getEffi(tr, tr_tls, 36, 19, 2); getEffi(tr, tr_tls, 37, 16, 2); getEffi(tr, tr_tls, 38, 16, 2); */
     //H3
-    getEffi(tr, tr_tls, 39, 16, 3); getEffi(tr, tr_tls, 40, 16, 3); 
+    getEffi(tr, tr_tls, 39, 16, 2); getEffi(tr, tr_tls, 40, 16, 2); 
     //H4Y1
-    getEffi(tr, tr_tls, 41, 16, 3); getEffi(tr, tr_tls, 42, 16, 3); 
+    getEffi(tr, tr_tls, 41, 16, 2); getEffi(tr, tr_tls, 42, 16, 2); 
     //H4X and H4Y2
-    getEffi(tr, tr_tls, 43, 16, 3); getEffi(tr, tr_tls, 44, 16, 3); getEffi(tr, tr_tls, 45, 16, 10); getEffi(tr, tr_tls, 46, 16, 3);
+    getEffi(tr, tr_tls, 43, 16, 2); getEffi(tr, tr_tls, 44, 16, 2); getEffi(tr, tr_tls, 45, 16, 2); getEffi(tr, tr_tls, 46, 16, 2);
 }
 
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
