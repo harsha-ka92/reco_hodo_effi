@@ -91,15 +91,15 @@ R__LOAD_LIBRARY(libanamodule)
    TH1F *htdc_h2r = new TH1F("htdc_h2r","htdc_h2r", 400, 752, 1152);
    TH1F *htdc_h2l = new TH1F("htdc_h2l","htdc_h2l", 400, 752, 1152);
 
-   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 480, 872, 1352);
-   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 480, 872, 1352);
+   TH1F *htdc_h3t = new TH1F("htdc_h3t","htdc_h3t", 480, 732, 1232);
+   TH1F *htdc_h3b = new TH1F("htdc_h3b","htdc_h3b", 480, 732, 1232);
 
-   TH1F *htdc_h4t = new TH1F("htdc_h4t","htdc_h4t", 480, 872, 1352);
-   TH1F *htdc_h4b = new TH1F("htdc_h4b","htdc_h4b", 480, 872, 1352);
-   TH1F *htdc_h4y1r = new TH1F("htdc_h4y1r","htdc_h4y1r", 480, 872, 1352);
-   TH1F *htdc_h4y1l = new TH1F("htdc_h4y1l","htdc_h4y1l", 480, 872, 1352);
-   TH1F *htdc_h4y2r = new TH1F("htdc_h4y2r","htdc_h4y2r", 480, 872, 1352);
-   TH1F *htdc_h4y2l = new TH1F("htdc_h4y2l","htdc_h4y2l", 480, 872, 1352);
+   TH1F *htdc_h4t = new TH1F("htdc_h4t","htdc_h4t", 480, 732, 1232);
+   TH1F *htdc_h4b = new TH1F("htdc_h4b","htdc_h4b", 480, 732, 1232);
+   TH1F *htdc_h4y1r = new TH1F("htdc_h4y1r","htdc_h4y1r", 480, 732, 1232);
+   TH1F *htdc_h4y1l = new TH1F("htdc_h4y1l","htdc_h4y1l", 480, 732, 1232);
+   TH1F *htdc_h4y2r = new TH1F("htdc_h4y2r","htdc_h4y2r", 480, 732, 1232);
+   TH1F *htdc_h4y2l = new TH1F("htdc_h4y2l","htdc_h4y2l", 480, 732, 1232);
 
    TH1D *eleIds_h4t = new TH1D("eleIds_h4t", "eleIds_h4t", 16, 1,17);
    TH1D *eleIds_h4b = new TH1D("eleIds_h4b", "eleIds_h4b", 16, 1,17);
