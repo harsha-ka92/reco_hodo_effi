@@ -28,7 +28,7 @@ int pad_diff =0; int exps =0; int closest =0; bool bPassed;
 
 // choose the range of run numbers need to be analyzed and show up in the plots
 int xlow = 5024;
-int xhigh = 5042; 
+int xhigh = 5072; 
 
 //set the first run_ID in the save tree as the run_num
 int run_num = 5024;
@@ -83,9 +83,9 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    getEffi(tr, tr_tls, 31, 23, 2); getEffi(tr, tr_tls, 32, 23, 2); getEffi(tr, tr_tls, 33, 20, 2); getEffi(tr, tr_tls, 34, 20, 2);*/
+    getEffi(tr, tr_tls, 31, 23, 2); getEffi(tr, tr_tls, 32, 23, 2); getEffi(tr, tr_tls, 33, 20, 2); getEffi(tr, tr_tls, 34, 20, 2);
     //H2
-    getEffi(tr, tr_tls, 35, 19, 2); getEffi(tr, tr_tls, 36, 19, 2); getEffi(tr, tr_tls, 37, 16, 2); getEffi(tr, tr_tls, 38, 16, 2); */
+    getEffi(tr, tr_tls, 35, 19, 2); getEffi(tr, tr_tls, 36, 19, 2); getEffi(tr, tr_tls, 37, 16, 2); getEffi(tr, tr_tls, 38, 16, 2); 
     //H3
     /*getEffi(tr, tr_tls, 39, 16, 2); getEffi(tr, tr_tls, 40, 16, 2);*/ 
     //H4Y1
