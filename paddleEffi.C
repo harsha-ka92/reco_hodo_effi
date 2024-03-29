@@ -250,7 +250,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     oss << "Distribution of exp - closest in detID :" << ID << ".png";
     diff->SetTitle(oss.str().c_str());
     diff->GetXaxis()->SetTitle("Paddle Number");
-    diff->GetYaxis()->SetTitle("Efficiency");
+    diff->GetYaxis()->SetTitle("nTracklets");
     diff->Draw("HIST");
     c1->Update();
     oss.str("");
