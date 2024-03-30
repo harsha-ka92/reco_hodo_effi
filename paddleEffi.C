@@ -184,15 +184,13 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
             }
     }
     // since only back partial tracklets are used for st3 and st4, ask if there are hits in st3 and H4Y1L/R. Did not include H4Y2 and H4T/B bcz these are NIM 4 events.
-    if ((num_h3t + num_h3b) >0 && (num_h4y1r + num_h4y1l) >0 ){
+    if ((num_h4y1r + num_h4y1l) >0 && (num_h4t + num_h4b) >0 ){
     //st3 efficiencies
     if(ID>38 && ID < 41){
             for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
                 tr_tls->GetEntry(i_tls_entry);
                 if(stID == 6 && chisq < 8){
                 if (event_ID == tls_event_ID){ 
-                        for (const int n : {3, 5})
-                        if (std::find(detIDs.begin(), detIDs.end(), n) == std::end(v))
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
                                     exps= eleID_exps->at(j); 
