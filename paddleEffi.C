@@ -177,7 +177,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 }    
             }
     }
-    // since only back partial tracklets are used for st3 and st4, ask if there are hits in st3 and H4Y1L/R.
+    // since only back partial tracklets are used for st3 and st4, ask if there are hits in st3 and H4Y1L/R. Did not include H4Y2 and H4T/B bcz these are NIM 4 events.
     if ((num_h3t + num_h3b) >0 && (num_h4y1r + num_h4y1l) >0 ){
     //st3 efficiencies
     if(ID>38 && ID < 41){
