@@ -88,11 +88,11 @@ void paddleEffi()
     //H2
    /* getEffi(tr, tr_tls, 35, 19, 2); getEffi(tr, tr_tls, 36, 19, 2); getEffi(tr, tr_tls, 37, 16, 2); getEffi(tr, tr_tls, 38, 16, 2); */
     //H3
-    getEffi(tr, tr_tls, 39, 16, 2); getEffi(tr, tr_tls, 40, 16, 2); 
+    getEffi(tr, tr_tls, 39, 16, 1); getEffi(tr, tr_tls, 40, 16, 1); 
     //H4Y1
-    getEffi(tr, tr_tls, 41, 16, 2); getEffi(tr, tr_tls, 42, 16, 2);
+    getEffi(tr, tr_tls, 41, 16, 1); getEffi(tr, tr_tls, 42, 16, 1);
     //H4X and H4Y2
-    getEffi(tr, tr_tls, 43, 16, 2); getEffi(tr, tr_tls, 44, 16, 2); getEffi(tr, tr_tls, 45, 16, 2); getEffi(tr, tr_tls, 46, 16, 2);
+    getEffi(tr, tr_tls, 43, 16, 1); getEffi(tr, tr_tls, 44, 16, 2); getEffi(tr, tr_tls, 45, 16, 1); getEffi(tr, tr_tls, 46, 16, 1);
 }
 
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
@@ -181,9 +181,9 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
         if(ID>38 && ID < 47){
             if(stID == 6 && chisq < 8){
                         for ( int j =0; j< detIDs->size(); j++){
-                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <2 ) {h4y1 = true;}
-                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <2 ) {h4y2 = true;}
-                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <2 ) {h4x = true;}
+                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=2 ) {h4y1 = true;}
+                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=2 ) {h4y2 = true;}
+                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=2 ) {h4x = true;}
                                 if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
                                 }
             }
