@@ -12,6 +12,7 @@ R__LOAD_LIBRARY(libanamodule)
 #include <TString.h>
 #include <TCanvas.h>
 #include <iostream>
+#include <algorithm>
 
 #include "hits.h"
 
@@ -105,6 +106,11 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     int nEntries = tr->GetEntries();
 
+    cosnt int h3_ids : {39, 40};
+    cosnt int h4y1_ids : {41, 42};
+    cosnt int h4y2_ids : {43, 44};
+    cosnt int h4x_ids : {45, 46};
+
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
 
@@ -185,6 +191,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 tr_tls->GetEntry(i_tls_entry);
                 if(stID == 6 && chisq < 8){
                 if (event_ID == tls_event_ID){ 
+                        for (const int n : {3, 5})
+                        if (std::find(detIDs.begin(), detIDs.end(), n) == std::end(v))
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
                                     exps= eleID_exps->at(j); 
