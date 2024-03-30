@@ -96,20 +96,17 @@ void paddleEffi()
 }
 
 void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
-    //auto exps = new TH1D("exps","exps",nPaddles+1, 0.5, nPaddles+0.5);
-    //auto closest = new TH1D("closest","closest", nPaddles+1, 0.5, nPaddles+0.5);
 
     TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
 
     bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
+    
     int nEntries = tr->GetEntries();
-
-    cosnt int h3_ids : {39, 40};
-    cosnt int h4y1_ids : {41, 42};
-    cosnt int h4y2_ids : {43, 44};
-    cosnt int h4x_ids : {45, 46};
+    
+    int ID_index;
+    bool h4y1 = false; bool h4y2 = false; bool h4x = false; 
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
@@ -121,8 +118,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       tr->GetEntry(i_ent);
       
       if(run_ID < xlow || run_ID > xhigh) {continue;}
-      
       ++nEvents;
+      if(dor < 0) {run_num = run_ID; continue;}
 
       if(Trigger_Filter == true){
           //use NIM 4 events to get st1 and st3 efficiencies and H4Y1. NIM 2 events for now to get st2 and st4 efficiencies.
@@ -134,14 +131,16 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
           else{continue;}
       }
 
-    if(dor < 0) {run_num = run_ID; continue;}
+    for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+      tr_tls->GetEntry(i_tls_entry);
+      ID_index = -99; closest = -99;
+      h4y1 = false; h4y2 = false;  h4x = false; 
+      
+      if (event_ID == tls_event_ID){ 
 
-    //st1 efficiencies
-    if(ID>30 && ID < 35){
-            for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
-                tr_tls->GetEntry(i_tls_entry);
+        //st1 efficiencies
+        if(ID>30 && ID < 35){
                 if(stID == 1 || stID == 3 || stID == 5){
-                if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
                                     exps= eleID_exps->at(j); 
@@ -156,16 +155,12 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                 else {;}
                         }
                 }
-                }    
-            }
-    }
+        }    
 
-    //st2 efficiencies
-    if(ID>34 && ID < 39){
-            for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
-                tr_tls->GetEntry(i_tls_entry);
+
+        //st2 efficiencies
+        if(ID>34 && ID < 39){
                 if(stID == 1 || stID == 2 || stID == 5){
-                if (event_ID == tls_event_ID){ 
                         for ( int j =0; j< detIDs->size(); j++){
                                 if(detIDs->at(j) == ID){
                                     exps= eleID_exps->at(j); 
@@ -180,59 +175,29 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                 else {;}
                         }
                 }
-                }    
-            }
-    }
-    // since only back partial tracklets are used for st3 and st4, ask if there are hits in st3 and H4Y1L/R. Did not include H4Y2 and H4T/B bcz these are NIM 4 events.
-    if ((num_h4y1r + num_h4y1l) >0 && (num_h4t + num_h4b) >0 ){
-    //st3 efficiencies
-    if(ID>38 && ID < 41){
-            for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
-                tr_tls->GetEntry(i_tls_entry);
-                if(stID == 6 && chisq < 8){
-                if (event_ID == tls_event_ID){ 
-                        for ( int j =0; j< detIDs->size(); j++){
-                                if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j); 
-                                    closest = eleID_closests->at(j);
-                                    if (closest >0) {
-                                        pad_diff =exps-closest; 
-                                        bPassed = (fabs(pad_diff) <= cut);
-                                        effi->Fill(bPassed, exps);
-                                        if (bPassed) {diff->Fill(pad_diff);}
-                                    }
-                                }
-                                else {;}
-                        }
-                }
-                }    
-            }
-    }
+        }    
 
-    //st4 efficiencies
-    else if (ID >40 && ID < 47){
-        for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
-                tr_tls->GetEntry(i_tls_entry);
-                if(stID == 6  && chisq < 8){
-                if (event_ID == tls_event_ID){ 
+        // for st3 and st4 pick only back partial tracklets from NIM 4 events and ask if they truely belongs to a H24 ray.
+        if(ID>38 && ID < 47){
+            if(stID == 6 && chisq < 8){
                         for ( int j =0; j< detIDs->size(); j++){
-                                if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j); 
-                                    closest = eleID_closests->at(j);
-                                    if (closest >0) {
-                                        pad_diff =exps-closest; 
-                                        bPassed = (fabs(pad_diff) <= cut);
-                                        effi->Fill(bPassed, exps);
-                                        if (bPassed) {diff->Fill(pad_diff);}
-                                    }
+                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <2 ) {h4y1 = true;}
+                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <2 ) {h4y2 = true;}
+                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <2 ) {h4x = true;}
+                                if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
                                 }
-                                else {;}
-                        }
-                }
-                }    
             }
-    }
-    }
+        
+            if (closest >0 && ID_index >=0 && h4y2) {
+                pad_diff = exps-closest; 
+                bPassed = (fabs(pad_diff) <= cut);
+                effi->Fill(bPassed, exps);
+                if (bPassed) {diff->Fill(pad_diff);}
+            }
+                
+        }
+     }
+     }
     }
 
     std::cout<<std::endl;
