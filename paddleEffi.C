@@ -52,26 +52,7 @@ void paddleEffi()
    tr->SetBranchAddress("dor", &dor);
    tr->SetBranchAddress("trigger", &trigger);
    tr->SetBranchAddress("nQualTracklets", &nQualTracklets);
-
-   tr->SetBranchAddress("num_h1t", &num_h1t);
-   tr->SetBranchAddress("num_h1b", &num_h1b);
-   tr->SetBranchAddress("num_h1r", &num_h1r);
-   tr->SetBranchAddress("num_h1l", &num_h1l);
-
-   tr->SetBranchAddress("num_h2t", &num_h2t);
-   tr->SetBranchAddress("num_h2b", &num_h2b);
-   tr->SetBranchAddress("num_h2r", &num_h2r);
-   tr->SetBranchAddress("num_h2l", &num_h2l);
-
-   tr->SetBranchAddress("num_h3t", &num_h3t);
-   tr->SetBranchAddress("num_h3b", &num_h3b);
-
-   tr->SetBranchAddress("num_h4t", &num_h4t);
-   tr->SetBranchAddress("num_h4b", &num_h4b);
-   tr->SetBranchAddress("num_h4y1r", &num_h4y1r);
-   tr->SetBranchAddress("num_h4y1l", &num_h4y1l);
-   tr->SetBranchAddress("num_h4y2r", &num_h4y2r);
-   tr->SetBranchAddress("num_h4y2l", &num_h4y2l);
+   tr->SetBranchAddress("hitInfo", &hitInfo);
    
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
