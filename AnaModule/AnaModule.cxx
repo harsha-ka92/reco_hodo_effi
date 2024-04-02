@@ -82,7 +82,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	for(SQHitVector::Iter it = hitVector->begin(); it != hitVector->end(); ++it)
  	{	
     		int det = (*it)->get_detector_id(); 
-		if ( 30 < det && det < 46 ) {hitInfo[det].push_back(pair<int, double> ((*it)->get_element_id(), (*it)->get_tdc_time());}
+		if ( 30 < det && det < 46 ) {hitInfo[det].push_back(std::pair<int, double> ((*it)->get_element_id(), (*it)->get_tdc_time());}
 		
  	}
 	
