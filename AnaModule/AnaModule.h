@@ -64,7 +64,7 @@ private:
   run_info r;
 
   //maps
-  std::map<int, std::pair<std::vector<double>,std::vector<double>>> hitInfo;
+  std::map<int, std::vector<std::pair<int, double>>> hitInfo;
   
   std::map<int, std::pair<int,int>> run_time;
   std::string id;
