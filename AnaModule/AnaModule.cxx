@@ -79,9 +79,17 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	trigger = event->get_trigger();
 	//std::cout<< "triger bit of the event "<< trigger << std::endl;
 	
+	for(SQHitVector::Iter it = hitVector->begin(); it != hitVector->end(); ++it)
+ 	{	
+    		int det = (*it)->get_detector_id(); 
+		if ( 30 < det && det < 46 ) {tdc_time[det].push_back((*it)->get_tdc_time  ());}
+		
+ 	}
+
+	
 	//Number of Hist in : St1
 	std::shared_ptr<SQHitVector> hv_h1t(UtilSQHit::FindHits(hitVector, "H1T"));
-	num_h1t = hv_h1t->size();
+	num_h1t = hv_h1t->size();1
 	//std::cout << "Num hits in h1t = " << num_h1t << std::endl;
  	for (auto it = hv_h1t->begin(); it != hv_h1t->end(); it++) {
 		//int    ele_id = (*it)->get_element_id();
@@ -336,7 +344,8 @@ void AnaModule::MakeTree()
 	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
 	saveTree->Branch("nQualTracklets", &nQualTracklets, "nQualTracklets/I");
-	saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
+	saveTree->Branch("tdc_time", &tdc_time);
+	/*saveTree->Branch("num_h1t", &num_h1t, "num_h1t/I");
 	saveTree->Branch("tdc_h1t", &tdc_h1t);
 	saveTree->Branch("num_h1b", &num_h1b, "num_h1b/I");
 	saveTree->Branch("tdc_h1b", &tdc_h1b);
@@ -370,7 +379,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("num_h4y2l", &num_h4y2l, "num_h4y2l/I");
 	saveTree->Branch("tdc_h4y2l", &tdc_h4y2l);
 	saveTree->Branch("num_h4y2r", &num_h4y2r, "num_h4y2r/I");
-	saveTree->Branch("tdc_h4y2r", &tdc_h4y2r);
+	saveTree->Branch("tdc_h4y2r", &tdc_h4y2r);*/
 
 	saveTree->Branch("eleIdsh4t", &eleIdsh4t);
 	saveTree->Branch("eleIdsh4b", &eleIdsh4b);
