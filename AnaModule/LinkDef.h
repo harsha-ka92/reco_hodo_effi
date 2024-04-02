@@ -10,4 +10,6 @@
 
 #pragma link C++ class AnaModule-!;
 
+#pragma link C++ class map<int, vector<double>>+;
+
 #endif
