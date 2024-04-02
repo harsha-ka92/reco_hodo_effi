@@ -47,13 +47,7 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 
     run_time[r.runID]=std::pair<int,int>(r.beginT, r.endT);
     }
-	std::cout<<"*********map completed**********"<<std::endl;
-	for (auto it = run_time.begin(); it != run_time.end(); it++){
-  	std::cout<< "runID " << it->first << std::endl;
- 	std::cout<< "begin time " << it->second.first << " s"<< std::endl;
- 	std::cout<< "end time " << it->second.second << " s"<< std::endl;
- 	std::cout<< "duration " << it->second.second - it->second.first << " s"<< std::endl;
-  }
+	
   return Fun4AllReturnCodes::EVENT_OK;
 }
 
