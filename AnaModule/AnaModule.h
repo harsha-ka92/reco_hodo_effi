@@ -119,45 +119,7 @@ private:
   std::vector<int> eleID_exps;
   std::vector<int> eleID_closests;
 
-  std::vector<double> tdc_h1t;
-  std::vector<double> tdc_h1b;
-  std::vector<double> tdc_h1r;
-  std::vector<double> tdc_h1l;
-
-  std::vector<double> tdc_h2t;
-  std::vector<double> tdc_h2b;
-  std::vector<double> tdc_h2r;
-  std::vector<double> tdc_h2l;
-
-  std::vector<double> tdc_h3t;
-  std::vector<double> tdc_h3b;
-
-  std::vector<double> tdc_h4t;
-  std::vector<double> tdc_h4b;
-  std::vector<double> tdc_h4y1r;
-  std::vector<double> tdc_h4y1l;
-  std::vector<double> tdc_h4y2r;
-  std::vector<double> tdc_h4y2l;
-
-  std::vector<double> eleIdsh4t;
-  std::vector<double> eleIdsh4b;
-  std::vector<double> eleIdsh4y1r;
-  std::vector<double> eleIdsh4y1l;
-  std::vector<double> eleIdsh4y2r;
-  std::vector<double> eleIdsh4y2l;
-
   std::string ID;
-  int num_h1t;
-  int num_h1b;
-  int num_h1r;
-  int num_h1l;
-  int num_h2t;
-  int num_h2b;
-  int num_h2r;
-  int num_h2l;
-  int num_h3t;
-  int num_h3b;
-  int num_h4t; int num_h4b; int num_h4y1l; int num_h4y1r; int num_h4y2l; int num_h4y2r;
   int eleId;
 };
 
