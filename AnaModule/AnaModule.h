@@ -64,7 +64,7 @@ private:
   run_info r;
 
   //maps
-  std::map<std::string det_name, vector<double>> tdc_times;
+  std::map<int det, vector<double>> tdc_times;
   
   std::map<int, std::pair<int,int>> run_time;
   std::string id;
