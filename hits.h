@@ -28,6 +28,7 @@ R__LOAD_LIBRARY(libanamodule)
    int trigger;
    int stID;
    std::string trigger_temp = "All";
+   std::map<int, std::vector<std::pair<int, double>>> hitInfo;
 
    int num_h1t;
    int num_h1b;
@@ -59,16 +60,6 @@ R__LOAD_LIBRARY(libanamodule)
    double rh1_max =0;    double rh2_max =0;     double rh3_max =0;  double rh4_max =0;
    double rh1 =0;    double rh2 =0;     double rh3 =0;  double rh4 =0;
    
-   std::vector<double> *tdc_h1t =0;
-   std::vector<double> *tdc_h1b =0;
-   std::vector<double> *tdc_h1r =0;
-   std::vector<double> *tdc_h1l =0;
-   std::vector<double> *tdc_h2t =0;
-   std::vector<double> *tdc_h2b =0;
-   std::vector<double> *tdc_h2r =0;
-   std::vector<double> *tdc_h2l =0;
-   std::vector<double> *tdc_h3t =0;
-   std::vector<double> *tdc_h3b =0;
    std::vector<double> *tdc_h4t =0; std::vector<double> *tdc_h4b =0; 
    std::vector<double> *tdc_h4y1r =0;  std::vector<double> *tdc_h4y1l =0; std::vector<double> *tdc_h4y2r =0; std::vector<double> *tdc_h4y2l =0;
    std::vector<double> *eleIdsh4t =0; std::vector<double> *eleIdsh4b =0; 
