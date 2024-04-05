@@ -13,7 +13,7 @@ R__LOAD_LIBRARY(libanamodule)
 #include <TCanvas.h>
 #include <iostream>
 #include <algorithm>
-
+#include <AnaModule/LinkDef.h>
 #include "hits.h"
 
 using namespace ROOT::VecOps;
