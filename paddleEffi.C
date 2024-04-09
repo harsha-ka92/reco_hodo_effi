@@ -26,6 +26,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut);
 TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
 
 int pad_diff =0; int exps =0; int closest =0; bool bPassed;
+int trigger_tls;
 
 // choose the range of run numbers need to be analyzed and show up in the plots
 int xlow = 5170;
