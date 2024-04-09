@@ -43,7 +43,7 @@ void paddleEffi()
     gStyle->SetOptStat(0);
     gStyle->SetOptFit(1);
 
-    f_file = TFile::Open("run_5024_5072/ana.root","READ");
+    f_file = TFile::Open("ana.root","READ");
     tr = (TTree*) f_file->Get("save");
     tr_tls = (TTree*) f_file->Get("tls");
 
