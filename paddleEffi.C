@@ -58,6 +58,7 @@ void paddleEffi()
 
    tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
    tr_tls->SetBranchAddress("detIDs", &detIDs);
+   tr_tls->SetBranchAddress("trigger", &trigger_tls);
    tr_tls->SetBranchAddress("stID", &stID);
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
@@ -82,7 +83,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
 
-    bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
+    //bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     
     int nEntries = tr->GetEntries();
     
@@ -92,32 +93,19 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
 
-    for (int i_ent = 0; i_ent < nEntries; i_ent++) {
+    for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
 
-      if( i_ent % (nEntries/10) == 0){std::cout<<" / " << flush;}
-      
-      tr->GetEntry(i_ent);
-      
       if(run_ID < xlow || run_ID > xhigh) {continue;}
-      ++nEvents;
       if(dor < 0) {run_num = run_ID; continue;}
 
-      if(Trigger_Filter == true){
-          //use NIM 4 events to get st1 and st3 efficiencies and H4Y1. NIM 2 events for now to get st2 and st4 efficiencies.
-          //if((trigger & 0x1) != 0) { trigger_temp = "NIM1"; ++total_N1;}  //NIM1
-          //if((trigger & 0x2) != 0) { trigger_temp = "NIM2"; ++total_N2;}  //NIM2
-          //if((trigger & 0x4) != 0) { trigger_temp = "NIM3"; ++total_N3;}  //NIM3
-          if((trigger & 0x8) != 0) { trigger_temp = "NIM4"; total_N4++;}  //NIM4 
-          //if((trigger & 0x200) != 0) { trigger_temp = "MATRIX5"; ++total_M5;}  //MATRIX5
-          else{continue;}
-      }
-
-    for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
       tr_tls->GetEntry(i_tls_entry);
+
+      //use NIM 4 events to get st3 and st4 efficiencies.
+
+      if ((trigger & 0x8) == 0 || event_ID != tls_event_ID){continue;}
+
       ID_index = -99; closest = -99;
       h4y1 = false; h4y2 = false;  h4x = false; 
-      
-      if (event_ID == tls_event_ID){ 
 
         //st1 efficiencies
         if(ID>30 && ID < 35){
@@ -178,8 +166,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 
         }
      }
-     }
     }
+    
 
     std::cout<<std::endl;
 
