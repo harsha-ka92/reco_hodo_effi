@@ -186,6 +186,7 @@ void AnaModule::MakeTree()
 	tlTree->Branch("eventID", &eventID, "eventID/I");
 	tlTree->Branch("event_ID", &event_ID, "event_ID/I");
 	tlTree->Branch("run_ID", &run_ID,"run_ID/I");
+	tlTree->Branch("dor", &dor,"dor/I");
 	tlTree->Branch("trigger", &trigger, "trigger/I");
 	tlTree->Branch("stID", &stID, "stID/I");
 	tlTree->Branch("detIDs", &detIDs);
