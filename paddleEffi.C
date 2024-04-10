@@ -115,14 +115,14 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
       //check for valid expected hits in planes
       for ( int j =0; j< detIDs->size(); j++){
-                                if ((detIDs -> at(j) == 33 || detIDs -> at(j) == 34) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h1y = true;}
-                                if ((detIDs -> at(j) == 31 || detIDs -> at(j) == 32) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h1x = true;}
-                                if ((detIDs -> at(j) == 35 || detIDs -> at(j) == 36) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2y = true;}
-                                if ((detIDs -> at(j) == 37 || detIDs -> at(j) == 38) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2x = true;}
-                                if ((detIDs -> at(j) == 39 || detIDs -> at(j) == 40) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h3x = true;}
-                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y1 = true;}
-                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y2 = true;}
-                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4x = true;}
+                                if ((detIDs -> at(j) == 33 || detIDs -> at(j) == 34) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut ) {h1y = true;}
+                                if ((detIDs -> at(j) == 31 || detIDs -> at(j) == 32) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h1x = true;}
+                                if ((detIDs -> at(j) == 35 || detIDs -> at(j) == 36) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h2y = true;}
+                                if ((detIDs -> at(j) == 37 || detIDs -> at(j) == 38) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h2x = true;}
+                                if ((detIDs -> at(j) == 39 || detIDs -> at(j) == 40) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h3x = true;}
+                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4y1 = true;}
+                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4y2 = true;}
+                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4x = true;}
                                 if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
         }
 
