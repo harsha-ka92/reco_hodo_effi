@@ -155,7 +155,9 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             }
        }
     }
-    
+
+    std::cout<<std::endl;
+
     TCanvas* c1 = new TCanvas("c1", "");
     c1->SetGrid();
 
