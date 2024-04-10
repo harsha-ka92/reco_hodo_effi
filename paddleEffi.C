@@ -81,7 +81,10 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     int nEntries = tr->GetEntries();
 
     int ID_index;
-    bool h1x,h1y,h2x,h2y,h3x,h4y1,h4y2,h4x;
+    bool h1x = false; bool h1y = false; 
+    bool h2x = false; bool h2y = false;
+    bool h3x = false;
+    bool h4y1 = false; bool h4y2 = false; bool h4x= false;
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
