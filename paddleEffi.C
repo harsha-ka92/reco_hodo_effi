@@ -5,8 +5,6 @@ R__LOAD_LIBRARY(libg4eval)
 R__LOAD_LIBRARY(libktracker)
 R__LOAD_LIBRARY(libanamodule)
 
-#pragma link C++ class map<int, vector<std::pair<int, double>>>+;
-
 #include <ROOT/RVec.hxx>
 #include <TFile.h>
 #include <TEfficiency.h>
@@ -23,7 +21,7 @@ using namespace std;
 TFile *f_file;
 TTree *tr;
 TTree *tr_tls;
-void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut);
+void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut);
 TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
 
 int pad_diff =0; int exps =0; int closest =0; bool bPassed;
@@ -39,17 +37,7 @@ void paddleEffi()
     gStyle->SetOptFit(1);
 
     f_file = TFile::Open("ana.root","READ");
-    tr = (TTree*) f_file->Get("save");
     tr_tls = (TTree*) f_file->Get("tls");
-
-   tr->SetBranchAddress("run_ID", &run_ID);
-   tr->SetBranchAddress("event_ID", &event_ID);
-   tr->SetBranchAddress("dor", &dor);
-   tr->SetBranchAddress("trigger", &trigger);
-   tr->SetBranchAddress("nQualTracklets", &nQualTracklets);
-   tr->SetBranchAddress("hitInfo", &hitInfo);
-   
-   tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
    tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
    tr_tls->SetBranchAddress("detIDs", &detIDs);
@@ -61,25 +49,23 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    getEffi(tr, tr_tls, 31, 23, 1); getEffi(tr, tr_tls, 32, 23, 1); getEffi(tr, tr_tls, 33, 20, 1); getEffi(tr, tr_tls, 34, 20, 1);
+    getEffi(tr_tls, 31, 23, 1); getEffi(tr_tls, 32, 23, 1); getEffi(tr_tls, 33, 20, 1); getEffi(tr_tls, 34, 20, 1);
     //H2
-    getEffi(tr, tr_tls, 35, 19, 1); getEffi(tr, tr_tls, 36, 19, 1); getEffi(tr, tr_tls, 37, 16, 1); getEffi(tr, tr_tls, 38, 16, 1);
+    getEffi(tr_tls, 35, 19, 1); getEffi(tr_tls, 36, 19, 1); getEffi(tr_tls, 37, 16, 1); getEffi(tr_tls, 38, 16, 1);
     //H3
-    getEffi(tr, tr_tls, 39, 16, 1); getEffi(tr, tr_tls, 40, 16, 1); 
+    getEffi(tr_tls, 39, 16, 1); getEffi(tr_tls, 40, 16, 1); 
     //H4Y1
-    getEffi(tr, tr_tls, 41, 16, 1); getEffi(tr, tr_tls, 42, 16, 1); 
+    getEffi(tr_tls, 41, 16, 1); getEffi(tr_tls, 42, 16, 1); 
     //H4X and H4Y2
-    getEffi(tr, tr_tls, 43, 16, 1); getEffi(tr, tr_tls, 44, 16, 1);  getEffi(tr, tr_tls, 45, 16, 1); getEffi(tr, tr_tls, 46, 16, 1);
+    getEffi(tr_tls, 43, 16, 1); getEffi(tr_tls, 44, 16, 1);  getEffi(tr_tls, 45, 16, 1); getEffi(tr_tls, 46, 16, 1);
 }
 
-void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
+void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
 
     TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
-    
-    int nEntries = tr->GetEntries();
-
+  
     int ID_index;
     bool h1x = false; bool h1y = false; 
     bool h2x = false; bool h2y = false;
@@ -91,15 +77,15 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
 
-      if    (++i_tls_entry % 70000 == 0) cout << " . " << flush;
+      if (++i_tls_entry % 70000 == 0) cout << " . " << flush;
 
       tr_tls->GetEntry(i_tls_entry);
 
       //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
-      if (ID < 31) {std::cout<<"Invalid station ID"<<std::endl; break;}
+      if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl; break;}
       if ((ID>30 && ID<39) && ((trigger_tls & 0x2) == 0) ){continue;} //select NIM2
       if ((ID>38 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
-      if (ID > 47) {std::cout<<"Invalid station ID"<<std::endl; break;}
+      if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl; break;}
  
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
