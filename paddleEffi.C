@@ -89,8 +89,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     int nEntries = tr->GetEntries();
     
     int ID_index;
-    bool h2y = false; bool h2x = false; bool h3x = false; 
-    bool h4y1 = false; bool h4y2 = false; bool h4x = false; 
+    bool h1x,h1y, h2x,h2y, h3x, h4y1,h4y2,h4x;
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
@@ -109,6 +108,9 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
 
       ID_index = -99; closest = -99;
+      h1y = false; h1x = false;
+      h2y = false; h2x = false;
+      h3x = false;
       h4y1 = false; h4y2 = false;  h4x = false; 
 
       //check for valid expected hits in planes
