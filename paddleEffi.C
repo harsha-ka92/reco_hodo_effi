@@ -98,12 +98,12 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
 
       if(run_ID < xlow || run_ID > xhigh) {continue;}
-      if(dor < 0) {run_num = run_ID; continue;}
 
       tr_tls->GetEntry(i_tls_entry);
 
-      //use NIM 4 events to get st3 and st4 efficiencies.
-      if ((trigger & 0x8) == 0 || event_ID != tls_event_ID){continue;}
+      //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
+      if ((trigger & 0x8) == 0 || event_ID != tls_event_ID){continue;} //select NIM4
+      //if ((trigger & 0x2) == 0 || event_ID != tls_event_ID){continue;} //select NIM2
 
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
@@ -122,34 +122,51 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                 if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y2 = true;}
                                 if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4x = true;}
                                 if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
-                                }
+        }
 
         //st1 and st2 efficiencies
-        if(ID>30 && ID < 39){
-                if(stID == 1 || stID == 3 && chisq <8){
+        if(stID == 1 || stID == 3 && chisq <8){
+            if(ID>30 && ID < 37){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= 1);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
-                }
+            }
+
+            if(ID == 37 || ID == 38){
+                         if (closest >0 && ID_index >=0 && h2y) {
+                            pad_diff = exps-closest; 
+                            bPassed = (fabs(pad_diff) <= 1);
+                            effi->Fill(bPassed, exps);
+                            if (bPassed) {diff->Fill(pad_diff);}
+                        }
+            }
 
         } 
     
         // for st3 and st4 pick only back partial tracklets and ask if they truely belongs to a H24 ray. Use H4X for the rest and H4Y2 for H4X.
-        if(ID>38 && ID < 47){
-            if(stID == 6 && chisq < 8){
+        if(stID == 6 && chisq < 8){
+            if(ID>38 && ID < 45){
+            
                         if (closest >0 && ID_index >=0 && h4x) {
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= 1);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
-                
             }
-     }
-    
+
+            if(ID == 45 || ID == 46){
+                        if (closest >0 && ID_index >=0 && h4y2) {
+                            pad_diff = exps-closest; 
+                            bPassed = (fabs(pad_diff) <= 1);
+                            effi->Fill(bPassed, exps);
+                            if (bPassed) {diff->Fill(pad_diff);}
+                        }
+            }
+       }
     }
     
 
@@ -172,7 +189,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     diff->SetFillColorAlpha(kAzure+6, 0.35);
     oss.str("");
-    oss << "Distribution of exp - closest in detID :" << ID << ".png";
+    oss << "Distribution of exp - closest in detID :" << ID ;
     diff->SetTitle(oss.str().c_str());
     diff->GetXaxis()->SetTitle("Paddle Number");
     diff->GetYaxis()->SetTitle("nTracklets");
