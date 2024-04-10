@@ -96,6 +96,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       else if (ID>38 && ID<47 && (trigger & 0x8) == 0 ){continue;} //select NIM4
       else {std::cout<<"Invalid station ID"<<std::endl; break;}
 
+      std::cout<<"event is selected"<<std::endl;
+ 
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
 
@@ -105,7 +107,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       h3x = false;
       h4y1 = false; h4y2 = false;  h4x = false; 
 
-      //check for valid expected hits in planes
+      //check for valid expected and coresponding closest hits in planes
       for ( int j =0; j< detIDs->size(); j++){
                                 if ((detIDs -> at(j) == 33 || detIDs -> at(j) == 34) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut ) {h1y = true;}
                                 if ((detIDs -> at(j) == 31 || detIDs -> at(j) == 32) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h1x = true;}
