@@ -83,13 +83,11 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
-
-    //bool Trigger_Filter = true; //set to "true" if need to filter hits based on trigger.
     
     int nEntries = tr->GetEntries();
     
     int ID_index;
-    bool h1x,h1y, h2x,h2y, h3x, h4y1,h4y2,h4x;
+    bool h1x,h1y,h2x,h2y,h3x,h4y1,h4y2,h4x;
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
@@ -101,8 +99,10 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       tr_tls->GetEntry(i_tls_entry);
 
       //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
-      if ((trigger & 0x8) == 0 || event_ID != tls_event_ID){continue;} //select NIM4
-      //if ((trigger & 0x2) == 0 || event_ID != tls_event_ID){continue;} //select NIM2
+      if (ID < 31) {std::cout<<"Invalid station ID"<<std::endl; break;}
+      if (ID>30 && ID < 39){ if ((trigger & 0x2) == 0 || event_ID != tls_event_ID){continue;}} //select NIM2
+      if (ID>38 && ID < 47){ if ((trigger & 0x8) == 0 || event_ID != tls_event_ID){continue;}} //select NIM4
+      if (ID > 46) {std::cout<<"Invalid station ID"<<std::endl; break;}
 
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
