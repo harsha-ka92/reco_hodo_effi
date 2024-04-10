@@ -1,4 +1,4 @@
-R__LOAD_LIBRARY(libinterface_main)
+sR__LOAD_LIBRARY(libinterface_main)
 R__LOAD_LIBRARY(libfun4all)
 R__LOAD_LIBRARY(libg4detectors)
 R__LOAD_LIBRARY(libg4eval)
@@ -92,9 +92,9 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
       //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
       if (ID < 31) {std::cout<<"Invalid station ID"<<std::endl; break;}
-      if (ID>30 && ID<39 && (trigger & 0x2) == 0 ){continue;} //select NIM2
-      if (ID>38 && ID<47 && (trigger & 0x8) == 0 ){continue;} //select NIM4
-      if (ID > 46) {std::cout<<"Invalid station ID"<<std::endl; break;}
+      else if (ID>30 && ID<39 && (trigger & 0x2) == 0 ){continue;} //select NIM2
+      else if (ID>38 && ID<47 && (trigger & 0x8) == 0 ){continue;} //select NIM4
+      else {std::cout<<"Invalid station ID"<<std::endl; break;}
 
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
