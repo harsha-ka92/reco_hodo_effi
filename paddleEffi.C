@@ -61,9 +61,9 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    getEffi(tr, tr_tls, 31, 23, 2); getEffi(tr, tr_tls, 32, 23, 1); getEffi(tr, tr_tls, 33, 20, 2); getEffi(tr, tr_tls, 34, 20, 1);
+    getEffi(tr, tr_tls, 31, 23, 1); getEffi(tr, tr_tls, 32, 23, 1); getEffi(tr, tr_tls, 33, 20, 1); getEffi(tr, tr_tls, 34, 20, 1);
     //H2
-    getEffi(tr, tr_tls, 35, 19, 2); getEffi(tr, tr_tls, 36, 19, 1); getEffi(tr, tr_tls, 37, 16, 2); getEffi(tr, tr_tls, 38, 16, 1);
+    getEffi(tr, tr_tls, 35, 19, 1); getEffi(tr, tr_tls, 36, 19, 1); getEffi(tr, tr_tls, 37, 16, 1); getEffi(tr, tr_tls, 38, 16, 1);
     //H3
     getEffi(tr, tr_tls, 39, 16, 1); getEffi(tr, tr_tls, 40, 16, 1); 
     //H4Y1
