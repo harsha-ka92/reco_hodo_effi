@@ -53,11 +53,11 @@ void paddleEffi()
     //H2
     getEffi(tr_tls, 35, 19, 1); getEffi(tr_tls, 36, 19, 1); getEffi(tr_tls, 37, 16, 1); getEffi(tr_tls, 38, 16, 1);
     //H3
-    /*getEffi(tr_tls, 39, 16, 1); getEffi(tr_tls, 40, 16, 1);*/
+    getEffi(tr_tls, 39, 16, 1); getEffi(tr_tls, 40, 16, 1);
     //H4Y1
     getEffi(tr_tls, 41, 16, 1); getEffi(tr_tls, 42, 16, 1); 
     //H4X and H4Y2
-    /*getEffi(tr_tls, 43, 16, 1); getEffi(tr_tls, 44, 16, 1);  getEffi(tr_tls, 45, 16, 1); getEffi(tr_tls, 46, 16, 1);*/
+    getEffi(tr_tls, 43, 16, 1); getEffi(tr_tls, 44, 16, 1);  getEffi(tr_tls, 45, 16, 1); getEffi(tr_tls, 46, 16, 1);
 }
 
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
@@ -118,7 +118,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= 1);
                             effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff); std::cout<<"tls passed"<<std::endl;}
+                            if (bPassed) {diff->Fill(pad_diff);}
                         }
             }
 
@@ -127,7 +127,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= 1);
                             effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff); std::cout<<"tls passed"<<std::endl;}
+                            if (bPassed) {diff->Fill(pad_diff);}
                         }
             }
 
@@ -141,7 +141,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= 1);
                             effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff); std::cout<<"st3 tls passed"<<std::endl;}
+                            if (bPassed) {diff->Fill(pad_diff);}
                         }
             }
 
