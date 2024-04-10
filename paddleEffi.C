@@ -89,6 +89,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     int nEntries = tr->GetEntries();
     
     int ID_index;
+    bool h2y = false; bool h2x = false; bool h3x = false; 
     bool h4y1 = false; bool h4y2 = false; bool h4x = false; 
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
@@ -108,15 +109,21 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       ID_index = -99; closest = -99;
       h4y1 = false; h4y2 = false;  h4x = false; 
 
+      //check for valid expected hits in planes
+      for ( int j =0; j< detIDs->size(); j++){
+                                if ((detIDs -> at(j) == 33 || detIDs -> at(j) == 34) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h1y = true;}
+                                if ((detIDs -> at(j) == 31 || detIDs -> at(j) == 32) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h1x = true;}
+                                if ((detIDs -> at(j) == 35 || detIDs -> at(j) == 36) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2y = true;}
+                                if ((detIDs -> at(j) == 37 || detIDs -> at(j) == 38) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2x = true;}
+                                if ((detIDs -> at(j) == 39 || detIDs -> at(j) == 40) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h3x = true;}
+                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y1 = true;}
+                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y2 = true;}
+                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4x = true;}
+                                if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
+                                }
         //st1 efficiencies
         if(ID>30 && ID < 35){
                 if(stID == 1 || stID == 3 && chisq <8){
-                    for ( int j =0; j< detIDs->size(); j++){
-                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2y = true;}
-                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2x = true;}
-                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h3x = true;}
-                                if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
-                                }
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= 1);
@@ -129,45 +136,31 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
         //st2 efficiencies
         if(ID>34 && ID < 39){
-                if(stID == 1 || stID == 2 || stID == 5){
-                        for ( int j =0; j< detIDs->size(); j++){
-                                if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j); 
-                                    closest = eleID_closests->at(j);
-                                    if (closest >0) {
-                                        pad_diff =exps-closest; 
-                                        bPassed = (fabs(pad_diff) <= cut);
-                                        effi->Fill(bPassed, exps);
-                                        if (bPassed) {diff->Fill(pad_diff);}
-                                    }
-                                }
-                                else {;}
+                 if(stID == 1 || stID == 3 && chisq <8){
+                         if (closest >0 && ID_index >=0 && h2x) {
+                            pad_diff = exps-closest; 
+                            bPassed = (fabs(pad_diff) <= 1);
+                            effi->Fill(bPassed, exps);
+                            if (bPassed) {diff->Fill(pad_diff);}
                         }
                 }
-        }    
-
+        }
+    
         // for st3 and st4 pick only back partial tracklets from NIM 4 events and ask if they truely belongs to a H24 ray.
         if(ID>38 && ID < 47){
             if(stID == 6 && chisq < 8){
-                        for ( int j =0; j< detIDs->size(); j++){
-                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y1 = true;}
-                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4y2 = true;}
-                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4x = true;}
-                                if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
-                                }
-            }
-        
-            if (closest >0 && ID_index >=0 && h4x) {
-                pad_diff = exps-closest; 
-                bPassed = (fabs(pad_diff) <= 1);
-                effi->Fill(bPassed, exps);
-                if (bPassed) {diff->Fill(pad_diff);}
-            }
+                        if (closest >0 && ID_index >=0 && h4x) {
+                            pad_diff = exps-closest; 
+                            bPassed = (fabs(pad_diff) <= 1);
+                            effi->Fill(bPassed, exps);
+                            if (bPassed) {diff->Fill(pad_diff);}
+                        }
                 
-        }
+            }
      }
-    }
     
+    }
+    }
 
     std::cout<<std::endl;
 
