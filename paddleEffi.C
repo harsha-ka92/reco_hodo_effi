@@ -34,7 +34,7 @@ int tls_entry = 0;
 
 void paddleEffi()
 {
-    gSystem->mkdir("effi", true);
+    gSystem->mkdir("effi", 1);
     gStyle->SetOptStat(0);
     gStyle->SetOptFit(1);
 
