@@ -53,11 +53,11 @@ void paddleEffi()
     //H2
     getEffi(tr_tls, 35, 19, 1); getEffi(tr_tls, 36, 19, 1); getEffi(tr_tls, 37, 16, 1); getEffi(tr_tls, 38, 16, 1);
     //H3
-    getEffi(tr_tls, 39, 16, 1); getEffi(tr_tls, 40, 16, 1); 
+    /*getEffi(tr_tls, 39, 16, 1); getEffi(tr_tls, 40, 16, 1); 
     //H4Y1
     getEffi(tr_tls, 41, 16, 1); getEffi(tr_tls, 42, 16, 1); 
     //H4X and H4Y2
-    getEffi(tr_tls, 43, 16, 1); getEffi(tr_tls, 44, 16, 1);  getEffi(tr_tls, 45, 16, 1); getEffi(tr_tls, 46, 16, 1);
+    getEffi(tr_tls, 43, 16, 1); getEffi(tr_tls, 44, 16, 1);  getEffi(tr_tls, 45, 16, 1); getEffi(tr_tls, 46, 16, 1);*/
 }
 
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
@@ -75,18 +75,20 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
 
-    for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
+    for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); ++i_tls_entry){
 
-      if (++i_tls_entry % 70000 == 0) cout << " . " << flush;
+      if (i_tls_entry % 70000 == 0) cout << " . " << flush;
 
       tr_tls->GetEntry(i_tls_entry);
 
       //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
-      if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl; break;}
+      if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl;}
       if ((ID>30 && ID<39) && ((trigger_tls & 0x2) == 0) ){continue;} //select NIM2
       if ((ID>38 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
-      if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl; break;}
- 
+      if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl;}
+
+      std::cout<<"NIM2 event"<<std::endl;
+
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
 
