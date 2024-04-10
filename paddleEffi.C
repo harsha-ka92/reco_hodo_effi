@@ -103,8 +103,10 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       tr_tls->GetEntry(i_tls_entry);
 
       //use NIM 4 events to get st3 and st4 efficiencies.
-
       if ((trigger & 0x8) == 0 || event_ID != tls_event_ID){continue;}
+
+      //exclude the stIDs that are not considering for the analysis
+      if (stID != 1 || stID != 3 || stID !=6) {continue;}
 
       ID_index = -99; closest = -99;
       h4y1 = false; h4y2 = false;  h4x = false; 
@@ -121,8 +123,9 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                                 if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h4x = true;}
                                 if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
                                 }
-        //st1 efficiencies
-        if(ID>30 && ID < 35){
+
+        //st1 and st2 efficiencies
+        if(ID>30 && ID < 39){
                 if(stID == 1 || stID == 3 && chisq <8){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
@@ -133,20 +136,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
                 }
 
         } 
-
-        //st2 efficiencies
-        if(ID>34 && ID < 39){
-                 if(stID == 1 || stID == 3 && chisq <8){
-                         if (closest >0 && ID_index >=0 && h2x) {
-                            pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 1);
-                            effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff);}
-                        }
-                }
-        }
     
-        // for st3 and st4 pick only back partial tracklets from NIM 4 events and ask if they truely belongs to a H24 ray.
+        // for st3 and st4 pick only back partial tracklets and ask if they truely belongs to a H24 ray. Use H4X for the rest and H4Y2 for H4X.
         if(ID>38 && ID < 47){
             if(stID == 6 && chisq < 8){
                         if (closest >0 && ID_index >=0 && h4x) {
@@ -160,7 +151,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
      }
     
     }
-    }
+    
 
     std::cout<<std::endl;
 
