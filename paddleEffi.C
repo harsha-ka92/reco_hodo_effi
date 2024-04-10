@@ -29,13 +29,6 @@ TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
 int pad_diff =0; int exps =0; int closest =0; bool bPassed;
 int trigger_tls;
 
-// choose the range of run numbers need to be analyzed and show up in the plots
-int xlow = 5170;
-int xhigh = 5221; 
-
-//set the first run_ID in the save tree as the run_num
-int run_num = 5170;
-
 //ref to keep track of the entry from the tls tree
 int tls_entry = 0; 
 
@@ -94,8 +87,6 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     std::cout<< "paddel difference cut :" << cut<<endl;
 
     for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
-
-      if(run_ID < xlow || run_ID > xhigh) {continue;}
 
       tr_tls->GetEntry(i_tls_entry);
 
