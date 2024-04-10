@@ -5,6 +5,8 @@ R__LOAD_LIBRARY(libg4eval)
 R__LOAD_LIBRARY(libktracker)
 R__LOAD_LIBRARY(libanamodule)
 
+#pragma link C++ class map<int, vector<std::pair<int, double>>>+;
+
 #include <ROOT/RVec.hxx>
 #include <TFile.h>
 #include <TEfficiency.h>
