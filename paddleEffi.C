@@ -186,5 +186,6 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
     c1->SaveAs(oss.str().c_str());
     
     effi =0;
-    diff->Reset("ICESM");;
+    diff->Reset("ICESM");
+    std::endl;
 }
