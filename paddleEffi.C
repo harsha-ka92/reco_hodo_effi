@@ -127,7 +127,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
         }
 
         //st1 and st2 efficiencies
-        if(stID == 1 || stID == 3 && chisq <8){
+        if((stID == 1 || stID == 3) && chisq <8){
             if(ID>30 && ID < 37){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
