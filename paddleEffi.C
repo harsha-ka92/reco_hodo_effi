@@ -1,4 +1,4 @@
-sR__LOAD_LIBRARY(libinterface_main)
+R__LOAD_LIBRARY(libinterface_main)
 R__LOAD_LIBRARY(libfun4all)
 R__LOAD_LIBRARY(libg4detectors)
 R__LOAD_LIBRARY(libg4eval)
