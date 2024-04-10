@@ -110,23 +110,22 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
         //st1 efficiencies
         if(ID>30 && ID < 35){
-                if(stID == 1 || stID == 3 || stID == 5){
-                        for ( int j =0; j< detIDs->size(); j++){
-                                if(detIDs->at(j) == ID){
-                                    exps= eleID_exps->at(j); 
-                                    closest = eleID_closests->at(j);
-                                    if (closest >0) {
-                                        pad_diff =exps-closest; 
-                                        bPassed = (fabs(pad_diff) <= cut);
-                                        effi->Fill(bPassed, exps);
-                                        if (bPassed) {diff->Fill(pad_diff);}
-                                    }
+                if(stID == 1 || stID == 3 && chisq <8){
+                    for ( int j =0; j< detIDs->size(); j++){
+                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2y = true;}
+                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h2x = true;}
+                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=1 ) {h3x = true;}
+                                if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
                                 }
-                                else {;}
+                         if (closest >0 && ID_index >=0 && h2x) {
+                            pad_diff = exps-closest; 
+                            bPassed = (fabs(pad_diff) <= 1);
+                            effi->Fill(bPassed, exps);
+                            if (bPassed) {diff->Fill(pad_diff);}
                         }
                 }
-        }    
 
+        } 
 
         //st2 efficiencies
         if(ID>34 && ID < 39){
