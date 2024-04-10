@@ -90,7 +90,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
 
 
       //exclude the stIDs that are not considering for the analysis
-      if (stID != 1 || stID != 3 || stID !=6) {continue;}
+      if (stID == 2 || stID == 4 || stID ==5) {continue;}
 
       std::cout<<stID<<std::endl;
 
