@@ -79,7 +79,7 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
     oss<< "efficiencies of the paddles of detID "<< ID ;
     
     int nEntries = tr->GetEntries();
-    
+
     int ID_index;
     bool h1x,h1y,h2x,h2y,h3x,h4y1,h4y2,h4x;
 
@@ -88,6 +88,8 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
 
     for(int i_tls_entry =0;  i_tls_entry < tr_tls->GetEntries(); i_tls_entry++){
 
+      if    (++i_tls_entry % 70000 == 0) cout << " . " << flush;
+
       tr_tls->GetEntry(i_tls_entry);
 
       //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
@@ -95,8 +97,6 @@ void getEffi(TTree* evtTree, TTree* tlsTree, int ID, int nPaddles, int cut){
       if ((ID>30 && ID<39) && ((trigger_tls & 0x2) == 0) ){continue;} //select NIM2
       if ((ID>38 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
       if (ID > 47) {std::cout<<"Invalid station ID"<<std::endl; break;}
-
-      std::cout<<"event is selected"<<std::endl;
  
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
