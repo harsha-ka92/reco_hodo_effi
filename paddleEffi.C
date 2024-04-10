@@ -87,10 +87,12 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
       if ((ID>38 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
       if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl;}
 
-      std::cout<<"NIM2 event"<<std::endl;
+
 
       //exclude the stIDs that are not considering for the analysis
       if (stID != 1 || stID != 3 || stID !=6) {continue;}
+
+      std::cout<<stID<<std::endl;
 
       ID_index = -99; closest = -99;
       h1y = false; h1x = false;
