@@ -30,6 +30,9 @@ int trigger_tls;
 //ref to keep track of the entry from the tls tree
 int tls_entry = 0; 
 
+//select the padd:diff: cut
+int diff_cut = 10;
+
 void paddleEffi()
 {
     gSystem->mkdir("effi", 1);
@@ -49,15 +52,15 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    getEffi(tr_tls, 31, 23, 1); getEffi(tr_tls, 32, 23, 1); getEffi(tr_tls, 33, 20, 1); getEffi(tr_tls, 34, 20, 1);
+    getEffi(tr_tls, 31, 23, diff_cut); getEffi(tr_tls, 32, 23, diff_cut); getEffi(tr_tls, 33, 20, diff_cut); getEffi(tr_tls, 34, 20, diff_cut);
     //H2
-    getEffi(tr_tls, 35, 19, 1); getEffi(tr_tls, 36, 19, 1); getEffi(tr_tls, 37, 16, 1); getEffi(tr_tls, 38, 16, 1);
+    getEffi(tr_tls, 35, 19, diff_cut); getEffi(tr_tls, 36, 19, diff_cut); getEffi(tr_tls, 37, 16, diff_cut); getEffi(tr_tls, 38, 16, diff_cut);
     //H3
-    getEffi(tr_tls, 39, 16, 1); getEffi(tr_tls, 40, 16, 1);
+    getEffi(tr_tls, 39, 16, diff_cut); getEffi(tr_tls, 40, 16, diff_cut);
     //H4Y1
-    getEffi(tr_tls, 41, 16, 1); getEffi(tr_tls, 42, 16, 1); 
+    getEffi(tr_tls, 41, 16, diff_cut); getEffi(tr_tls, 42, 16, diff_cut); 
     //H4X and H4Y2
-    getEffi(tr_tls, 43, 16, 1); getEffi(tr_tls, 44, 16, 1);  getEffi(tr_tls, 45, 16, 1); getEffi(tr_tls, 46, 16, 1);
+    getEffi(tr_tls, 43, 16, diff_cut); getEffi(tr_tls, 44, 16, diff_cut);  getEffi(tr_tls, 45, 16, diff_cut); getEffi(tr_tls, 46, 16, diff_cut);
 }
 
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
@@ -116,7 +119,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             if(ID>30 && ID < 37){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 10);
+                            bPassed = (fabs(pad_diff) <= cut);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
@@ -125,7 +128,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             if(ID == 37 || ID == 38){
                          if (closest >0 && ID_index >=0 && h2y) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 10);
+                            bPassed = (fabs(pad_diff) <= cut);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
@@ -139,7 +142,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             
                         if (closest >0 && ID_index >=0 && h4x) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 10);
+                            bPassed = (fabs(pad_diff) <= cut);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
@@ -148,7 +151,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             if(ID == 45 || ID == 46){
                         if (closest >0 && ID_index >=0 && h4y2) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 10);
+                            bPassed = (fabs(pad_diff) <= cut);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
