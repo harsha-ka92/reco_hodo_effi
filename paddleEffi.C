@@ -116,7 +116,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             if(ID>30 && ID < 37){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 1);
+                            bPassed = (fabs(pad_diff) <= 10);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
@@ -125,7 +125,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             if(ID == 37 || ID == 38){
                          if (closest >0 && ID_index >=0 && h2y) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 1);
+                            bPassed = (fabs(pad_diff) <= 10);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
@@ -139,7 +139,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             
                         if (closest >0 && ID_index >=0 && h4x) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 1);
+                            bPassed = (fabs(pad_diff) <= 10);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
@@ -148,7 +148,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
             if(ID == 45 || ID == 46){
                         if (closest >0 && ID_index >=0 && h4y2) {
                             pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= 1);
+                            bPassed = (fabs(pad_diff) <= 10);
                             effi->Fill(bPassed, exps);
                             if (bPassed) {diff->Fill(pad_diff);}
                         }
