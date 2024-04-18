@@ -58,14 +58,36 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    if(H1){getEffi(tr_tls, 31, 23, diff_cut); getEffi(tr_tls, 32, 23, diff_cut); getEffi(tr_tls, 33, 20, diff_cut); getEffi(tr_tls, 34, 20, diff_cut);}
+    if(H1){
+        getEffi(tr_tls, 31, 23, diff_cut); 
+        getEffi(tr_tls, 32, 23, diff_cut); 
+        getEffi(tr_tls, 33, 20, diff_cut); 
+        getEffi(tr_tls, 34, 20, diff_cut);
+    }
+
     //H2
-    if(H2){getEffi(tr_tls, 35, 19, diff_cut); getEffi(tr_tls, 36, 19, diff_cut); getEffi(tr_tls, 37, 16, diff_cut); getEffi(tr_tls, 38, 16, diff_cut);}
+    if(H2){
+        getEffi(tr_tls, 35, 19, diff_cut); 
+        getEffi(tr_tls, 36, 19, diff_cut); 
+        getEffi(tr_tls, 37, 16, diff_cut); 
+        getEffi(tr_tls, 38, 16, diff_cut);
+    }
+
     //H3
-    if(H3){getEffi(tr_tls, 39, 16, diff_cut); getEffi(tr_tls, 40, 16, diff_cut);}
+    if(H3){
+        getEffi(tr_tls, 39, 16, diff_cut); 
+        getEffi(tr_tls, 40, 16, diff_cut);
+    }
+
     //H4
-    if(H4){getEffi(tr_tls, 41, 16, diff_cut); getEffi(tr_tls, 42, 16, diff_cut); 
-    getEffi(tr_tls, 43, 16, diff_cut); getEffi(tr_tls, 44, 16, diff_cut);  getEffi(tr_tls, 45, 16, diff_cut); getEffi(tr_tls, 46, 16, diff_cut);}
+    if(H4){
+        getEffi(tr_tls, 41, 16, diff_cut); 
+        getEffi(tr_tls, 42, 16, diff_cut); 
+        getEffi(tr_tls, 43, 16, diff_cut); 
+        getEffi(tr_tls, 44, 16, diff_cut);  
+        getEffi(tr_tls, 45, 16, diff_cut); 
+        getEffi(tr_tls, 46, 16, diff_cut);
+    }
 }
 
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
