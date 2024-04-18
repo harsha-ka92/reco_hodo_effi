@@ -164,7 +164,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
         } 
     
         // for st3 and st4 pick only back partial tracklets and ask if they truely belongs to a H24 ray. Use H4X for the rest and H4Y2 for H4X.
-        if(stID == 6 && chisq < 8 && nHits > 9 ){
+        if(stID == 6 && chisq < 8 && nHits > 7 ){
             if(ID>38 && ID < 45){
             
                         if (closest >0 && ID_index >=0 && h4x) {
