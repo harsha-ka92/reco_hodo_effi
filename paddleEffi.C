@@ -33,6 +33,12 @@ int tls_entry = 0;
 //select the padd:diff: cut
 int diff_cut = 10;
 
+//select the planes
+bool H1 = false;
+bool H2 = true;
+bool H3 = true;
+bool H4 = true;
+
 void paddleEffi()
 {
     gSystem->mkdir("effi", 1);
@@ -52,15 +58,14 @@ void paddleEffi()
    tr_tls->SetBranchAddress("nHits", &nHits);
 
     //H1
-    getEffi(tr_tls, 31, 23, diff_cut); getEffi(tr_tls, 32, 23, diff_cut); getEffi(tr_tls, 33, 20, diff_cut); getEffi(tr_tls, 34, 20, diff_cut);
+    if(H1){getEffi(tr_tls, 31, 23, diff_cut); getEffi(tr_tls, 32, 23, diff_cut); getEffi(tr_tls, 33, 20, diff_cut); getEffi(tr_tls, 34, 20, diff_cut);}
     //H2
-    getEffi(tr_tls, 35, 19, diff_cut); getEffi(tr_tls, 36, 19, diff_cut); getEffi(tr_tls, 37, 16, diff_cut); getEffi(tr_tls, 38, 16, diff_cut);
+    if(H2){getEffi(tr_tls, 35, 19, diff_cut); getEffi(tr_tls, 36, 19, diff_cut); getEffi(tr_tls, 37, 16, diff_cut); getEffi(tr_tls, 38, 16, diff_cut);}
     //H3
-    getEffi(tr_tls, 39, 16, diff_cut); getEffi(tr_tls, 40, 16, diff_cut);
-    //H4Y1
-    getEffi(tr_tls, 41, 16, diff_cut); getEffi(tr_tls, 42, 16, diff_cut); 
-    //H4X and H4Y2
-    getEffi(tr_tls, 43, 16, diff_cut); getEffi(tr_tls, 44, 16, diff_cut);  getEffi(tr_tls, 45, 16, diff_cut); getEffi(tr_tls, 46, 16, diff_cut);
+    if(H3){getEffi(tr_tls, 39, 16, diff_cut); getEffi(tr_tls, 40, 16, diff_cut);}
+    //H4
+    if(H4){getEffi(tr_tls, 41, 16, diff_cut); getEffi(tr_tls, 42, 16, diff_cut); 
+    getEffi(tr_tls, 43, 16, diff_cut); getEffi(tr_tls, 44, 16, diff_cut);  getEffi(tr_tls, 45, 16, diff_cut); getEffi(tr_tls, 46, 16, diff_cut);}
 }
 
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
@@ -87,7 +92,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
       //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
       if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl;}
       //if ((ID>30 && ID<39) && ((trigger_tls & 0x2) == 0) ){continue;} //select NIM2
-      if ((ID>38 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
+      if ((ID>34 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
       if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl;}
 
 
