@@ -58,6 +58,7 @@ void paddleEffi()
    tr_tls->SetBranchAddress("chisq", &chisq);
    tr_tls->SetBranchAddress("nHits", &nHits);
 
+
     //H1
     if(H1){
         getEffi(tr_tls, 31, 23, diff_cut); 
