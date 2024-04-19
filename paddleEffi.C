@@ -22,7 +22,6 @@ TFile *f_file;
 TTree *tr;
 TTree *tr_tls;
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut);
-TH1D *diff = new TH1D("diff","difff", 11, -5.5, 5.5);
 
 int pad_diff =0; int exps =0; int closest =0; bool bPassed;
 int trigger_tls;
@@ -32,6 +31,8 @@ int tls_entry = 0;
 
 //select the padd:diff: cut
 int diff_cut = 10;
+
+TH1D *diff = new TH1D("diff","difff", diff_cut + 1, -diff_cut - 0.5, diff_cut + 0.5);
 
 //select the planes
 bool H1 = false;
