@@ -32,7 +32,7 @@ int tls_entry = 0;
 //select the padd:diff: cut
 int diff_cut = 10;
 
-TH1D *diff = new TH1D("diff","difff", diff_cut + 1, -diff_cut - 0.5, diff_cut + 0.5);
+TH1D *diff = new TH1D("diff","difff", 2*diff_cut + 1, -diff_cut - 0.5, diff_cut + 0.5);
 
 //select the planes
 bool H1 = false;
