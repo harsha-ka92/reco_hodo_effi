@@ -205,63 +205,7 @@ void hits()
      else if (run_num == run_ID && i_ent == nEntries-1){
          std::cout<< "Filling the last event"<<std::endl;
 
-            for ( int j =0; j< tdc_h1t->size(); j++){
-                htdc_h1t->Fill(tdc_h1t->at(j));
-            }
-            for ( int j =0; j< tdc_h1b->size(); j++){
-                htdc_h1b->Fill(tdc_h1b->at(j));
-            }
-            for ( int j =0; j< tdc_h1r->size(); j++){
-                htdc_h1r->Fill(tdc_h1r->at(j));
-            }
-            for ( int j =0; j< tdc_h1l->size(); j++){
-                htdc_h1l->Fill(tdc_h1l->at(j));
-            }
-
-            for ( int j =0; j< tdc_h2t->size(); j++){
-            htdc_h2t->Fill(tdc_h2t->at(j));
-            }
-            for ( int j =0; j< tdc_h2b->size(); j++){
-                htdc_h2b->Fill(tdc_h2b->at(j));
-            }
-            for ( int j =0; j< tdc_h2r->size(); j++){
-                htdc_h2r->Fill(tdc_h2r->at(j));
-            }
-            for ( int j =0; j< tdc_h2l->size(); j++){
-                htdc_h2l->Fill(tdc_h2l->at(j));
-            }
-
-            for ( int j =0; j< tdc_h3t->size(); j++){
-                htdc_h3t->Fill(tdc_h3t->at(j));
-            }
-            for ( int j =0; j< tdc_h3b->size(); j++){
-                htdc_h3b->Fill(tdc_h3b->at(j));
-            }
-        
-            for ( int j =0; j< tdc_h4t->size(); j++){
-            htdc_h4t->Fill(tdc_h4t->at(j));
-            if(run_ID == 4692){eleIds_h4t->Fill(eleIdsh4t->at(j));}
-            }
-            for ( int j =0; j< tdc_h4b->size(); j++){
-            htdc_h4b->Fill(tdc_h4b->at(j));
-            if(run_ID == 4692){eleIds_h4b->Fill(eleIdsh4b->at(j));}
-            }
-            for ( int j =0; j< tdc_h4y1r->size(); j++){
-            htdc_h4y1r->Fill(tdc_h4y1r->at(j));
-            if(run_ID == 4692){eleIds_h4y1r->Fill(eleIdsh4y1r->at(j));}
-            }
-            for ( int j =0; j< tdc_h4y1l->size(); j++){
-            htdc_h4y1l->Fill(tdc_h4y1l->at(j));
-            if(run_ID == 4692){eleIds_h4y1l->Fill(eleIdsh4y1l->at(j));}
-            }
-            for ( int j =0; j< tdc_h4y2r->size(); j++){
-            htdc_h4y2r->Fill(tdc_h4y2r->at(j));
-            if(run_ID == 4692){eleIds_h4y2r->Fill(eleIdsh4y2r->at(j));}
-            }
-            for ( int j =0; j< tdc_h4y2l->size(); j++){
-            htdc_h4y2l->Fill(tdc_h4y2l->at(j));
-            if(run_ID == 4692){eleIds_h4y2l->Fill(eleIdsh4y2l->at(j));}
-            }
+            
 
             t_num_h1 += (num_h1t + num_h1b + num_h1r + num_h1l);
             t_num_h2 += (num_h2t + num_h2b + num_h2r + num_h2l);
