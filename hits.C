@@ -31,11 +31,11 @@ void hits()
     TTree *tr_tls = (TTree*) f_file->Get("tls");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 5103;
-   int xhigh = 5105; 
+   int xlow = 5170;
+   int xhigh = 5210; 
 
    //set the first run_ID in the save tree as the run_num
-   int run_num = 5103;
+   int run_num = 5170;
 
    //ref to keep track of the entry from the tls tree
    int tls_entry = 0; 
