@@ -92,33 +92,22 @@ void hits()
      
         for (auto it = hitInfo->begin(); it != hitInfo->end(); it++){
             if (it->first == det_ID){
-               for ( int j =0; j< tdc_h1t->size(); j++){
-                    htdc_h1t->Fill(tdc_h1t->at(j));
+               for (auto it2 = it->second.begin(); it2 != it->second.end(); it2++ ){
+                    htdc->Fill(it2->second.second);
                 }
             }
         }
     } 
     TCanvas* c1 = new TCanvas(Form("tdc_time of hits in %d from all events", det_ID), Form("tdc_time of hits in %d from all events", det_ID), 1000, 500);
     
-    htdc_h1t->SetLineColor(7);
-    htdc_h1t->SetTitle(Form("tdc time - %s",));
-
-    auto l1 = new TLegend(0.7,0.65,0.85,0.85);
-    l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
-    l1->AddEntry(htdc_h1t, "h1t", "l");
-    l1->AddEntry(htdc_h1b, "h1b", "l");
-    l1->AddEntry(htdc_h1r, "h1r", "l");
-    l1->AddEntry(htdc_h1l, "h1l", "l");
-    l1->Draw();
+    htdc->SetLineColor(7);
+    htdc->SetTitle(Form("tdc time - %d", det_ID));
+    htdc->Draw();
     c1->Update();
     
     gSystem->mkdir(Form("hitTDC/%s",trigger_temp.c_str()), 1);
 
-    c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp.c_str()));
-    c2->SaveAs(Form("hitRates/%s/tdc_h2.png",trigger_temp.c_str()));
-    c3->SaveAs(Form("hitRates/%s/tdc_h3.png",trigger_temp.c_str()));
-    c4->SaveAs(Form("hitRates/%s/tdc_h4.png",trigger_temp.c_str()));
-
+    c1->SaveAs(Form("hitTDC/tdc_h1_%d.png",det_ID));
     std::cout<<"*************************"<<std::endl;
 }
 
