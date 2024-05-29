@@ -54,7 +54,7 @@ void hits_new()
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
    std::map<int, std::vector<std::pair<int, double>>>* hitInfoP;
-   tr->SetBranchAddress("hitInfo", hitInfoP);
+   tr->GetObject("hitInfo", hitInfoP);
    std::map<int, std::vector<std::pair<int, double>>> hitInfo = *hitInfoP;
 
    //////////
