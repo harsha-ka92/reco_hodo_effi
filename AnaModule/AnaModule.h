@@ -64,7 +64,7 @@ private:
   run_info r;
 
   //maps
-  std::map<int, std::vector<std::pair<int, double>>> hitInfo;
+  std::vector<double> hitInfo[nPlanes];
   
   std::map<int, std::pair<int,int>> run_time;
   std::string id;
