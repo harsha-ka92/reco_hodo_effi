@@ -618,50 +618,9 @@ void hits()
     c9->SaveAs("hitRates/st4Hits.png");
 
     std::cout<<"*************************"<<std::endl;
-    std::cout<<"Total number of events with at least one tracklet: "<< nEvents <<std::endl;
-    std::cout<<"Total "<<trigger_temp<<" events : "<< total_M5 <<std::endl; // total_N1, total_N2, total_N3, total_N4 or total_M5 depending on the trigger filter using
-    if (trigger_temp == "MATRIX5" || trigger_temp == "NIM4" || trigger_temp == "All"){
-        std::cout<<"number of events that satisfy H2 && H4 is : "<< st24 <<std::endl;
-        std::cout<<"number of events that satisfy H1 && H2 is : "<< st12 <<std::endl;
-        std::cout<<"number of events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
-        std::cout<<"events triggered by a cosmic ray from st 24 and with hits in st3 : "<< st24w3 <<std::endl;
     }
-    if (trigger_temp == "NIM2"){
-        std::cout<<"number of events that satisfy H1 && H2 is : "<< st12 <<std::endl;
-        std::cout<<"number of events with hits in all st1, st2 and st4 : "<< st124 <<std::endl;
-    }
+  
     
-    std::cout<<"*************************"<<std::endl;
-    std::cout<<"In events triggered with "<<trigger_temp.c_str()<<std::endl;
-    std::cout<<"number of events with at least one back partial track ;"<<total_bp<<std::endl;
-    std::cout<<"number back partial tracks with hits in st3t && st3b;"<<has_hits<<std::endl;
-    std::cout<<"number back partial tracks with hits only in st3b;"<<h3b_hits<<std::endl;
-    std::cout<<"number back partial tracks with hits only in st3t;"<<h3t_hits<<std::endl;
-    std::cout<<"number back partial tracks with no hits in st3;"<<no_hits<<std::endl;
-    std::cout<<"*************************"<<std::endl;
-
-    std::cout<<"In the events with hits in both H2 and H4 ("<<st24<<")"<<std::endl;
-    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3T: "<< valid_exps_3t <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3T: "<< valid_closests_3t <<std::endl;
-    std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
-    std::cout<<"Number of back partial tacklets that produce a valid expected element in H3B: "<< valid_exps_3b <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a valid closest fired element in H3B: "<< valid_closests_3b <<std::endl;
-    std::cout<<"-------------------------------------------------------------------------------------------------"<<std::endl;
-    std::cout<<"Total number of back partial tacklets that produce a valid expected element in H3: "<< (valid_exps_3b + valid_exps_3t) <<std::endl;
-    std::cout<<"Total number of back partial tacklets that produce a valid fired element in H3: "<< (valid_closests_3b + valid_closests_3t) <<std::endl;
-    std::cout<<"*************************"<<std::endl;
-
-
-    std::cout<<"In the events with a valid expected element in st3 ("<<valid_exps_3b + valid_exps_3t<<")"<<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p1y1: "<< has_a_hit_p1y1 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p1y2: "<< has_a_hit_p1y2 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p1x1: "<< has_a_hit_p1x1 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p1x2: "<< has_a_hit_p1x2 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p2x1: "<< has_a_hit_p2x1 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p2x2: "<< has_a_hit_p2x2 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p2y1: "<< has_a_hit_p2y1 <<std::endl;
-    std::cout<<"Number of back partial tacklets that has a supporting hit in p2y2: "<< has_a_hit_p2y2 <<std::endl;
-    std::cout<<"*************************"<<std::endl;
-    std::cout<<"New trigger events : "<< new_trigger <<std::endl;
+ 
 }
 
