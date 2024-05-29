@@ -64,8 +64,6 @@ private:
   run_info r;
 
   //maps
-  std::vector<double> hitInfo[nPlanes];
-  
   std::map<int, std::pair<int,int>> run_time;
   std::string id;
 
@@ -114,11 +112,13 @@ private:
   #ifdef __MAKECINT__
   #pragma link C++ class vector<double>+;
   #endif
- 
+
+  int nPlanes;
   std::vector<int> detIDs;
   std::vector<int> eleID_exps;
   std::vector<int> eleID_closests;
-
+  std::vector<double> hitInfo[nPlanes];
+  
   std::string ID;
   int eleId; int nHits;
 };
