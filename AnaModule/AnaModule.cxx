@@ -172,7 +172,7 @@ void AnaModule::MakeTree()
 	saveTree->Branch("trigger", &trigger, "trigger/I");
 	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
 	saveTree->Branch("nQualTracklets", &nQualTracklets, "nQualTracklets/I");
-	saveTree->Branch("hitInfo", &hitInfo);
+	saveTree->WriteObject("hitInfo", &hitInfo);
 	
 	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
 	saveTree->Branch("tlD1", &tlD1, "tlD1/I");
