@@ -45,8 +45,6 @@ void hits()
    tr->SetBranchAddress("dor", &dor);
    tr->SetBranchAddress("trigger", &trigger);
    tr->SetBranchAddress("nQualTracklets", &nQualTracklets);
-   tr->SetBranchAddress("hitInfo", &hitInfo);
-   
    tr->SetBranchAddress("tlBackPartial", &tlBackPartial);
 
    tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
@@ -54,6 +52,10 @@ void hits()
    tr_tls->SetBranchAddress("stID", &stID);
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
+
+   std::map<int, std::vector<std::pair<int, double>>>* hitInfoP;
+   tr->SetBranchAddress("hitInfo", hitInfoP);
+   std::map<int, std::vector<std::pair<int, double>>> hitInfo = *hitInfoP;
 
    //////////
    bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
