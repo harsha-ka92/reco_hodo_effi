@@ -30,7 +30,8 @@ int AnaModule::InitRun(PHCompositeNode* topNode)
 {
   int ret = GetNodes(topNode);
   if(ret != Fun4AllReturnCodes::EVENT_OK) return ret;
-  
+
+  nPlanes = 16;
   eventID = 0;
   run_ID_temp = 0;
   tlD0 = 0; tlD1 = 0; tlD2 = 0; tlD3p = 0; tlD3m = 0; tlBackPartial = 0; tlGlobal = 0;
@@ -62,22 +63,21 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	 std::cout<<  "end time " << run_time.at(run_ID).second <<std::endl;
   	 dor = run_time.at(run_ID).second - run_time.at(run_ID).first;
  	 std::cout<<  "run time " << dor <<std::endl;
-
   }
+
   run_ID_temp = run_ID;	
-	if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 
-	trigger = event->get_trigger();
+  if (nTracklets == 0) {return Fun4AllReturnCodes::EVENT_OK;}
 
-	for(SQHitVector::Iter it = hitVector->begin(); it != hitVector->end(); ++it)
+  trigger = event->get_trigger();
+
+   for(SQHitVector::Iter it = hitVector->begin(); it != hitVector->end(); ++it)
  	{	
     		int det = (*it)->get_detector_id(); 
-		if ( 30 < det && det < 46 ) {hitInfo[det].push_back(std::pair<int, double> ((*it)->get_element_id(), (*it)->get_tdc_time()));}
+		if ( 30 < det && det < 47 ) {hitInfo[det-31].push_back((*it)->get_tdc_time());}
 		
  	}
 	
-  saveTree->Fill();
-  hitInfo.clear();
   ++eventID;
   return Fun4AllReturnCodes::EVENT_OK;
 }
@@ -85,8 +85,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 int AnaModule::End(PHCompositeNode* topNode)
 {
   saveFile->cd();
-  saveTree->Write();
-  tlTree->Write();
   saveFile->Close();
 
   return Fun4AllReturnCodes::EVENT_OK;
@@ -110,24 +108,7 @@ int AnaModule::GetNodes(PHCompositeNode* topNode)
 void AnaModule::MakeTree()
 {
   saveFile = new TFile(saveName, "RECREATE");
-
-  saveTree = new TTree("save", "Efficiency tree Created by AnaModule");
-	saveTree->Branch("eventID", &eventID, "eventID/I");
-  	saveTree->Branch("event_ID", &event_ID, "event_ID/I");
-	saveTree->Branch("run_ID", &run_ID,"run_ID/I");
-	saveTree->Branch("dor", &dor,"dor/I");
-	saveTree->Branch("trigger", &trigger, "trigger/I");
-	saveTree->Branch("nTracklets", &nTracklets, "nTracklets/I");
-	saveTree->Branch("nQualTracklets", &nQualTracklets, "nQualTracklets/I");
-	saveTree->WriteObject("hitInfo", &hitInfo);
-	
-	saveTree->Branch("tlD0", &tlD0, "tlD0/I");
-	saveTree->Branch("tlD1", &tlD1, "tlD1/I");
-	saveTree->Branch("tlD2", &tlD2, "tlD2/I");
-	saveTree->Branch("tlD3p", &tlD3p, "tlD3p/I");
-	saveTree->Branch("tlD3m", &tlD3m, "tlD3m/I");
-	saveTree->Branch("tlBackPartial", &tlBackPartial, "tlBackPartial/I");
-	saveTree->Branch("tlGlobal", &tlGlobal, "tlGlobal/I");
+  saveFile->WriteObject(&hitInfo,"hitInfo");
 }
 
 void AnaModule::registerDetector(TString name)
