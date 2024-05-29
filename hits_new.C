@@ -92,10 +92,11 @@ void hits()
 
       //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied in the first iteration.
      
-        for (auto it = hitInfo->begin(); it != hitInfo->end(); it++){
+        for (auto it = hitInfo.begin(); it != hitInfo.end(); it++){
             if (it->first == det_ID){
                for (auto it2 = it->second.begin(); it2 != it->second.end(); it2++ ){
-                    htdc->Fill(it2->second.second);
+                    htdc->Fill(it2->second);
+                    std::cout<<"Filling :"<<it2->second<<std::endl;
                 }
             }
         }
