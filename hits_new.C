@@ -55,7 +55,11 @@ void hits()
    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
 
+   //////////
    bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
+   int det_ID = 0; // pick the detector plane to be analyzed
+   /////////
+
    int nEntries = tr->GetEntries();
    for (int i_ent = 0; i_ent < nEntries; i_ent++) {
 
@@ -87,31 +91,18 @@ void hits()
       //since run_num set to the run_ID of the first event in the tree following if condition will be satisfied in the first iteration.
      
         for (auto it = hitInfo->begin(); it != hitInfo->end(); it++){
-
-           for ( int j =0; j< tdc_h1t->size(); j++){
-                htdc_h1t->Fill(tdc_h1t->at(j));
-            }
-           for ( int j =0; j< tdc_h1b->size(); j++){
-                htdc_h1b->Fill(tdc_h1b->at(j));
-            }
-            for ( int j =0; j< tdc_h1r->size(); j++){
-                htdc_h1r->Fill(tdc_h1r->at(j));
+            if (it->first == det_ID){
+               for ( int j =0; j< tdc_h1t->size(); j++){
+                    htdc_h1t->Fill(tdc_h1t->at(j));
+                }
             }
         }
-    }
-
-    TCanvas* c1 = new TCanvas(Form("tdc_time of hits from %s events : St1", trigger_temp.c_str()), Form("tdc_time of %s hits : St1", trigger_temp.c_str()), 1000, 500);
-    //THStack* hs;
-    //hs  = new THStack("hs", Form("tdc_time of hits from %s events : St1", trigger_temp.c_str()));
+    } 
+    TCanvas* c1 = new TCanvas(Form("tdc_time of hits in %d from all events", det_ID), Form("tdc_time of hits in %d from all events", det_ID), 1000, 500);
+    
     htdc_h1t->SetLineColor(7);
-    htdc_h1t->SetTitle("tdc time - st1");
-    htdc_h1t->Draw();
-    htdc_h1b->SetLineColor(2);
-    htdc_h1b->Draw("SAME");
-    htdc_h1r->SetLineColor(3);
-    htdc_h1r->Draw("SAME");
-    htdc_h1l->SetLineColor(4);
-    htdc_h1l->Draw("SAME");
+    htdc_h1t->SetTitle(Form("tdc time - %s",));
+
     auto l1 = new TLegend(0.7,0.65,0.85,0.85);
     l1->AddEntry(htdc_h1t, Form("run ID %d",run_num) , "");
     l1->AddEntry(htdc_h1t, "h1t", "l");
@@ -119,67 +110,8 @@ void hits()
     l1->AddEntry(htdc_h1r, "h1r", "l");
     l1->AddEntry(htdc_h1l, "h1l", "l");
     l1->Draw();
-    /*hs->Add(htdc_h1t); hs->Add(htdc_h1b); hs->Add(htdc_h1r); hs->Add(htdc_h1l);*/
-    //hs->Draw("nonstack");
     c1->Update();
     
-    TCanvas* c2 = new TCanvas(Form("tdc_time of %s hits : St2", trigger_temp.c_str()), Form("tdc_time of %s hits : St2", trigger_temp.c_str()), 1000, 500);
-    htdc_h2t->SetLineColor(7);
-    htdc_h2t->SetTitle("tdc time - st2");
-    htdc_h2t->Draw();
-    htdc_h2b->SetLineColor(2);
-    htdc_h2b->Draw("SAME");
-    htdc_h2r->SetLineColor(3);
-    htdc_h2r->Draw("SAME");
-    htdc_h2l->SetLineColor(4);
-    htdc_h2l->Draw("SAME");
-    auto l2 = new TLegend(0.7,0.65,0.85,0.85);
-    //l2->AddEntry(htdc_h2t, Form("run ID %d",run_num) , "");
-    l2->AddEntry(htdc_h2t, "h2t", "l");
-    l2->AddEntry(htdc_h2b, "h2b", "l");
-    l2->AddEntry(htdc_h2r, "h2r", "l");
-    l2->AddEntry(htdc_h2l, "h2l", "l");
-    l2->Draw();
-    c2->Update();
-
-    TCanvas* c3 = new TCanvas(Form("tdc_time of %s hits : St3", trigger_temp.c_str()), Form("tdc_time of %s hits : St3", trigger_temp.c_str()), 1000, 500);
-    htdc_h3t->SetLineColor(7);
-    htdc_h3t->SetTitle("tdc time - st3");
-    htdc_h3t->Draw();
-    htdc_h3b->SetLineColor(2);
-    htdc_h3b->Draw("SAME");
-    auto l3 = new TLegend(0.7,0.65,0.85,0.85);
-    //l3->AddEntry(htdc_h3t, Form("run ID %d",run_num) , "");
-    l3->AddEntry(htdc_h3t, "h3t", "l");
-    l3->AddEntry(htdc_h3b, "h3b", "l");
-    l3->Draw();
-    c3->Update();
-
-    TCanvas* c4 = new TCanvas(Form("tdc_time of %s hits : St4", trigger_temp.c_str()), Form("tdc_time of %s hits : St4", trigger_temp.c_str()), 1000, 500);
-    htdc_h4t->SetLineColor(7);
-    htdc_h4t->SetTitle("tdc time - st4");
-    htdc_h4t->Draw();
-    htdc_h4b->SetLineColor(2);
-    htdc_h4b->Draw("SAME");
-    htdc_h4y1r->SetLineColor(3);
-    htdc_h4y1r->Draw("SAME");
-    htdc_h4y1l->SetLineColor(4);
-    htdc_h4y1l->Draw("SAME");
-    htdc_h4y2r->SetLineColor(5);
-    htdc_h4y2r->Draw("SAME");
-    htdc_h4y2l->SetLineColor(6);
-    htdc_h4y2l->Draw("SAME");
-    auto l4 = new TLegend(0.7,0.65,0.85,0.85);
-    //l4->AddEntry(htdc_h4t, Form("run ID %d",run_num) , "");
-    l4->AddEntry(htdc_h4t, "h4t", "l");
-    l4->AddEntry(htdc_h4b, "h4b", "l");
-    l4->AddEntry(htdc_h4y1r, "h4y1r", "l");
-    l4->AddEntry(htdc_h4y1l, "h4y1l", "l");
-    l4->AddEntry(htdc_h4y2r, "h4y2r", "l");
-    l4->AddEntry(htdc_h4y2l, "h4y2l", "l");
-    l4->Draw();
-    c4->Update();
-
     gSystem->mkdir(Form("hitTDC/%s",trigger_temp.c_str()), 1);
 
     c1->SaveAs(Form("hitRates/%s/tdc_h1.png",trigger_temp.c_str()));
