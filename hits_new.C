@@ -20,7 +20,7 @@ using namespace ROOT::VecOps;
 using namespace std;
 using ROOT::RDataFrame;
 
-void hits()
+void hits_new()
 {
 
     gStyle->SetOptStat(0);
