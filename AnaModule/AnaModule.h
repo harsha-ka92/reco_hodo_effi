@@ -114,13 +114,13 @@ private:
   #ifdef __MAKECINT__
   #pragma link C++ class vector<double>+;
   #endif
-
+ 
   std::vector<int> detIDs;
   std::vector<int> eleID_exps;
   std::vector<int> eleID_closests;
 
   std::string ID;
-  int eleId;
+  int eleId; int nHits;
 };
 
 #endif
