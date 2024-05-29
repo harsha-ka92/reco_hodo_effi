@@ -31,11 +31,11 @@ void hits()
     TTree *tr_tls = (TTree*) f_file->Get("tls");
 
    // choose the range of run numbers need to be analyzed and show up in the plots
-   int xlow = 5170;
-   int xhigh = 5210; 
+   int xlow = 5500;
+   int xhigh = 5503; 
 
    //set the first run_ID in the save tree as the run_num
-   int run_num = 5170;
+   int run_num = 5501;
 
    //ref to keep track of the entry from the tls tree
    int tls_entry = 0; 
@@ -57,7 +57,7 @@ void hits()
 
    //////////
    bool Trigger_Filter = false; //set to "true" if need to filter hits based on trigger.
-   int det_ID = 0; // pick the detector plane to be analyzed
+   int det_ID = 32; // pick the detector plane to be analyzed
    /////////
 
    int nEntries = tr->GetEntries();
