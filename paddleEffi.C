@@ -34,8 +34,12 @@ int diff_cut = 10;
 
 TH1D *diff = new TH1D("diff","difff", 2*diff_cut + 1, -diff_cut - 0.5, diff_cut + 0.5);
 
+//select X or Y planes
+bool X_planes = false;
+bool Y_planes = false;
+
 //select the planes
-bool H1 = false;
+bool H1 = true;
 bool H2 = true;
 bool H3 = true;
 bool H4 = true;
@@ -49,50 +53,68 @@ void paddleEffi()
     f_file = TFile::Open("ana.root","READ");
     tr_tls = (TTree*) f_file->Get("tls");
 
-   tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
-   tr_tls->SetBranchAddress("detIDs", &detIDs);
-   tr_tls->SetBranchAddress("trigger", &trigger_tls);
-   tr_tls->SetBranchAddress("stID", &stID);
-   tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
-   tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
-   tr_tls->SetBranchAddress("chisq", &chisq);
-   tr_tls->SetBranchAddress("nHits", &nHits);
+    string trigger = "NIM1";
 
+    tr_tls->SetBranchAddress("event_ID", &tls_event_ID);
+    tr_tls->SetBranchAddress("detIDs", &detIDs);
+    tr_tls->SetBranchAddress("trigger", &trigger_tls);
+    tr_tls->SetBranchAddress("stID", &stID);
+    tr_tls->SetBranchAddress("eleID_exps", &eleID_exps);
+    tr_tls->SetBranchAddress("eleID_closests", &eleID_closests);
+    tr_tls->SetBranchAddress("chisq", &chisq);
+    tr_tls->SetBranchAddress("nHits", &nHits);
 
-    //H1
-    if(H1){
-        getEffi(tr_tls, 31, 23, diff_cut); 
-        getEffi(tr_tls, 32, 23, diff_cut); 
-        getEffi(tr_tls, 33, 20, diff_cut); 
-        getEffi(tr_tls, 34, 20, diff_cut);
+    if(X_planes){ trigger = "NIM1"
+        //H1
+        if(H1){
+            getEffi(tr_tls, 31, 23, diff_cut, trigger); 
+            getEffi(tr_tls, 32, 23, diff_cut, trigger); 
+        }
+
+        //H2
+        if(H2){
+            getEffi(tr_tls, 37, 16, diff_cut, trigger); 
+            getEffi(tr_tls, 38, 16, diff_cut, trigger);
+        }
+
+        //H3
+        if(H3){
+            getEffi(tr_tls, 39, 16, diff_cut, trigger); 
+            getEffi(tr_tls, 40, 16, diff_cut, trigger);
+        }
+
+        //H4
+        if(H4){
+            getEffi(tr_tls, 45, 16, diff_cut, trigger); 
+            getEffi(tr_tls, 46, 16, diff_cut, trigger);
+        }
     }
 
-    //H2
-    if(H2){
-        getEffi(tr_tls, 35, 19, diff_cut); 
-        getEffi(tr_tls, 36, 19, diff_cut); 
-        getEffi(tr_tls, 37, 16, diff_cut); 
-        getEffi(tr_tls, 38, 16, diff_cut);
+    if(Y_planes){ trigger = "NIM2"
+        //H1
+        if(H1){
+            getEffi(tr_tls, 33, 20, diff_cut, trigger); 
+            getEffi(tr_tls, 34, 20, diff_cut, trigger);
+        }
+
+        //H2
+        if(H2){
+            getEffi(tr_tls, 35, 19, diff_cut, trigger); 
+            getEffi(tr_tls, 36, 19, diff_cut, trigger); 
+        }
+
+        //H4
+        if(H4){
+            getEffi(tr_tls, 41, 16, diff_cut, trigger); 
+            getEffi(tr_tls, 42, 16, diff_cut, trigger); 
+            getEffi(tr_tls, 43, 16, diff_cut, trigger); 
+            getEffi(tr_tls, 44, 16, diff_cut, trigger);  
+        }
     }
 
-    //H3
-    if(H3){
-        getEffi(tr_tls, 39, 16, diff_cut); 
-        getEffi(tr_tls, 40, 16, diff_cut);
-    }
-
-    //H4
-    if(H4){
-        getEffi(tr_tls, 41, 16, diff_cut); 
-        getEffi(tr_tls, 42, 16, diff_cut); 
-        getEffi(tr_tls, 43, 16, diff_cut); 
-        getEffi(tr_tls, 44, 16, diff_cut);  
-        getEffi(tr_tls, 45, 16, diff_cut); 
-        getEffi(tr_tls, 46, 16, diff_cut);
-    }
 }
 
-void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
+void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
 
     TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
     ostringstream oss;
@@ -113,16 +135,16 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut){
 
       tr_tls->GetEntry(i_tls_entry);
 
-      //use NIM 4 events to get st3 and st4 efficiencies. And NIM 2 events for st1 and st2
-      if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl;}
-      //if ((ID>30 && ID<39) && ((trigger_tls & 0x2) == 0) ){continue;} //select NIM2
-      if ((ID>34 && ID<47) && ((trigger_tls & 0x8) == 0) ){continue;} //select NIM4
-      if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl;}
-
-
-
       //exclude the stIDs that are not considering for the analysis
-      if (stID == 2 || stID == 4 || stID ==5) {continue;}
+      if (stID != 6) {continue;}
+
+      //use NIM 1 events to get X plabe efficiencies. And NIM 2 events to get Y plane efficiencies.
+      if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl;}
+      
+      if (trigger == "NIM1" && (trigger_tls & 0x1) == 0 ) {continue;} //select NIM1
+      if (trigger == "NIM2" && (trigger_tls & 0x2) == 0 ) {continue;} //select NIM2
+      
+      if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl;}
 
       ID_index = -99; closest = -99;
       h1y = false; h1x = false;
