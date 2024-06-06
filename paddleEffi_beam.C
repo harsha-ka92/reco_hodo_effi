@@ -136,7 +136,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
       tr_tls->GetEntry(i_tls_entry);
 
       //exclude the stIDs that are not considering for the analysis
-      if (stID != 6) {continue;}
+      if (stID != 6 || chisq <8) {continue;}
 
       //use NIM 1 events to get X plabe efficiencies. And NIM 2 events to get Y plane efficiencies.
       if (ID <= 30) {std::cout<<"Invalid station ID"<<std::endl;}
@@ -153,7 +153,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
       h4y1 = false; h4y2 = false;  h4x = false; 
 
       //check for valid expected and coresponding closest hits in planes
-      for ( int j =0; j< detIDs->size(); j++){
+            for ( int j =0; j< detIDs->size(); j++){
                                 if ((detIDs -> at(j) == 33 || detIDs -> at(j) == 34) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut ) {h1y = true;}
                                 if ((detIDs -> at(j) == 31 || detIDs -> at(j) == 32) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h1x = true;}
                                 if ((detIDs -> at(j) == 35 || detIDs -> at(j) == 36) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h2y = true;}
@@ -163,10 +163,9 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
                                 if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4y2 = true;}
                                 if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4x = true;}
                                 if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
-        }
+            }
 
-        //st1 and st2 efficiencies
-        if((stID == 1 || stID == 3) && chisq <8){
+        //st1 efficiencies
             if(ID>30 && ID < 37){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
