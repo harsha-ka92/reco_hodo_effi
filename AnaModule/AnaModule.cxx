@@ -86,6 +86,14 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 	{
 		Tracklet* tracklet = trackletVec->at(i);
 
+		if(stID == 1){tlD0++; continue;}
+		if(stID == 2){tlD1++; continue;}
+		if(stID == 3){tlD2++; continue;}
+		if(stID == 4){tlD3p++; continue;}
+		if(stID == 5){tlD3m++; continue;}
+		if(stID == 7){tlGlobal++; continue;}
+		if(stID == 6){tlBackPartial++;}
+		
 		//very loose cuts here
 		if(tracklet->getNHits() < 5 ) continue;
 		if(tracklet->getChisq() > 15.) continue;
@@ -95,14 +103,6 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		chisq = tracklet->getChisq();
 		
 		++nQualTracklets;
-		
-		 if(stID == 1){tlD0++;}
-		 if(stID == 2){tlD1++;}
-		 if(stID == 3){tlD2++;}
-		 if(stID == 4){tlD3p++;}
-		 if(stID == 5){tlD3m++;}
-		 if(stID == 6){tlBackPartial++;}
-		 if(stID == 7){tlGlobal++;}
 		
 		//tlTree->Fill();
 
