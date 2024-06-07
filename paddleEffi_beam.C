@@ -166,7 +166,7 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
             }
 
         //st1 efficiencies
-            if(ID>30 && ID < 37){
+            if(ID == 31 || ID == 32){
                          if (closest >0 && ID_index >=0 && h2x) {
                             pad_diff = exps-closest; 
                             bPassed = (fabs(pad_diff) <= cut);
