@@ -95,7 +95,7 @@ int AnaModule::process_event(PHCompositeNode* topNode)
 		if(stID == 6){tlBackPartial++;}
 		
 		//very loose cuts here
-		if(tracklet->getNHits() < 5 ) continue;
+		if(tracklet->getNHits() < 10 ) continue;
 		if(tracklet->getChisq() > 15.) continue;
 		
 		stID = tracklet->stationID;
