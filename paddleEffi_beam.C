@@ -22,15 +22,13 @@ TFile *f_file;
 TTree *tr;
 TTree *tr_tls;
 void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut);
-
-int pad_diff =0; int exps =0; int closest =0; bool bPassed;
 int trigger_tls;
 
 //ref to keep track of the entry from the tls tree
 int tls_entry = 0; 
 
 //select the padd:diff: cut
-int diff_cut = 10;
+int diff_cut = 0;
 
 TH1D *diff = new TH1D("diff","difff", 2*diff_cut + 1, -diff_cut - 0.5, diff_cut + 0.5);
 
@@ -119,12 +117,6 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
     TEfficiency* effi = new TEfficiency("effi", "effi", nPaddles+1, 0.5, nPaddles+0.5);
     ostringstream oss;
     oss<< "efficiencies of the paddles of detID "<< ID ;
-  
-    int ID_index;
-    bool h1x = false; bool h1y = false; 
-    bool h2x = false; bool h2y = false;
-    bool h3x = false;
-    bool h4y1 = false; bool h4y2 = false; bool h4x= false;
 
     std::cout<<"Analyzing the stID :"<<ID<<std::endl;
     std::cout<< "paddel difference cut :" << cut<<endl;
@@ -146,66 +138,18 @@ void getEffi( TTree* tlsTree, int ID, int nPaddles, int cut, string trigger){
       
       if (ID >= 47) {std::cout<<"Invalid station ID"<<std::endl;}
 
-      ID_index = -99; closest = -99;
-      h1y = false; h1x = false;
-      h2y = false; h2x = false;
-      h3x = false;
-      h4y1 = false; h4y2 = false;  h4x = false; 
-
       //check for valid expected and coresponding closest hits in planes
             for ( int j =0; j< detIDs->size(); j++){
-                                if ((detIDs -> at(j) == 33 || detIDs -> at(j) == 34) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut ) {h1y = true;}
-                                if ((detIDs -> at(j) == 31 || detIDs -> at(j) == 32) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h1x = true;}
-                                if ((detIDs -> at(j) == 35 || detIDs -> at(j) == 36) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h2y = true;}
-                                if ((detIDs -> at(j) == 37 || detIDs -> at(j) == 38) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h2x = true;}
-                                if ((detIDs -> at(j) == 39 || detIDs -> at(j) == 40) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h3x = true;}
-                                if ((detIDs -> at(j) == 41 || detIDs -> at(j) == 42) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4y1 = true;}
-                                if ((detIDs -> at(j) == 43 || detIDs -> at(j) == 44) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4y2 = true;}
-                                if ((detIDs -> at(j) == 45 || detIDs -> at(j) == 46) &&  fabs(eleID_exps ->at(j) - eleID_closests->at(j)) <=cut) {h4x = true;}
-                                if(detIDs->at(j) == ID){ ID_index = j; exps= eleID_exps->at(j); closest = eleID_closests->at(j);}
+                    if(detIDs->at(j) == ID){ 
+                       int exps= eleID_exps->at(j); 
+                        int closest = eleID_closests->at(j);
+                        int pad_diff = exps-closest; 
+                        bool bPassed = (fabs(pad_diff) <= cut);
+                        effi->Fill(bPassed, exps);
+                        if (bPassed) {diff->Fill(pad_diff);}
+                    }
             }
 
-        //st1 efficiencies
-            if(ID == 31 || ID == 32){
-                         if (closest >0 && ID_index >=0 && h2x) {
-                            pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= cut);
-                            effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff);}
-                        }
-            }
-
-            if(ID == 37 || ID == 38){
-                         if (closest >0 && ID_index >=0 && h2y) {
-                            pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= cut);
-                            effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff);}
-                        }
-            }
-
-        } 
-    
-        // for st3 and st4 pick only back partial tracklets and ask if they truely belongs to a H24 ray. Use H4X for the rest and H4Y2 for H4X.
-        if(stID == 6 && chisq < 8 && nHits > 8 ){
-            if(ID>38 && ID < 45){
-            
-                        if (closest >0 && ID_index >=0 && h4x) {
-                            pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= cut);
-                            effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff);}
-                        }
-            }
-
-            if(ID == 45 || ID == 46){
-                        if (closest >0 && ID_index >=0 && h4y2) {
-                            pad_diff = exps-closest; 
-                            bPassed = (fabs(pad_diff) <= cut);
-                            effi->Fill(bPassed, exps);
-                            if (bPassed) {diff->Fill(pad_diff);}
-                        }
-            }
        }
     }
 
